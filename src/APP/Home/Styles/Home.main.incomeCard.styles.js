@@ -3,7 +3,7 @@ import * as tokens from "../../../tokens";
 
 export const HomeMainIncomeCard = styled.div`
 	width: 100%;
-	height: 30vh;
+	height: 25vh;
 	margin-bottom: 3vh;
 	border-radius: 20px;
 	background-color: white;
@@ -16,7 +16,7 @@ export const HomeIncomeInfoText = styled.div`
 	height: 25%;
 
 	margin: auto;
-	margin-bottom: 2vh;
+	margin-bottom: 6%;
 	display: flex;
 	justify-content: space-around;
 
@@ -53,4 +53,15 @@ export const HomeIncomeInfoTextContent = styled.div`
 export const HomeIncomeInfoHeavyText = styled.span`
 	${tokens.typography.subtitle_1_SB};
 	color: ${tokens.colors.grey_500};
+`;
+
+export const HomeIncomeDetailViewBtn = styled.button`
+	width: 85%;
+	height: 18%;
+	margin: auto;
+
+	border: 0;
+	color: white;
+	background-color: ${tokens.colors.green_500};
+	border-radius: 10px;
 `;
