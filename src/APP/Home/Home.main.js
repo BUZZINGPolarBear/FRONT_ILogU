@@ -33,8 +33,6 @@ function HomeMain() {
 			</HomeS.HomeMainTopUserInfo>
 			<HomeS.DivInnerContainer>
 				<IncomeCard></IncomeCard>
-				<IncomeCard></IncomeCard>
-				<IncomeCard></IncomeCard>
 			</HomeS.DivInnerContainer>
 		</HomeS.HomeMainScreen>
 	);
