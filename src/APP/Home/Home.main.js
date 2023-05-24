@@ -8,6 +8,7 @@ import {
 } from "recoil";
 import * as HomeS from "./Styles/Home.main.styles";
 import * as tokens from "../../tokens";
+import IncomeCard from "./Home.main.incomeCard";
 // import * as recoilMain from "/recoil/recoil.App";
 
 function HomeMain() {
@@ -30,6 +31,11 @@ function HomeMain() {
 					/>
 				</HomeS.HomeMainTopInfoArea>
 			</HomeS.HomeMainTopUserInfo>
+			<HomeS.DivInnerContainer>
+				<IncomeCard></IncomeCard>
+				<IncomeCard></IncomeCard>
+				<IncomeCard></IncomeCard>
+			</HomeS.DivInnerContainer>
 		</HomeS.HomeMainScreen>
 	);
 }

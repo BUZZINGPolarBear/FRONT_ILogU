@@ -4,23 +4,24 @@ import * as tokens from "../../../tokens";
 export const HomeMainScreen = styled.div`
 	width: 100%;
 
-	min-height: 100vh;
+	// min-height: 100vh;
 	height: fit-content;
 `;
 
 export const HomeMainTopUserInfo = styled.div`
 	width: 100%;
-	height: 17vh;
+	height: 20vh;
 
 	display: flex;
 	justify-content: space-between;
-	position: relative;
+	position: fixed;
 
 	background-color: ${tokens.colors.green_500};
+	z-index: 0;
 `;
 
 export const HomeMainTopInfoArea = styled.div`
-	width: 44vw;
+	width: 44%;
 	height: 100%;
 
 	display: flex;
@@ -33,8 +34,18 @@ export const HomeMainTopInfoArea = styled.div`
 	position: relative;
 `;
 
-export const DivFullImage = styled.img`
-	max-width: 100%;
-	max-height: 100%;
-	object-fit: cover;
+export const DivInnerContainer = styled.div`
+	width: 100%;
+	min-height: 95vh;
+	height: fit-content;
+	top: 18vh;
+	position: absolute;
+
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+
+	padding-bottom: 10vh;
+
+	background-color: ${tokens.colors.grey_50};
+	z-index: 2;
 `;

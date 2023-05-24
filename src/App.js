@@ -20,7 +20,7 @@ import {
 } from "react-router-dom";
 function App() {
 	const MainScreen = styled.div`
-		position: fixed;
+		// position: fixed;
 		top: 0;
 		width: 100%;
 		min-height: 100vh;
@@ -34,10 +34,12 @@ function App() {
 		height: 8vh;
 		padding-top: 10px;
 
+		box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.1);
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
 		background-color: white;
+		z-index: 9999;
 	`;
 	const NavImg = styled.div`
 		width: 20%;
