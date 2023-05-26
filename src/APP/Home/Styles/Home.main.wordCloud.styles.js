@@ -54,9 +54,9 @@ export const HomeMainChallengeCard = styled.div`
 	z-index: 1;
 `;
 export const SwiperInnerTextArea = styled.div`
-	width: 100%;
+	width: 90%;
 	height: 17%;
-	position: relative;
+	position: absolute;
 	padding: 0 5%;
 	top: 0;
 
@@ -71,10 +71,10 @@ export const SwiperInnerTextArea = styled.div`
 `;
 
 export const SwiperInnerWordCloudArea = styled.div`
-	width: 72vw;
+	width: 100%;
 	height: 84%;
 	margin: auto;
-	position: relative;
+	position: absolute;
 	top: 17%;
 
 	border-bottom-left-radius: 20px;
@@ -118,7 +118,7 @@ export const SwiperInnerTitle = styled.div`
 `;
 
 export const SwiperInnerSubText = styled.div`
-	width: 40%;
+	width: auto;
 	height: 100%;
 	text-align: left;
 	color: white;

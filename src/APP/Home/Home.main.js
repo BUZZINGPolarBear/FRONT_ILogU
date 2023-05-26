@@ -10,7 +10,7 @@ import * as HomeS from "./Styles/Home.main.styles";
 import * as tokens from "../../tokens";
 import IncomeCard from "./Home.main.incomeCard";
 import ChallengRecommendCard from "./Home.main.challengeRecommend";
-import RecommendWordCloudCard from "./Home.main.wordCloud";
+import RecommendWordCloudCard from "./Home.main.wordCloud.Slide";
 
 function HomeMain() {
 	return (

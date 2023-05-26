@@ -59,19 +59,19 @@ function RecommendWordCloudCard() {
 			<challengeS.HomeMainChallengeSwiperArea>
 				<challengeS.StyledSwiper spaceBetween={swiperSpacing} slidesPerView={2}>
 					<SwiperSlide>
-						<wordCloudS.HomeMainSwiperCard
-							style={{
-								backgroundImage: "url(/mainScreen/babyPicture.svg)",
-							}}
-						>
-							<challengeS.SwiperInnerTextArea>
-								<challengeS.SwiperInnerTitle>
-									#아이 지문 등록하기
-								</challengeS.SwiperInnerTitle>
-								<challengeS.SwiperInnerSubText>
-									가까운 하나은행에서 아이의 지문을 등록해봐요!
-								</challengeS.SwiperInnerSubText>
-							</challengeS.SwiperInnerTextArea>
+						<wordCloudS.HomeMainSwiperCard>
+							<wordCloudS.SwiperInnerTextArea>
+								<wordCloudS.SwiperInnerTitle>
+									#2차 전지
+								</wordCloudS.SwiperInnerTitle>
+								<wordCloudS.SwiperInnerSubText>
+									상품 자세히 보러가기
+									<span style={{ marginLeft: "10px" }}>
+										<img src="/mainScreen/rightPointer.png"></img>
+									</span>
+								</wordCloudS.SwiperInnerSubText>
+							</wordCloudS.SwiperInnerTextArea>
+							<wordCloudS.SwiperInnerWordCloudArea></wordCloudS.SwiperInnerWordCloudArea>
 						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
@@ -80,14 +80,14 @@ function RecommendWordCloudCard() {
 								backgroundImage: "url(/mainScreen/babyPlayWith.svg)",
 							}}
 						>
-							<challengeS.SwiperInnerTextArea>
+							<wordCloudS.SwiperInnerTextArea>
 								<challengeS.SwiperInnerTitle>
 									#아이와 뛰어놀기
 								</challengeS.SwiperInnerTitle>
 								<challengeS.SwiperInnerSubText>
 									아이와 함께하는 추억을 남겨봐요!
 								</challengeS.SwiperInnerSubText>
-							</challengeS.SwiperInnerTextArea>
+							</wordCloudS.SwiperInnerTextArea>
 						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
