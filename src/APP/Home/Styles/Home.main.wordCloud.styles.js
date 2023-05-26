@@ -38,12 +38,11 @@ export const HomeMainSwiperCard = styled.div`
 export const HomeMainChallengeCard = styled.div`
 	// width: 100%;
 	max-width: 800px;
-	height: 45vh;
+	height: 40vh;
+	min-height: 300px;
 
 	display: flex;
 	flex-direction: column;
-	align-items: space-between;
-	justify-content: space-between;
 
 	margin-bottom: 3vh;
 

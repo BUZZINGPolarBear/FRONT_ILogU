@@ -71,43 +71,42 @@ function RecommendWordCloudCard() {
 						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
-						<wordCloudS.HomeMainSwiperCard
-							style={{
-								backgroundImage: "url(/mainScreen/babyPlayWith.svg)",
-							}}
-						>
+						<wordCloudS.HomeMainSwiperCard>
 							<wordCloudS.SwiperInnerTextArea>
-								<challengeS.SwiperInnerTitle>
-									#아이와 뛰어놀기
-								</challengeS.SwiperInnerTitle>
-								<challengeS.SwiperInnerSubText>
-									아이와 함께하는 추억을 남겨봐요!
-								</challengeS.SwiperInnerSubText>
+								<wordCloudS.SwiperInnerTitle>#ESG</wordCloudS.SwiperInnerTitle>
+								<wordCloudS.SwiperInnerSubText>
+									상품 자세히 보러가기
+									<span style={{ marginLeft: "10px" }}>
+										<img src="/mainScreen/rightPointer.png"></img>
+									</span>
+								</wordCloudS.SwiperInnerSubText>
 							</wordCloudS.SwiperInnerTextArea>
+							<wordCloudS.SwiperInnerWordCloudArea>
+								<KeywordCloud searchKeyword={"ESG"}></KeywordCloud>
+							</wordCloudS.SwiperInnerWordCloudArea>
 						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
-						<wordCloudS.HomeMainSwiperCard
-							style={{
-								backgroundImage: "url(/mainScreen/babyTravel.svg)",
-							}}
-						>
-							<challengeS.SwiperInnerTextArea>
-								<challengeS.SwiperInnerTitle>
-									#3대가 함께하는 여행
-								</challengeS.SwiperInnerTitle>
-								<challengeS.SwiperInnerSubText>
-									온 가족이 함께하는 여행으로 추억을 남겨보세요!
-								</challengeS.SwiperInnerSubText>
-							</challengeS.SwiperInnerTextArea>
+						<wordCloudS.HomeMainSwiperCard>
+							<wordCloudS.SwiperInnerTextArea>
+								<wordCloudS.SwiperInnerTitle>
+									#우주기술
+								</wordCloudS.SwiperInnerTitle>
+								<wordCloudS.SwiperInnerSubText>
+									상품 자세히 보러가기
+									<span style={{ marginLeft: "10px" }}>
+										<img src="/mainScreen/rightPointer.png"></img>
+									</span>
+								</wordCloudS.SwiperInnerSubText>
+							</wordCloudS.SwiperInnerTextArea>
+							<wordCloudS.SwiperInnerWordCloudArea>
+								<KeywordCloud searchKeyword={"우주 탐사"}></KeywordCloud>
+							</wordCloudS.SwiperInnerWordCloudArea>
 						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide></SwiperSlide>
 				</challengeS.StyledSwiper>
 			</challengeS.HomeMainChallengeSwiperArea>
-			<incomeS.HomeIncomeDetailViewBtn>
-				챌린지 도전하기
-			</incomeS.HomeIncomeDetailViewBtn>
 		</wordCloudS.HomeMainChallengeCard>
 	);
 }
