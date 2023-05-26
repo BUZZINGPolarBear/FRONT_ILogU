@@ -47,7 +47,8 @@ export const typography = {
 	subtitle_3: {
 		fontFamily: "Noto Sans KR",
 		fontWeight: 600,
-		fontSize: "0.875rem",
+		fontSize: "14px",
+		color: colors.grey_400,
 		letterSpacing: "0.0071428571em",
 	},
 	subtitle_2: {
@@ -66,6 +67,13 @@ export const typography = {
 		fontFamily: "Noto Sans KR",
 		fontWeight: 400,
 		fontSize: "16px",
+		letterSpacing: "0.15px",
+	},
+	sub: {
+		fontFamily: "Noto Sans KR",
+		fontWeight: 400,
+		fontSize: "10px",
+		color: colors.grey_400,
 		letterSpacing: "0.15px",
 	},
 	body_2: {
