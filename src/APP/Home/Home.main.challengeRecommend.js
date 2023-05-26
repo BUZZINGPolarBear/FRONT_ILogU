@@ -15,27 +15,50 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
 function ChallengRecommendCard() {
-	SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+	SwiperCore.use([Scrollbar, A11y]);
 	return (
 		<challengeS.HomeMainChallengeCard>
 			<HomeS.HomeMainCardTitle>이런 챌린지가 인기!</HomeS.HomeMainCardTitle>
 			<challengeS.HomeMainChallengeSwiperArea>
-				<Swiper
-					spaceBetween={50}
-					slidesPerView={1}
-					navigation
-					pagination={{ clickable: true }}
-					scrollbar={{ draggable: true }}
+				<challengeS.StyledSwiper
+					spaceBetween={150}
+					slidesPerView={2}
+					// scrollbar={{ draggable: true }}
 					onSwiper={(swiper) => console.log(swiper)}
 					onSlideChange={() => console.log("slide change")}
 				>
-					<SwiperSlide>Slide 1</SwiperSlide>
-					<SwiperSlide>Slide 2</SwiperSlide>
-					<SwiperSlide>Slide 3</SwiperSlide>
-					<SwiperSlide>Slide 4</SwiperSlide>
+					<SwiperSlide>
+						<challengeS.HomeMainSwiperCard
+							style={{
+								backgroundImage: "url(/mainScreen/babyPicture.svg",
+								backgroundRepeat: "no-repeat",
+								backgroundSize: "cover",
+							}}
+						></challengeS.HomeMainSwiperCard>
+					</SwiperSlide>
+					<SwiperSlide>
+						<challengeS.HomeMainSwiperCard
+							style={{
+								backgroundImage: "url(/mainScreen/babyPlayWith.svg",
+								backgroundRepeat: "no-repeat",
+								backgroundSize: "cover",
+							}}
+						>
+							sdf
+						</challengeS.HomeMainSwiperCard>
+					</SwiperSlide>
+					<SwiperSlide>
+						<challengeS.HomeMainSwiperCard>sdf</challengeS.HomeMainSwiperCard>
+					</SwiperSlide>
+					<SwiperSlide>
+						<challengeS.HomeMainSwiperCard>sdf</challengeS.HomeMainSwiperCard>
+					</SwiperSlide>
 					{/* ...additional slides */}
-				</Swiper>
+				</challengeS.StyledSwiper>
 			</challengeS.HomeMainChallengeSwiperArea>
+			<incomeS.HomeIncomeDetailViewBtn>
+				챌린지 도전하기
+			</incomeS.HomeIncomeDetailViewBtn>
 		</challengeS.HomeMainChallengeCard>
 	);
 }

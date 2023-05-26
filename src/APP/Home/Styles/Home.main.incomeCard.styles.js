@@ -57,9 +57,9 @@ export const HomeIncomeInfoHeavyText = styled.span`
 
 export const HomeIncomeDetailViewBtn = styled.button`
 	width: 85%;
-	height: 18%;
+	height: 5vh;
 	margin: auto;
-
+	cursor: pointer;
 	border: 0;
 	color: white;
 	background-color: ${tokens.colors.green_500};
