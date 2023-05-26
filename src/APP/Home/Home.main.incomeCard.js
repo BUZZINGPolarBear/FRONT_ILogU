@@ -73,9 +73,11 @@ function IncomeCard() {
 					</incomeS.HomeIncomeInfoTextContent>
 				</incomeS.HomeIncomeInnerWrapper>
 			</incomeS.HomeIncomeInfoText>
-			<incomeS.HomeIncomeDetailViewBtn>
-				수익률 현황 자세히 보러가기
-			</incomeS.HomeIncomeDetailViewBtn>
+			<incomeS.HomeIncomeInfoText style={{ width: "90%" }}>
+				<incomeS.HomeIncomeDetailViewBtn>
+					수익률 현황 자세히 보러가기
+				</incomeS.HomeIncomeDetailViewBtn>
+			</incomeS.HomeIncomeInfoText>
 		</incomeS.HomeMainIncomeCard>
 	);
 }
