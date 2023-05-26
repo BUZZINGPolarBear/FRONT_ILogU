@@ -18,7 +18,7 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
 `;
 
 export const HomeMainSwiperCard = styled.div`
-	width: 65vw;
+	width: 70vw;
 	max-width: 400px;
 	height: 100%;
 	position: relative;

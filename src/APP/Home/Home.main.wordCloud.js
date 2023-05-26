@@ -17,8 +17,39 @@ import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
+function calculateSpaceBetween(width) {
+	const minWidth = 0.15;
+	const maxWidth = 0.6;
+	const maxScreenWidth = 800;
+	const minScreenWidth = 500;
+	console.log(width);
+
+	if (width <= minScreenWidth) return width * 0.6;
+	if (width <= minScreenWidth + 100) return width * 0.55;
+	if (width <= minScreenWidth + 200) return width * 0.5;
+	if (width <= minScreenWidth + 300) return width * 0.45;
+	if (width > minScreenWidth + 300) return 800 * 0.2;
+}
+
 function RecommendWordCloudCard() {
-	const [swiperSpacing, setSwiperSpacing] = useState(window.innerWidth * 0.1);
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+	const [swiperSpacing, setSwiperSpacing] = useState(
+		calculateSpaceBetween(window.innerWidth)
+	);
+
+	useEffect(() => {
+		const handleWindowResize = () => {
+			setWindowWidth(window.innerWidth);
+			setSwiperSpacing(calculateSpaceBetween(windowWidth));
+			console.log(swiperSpacing);
+		};
+
+		window.addEventListener("resize", handleWindowResize);
+
+		return () => {
+			window.removeEventListener("resize", handleWindowResize);
+		};
+	});
 
 	return (
 		<wordCloudS.HomeMainChallengeCard>
@@ -26,7 +57,7 @@ function RecommendWordCloudCard() {
 				김하나님에게 이런 상품을 추천해요!
 			</HomeS.HomeMainCardTitle>
 			<challengeS.HomeMainChallengeSwiperArea>
-				<challengeS.StyledSwiper spaceBetween={300} slidesPerView={2}>
+				<challengeS.StyledSwiper spaceBetween={swiperSpacing} slidesPerView={2}>
 					<SwiperSlide>
 						<wordCloudS.HomeMainSwiperCard
 							style={{
