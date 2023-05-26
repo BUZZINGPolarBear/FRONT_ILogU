@@ -72,8 +72,7 @@ export const typography = {
 	sub: {
 		fontFamily: "Noto Sans KR",
 		fontWeight: 400,
-		fontSize: "10px",
-		color: colors.grey_400,
+		fontSize: "13px",
 		letterSpacing: "0.15px",
 	},
 	body_2: {

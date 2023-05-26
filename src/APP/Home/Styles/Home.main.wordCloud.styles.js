@@ -1,0 +1,92 @@
+import styled from "styled-components";
+import * as tokens from "../../../tokens";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+export const HomeMainChallengeCard = styled.div`
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: space-between;
+	justify-content: space-between;
+	width: 100%;
+	height: 45vh;
+	margin-bottom: 3vh;
+
+	background-color: white;
+	position: relative;
+
+	padding: 5%;
+	z-index: 1;
+`;
+export const SwiperInnerTextArea = styled.div`
+	width: 72vw;
+	height: 17%;
+	position: absolute;
+	padding: 0 5%;
+	top: 0;
+
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	background-color: ${tokens.colors.green_500};
+`;
+
+export const SwiperInnerWordCloudArea = styled.div`
+	width: 80vw;
+	height: 84%;
+	margin: auto;
+	position: absolute;
+	top: 17%;
+
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+
+	background-color: ${tokens.colors.green_50};
+`;
+
+export const HomeWordCloudSwiperCard = styled.div`
+	width: 80vw;
+	height: 100%;
+	position: relative;
+	border-radius: 20px;
+	background-color: white;
+`;
+
+export const HomeMainChallengeSwiperArea = styled.div`
+	width: 100%;
+	height: 90%;
+	position: relative;
+`;
+
+export const SwiperWordCloudArea = styled.div`
+	width: 72vw;
+	height: 30%;
+	position: absolute;
+	padding: 0 5%;
+	bottom: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+`;
+
+export const SwiperInnerTitle = styled.div`
+	text-align: left;
+	color: white;
+	${tokens.typography.subtitle_1_SB}
+`;
+
+export const SwiperInnerSubText = styled.div`
+	width: 40%;
+	height: 100%;
+	text-align: left;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	${tokens.typography.sub}
+`;

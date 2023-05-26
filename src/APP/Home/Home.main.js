@@ -10,7 +10,7 @@ import * as HomeS from "./Styles/Home.main.styles";
 import * as tokens from "../../tokens";
 import IncomeCard from "./Home.main.incomeCard";
 import ChallengRecommendCard from "./Home.main.challengeRecommend";
-// import * as recoilMain from "/recoil/recoil.App";
+import RecommendWordCloudCard from "./Home.main.wordCloud";
 
 function HomeMain() {
 	return (
@@ -35,6 +35,7 @@ function HomeMain() {
 			<HomeS.DivInnerContainer>
 				<IncomeCard></IncomeCard>
 				<ChallengRecommendCard></ChallengRecommendCard>
+				<RecommendWordCloudCard></RecommendWordCloudCard>
 			</HomeS.DivInnerContainer>
 		</HomeS.HomeMainScreen>
 	);
