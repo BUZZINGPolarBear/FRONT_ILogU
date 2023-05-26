@@ -15,10 +15,11 @@ export const HomeMainTopUserInfo = styled.div`
 
 	display: flex;
 	justify-content: space-between;
-	position: relative;
+	position: fixed;
+	top: 0;
 
 	background-color: ${tokens.colors.green_500};
-	z-index: 0;
+	z-index: 1;
 `;
 
 export const HomeMainTopInfoArea = styled.div`
@@ -40,8 +41,8 @@ export const DivInnerContainer = styled.div`
 	max-width: 800px;
 	min-height: 95vh;
 	height: fit-content;
-	top: 18vh;
 	position: absolute;
+	top: 18vh;
 
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
