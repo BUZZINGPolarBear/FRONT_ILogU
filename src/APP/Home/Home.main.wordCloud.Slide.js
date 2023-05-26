@@ -1,13 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import ReactWordcloud from "react-wordcloud";
 import styled from "styled-components";
-import {
-	RecoilRoot,
-	atom,
-	selector,
-	useRecoilState,
-	useRecoilValue,
-} from "recoil";
 import * as HomeS from "./Styles/Home.main.styles";
 import * as incomeS from "./Styles/Home.main.incomeCard.styles";
 import * as challengeS from "./Styles/Home.main.challengeRecommend.styles";
@@ -16,13 +9,15 @@ import * as tokens from "../../tokens";
 import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import KeywordCloud from "./Home.main.wordCloud.cloud";
+
+SwiperCore.use([Scrollbar, A11y]);
 
 function calculateSpaceBetween(width) {
 	const minWidth = 0.15;
 	const maxWidth = 0.6;
 	const maxScreenWidth = 800;
 	const minScreenWidth = 500;
-	console.log(width);
 
 	if (width <= minScreenWidth) return width * 0.6;
 	if (width <= minScreenWidth + 100) return width * 0.55;
@@ -41,7 +36,6 @@ function RecommendWordCloudCard() {
 		const handleWindowResize = () => {
 			setWindowWidth(window.innerWidth);
 			setSwiperSpacing(calculateSpaceBetween(windowWidth));
-			console.log(swiperSpacing);
 		};
 
 		window.addEventListener("resize", handleWindowResize);
@@ -71,7 +65,9 @@ function RecommendWordCloudCard() {
 									</span>
 								</wordCloudS.SwiperInnerSubText>
 							</wordCloudS.SwiperInnerTextArea>
-							<wordCloudS.SwiperInnerWordCloudArea></wordCloudS.SwiperInnerWordCloudArea>
+							<wordCloudS.SwiperInnerWordCloudArea>
+								<KeywordCloud searchKeyword={"2차 전지"}></KeywordCloud>
+							</wordCloudS.SwiperInnerWordCloudArea>
 						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
