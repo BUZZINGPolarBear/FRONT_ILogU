@@ -9,6 +9,7 @@ import {
 import * as HomeS from "./Styles/Home.main.styles";
 import * as tokens from "../../tokens";
 import IncomeCard from "./Home.main.incomeCard";
+import ChallengRecommendCard from "./Home.main.challengeRecommend";
 // import * as recoilMain from "/recoil/recoil.App";
 
 function HomeMain() {
@@ -33,6 +34,7 @@ function HomeMain() {
 			</HomeS.HomeMainTopUserInfo>
 			<HomeS.DivInnerContainer>
 				<IncomeCard></IncomeCard>
+				<ChallengRecommendCard></ChallengRecommendCard>
 			</HomeS.DivInnerContainer>
 		</HomeS.HomeMainScreen>
 	);

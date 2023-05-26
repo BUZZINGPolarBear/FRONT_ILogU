@@ -49,3 +49,12 @@ export const DivInnerContainer = styled.div`
 	background-color: ${tokens.colors.grey_50};
 	z-index: 2;
 `;
+
+export const HomeMainCardTitle = styled.div`
+	width: 90%;
+	height: 10%;
+	position: relative;
+	text-align: left;
+
+	${tokens.typography.subtitle_1_SB}
+`;
