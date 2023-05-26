@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import "./App.css";
 import {
@@ -23,21 +24,28 @@ function App() {
 		// position: fixed;
 		top: 0;
 		width: 100%;
+		max-width: 800px;
 		min-height: 100vh;
 		height: fit-content;
 		background-color: ${tokens.colors.grey_50};
 	`;
 	const BottomNavBar = styled.div`
+		width: 100%;
+		max-width: 800px;
+		height: 8vh;
+
 		position: fixed;
 		bottom: 0;
-		width: 100%;
-		height: 8vh;
+		margin: 0 auto;
+
 		padding-top: 10px;
 
 		box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.1);
+
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
+
 		background-color: white;
 		z-index: 9999;
 	`;
@@ -45,7 +53,15 @@ function App() {
 		width: 20%;
 		height: 100%;
 	`;
+	// useEffect(() => {
+	// 	// Disable vertical scroll when the component mounts
+	// 	document.body.style.overflowY = "hidden";
 
+	// 	// Re-enable vertical scroll when the component unmounts
+	// 	return () => {
+	// 		document.body.style.overflowY = "auto";
+	// 	};
+	// }, []);
 	const handleNavClick = (e, type) => {
 		e.preventDefault();
 		setNavigateBtn(type);

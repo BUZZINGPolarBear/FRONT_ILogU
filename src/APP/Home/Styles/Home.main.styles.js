@@ -3,18 +3,19 @@ import * as tokens from "../../../tokens";
 
 export const HomeMainScreen = styled.div`
 	width: 100%;
-
+	max-width: 800px;
 	// min-height: 100vh;
 	height: fit-content;
 `;
 
 export const HomeMainTopUserInfo = styled.div`
 	width: 100%;
+	max-width: 800px;
 	height: 20vh;
 
 	display: flex;
 	justify-content: space-between;
-	position: fixed;
+	position: relative;
 
 	background-color: ${tokens.colors.green_500};
 	z-index: 0;
@@ -36,6 +37,7 @@ export const HomeMainTopInfoArea = styled.div`
 
 export const DivInnerContainer = styled.div`
 	width: 100%;
+	max-width: 800px;
 	min-height: 95vh;
 	height: fit-content;
 	top: 18vh;

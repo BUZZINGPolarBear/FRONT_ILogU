@@ -25,42 +25,30 @@ function RecommendWordCloudCard() {
 			<HomeS.HomeMainCardTitle>
 				김하나님에게 이런 상품을 추천해요!
 			</HomeS.HomeMainCardTitle>
-			<wordCloudS.HomeMainChallengeSwiperArea>
-				<challengeS.StyledSwiper spaceBetween={330} slidesPerView={2}>
+			<challengeS.HomeMainChallengeSwiperArea>
+				<challengeS.StyledSwiper spaceBetween={300} slidesPerView={2}>
 					<SwiperSlide>
-						<wordCloudS.HomeWordCloudSwiperCard>
-							<wordCloudS.SwiperInnerTextArea>
-								<wordCloudS.SwiperInnerTitle>
-									#2차 전지
-								</wordCloudS.SwiperInnerTitle>
-								<wordCloudS.SwiperInnerSubText>
-									<div>상품 자세히 보러가기</div>
-									<div>
-										<img src="/mainScreen/rightPointer.png"></img>
-									</div>
-								</wordCloudS.SwiperInnerSubText>
-							</wordCloudS.SwiperInnerTextArea>
-							<wordCloudS.SwiperInnerWordCloudArea></wordCloudS.SwiperInnerWordCloudArea>
-						</wordCloudS.HomeWordCloudSwiperCard>
+						<wordCloudS.HomeMainSwiperCard
+							style={{
+								backgroundImage: "url(/mainScreen/babyPicture.svg)",
+							}}
+						>
+							<challengeS.SwiperInnerTextArea>
+								<challengeS.SwiperInnerTitle>
+									#아이 지문 등록하기
+								</challengeS.SwiperInnerTitle>
+								<challengeS.SwiperInnerSubText>
+									가까운 하나은행에서 아이의 지문을 등록해봐요!
+								</challengeS.SwiperInnerSubText>
+							</challengeS.SwiperInnerTextArea>
+						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
-						<wordCloudS.HomeWordCloudSwiperCard>
-							<wordCloudS.SwiperInnerTextArea>
-								<wordCloudS.SwiperInnerTitle>
-									#2차 전지
-								</wordCloudS.SwiperInnerTitle>
-								<wordCloudS.SwiperInnerSubText>
-									<div>상품 자세히 보러가기</div>
-									<div>
-										<img src="/mainScreen/rightPointer.png"></img>
-									</div>
-								</wordCloudS.SwiperInnerSubText>
-							</wordCloudS.SwiperInnerTextArea>
-							<wordCloudS.SwiperInnerWordCloudArea></wordCloudS.SwiperInnerWordCloudArea>
-						</wordCloudS.HomeWordCloudSwiperCard>
-					</SwiperSlide>
-					<SwiperSlide>
-						<wordCloudS.HomeWordCloudSwiperCard>
+						<wordCloudS.HomeMainSwiperCard
+							style={{
+								backgroundImage: "url(/mainScreen/babyPlayWith.svg)",
+							}}
+						>
 							<challengeS.SwiperInnerTextArea>
 								<challengeS.SwiperInnerTitle>
 									#아이와 뛰어놀기
@@ -69,11 +57,27 @@ function RecommendWordCloudCard() {
 									아이와 함께하는 추억을 남겨봐요!
 								</challengeS.SwiperInnerSubText>
 							</challengeS.SwiperInnerTextArea>
-						</wordCloudS.HomeWordCloudSwiperCard>
+						</wordCloudS.HomeMainSwiperCard>
+					</SwiperSlide>
+					<SwiperSlide>
+						<wordCloudS.HomeMainSwiperCard
+							style={{
+								backgroundImage: "url(/mainScreen/babyTravel.svg)",
+							}}
+						>
+							<challengeS.SwiperInnerTextArea>
+								<challengeS.SwiperInnerTitle>
+									#3대가 함께하는 여행
+								</challengeS.SwiperInnerTitle>
+								<challengeS.SwiperInnerSubText>
+									온 가족이 함께하는 여행으로 추억을 남겨보세요!
+								</challengeS.SwiperInnerSubText>
+							</challengeS.SwiperInnerTextArea>
+						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide></SwiperSlide>
 				</challengeS.StyledSwiper>
-			</wordCloudS.HomeMainChallengeSwiperArea>
+			</challengeS.HomeMainChallengeSwiperArea>
 			<incomeS.HomeIncomeDetailViewBtn>
 				챌린지 도전하기
 			</incomeS.HomeIncomeDetailViewBtn>
