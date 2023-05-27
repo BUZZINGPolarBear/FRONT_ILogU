@@ -10,6 +10,7 @@ import {
 } from "recoil";
 import * as recoilMain from "./recoil/recoil.App";
 import HomeMain from "./APP/Home/Home.main";
+import FeedMain from "./APP/Feed/Feed.main";
 import * as tokens from "./tokens";
 import {
 	BrowserRouter,
@@ -53,17 +54,11 @@ function App() {
 		width: 20%;
 		height: 100%;
 	`;
-	// useEffect(() => {
-	// 	// Disable vertical scroll when the component mounts
-	// 	document.body.style.overflowY = "hidden";
+	const navigate = useNavigate();
 
-	// 	// Re-enable vertical scroll when the component unmounts
-	// 	return () => {
-	// 		document.body.style.overflowY = "auto";
-	// 	};
-	// }, []);
 	const handleNavClick = (e, type) => {
 		e.preventDefault();
+		navigate(`/${type}`);
 		setNavigateBtn(type);
 	};
 	const navigateReoilSelectState = useRecoilValue(recoilMain.navigateRecoil);
@@ -75,6 +70,14 @@ function App() {
 			<MainScreen>
 				<Routes>
 					<Route path="/" element={<HomeMain />} />
+					<Route
+						path="/feed/main"
+						element={<FeedMain setNavigateBtn={setNavigateBtn} />}
+					/>
+					<Route
+						path="/feed/participation"
+						element={<FeedMain setNavigateBtn={setNavigateBtn} />}
+					/>
 					<Route path="*" element={<HomeMain />} />
 				</Routes>
 			</MainScreen>
@@ -102,7 +105,7 @@ function App() {
 						></img>
 					)}
 				</NavImg>
-				<NavImg onClick={(e) => handleNavClick(e, "feed")}>
+				<NavImg onClick={(e) => handleNavClick(e, "feed/main")}>
 					{navigateReoilSelectState === "feed" ? (
 						<img src="/bottomNavBar/feed_clicked.svg" alt="feed clicked"></img>
 					) : (
