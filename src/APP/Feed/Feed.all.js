@@ -13,42 +13,33 @@ function FeedAll() {
 	return (
 		<>
 			<FeedAllS.FeedPictureArea>
+				<FeedAllS.FeedPictureArea_bigPicture></FeedAllS.FeedPictureArea_bigPicture>
 				<FeedAllS.FeedPictureArea_bigPicture
-					style={{ backgroundImage: `url(/Feed/sample1.svg)` }}
-				></FeedAllS.FeedPictureArea_bigPicture>
-				<FeedAllS.FeedPictureArea_bigPicture>
-					<FeedAllS.FeedPictureArea_smallPicture
-						style={{ backgroundImage: `url(/Feed/sample2.svg)` }}
-					></FeedAllS.FeedPictureArea_smallPicture>
-					<FeedAllS.FeedPictureArea_smallPicture
-						style={{ backgroundImage: `url(/Feed/sample3.svg)` }}
-					></FeedAllS.FeedPictureArea_smallPicture>
+					style={{ backgroundColor: "white" }}
+				>
+					<FeedAllS.FeedPictureArea_smallPicture></FeedAllS.FeedPictureArea_smallPicture>
+					<FeedAllS.FeedPictureArea_smallPicture></FeedAllS.FeedPictureArea_smallPicture>
 				</FeedAllS.FeedPictureArea_bigPicture>
 			</FeedAllS.FeedPictureArea>
 
 			<FeedAllS.FeedPictureArea>
-				<FeedAllS.FeedPictureArea_bigPicture>
-					<FeedAllS.FeedPictureArea_smallPicture
-						style={{ backgroundImage: `url(/Feed/sample2.svg)` }}
-					></FeedAllS.FeedPictureArea_smallPicture>
-					<FeedAllS.FeedPictureArea_smallPicture
-						style={{ backgroundImage: `url(/Feed/sample3.svg)` }}
-					></FeedAllS.FeedPictureArea_smallPicture>
+				<FeedAllS.FeedPictureArea_bigPicture
+					style={{ backgroundColor: "white" }}
+				>
+					<FeedAllS.FeedPictureArea_smallPicture></FeedAllS.FeedPictureArea_smallPicture>
+					<FeedAllS.FeedPictureArea_smallPicture></FeedAllS.FeedPictureArea_smallPicture>
 				</FeedAllS.FeedPictureArea_bigPicture>
 
-				<FeedAllS.FeedPictureArea_bigPicture
-					style={{ backgroundImage: `url(/Feed/sample4.svg)` }}
-				></FeedAllS.FeedPictureArea_bigPicture>
+				<FeedAllS.FeedPictureArea_bigPicture></FeedAllS.FeedPictureArea_bigPicture>
 			</FeedAllS.FeedPictureArea>
 
-			<FeedAllS.FeedPictureArea>
-				<FeedAllS.FeedPictureArea_bigPicture
-					style={{ backgroundImage: `url(/Feed/sample5.svg)` }}
-				></FeedAllS.FeedPictureArea_bigPicture>
-
-				<FeedAllS.FeedPictureArea_bigPicture
-					style={{ backgroundImage: `url(/Feed/sample6.svg)` }}
-				></FeedAllS.FeedPictureArea_bigPicture>
+			<FeedAllS.FeedPictureArea style={{ height: "120px" }}>
+				<FeedAllS.FeedPictureArea_smallPicture
+					style={{ height: "120px", width: "48%" }}
+				></FeedAllS.FeedPictureArea_smallPicture>
+				<FeedAllS.FeedPictureArea_smallPicture
+					style={{ height: "120px", width: "48%" }}
+				></FeedAllS.FeedPictureArea_smallPicture>
 			</FeedAllS.FeedPictureArea>
 		</>
 	);

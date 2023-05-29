@@ -6,11 +6,11 @@ export const FeedPictureArea = styled.div`
 	align-items: center;
 	justify-content: space-around;
 
-	width: 100%;
+	width: 97%;
 	max-width: 720px;
-	height: 350px;
+	height: 250px;
 
-	margin: 2vh auto;
+	margin: 1vh auto;
 	position: relative;
 	background-color: white;
 `;
@@ -21,7 +21,7 @@ export const FeedPictureArea_bigPicture = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
 
 	width: 48%;
 	max-width: 360px;
@@ -31,7 +31,7 @@ export const FeedPictureArea_bigPicture = styled.div`
 	background-position: center;
 	overflow: hidden;
 
-	// background-color: antiquewhite;
+	background-color: ${tokens.colors.grey_50};
 `;
 
 export const FeedPictureArea_smallPicture = styled.div`
@@ -39,10 +39,11 @@ export const FeedPictureArea_smallPicture = styled.div`
 	border-radius: 20px;
 	width: 100%;
 	max-width: 360px;
-	height: 46%;
+	height: 48%;
 
 	background-size: cover;
 	background-position: center;
+	background-color: ${tokens.colors.grey_50};
 	overflow: hidden;
 `;
 

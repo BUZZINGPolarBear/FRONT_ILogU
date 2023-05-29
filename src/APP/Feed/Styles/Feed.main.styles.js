@@ -4,7 +4,7 @@ import * as tokens from "../../../tokens";
 export const TopNavBar = styled.div`
 	width: 100%;
 	max-width: 800px;
-	height: 8vh;
+	height: 5.5vh;
 	position: fixed;
 	top: 0;
 
@@ -40,18 +40,18 @@ export const FeedMainScreen = styled.div`
 	min-height: 100vh;
 	height: fit-content;
 	position: relative;
-	top: 17vh;
+	top: 12vh;
 	padding-bottom: 10vh;
 	margin-bottom: 15vh;
 	// background-color: ${tokens.colors.grey_500};
 `;
 
 export const TopNavBarCategoryItemArea = styled.div`
+	width: fit-content;
 	max-width: 800px;
-	width: 95%;
 	position: fixed;
 	top: 0;
-	height: 15vh;
+	height: 11.5vh;
 
 	display: flex;
 	align-items: flex-end;
@@ -65,7 +65,7 @@ export const TopNavBarCategoryItemArea = styled.div`
 `;
 
 export const TopNavBarCategoryItems = styled.div`
-	width: 105px;
+	width: 75px;
 	height: 35px;
 	border-radius: 40px;
 	display: flex;
@@ -74,5 +74,5 @@ export const TopNavBarCategoryItems = styled.div`
 	margin-right: 15px;
 	${tokens.typography.subtitle_2};
 	color: ${tokens.colors.grey_400};
-	background-color: ${tokens.colors.grey_50};
+	background-color: rgba(192, 192, 192, 0.1);
 `;
