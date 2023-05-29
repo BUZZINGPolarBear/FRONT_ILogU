@@ -16,64 +16,60 @@ function IncomeCard() {
 			style={{ paddingTop: "10%", paddingBottom: "1%" }}
 		>
 			<incomeS.HomeIncomeInfoText>
-				<incomeS.HomeIncomeInnerWrapper>
-					<incomeS.HomeIncomeInfoTextTitle>
-						총 매입금액
-					</incomeS.HomeIncomeInfoTextTitle>
-					<incomeS.HomeIncomeInfoTextContent>
-						<span>
+				<incomeS.HomeIncomeWrapper>
+					<incomeS.HomeIncomeInnerWrapper>
+						<incomeS.HomeIncomeInfoTextTitle>
+							총 매입금액
+						</incomeS.HomeIncomeInfoTextTitle>
+						<incomeS.HomeIncomeInfoTextContent>
 							<incomeS.HomeIncomeInfoHeavyText>
 								2,496,800
 							</incomeS.HomeIncomeInfoHeavyText>
 							원
-						</span>
-					</incomeS.HomeIncomeInfoTextContent>
-				</incomeS.HomeIncomeInnerWrapper>
-				<incomeS.HomeIncomeInnerWrapper>
-					<incomeS.HomeIncomeInfoTextTitle>
-						현 수익률
-					</incomeS.HomeIncomeInfoTextTitle>
-					<incomeS.HomeIncomeInfoTextContent>
-						<span>
+						</incomeS.HomeIncomeInfoTextContent>
+					</incomeS.HomeIncomeInnerWrapper>
+					<incomeS.HomeIncomeInnerWrapper>
+						<incomeS.HomeIncomeInfoTextTitle>
+							현 수익률
+						</incomeS.HomeIncomeInfoTextTitle>
+						<incomeS.HomeIncomeInfoTextContent>
 							<incomeS.HomeIncomeInfoHeavyText
 								style={{ color: tokens.colors.red_500 }}
 							>
 								+7.5%
 							</incomeS.HomeIncomeInfoHeavyText>
-						</span>
-					</incomeS.HomeIncomeInfoTextContent>
-				</incomeS.HomeIncomeInnerWrapper>
+						</incomeS.HomeIncomeInfoTextContent>
+					</incomeS.HomeIncomeInnerWrapper>
+				</incomeS.HomeIncomeWrapper>
 			</incomeS.HomeIncomeInfoText>
 
 			<incomeS.HomeIncomeInfoText>
-				<incomeS.HomeIncomeInnerWrapper>
-					<incomeS.HomeIncomeInfoTextTitle>
-						현재 투자 가능 금액
-					</incomeS.HomeIncomeInfoTextTitle>
-					<incomeS.HomeIncomeInfoTextContent>
-						<span>
+				<incomeS.HomeIncomeWrapper>
+					<incomeS.HomeIncomeInnerWrapper>
+						<incomeS.HomeIncomeInfoTextTitle>
+							현재 투자 가능 금액
+						</incomeS.HomeIncomeInfoTextTitle>
+						<incomeS.HomeIncomeInfoTextContent>
 							<incomeS.HomeIncomeInfoHeavyText>
 								3,000,000
 							</incomeS.HomeIncomeInfoHeavyText>
 							원
-						</span>
-					</incomeS.HomeIncomeInfoTextContent>
-				</incomeS.HomeIncomeInnerWrapper>
-				<incomeS.HomeIncomeInnerWrapper>
-					<incomeS.HomeIncomeInfoTextTitle>
-						총 평가금액
-					</incomeS.HomeIncomeInfoTextTitle>
-					<incomeS.HomeIncomeInfoTextContent>
-						<span>
+						</incomeS.HomeIncomeInfoTextContent>
+					</incomeS.HomeIncomeInnerWrapper>
+					<incomeS.HomeIncomeInnerWrapper>
+						<incomeS.HomeIncomeInfoTextTitle>
+							총 평가금액
+						</incomeS.HomeIncomeInfoTextTitle>
+						<incomeS.HomeIncomeInfoTextContent>
 							<incomeS.HomeIncomeInfoHeavyText>
 								2,506,000
 							</incomeS.HomeIncomeInfoHeavyText>
 							원
-						</span>
-					</incomeS.HomeIncomeInfoTextContent>
-				</incomeS.HomeIncomeInnerWrapper>
+						</incomeS.HomeIncomeInfoTextContent>
+					</incomeS.HomeIncomeInnerWrapper>
+				</incomeS.HomeIncomeWrapper>
 			</incomeS.HomeIncomeInfoText>
-			<incomeS.HomeIncomeInfoText style={{ width: "90%" }}>
+			<incomeS.HomeIncomeInfoText style={{ width: "100%" }}>
 				<incomeS.HomeIncomeDetailViewBtn>
 					수익률 현황 자세히 보러가기
 				</incomeS.HomeIncomeDetailViewBtn>

@@ -18,7 +18,7 @@ function HomeMain() {
 			<HomeS.HomeMainTopUserInfo>
 				<HomeS.HomeMainTopInfoArea>
 					<span>
-						<b>원하나</b> 님의 수익률은
+						<b>김하나</b> 님의 수익률은
 					</span>
 					<span>
 						<span style={tokens.typography.headline_5}>+8,300</span> 원 입니다.
