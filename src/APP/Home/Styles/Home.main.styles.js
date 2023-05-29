@@ -49,7 +49,7 @@ export const DivInnerContainer = styled.div`
 
 	padding-bottom: 10vh;
 
-	background-color: ${tokens.colors.grey_50};
+	// background-color: ${tokens.colors.grey_50};
 	z-index: 2;
 `;
 

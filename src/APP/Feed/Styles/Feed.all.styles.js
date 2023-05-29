@@ -5,21 +5,24 @@ export const FeedPictureArea = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+
 	width: 100%;
 	max-width: 720px;
-	height: 35vh;
+	height: 350px;
+
 	margin: 2vh auto;
 	position: relative;
 	background-color: white;
 `;
 
 export const FeedPictureArea_bigPicture = styled.div`
+	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 
-	width: 45%;
+	width: 48%;
 	max-width: 360px;
 	height: 100%;
 
@@ -27,6 +30,7 @@ export const FeedPictureArea_bigPicture = styled.div`
 `;
 
 export const FeedPictureArea_smallPicture = styled.div`
+	border-radius: 20px;
 	width: 100%;
 	max-width: 360px;
 	height: 46%;

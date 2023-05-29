@@ -20,8 +20,8 @@ function FeedMain(props) {
 		navigate(`/${type}`);
 	};
 	return (
-		<>
-			<FeedMainS.TopNavBar>
+		<div style={{ backgroundColor: "white" }}>
+			<FeedMainS.TopNavBar style={{ backgroundColor: "white" }}>
 				<FeedMainS.TopNavBarItem
 					onClick={(e) => handleNavBtnClick(e, "feed/main")}
 				>
@@ -30,7 +30,7 @@ function FeedMain(props) {
 							nowLocation.pathname == "/feed/main"
 								? {
 										color: tokens.colors.green_500,
-										borderBottom: `2px solid ${tokens.colors.green_500}`,
+										borderBottom: `3px solid ${tokens.colors.green_500}`,
 								  }
 								: { color: tokens.colors.grey_300 }
 						}
@@ -46,7 +46,7 @@ function FeedMain(props) {
 							nowLocation.pathname == "/feed/participation"
 								? {
 										color: tokens.colors.green_500,
-										borderBottom: `2px solid ${tokens.colors.green_500}`,
+										borderBottom: `3px solid ${tokens.colors.green_500}`,
 								  }
 								: { color: tokens.colors.grey_300 }
 						}
@@ -55,10 +55,27 @@ function FeedMain(props) {
 					</FeedMainS.TopNavBarItemText>
 				</FeedMainS.TopNavBarItem>
 			</FeedMainS.TopNavBar>
-			<FeedMainS.FeedMainScreen>
+			<FeedMainS.TopNavBarCategoryItemArea>
+				<FeedMainS.TopNavBarCategoryItems>
+					전체
+				</FeedMainS.TopNavBarCategoryItems>
+				<FeedMainS.TopNavBarCategoryItems>
+					✈️여행
+				</FeedMainS.TopNavBarCategoryItems>
+				<FeedMainS.TopNavBarCategoryItems>
+					⚽️스포츠
+				</FeedMainS.TopNavBarCategoryItems>
+				<FeedMainS.TopNavBarCategoryItems>
+					🍳요리
+				</FeedMainS.TopNavBarCategoryItems>
+				<FeedMainS.TopNavBarCategoryItems>
+					🏦금융
+				</FeedMainS.TopNavBarCategoryItems>
+			</FeedMainS.TopNavBarCategoryItemArea>
+			<FeedMainS.FeedMainScreen style={{ backgroundColor: "white" }}>
 				{nowLocation.pathname == "/feed/main" ? <FeedAll></FeedAll> : null}
 			</FeedMainS.FeedMainScreen>
-		</>
+		</div>
 	);
 }
 
