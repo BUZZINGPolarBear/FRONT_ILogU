@@ -48,16 +48,18 @@ export const FeedMainScreen = styled.div`
 
 export const TopNavBarCategoryItemArea = styled.div`
 	max-width: 800px;
-	width: 100%;
+	width: 95%;
 	position: fixed;
 	top: 0;
 	height: 15vh;
 
 	display: flex;
 	align-items: flex-end;
-	justify-content: flex-start;
-	padding: 1% 3%;
+	justify-content: space-around;
+	padding: 1% 5%;
 	background-color: white;
+
+	overflow-x: scroll;
 
 	z-index: 9998;
 `;
