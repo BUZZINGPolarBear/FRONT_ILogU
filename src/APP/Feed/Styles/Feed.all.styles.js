@@ -16,6 +16,7 @@ export const FeedPictureArea = styled.div`
 `;
 
 export const FeedPictureArea_bigPicture = styled.div`
+	position: relative;
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
@@ -26,14 +27,31 @@ export const FeedPictureArea_bigPicture = styled.div`
 	max-width: 360px;
 	height: 100%;
 
-	background-color: antiquewhite;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+
+	// background-color: antiquewhite;
 `;
 
 export const FeedPictureArea_smallPicture = styled.div`
+	position: relative;
 	border-radius: 20px;
 	width: 100%;
 	max-width: 360px;
 	height: 46%;
 
-	background-color: ${tokens.colors.green_400};
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+`;
+
+export const StyledImages = styled.img`
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 10%;
 `;

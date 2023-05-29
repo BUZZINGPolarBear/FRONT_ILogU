@@ -56,7 +56,9 @@ function FeedMain(props) {
 				</FeedMainS.TopNavBarItem>
 			</FeedMainS.TopNavBar>
 			<FeedMainS.TopNavBarCategoryItemArea>
-				<FeedMainS.TopNavBarCategoryItems>
+				<FeedMainS.TopNavBarCategoryItems
+					style={{ backgroundColor: tokens.colors.green_500, color: "white" }}
+				>
 					전체
 				</FeedMainS.TopNavBarCategoryItems>
 				<FeedMainS.TopNavBarCategoryItems>

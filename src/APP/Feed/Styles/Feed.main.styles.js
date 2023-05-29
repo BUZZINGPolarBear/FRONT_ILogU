@@ -42,6 +42,7 @@ export const FeedMainScreen = styled.div`
 	position: relative;
 	top: 17vh;
 	padding-bottom: 10vh;
+	margin-bottom: 15vh;
 	// background-color: ${tokens.colors.grey_500};
 `;
 
