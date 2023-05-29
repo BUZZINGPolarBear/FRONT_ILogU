@@ -9,7 +9,8 @@ export const HomeMainIncomeCard = styled.div`
 	border-radius: 20px;
 	background-color: white;
 
-	z-index: 1;
+	position: relative;
+	z-index: 10;
 `;
 
 export const HomeIncomeInfoText = styled.div`

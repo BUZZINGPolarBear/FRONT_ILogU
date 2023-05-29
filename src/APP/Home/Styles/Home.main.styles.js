@@ -41,7 +41,7 @@ export const DivInnerContainer = styled.div`
 	max-width: 800px;
 	min-height: 95vh;
 	height: fit-content;
-	position: absolute;
+	position: relative;
 	top: 18vh;
 
 	border-top-left-radius: 20px;
@@ -49,7 +49,7 @@ export const DivInnerContainer = styled.div`
 
 	padding-bottom: 10vh;
 
-	// background-color: ${tokens.colors.grey_50};
+	background-color: ${tokens.colors.grey_50}
 	z-index: 2;
 `;
 
