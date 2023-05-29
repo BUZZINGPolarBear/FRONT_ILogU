@@ -6,6 +6,8 @@ export const HomeMainScreen = styled.div`
 	max-width: 800px;
 	// min-height: 100vh;
 	height: fit-content;
+
+	background-color: ${tokens.colors.grey_50};
 `;
 
 export const HomeMainTopUserInfo = styled.div`
@@ -49,7 +51,7 @@ export const DivInnerContainer = styled.div`
 
 	padding-bottom: 10vh;
 
-	background-color: ${tokens.colors.grey_50}
+	background-color: ${tokens.colors.grey_50};
 	z-index: 2;
 `;
 
