@@ -3,10 +3,10 @@ import * as tokens from "../../../tokens";
 
 export const HomeMainIncomeCard = styled.div`
 	width: 100%;
-	min-height: 25vh;
 	height: fit-content;
-	margin-bottom: 3vh;
-	border-radius: 20px;
+	margin-bottom: 1vh;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
 	background-color: white;
 
 	position: relative;
@@ -25,13 +25,29 @@ export const HomeIncomeInfoText = styled.div`
 	// background-color: antiquewhite;
 `;
 
+export const HomeIncomeWrapper = styled.div`
+	position: relative;
+	width: 100%;
+	height: 15%;
+	margin: auto;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	// background-color: antiquewhite;
+`;
+
 export const HomeIncomeInnerWrapper = styled.div`
+	position: relative;
 	height: 100%;
-	width: 90%;
+	width: 45%;
 	margin: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+
+	background-color: white;
 `;
 
 export const HomeIncomeInfoTextTitle = styled.div`
@@ -59,7 +75,7 @@ export const HomeIncomeInfoHeavyText = styled.span`
 `;
 
 export const HomeIncomeDetailViewBtn = styled.button`
-	width: 85%;
+	width: 90%;
 	height: 5vh;
 	margin: auto;
 	cursor: pointer;
