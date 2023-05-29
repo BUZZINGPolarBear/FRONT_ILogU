@@ -6,7 +6,7 @@ export const HomeMainScreen = styled.div`
 	max-width: 800px;
 	// min-height: 100vh;
 	height: fit-content;
-
+	margin-bottom: 10vh;
 	background-color: ${tokens.colors.grey_50};
 `;
 

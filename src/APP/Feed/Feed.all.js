@@ -33,9 +33,7 @@ function FeedAll() {
 					></FeedAllS.FeedPictureArea_smallPicture>
 					<FeedAllS.FeedPictureArea_smallPicture
 						style={{ backgroundImage: `url(/Feed/sample3.svg)` }}
-					>
-						s
-					</FeedAllS.FeedPictureArea_smallPicture>
+					></FeedAllS.FeedPictureArea_smallPicture>
 				</FeedAllS.FeedPictureArea_bigPicture>
 
 				<FeedAllS.FeedPictureArea_bigPicture
