@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 export const HomeMainChallengeCard = styled.div`
 	// width: 100%;
 	max-width: 800px;
-	height: 35vh;
-	border-radius: 20px;
+	height: 30.5vh;
+
 	display: flex;
 	flex-direction: column;
 	align-items: space-between;
@@ -17,29 +17,31 @@ export const HomeMainChallengeCard = styled.div`
 	background-color: white;
 	position: relative;
 
-	padding: 5%;
+	padding: 5% 0 5% 5%;
 	z-index: 1;
 `;
 
 export const HomeMainChallengeSwiperArea = styled.div`
 	width: 100%;
 	max-width: 800px;
-	height: 70%;
+	height: 60%;
 	position: relative;
 `;
 
 export const HomeMainSwiperCard = styled.div`
-	width: 50vw;
+	width: 62vw;
 	max-width: 400px;
-	height: 100%;
+	height: 96%;
 	position: relative;
+	margin-bottom: 1.5vh;
+
 	border-radius: 20px;
 	background-color: white;
 
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -49,7 +51,7 @@ export const HomeMainSwiperCard = styled.div`
 export const StyledSwiper = styled(Swiper)`
 	width: 100%;
 	max-width: 800px;
-	height: 100%;
+	height: 97%;
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
@@ -61,11 +63,11 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
 
 export const SwiperInnerTextArea = styled.div`
 	width: 100%;
-	height: 30%;
+	height: 35%;
 	position: relative;
-	padding: 0 5%;
 	bottom: 0;
-
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -75,12 +77,14 @@ export const SwiperInnerTextArea = styled.div`
 
 export const SwiperInnerTitle = styled.div`
 	text-align: left;
-	margin-left: 10px;
-	${tokens.typography.subtitle_3}
+	margin-left: 14px;
+	color: ${tokens.colors.grey_400};
+	${tokens.typography.subtitle_3};
 `;
 
 export const SwiperInnerSubText = styled.div`
 	text-align: left;
-	margin-left: 10px;
-	${tokens.typography.sub}
+	margin-left: 14px;
+	color: ${tokens.colors.grey_400};
+	${tokens.typography.sub};
 `;

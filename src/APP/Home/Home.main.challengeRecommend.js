@@ -74,9 +74,11 @@ function ChallengRecommendCard() {
 					<SwiperSlide></SwiperSlide>
 				</challengeS.StyledSwiper>
 			</challengeS.HomeMainChallengeSwiperArea>
-			<incomeS.HomeIncomeDetailViewBtn>
-				챌린지 도전하기
-			</incomeS.HomeIncomeDetailViewBtn>
+			<div style={{ width: "91vw", display: "flex", alignItems: "center" }}>
+				<incomeS.HomeIncomeDetailViewBtn style={{ width: "100%" }}>
+					챌린지 도전하기
+				</incomeS.HomeIncomeDetailViewBtn>
+			</div>
 		</challengeS.HomeMainChallengeCard>
 	);
 }
