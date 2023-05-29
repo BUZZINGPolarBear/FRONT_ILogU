@@ -4,7 +4,7 @@ import * as tokens from "../../../tokens";
 export const HomeMainIncomeCard = styled.div`
 	width: 100%;
 	height: fit-content;
-	margin-bottom: 1vh;
+	margin-bottom: 1.5vh;
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
 	background-color: white;
