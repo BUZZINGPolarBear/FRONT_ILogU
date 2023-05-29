@@ -49,7 +49,7 @@ export const HomeMainChallengeCard = styled.div`
 	background-color: white;
 	position: relative;
 
-	padding: 5%;
+	padding: 5% 0 5% 5%;
 	z-index: 1;
 `;
 export const SwiperInnerTextArea = styled.div`
@@ -71,11 +71,10 @@ export const SwiperInnerTextArea = styled.div`
 
 export const SwiperInnerWordCloudArea = styled.div`
 	width: 100%;
-	height: 84%;
+	height: 70%;
 	margin: auto;
 	position: absolute;
 	top: 17%;
-
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 

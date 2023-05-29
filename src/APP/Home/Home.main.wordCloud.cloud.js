@@ -21,11 +21,11 @@ function KeywordCloud({ searchKeyword }) {
 	// 데이터 정규화를 위해 전체 합을 구합니다.
 	let totalSum = 0;
 	if (wordcloudData != null) {
-		for (let i = 0; i < 15; i++)
+		for (let i = 0; i < wordcloudData.length; i++)
 			totalSum +=
 				wordcloudData[i].duplicateCnt * wordcloudData[i].sumKeywordWorth;
 
-		for (let i = 0; i < 15; i++) {
+		for (let i = 0; i < wordcloudData.length; i++) {
 			cloudDataArr.push({
 				text: wordcloudData[i].childKeyword,
 				value: (
@@ -36,7 +36,7 @@ function KeywordCloud({ searchKeyword }) {
 			});
 		}
 	}
-
+	cloudDataArr = cloudDataArr.slice(0, 15);
 	const options = {
 		colors: [
 			`${tokens.colors.green_800}`,
@@ -48,7 +48,7 @@ function KeywordCloud({ searchKeyword }) {
 		],
 		deterministic: false,
 		fontFamily: "impact",
-		fontSizes: [10, 55],
+		fontSizes: [10, 50],
 		fontStyle: "normal",
 		fontWeight: "normal",
 		padding: 1,
