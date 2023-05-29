@@ -81,6 +81,7 @@ export const HomeIncomeDetailViewBtn = styled.button`
 	cursor: pointer;
 	border: 0;
 	color: white;
+	${tokens.typography.body_2}
 	background-color: ${tokens.colors.green_500};
 	border-radius: 10px;
 `;

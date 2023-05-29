@@ -41,7 +41,7 @@ export const HomeMainSwiperCard = styled.div`
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.07);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
