@@ -106,7 +106,8 @@ function App() {
 					)}
 				</NavImg>
 				<NavImg onClick={(e) => handleNavClick(e, "feed/main")}>
-					{navigateReoilSelectState === "feed" ? (
+					{navigateReoilSelectState === "feed/main" ||
+					navigateReoilSelectState === "feed/participation" ? (
 						<img src="/bottomNavBar/feed_clicked.svg" alt="feed clicked"></img>
 					) : (
 						<img
