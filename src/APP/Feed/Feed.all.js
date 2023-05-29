@@ -7,6 +7,7 @@ import {
 	useRecoilValue,
 } from "recoil";
 import * as FeedAllS from "./Styles/Feed.all.styles";
+import * as FeedMainS from "./Styles/Feed.main.styles";
 import * as tokens from "../../tokens";
 
 function FeedAll() {
