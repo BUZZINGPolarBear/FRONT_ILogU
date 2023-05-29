@@ -12,7 +12,7 @@ export const HomeMainChallengeCard = styled.div`
 	align-items: space-between;
 	justify-content: space-between;
 
-	margin-bottom: 3vh;
+	margin-bottom: 1.5vh;
 
 	background-color: white;
 	position: relative;
