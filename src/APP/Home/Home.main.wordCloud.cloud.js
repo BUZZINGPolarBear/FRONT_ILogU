@@ -21,11 +21,11 @@ function KeywordCloud({ searchKeyword }) {
 	// 데이터 정규화를 위해 전체 합을 구합니다.
 	let totalSum = 0;
 	if (wordcloudData != null) {
-		for (let i = 0; i < wordcloudData.length; i++)
+		for (let i = 0; i < 15; i++)
 			totalSum +=
 				wordcloudData[i].duplicateCnt * wordcloudData[i].sumKeywordWorth;
 
-		for (let i = 0; i < wordcloudData.length; i++) {
+		for (let i = 0; i < 15; i++) {
 			cloudDataArr.push({
 				text: wordcloudData[i].childKeyword,
 				value: (

@@ -47,7 +47,7 @@ function RecommendWordCloudCard() {
 
 	return (
 		<wordCloudS.HomeMainChallengeCard>
-			<HomeS.HomeMainCardTitle>
+			<HomeS.HomeMainCardTitle style={{ height: "12%" }}>
 				김하나님에게 이런 상품을 추천해요!
 			</HomeS.HomeMainCardTitle>
 			<challengeS.HomeMainChallengeSwiperArea>
