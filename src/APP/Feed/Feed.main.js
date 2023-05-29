@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import * as FeedMainS from "./Styles/Feed.main.styles";
 import * as tokens from "../../tokens";
-
+import FeedAll from "./Feed.all";
 function FeedMain(props) {
 	const nowLocation = useLocation();
 	const navigate = useNavigate();
@@ -56,7 +56,7 @@ function FeedMain(props) {
 				</FeedMainS.TopNavBarItem>
 			</FeedMainS.TopNavBar>
 			<FeedMainS.FeedMainScreen>
-				{/* {nowLocation.pathname == "/feed/main" ?} */}
+				{nowLocation.pathname == "/feed/main" ? <FeedAll></FeedAll> : null}
 			</FeedMainS.FeedMainScreen>
 		</>
 	);

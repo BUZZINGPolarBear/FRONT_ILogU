@@ -5,7 +5,6 @@ export const TopNavBar = styled.div`
 	width: 100%;
 	max-width: 800px;
 	height: 8vh;
-	position: fixed;
 	top: 0;
 
 	display: flex;
@@ -39,8 +38,8 @@ export const FeedMainScreen = styled.div`
 	width: 100%;
 	min-height: 100vh;
 	height: fit-content;
-
+	position: relative;
 	top: 8vh;
 
-	// background-color: ${tokens.colors.grey_50};
+	background-color: ${tokens.colors.grey_500};
 `;
