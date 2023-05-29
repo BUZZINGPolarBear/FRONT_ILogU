@@ -65,7 +65,7 @@ export const TopNavBarCategoryItemArea = styled.div`
 `;
 
 export const TopNavBarCategoryItems = styled.div`
-	width: 90px;
+	width: 105px;
 	height: 35px;
 	border-radius: 40px;
 	display: flex;
