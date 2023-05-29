@@ -27,7 +27,8 @@ export const HomeIncomeInfoText = styled.div`
 
 export const HomeIncomeInnerWrapper = styled.div`
 	height: 100%;
-	width: 40%;
+	width: 90%;
+	margin: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

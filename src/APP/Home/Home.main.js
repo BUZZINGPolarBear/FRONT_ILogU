@@ -21,7 +21,7 @@ function HomeMain() {
 						<b>원하나</b> 님의 수익률은
 					</span>
 					<span>
-						<span style={tokens.typography.headline_5}>+8,300</span>원 입니다.
+						<span style={tokens.typography.headline_5}>+8,300</span> 원 입니다.
 					</span>
 				</HomeS.HomeMainTopInfoArea>
 				<HomeS.HomeMainTopInfoArea>
