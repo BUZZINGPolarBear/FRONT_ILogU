@@ -57,7 +57,7 @@ export const DivInnerContainer = styled.div`
 
 export const HomeMainCardTitle = styled.div`
 	width: 90%;
-	height: 10%;
+	height: 15%;
 	position: relative;
 	text-align: left;
 
