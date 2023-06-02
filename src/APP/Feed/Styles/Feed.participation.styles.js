@@ -82,8 +82,50 @@ export const FeedChallengeContentWrapper = styled.div`
 	max-width: 720px;
 
 	display: flex;
-	align-items: center;
-	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+`;
 
-	background-color: antiquewhite;
+export const FeedChallengeTopBottomWrapper = styled.div`
+	width: 100%;
+	height: 20%;
+	display: flex;
+	align-items: center;
+`;
+
+export const TopInfo = styled.div`
+	width: 13%;
+	height: 100%;
+	margin-right: 10px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+`;
+export const FeedChallengeMiddleWrapper = styled.div`
+	width: 100%;
+	height: 35%;
+
+	text-align: left;
+	color: ${tokens.colors.grey_700};
+	${tokens.typography.body_2};
+`;
+
+export const FeedTag = styled.div`
+	width: fit-content;
+	height: 80%;
+	position: relative;
+
+	display: flex;
+	align-items: center;
+
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 20px;
+
+	margin-right: 18px;
+
+	color: ${tokens.colors.grey_400};
+	background-color: rgba(192, 192, 192, 0.1);
 `;
