@@ -48,7 +48,7 @@ export const FeedMainScreen = styled.div`
 	height: fit-content;
 	position: relative;
 	padding-bottom: 10vh;
-	// background-color: ${tokens.colors.grey_500};
+	background-color: white;
 	z-index: 1;
 `;
 
@@ -95,4 +95,11 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
 	height: 100%;
 
 	overflow: hidden;
+`;
+
+export const DropdownCustom = styled.div`
+	width: 80px;
+	height: 30px;
+	border-radius: 40px;
+	background-color: ${tokens.colors.grey_50};
 `;
