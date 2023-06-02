@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import {
 	BrowserRouter,
 	Route,
@@ -7,10 +7,15 @@ import {
 	useLocation,
 	Routes,
 	useNavigate,
-} from "react-router-dom";
-import * as FeedMainS from "./Styles/Feed.main.styles";
-import * as tokens from "../../tokens";
-import FeedAll from "./Feed.all";
+} from 'react-router-dom';
+import * as FeedMainS from './Styles/Feed.main.styles';
+// import * as challengeS from "../Home/Styles/Home.main.challengeRecommend.styles";
+import * as tokens from '../../tokens';
+import FeedAll from './Feed.all';
+
+import 'swiper/swiper-bundle.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 function FeedMain(props) {
 	const [isDragging, setIsDragging] = useState(false); // 드래그 여부 상태 관리
@@ -24,13 +29,13 @@ function FeedMain(props) {
 	};
 
 	const handleMouseDown = (event) => {
-		console.log("Down");
+		console.log('Down');
 		event.preventDefault();
 		setIsDragging(true); // 드래그 시작 시 상태 업데이트
 	};
 
 	const handleMouseUp = (event) => {
-		console.log("Up");
+		console.log('Up');
 		event.preventDefault();
 		setIsDragging(false); // 드래그 종료 시 상태 업데이트
 	};
@@ -45,20 +50,20 @@ function FeedMain(props) {
 	};
 
 	return (
-		<div style={{ backgroundColor: "white" }}>
+		<div style={{ backgroundColor: 'white' }}>
 			<div>
 				<FeedMainS.TopNavBar
 					style={
-						nowLocation.pathname == "/feed/main" ? null : { height: "5.5vh" }
+						nowLocation.pathname == '/feed/main' ? null : { height: '5.5vh' }
 					}
 				>
 					<FeedMainS.TopNavArea>
 						<FeedMainS.TopNavBarItem
-							onClick={(e) => handleNavBtnClick(e, "feed/main")}
+							onClick={(e) => handleNavBtnClick(e, 'feed/main')}
 						>
 							<FeedMainS.TopNavBarItemText
 								style={
-									nowLocation.pathname == "/feed/main"
+									nowLocation.pathname == '/feed/main'
 										? {
 												color: tokens.colors.green_500,
 												borderBottom: `3px solid ${tokens.colors.green_500}`,
@@ -70,11 +75,11 @@ function FeedMain(props) {
 							</FeedMainS.TopNavBarItemText>
 						</FeedMainS.TopNavBarItem>
 						<FeedMainS.TopNavBarItem
-							onClick={(e) => handleNavBtnClick(e, "feed/participation")}
+							onClick={(e) => handleNavBtnClick(e, 'feed/participation')}
 						>
 							<FeedMainS.TopNavBarItemText
 								style={
-									nowLocation.pathname == "/feed/participation"
+									nowLocation.pathname == '/feed/participation'
 										? {
 												color: tokens.colors.green_500,
 												borderBottom: `3px solid ${tokens.colors.green_500}`,
@@ -86,16 +91,20 @@ function FeedMain(props) {
 							</FeedMainS.TopNavBarItemText>
 						</FeedMainS.TopNavBarItem>
 					</FeedMainS.TopNavArea>
-					{nowLocation.pathname == "/feed/main" ? (
+					{nowLocation.pathname == '/feed/main' ? (
 						<FeedMainS.TopNavBarCategoryItemArea
 							onMouseDown={handleMouseDown}
 							onMouseUp={handleMouseUp}
 							onMouseMove={handleMouseMove}
 						>
+							{/* <challengeS.StyledSwiper
+								spaceBetween={150}
+								slidesPerView={2}
+							></challengeS.StyledSwiper> */}
 							<FeedMainS.TopNavBarCategoryItems
 								style={{
 									backgroundColor: tokens.colors.green_500,
-									color: "white",
+									color: 'white',
 								}}
 							>
 								전체
@@ -116,13 +125,13 @@ function FeedMain(props) {
 					) : null}
 				</FeedMainS.TopNavBar>
 
-				{nowLocation.pathname == "/feed/main" ? (
-					<FeedMainS.FeedMainScreen style={{ backgroundColor: "white" }}>
+				{nowLocation.pathname == '/feed/main' ? (
+					<FeedMainS.FeedMainScreen style={{ backgroundColor: 'white' }}>
 						<FeedAll></FeedAll>
 					</FeedMainS.FeedMainScreen>
 				) : (
 					<FeedMainS.FeedMainScreen
-						style={{ top: 0, height: "100vh", backgroundColor: "white" }}
+						style={{ top: 0, height: '100vh', backgroundColor: 'white' }}
 					></FeedMainS.FeedMainScreen>
 				)}
 			</div>
