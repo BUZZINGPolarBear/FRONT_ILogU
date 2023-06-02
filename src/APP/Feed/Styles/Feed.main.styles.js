@@ -53,7 +53,7 @@ export const FeedMainScreen = styled.div`
 `;
 
 export const TopNavBarCategoryItemArea = styled.div`
-	width: 100%;
+	width: 95%;
 	// max-width: 100%;
 	position: relative;
 	height: 3.5vh;
@@ -62,6 +62,7 @@ export const TopNavBarCategoryItemArea = styled.div`
 	align-items: flex-start;
 	justify-content: space-around;
 
+	margin-left: 5%;
 	margin-bottom: 1vh;
 
 	// padding: 1% 5%;

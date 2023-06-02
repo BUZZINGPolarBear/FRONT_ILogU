@@ -98,11 +98,6 @@ function FeedMain(props) {
 							onMouseMove={handleMouseMove}
 						>
 							<FeedMainS.StyledSwiper spaceBetween={7} slidesPerView={5}>
-								<SwiperSlide
-									style={{
-										width: '5px',
-									}}
-								></SwiperSlide>
 								<SwiperSlide>
 									<FeedMainS.TopNavBarCategoryItems
 										style={{
@@ -133,11 +128,13 @@ function FeedMain(props) {
 										🏦금융
 									</FeedMainS.TopNavBarCategoryItems>
 								</SwiperSlide>
-								<SwiperSlide
-									style={{
-										width: '5px',
-									}}
-								></SwiperSlide>
+								<SwiperSlide>
+									<div
+										style={{
+											width: '5px',
+										}}
+									></div>
+								</SwiperSlide>
 							</FeedMainS.StyledSwiper>
 						</FeedMainS.TopNavBarCategoryItemArea>
 					) : null}
