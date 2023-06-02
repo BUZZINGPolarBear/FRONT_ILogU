@@ -9,10 +9,16 @@ import {
 	useNavigate,
 } from 'react-router-dom';
 import * as FeedMainS from './Styles/Feed.main.styles';
-// import * as challengeS from "../Home/Styles/Home.main.challengeRecommend.styles";
 import * as tokens from '../../tokens';
-import FeedAll from './Feed.all';
 
+import FeedAll from './Feed.all';
+import FeedParticipation from './Feed.participation';
+
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import 'swiper/swiper-bundle.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -21,6 +27,13 @@ function FeedMain(props) {
 	const [isDragging, setIsDragging] = useState(false); // 드래그 여부 상태 관리
 	const nowLocation = useLocation();
 	const navigate = useNavigate();
+	const [active, setActive] = useState(false);
+	const [value, setValue] = React.useState('전체');
+
+	//Drop Down
+	const handleChange = (event) => {
+		setValue(event.target.value);
+	};
 
 	const handleNavBtnClick = (e, type) => {
 		e.preventDefault();
@@ -52,11 +65,7 @@ function FeedMain(props) {
 	return (
 		<div style={{ backgroundColor: 'white' }}>
 			<div>
-				<FeedMainS.TopNavBar
-					style={
-						nowLocation.pathname == '/feed/main' ? null : { height: '5.5vh' }
-					}
-				>
+				<FeedMainS.TopNavBar>
 					<FeedMainS.TopNavArea>
 						<FeedMainS.TopNavBarItem
 							onClick={(e) => handleNavBtnClick(e, 'feed/main')}
@@ -91,7 +100,7 @@ function FeedMain(props) {
 							</FeedMainS.TopNavBarItemText>
 						</FeedMainS.TopNavBarItem>
 					</FeedMainS.TopNavArea>
-					{nowLocation.pathname == '/feed/main' ? (
+					{nowLocation.pathname == '/feed/main' && (
 						<FeedMainS.TopNavBarCategoryItemArea
 							onMouseDown={handleMouseDown}
 							onMouseUp={handleMouseUp}
@@ -137,17 +146,93 @@ function FeedMain(props) {
 								</SwiperSlide>
 							</FeedMainS.StyledSwiper>
 						</FeedMainS.TopNavBarCategoryItemArea>
-					) : null}
+					)}
+					{nowLocation.pathname == '/feed/participation' && (
+						<div
+							style={{
+								width: '90%',
+								margin: 'auto',
+								marginTop: '1.4vh',
+								display: 'flex',
+								justifyContent: 'flex-end',
+							}}
+						>
+							<FormControl
+								sx={{ m: 1, width: 85, borderColor: 'rgb(245, 245, 245)' }}
+								size="small"
+							>
+								<Select
+									value={value}
+									onChange={handleChange}
+									// displayEmpty
+									inputProps={{ 'aria-label': 'Without label' }}
+									displayEmpty
+									style={{
+										borderRadius: '40px',
+										...tokens.typography.caption,
+									}}
+								>
+									<MenuItem
+										value="전체"
+										style={{
+											color: tokens.colors.grey_500,
+											...tokens.typography.caption,
+										}}
+									>
+										전체
+									</MenuItem>
+									<MenuItem
+										value={'운동'}
+										style={{
+											color: tokens.colors.grey_500,
+											...tokens.typography.caption,
+										}}
+									>
+										운동
+									</MenuItem>
+									<MenuItem
+										value={'여행'}
+										style={{
+											color: tokens.colors.grey_500,
+											...tokens.typography.caption,
+										}}
+									>
+										여행
+									</MenuItem>
+									<MenuItem
+										value={'요리'}
+										style={{
+											color: tokens.colors.grey_500,
+											...tokens.typography.caption,
+										}}
+									>
+										요리
+									</MenuItem>
+									<MenuItem
+										value={'금융'}
+										style={{
+											color: tokens.colors.grey_500,
+											...tokens.typography.caption,
+										}}
+									>
+										금융
+									</MenuItem>
+								</Select>
+							</FormControl>
+						</div>
+
+						// </FeedMainS.TopNavBarCategoryItemArea>
+					)}
 				</FeedMainS.TopNavBar>
 
 				{nowLocation.pathname == '/feed/main' ? (
-					<FeedMainS.FeedMainScreen style={{ backgroundColor: 'white' }}>
+					<FeedMainS.FeedMainScreen>
 						<FeedAll></FeedAll>
 					</FeedMainS.FeedMainScreen>
 				) : (
-					<FeedMainS.FeedMainScreen
-						style={{ top: 0, height: '100vh', backgroundColor: 'white' }}
-					></FeedMainS.FeedMainScreen>
+					<FeedMainS.FeedMainScreen>
+						<FeedParticipation></FeedParticipation>
+					</FeedMainS.FeedMainScreen>
 				)}
 			</div>
 		</div>
