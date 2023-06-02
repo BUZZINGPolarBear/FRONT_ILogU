@@ -29,6 +29,10 @@ function FeedParticipation() {
 						</FeedparicipateS.FeedChallengeUserInfoDate>
 					</FeedparicipateS.FeedChallengeUserInfoWrapper>
 				</FeedparicipateS.FeedChallengeUserWrapper>
+
+				<FeedparicipateS.FeedPictureArea picUrl="/Feed/feed_sample.jpg"></FeedparicipateS.FeedPictureArea>
+
+				<FeedparicipateS.FeedChallengeContentWrapper></FeedparicipateS.FeedChallengeContentWrapper>
 			</FeedparicipateS.FeedChallengeWrapper>
 		</>
 	);

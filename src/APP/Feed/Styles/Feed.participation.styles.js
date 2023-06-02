@@ -3,8 +3,8 @@ import * as tokens from '../../../tokens';
 
 const defaultProfilePicUrl = '/Feed/Default_pfp.png';
 export const FeedChallengeWrapper = styled.div`
-	width: 95%;
-	height: 50vh;
+	width: 90%;
+	height: 60vh;
 	margin: auto;
 	margin-bottom: 3vh;
 
@@ -64,4 +64,26 @@ export const FeedChallengeUserInfo = styled.span`
 export const FeedChallengeUserInfoDate = styled.span`
 	color: ${tokens.colors.grey_200};
 	${tokens.typography.caption};
+`;
+
+export const FeedPictureArea = styled.div`
+	width: 100%;
+	height: 50%;
+	border-radius: 20px;
+	background-image: url(${(props) => props.picUrl});
+	background-size: cover;
+	background-position: center;
+	background-color: ${tokens.colors.grey_100};
+`;
+
+export const FeedChallengeContentWrapper = styled.div`
+	width: 100%;
+	height: 30%;
+	max-width: 720px;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	background-color: antiquewhite;
 `;
