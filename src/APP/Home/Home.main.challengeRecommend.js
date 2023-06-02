@@ -1,19 +1,19 @@
-import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import React, { useRef, useState } from 'react';
+import styled from 'styled-components';
 import {
 	RecoilRoot,
 	atom,
 	selector,
 	useRecoilState,
 	useRecoilValue,
-} from "recoil";
-import * as HomeS from "./Styles/Home.main.styles";
-import * as incomeS from "./Styles/Home.main.incomeCard.styles";
-import * as challengeS from "./Styles/Home.main.challengeRecommend.styles";
-import * as tokens from "../../tokens";
-import "swiper/swiper-bundle.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+} from 'recoil';
+import * as HomeS from './Styles/Home.main.styles';
+import * as incomeS from './Styles/Home.main.incomeCard.styles';
+import * as challengeS from './Styles/Home.main.challengeRecommend.styles';
+import * as tokens from '../../tokens';
+import 'swiper/swiper-bundle.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 SwiperCore.use([Scrollbar, A11y]);
 
@@ -26,7 +26,7 @@ function ChallengRecommendCard() {
 					<SwiperSlide>
 						<challengeS.HomeMainSwiperCard
 							style={{
-								backgroundImage: "url(/mainScreen/babyPicture.svg)",
+								backgroundImage: 'url(/mainScreen/babyPicture.svg)',
 							}}
 						>
 							<challengeS.SwiperInnerTextArea>
@@ -42,7 +42,7 @@ function ChallengRecommendCard() {
 					<SwiperSlide>
 						<challengeS.HomeMainSwiperCard
 							style={{
-								backgroundImage: "url(/mainScreen/babyPlayWith.svg)",
+								backgroundImage: 'url(/mainScreen/babyPlayWith.svg)',
 							}}
 						>
 							<challengeS.SwiperInnerTextArea>
@@ -58,7 +58,7 @@ function ChallengRecommendCard() {
 					<SwiperSlide>
 						<challengeS.HomeMainSwiperCard
 							style={{
-								backgroundImage: "url(/mainScreen/babyTravel.svg)",
+								backgroundImage: 'url(/mainScreen/babyTravel.svg)',
 							}}
 						>
 							<challengeS.SwiperInnerTextArea>
@@ -74,8 +74,8 @@ function ChallengRecommendCard() {
 					<SwiperSlide></SwiperSlide>
 				</challengeS.StyledSwiper>
 			</challengeS.HomeMainChallengeSwiperArea>
-			<div style={{ width: "90vw", display: "flex", alignItems: "center" }}>
-				<incomeS.HomeIncomeDetailViewBtn style={{ width: "100%" }}>
+			<div style={{ width: '90vw', display: 'flex', alignItems: 'center' }}>
+				<incomeS.HomeIncomeDetailViewBtn style={{ width: '100%' }}>
 					챌린지 도전하기
 				</incomeS.HomeIncomeDetailViewBtn>
 			</div>
