@@ -79,6 +79,12 @@ export const typography = {
 		fontSize: '14px',
 		letterSpacing: '0.25px',
 	},
+	body_3_SB: {
+		fontFamily: 'Noto Sans KR',
+		fontSize: '12px',
+		fontWeight: 600,
+		letterSpacing: '0.4px',
+	},
 	caption: {
 		fontFamily: 'Noto Sans KR',
 		fontSize: '12px',
