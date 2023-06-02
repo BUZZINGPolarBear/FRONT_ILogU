@@ -97,30 +97,48 @@ function FeedMain(props) {
 							onMouseUp={handleMouseUp}
 							onMouseMove={handleMouseMove}
 						>
-							{/* <challengeS.StyledSwiper
-								spaceBetween={150}
-								slidesPerView={2}
-							></challengeS.StyledSwiper> */}
-							<FeedMainS.TopNavBarCategoryItems
-								style={{
-									backgroundColor: tokens.colors.green_500,
-									color: 'white',
-								}}
-							>
-								전체
-							</FeedMainS.TopNavBarCategoryItems>
-							<FeedMainS.TopNavBarCategoryItems>
-								✈️여행
-							</FeedMainS.TopNavBarCategoryItems>
-							<FeedMainS.TopNavBarCategoryItems>
-								⚽️스포츠
-							</FeedMainS.TopNavBarCategoryItems>
-							<FeedMainS.TopNavBarCategoryItems>
-								🍳요리
-							</FeedMainS.TopNavBarCategoryItems>
-							<FeedMainS.TopNavBarCategoryItems>
-								🏦금융
-							</FeedMainS.TopNavBarCategoryItems>
+							<FeedMainS.StyledSwiper spaceBetween={7} slidesPerView={5}>
+								<SwiperSlide
+									style={{
+										width: '5px',
+									}}
+								></SwiperSlide>
+								<SwiperSlide>
+									<FeedMainS.TopNavBarCategoryItems
+										style={{
+											backgroundColor: tokens.colors.green_500,
+											color: 'white',
+										}}
+									>
+										전체
+									</FeedMainS.TopNavBarCategoryItems>
+								</SwiperSlide>
+								<SwiperSlide>
+									<FeedMainS.TopNavBarCategoryItems>
+										✈️여행
+									</FeedMainS.TopNavBarCategoryItems>
+								</SwiperSlide>
+								<SwiperSlide>
+									<FeedMainS.TopNavBarCategoryItems>
+										⚽️스포츠
+									</FeedMainS.TopNavBarCategoryItems>
+								</SwiperSlide>
+								<SwiperSlide>
+									<FeedMainS.TopNavBarCategoryItems>
+										🍳요리
+									</FeedMainS.TopNavBarCategoryItems>
+								</SwiperSlide>
+								<SwiperSlide>
+									<FeedMainS.TopNavBarCategoryItems>
+										🏦금융
+									</FeedMainS.TopNavBarCategoryItems>
+								</SwiperSlide>
+								<SwiperSlide
+									style={{
+										width: '5px',
+									}}
+								></SwiperSlide>
+							</FeedMainS.StyledSwiper>
 						</FeedMainS.TopNavBarCategoryItemArea>
 					) : null}
 				</FeedMainS.TopNavBar>

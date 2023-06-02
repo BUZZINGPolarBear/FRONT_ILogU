@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import * as tokens from "../../../tokens";
+import styled from 'styled-components';
+import * as tokens from '../../../tokens';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const TopNavBar = styled.div`
 	width: 100%;
@@ -52,7 +53,7 @@ export const FeedMainScreen = styled.div`
 `;
 
 export const TopNavBarCategoryItemArea = styled.div`
-	width: 110vw;
+	width: 100%;
 	// max-width: 100%;
 	position: relative;
 	height: 3.5vh;
@@ -79,4 +80,18 @@ export const TopNavBarCategoryItems = styled.div`
 	${tokens.typography.subtitle_2};
 	color: ${tokens.colors.grey_400};
 	background-color: rgba(192, 192, 192, 0.1);
+`;
+
+export const StyledSwiper = styled(Swiper)`
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+	height: 97%;
+`;
+
+export const StyledSwiperSlide = styled(SwiperSlide)`
+	width: 100%;
+	height: 100%;
+
+	overflow: hidden;
 `;
