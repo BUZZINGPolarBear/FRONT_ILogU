@@ -28,8 +28,8 @@ export const FeedChallengeUserWrapper = styled.div`
 `;
 
 export const FeedChallengeUserImage = styled.div`
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 	// background-color: ${tokens.colors.grey_100};
 
