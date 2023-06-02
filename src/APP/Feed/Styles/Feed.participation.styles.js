@@ -68,7 +68,7 @@ export const FeedChallengeUserInfoDate = styled.span`
 
 export const FeedPictureArea = styled.div`
 	width: 100%;
-	height: 50%;
+	height: 54%;
 	border-radius: 20px;
 	background-image: url(${(props) => props.picUrl});
 	background-size: cover;
