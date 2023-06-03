@@ -47,7 +47,7 @@ export const FeedMainScreen = styled.div`
 	top: 12vh;
 	height: fit-content;
 	position: relative;
-	padding-bottom: 10vh;
+	margin-bottom: 23vh;
 	background-color: white;
 	z-index: 1;
 `;

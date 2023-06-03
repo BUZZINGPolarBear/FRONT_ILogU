@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import * as tokens from "../../../tokens";
+import styled from 'styled-components';
+import * as tokens from '../../../tokens';
 
 export const HomeMainIncomeCard = styled.div`
 	width: 100%;
@@ -76,6 +76,7 @@ export const HomeIncomeInfoHeavyText = styled.span`
 
 export const HomeIncomeDetailViewBtn = styled.button`
 	width: 90%;
+	// max-width: 720px;
 	height: 5vh;
 	margin: auto;
 	cursor: pointer;

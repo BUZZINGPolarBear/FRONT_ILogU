@@ -6,7 +6,6 @@ export const FeedChallengeWrapper = styled.div`
 	width: 90%;
 	height: 60vh;
 	margin: auto;
-	margin-bottom: 3vh;
 
 	display: flex;
 	flex-direction: column;
