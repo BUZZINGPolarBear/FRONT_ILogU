@@ -45,7 +45,7 @@ export const TopTextArea = styled.div`
 	z-index: 9990;
 `;
 export const FeedWriteArea = styled.div`
-	position: fixed;
+	// position: fixed;
 	top: 7vh;
 
 	display: flex;
@@ -56,6 +56,7 @@ export const FeedWriteArea = styled.div`
 	width: 100vw;
 	max-width: 800px;
 	height: 93vh;
+	margin-bottom: 10vh;
 
 	background-color: rgb(250, 250, 250);
 `;
