@@ -1,14 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
 	RecoilRoot,
 	atom,
 	selector,
 	useRecoilState,
 	useRecoilValue,
-} from "recoil";
-import * as FeedAllS from "./Styles/Feed.all.styles";
-import * as FeedMainS from "./Styles/Feed.main.styles";
-import * as tokens from "../../tokens";
+} from 'recoil';
+import * as FeedAllS from './Styles/Feed.all.styles';
+import * as FeedMainS from './Styles/Feed.main.styles';
+import * as tokens from '../../../tokens';
 
 function FeedAll() {
 	return (
@@ -16,7 +16,7 @@ function FeedAll() {
 			<FeedAllS.FeedPictureArea>
 				<FeedAllS.FeedPictureArea_bigPicture></FeedAllS.FeedPictureArea_bigPicture>
 				<FeedAllS.FeedPictureArea_bigPicture
-					style={{ backgroundColor: "white" }}
+					style={{ backgroundColor: 'white' }}
 				>
 					<FeedAllS.FeedPictureArea_smallPicture></FeedAllS.FeedPictureArea_smallPicture>
 					<FeedAllS.FeedPictureArea_smallPicture></FeedAllS.FeedPictureArea_smallPicture>
@@ -25,7 +25,7 @@ function FeedAll() {
 
 			<FeedAllS.FeedPictureArea>
 				<FeedAllS.FeedPictureArea_bigPicture
-					style={{ backgroundColor: "white" }}
+					style={{ backgroundColor: 'white' }}
 				>
 					<FeedAllS.FeedPictureArea_smallPicture></FeedAllS.FeedPictureArea_smallPicture>
 					<FeedAllS.FeedPictureArea_smallPicture></FeedAllS.FeedPictureArea_smallPicture>
@@ -34,12 +34,12 @@ function FeedAll() {
 				<FeedAllS.FeedPictureArea_bigPicture></FeedAllS.FeedPictureArea_bigPicture>
 			</FeedAllS.FeedPictureArea>
 
-			<FeedAllS.FeedPictureArea style={{ height: "120px" }}>
+			<FeedAllS.FeedPictureArea style={{ height: '120px' }}>
 				<FeedAllS.FeedPictureArea_smallPicture
-					style={{ height: "120px", width: "48%" }}
+					style={{ height: '120px', width: '48%' }}
 				></FeedAllS.FeedPictureArea_smallPicture>
 				<FeedAllS.FeedPictureArea_smallPicture
-					style={{ height: "120px", width: "48%" }}
+					style={{ height: '120px', width: '48%' }}
 				></FeedAllS.FeedPictureArea_smallPicture>
 			</FeedAllS.FeedPictureArea>
 		</>

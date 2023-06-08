@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import "./App.css";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import './App.css';
 import {
 	RecoilRoot,
 	atom,
 	selector,
 	useRecoilState,
 	useRecoilValue,
-} from "recoil";
-import * as recoilMain from "./recoil/recoil.App";
-import HomeMain from "./APP/Home/Home.main";
-import FeedMain from "./APP/Feed/Feed.main";
-import * as tokens from "./tokens";
+} from 'recoil';
+import * as recoilMain from './recoil/recoil.App';
+import HomeMain from './APP/Home/Home.main';
+import FeedMain from './APP/Feed/getFeed/Feed.main';
+import * as tokens from './tokens';
 import {
 	BrowserRouter,
 	Route,
@@ -19,7 +19,7 @@ import {
 	useLocation,
 	Routes,
 	useNavigate,
-} from "react-router-dom";
+} from 'react-router-dom';
 function App() {
 	const MainScreen = styled.div`
 		// position: fixed;
@@ -63,7 +63,7 @@ function App() {
 	};
 	const navigateReoilSelectState = useRecoilValue(recoilMain.navigateRecoil);
 	const [navigateBtn, setNavigateBtn] = useRecoilState(
-		recoilMain.navigateRecoil
+		recoilMain.navigateRecoil,
 	);
 	return (
 		<div className="App">
@@ -82,8 +82,8 @@ function App() {
 				</Routes>
 			</MainScreen>
 			<BottomNavBar>
-				<NavImg onClick={(e) => handleNavClick(e, "home")}>
-					{navigateReoilSelectState === "home" ? (
+				<NavImg onClick={(e) => handleNavClick(e, 'home')}>
+					{navigateReoilSelectState === 'home' ? (
 						<img src="/bottomNavBar/home_clicked.svg" alt="home clicked"></img>
 					) : (
 						<img
@@ -92,8 +92,8 @@ function App() {
 						></img>
 					)}
 				</NavImg>
-				<NavImg onClick={(e) => handleNavClick(e, "finance")}>
-					{navigateReoilSelectState === "finance" ? (
+				<NavImg onClick={(e) => handleNavClick(e, 'finance')}>
+					{navigateReoilSelectState === 'finance' ? (
 						<img
 							src="/bottomNavBar/finance_clicked.svg"
 							alt="finance clicked"
@@ -105,9 +105,9 @@ function App() {
 						></img>
 					)}
 				</NavImg>
-				<NavImg onClick={(e) => handleNavClick(e, "feed/main")}>
-					{navigateReoilSelectState === "feed/main" ||
-					navigateReoilSelectState === "feed/participation" ? (
+				<NavImg onClick={(e) => handleNavClick(e, 'feed/main')}>
+					{navigateReoilSelectState === 'feed/main' ||
+					navigateReoilSelectState === 'feed/participation' ? (
 						<img src="/bottomNavBar/feed_clicked.svg" alt="feed clicked"></img>
 					) : (
 						<img
@@ -116,8 +116,8 @@ function App() {
 						></img>
 					)}
 				</NavImg>
-				<NavImg onClick={(e) => handleNavClick(e, "challenge")}>
-					{navigateReoilSelectState === "challenge" ? (
+				<NavImg onClick={(e) => handleNavClick(e, 'challenge')}>
+					{navigateReoilSelectState === 'challenge' ? (
 						<img
 							src="/bottomNavBar/challenge_clicked.svg"
 							alt="challenge clicked"
@@ -129,8 +129,8 @@ function App() {
 						></img>
 					)}
 				</NavImg>
-				<NavImg onClick={(e) => handleNavClick(e, "mypage")}>
-					{navigateReoilSelectState === "mypage" ? (
+				<NavImg onClick={(e) => handleNavClick(e, 'mypage')}>
+					{navigateReoilSelectState === 'mypage' ? (
 						<img
 							src="/bottomNavBar/mypage_clicked.svg"
 							alt="mypage clicked"

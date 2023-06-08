@@ -9,7 +9,7 @@ import {
 	useNavigate,
 } from 'react-router-dom';
 import * as FeedMainS from './Styles/Feed.main.styles';
-import * as tokens from '../../tokens';
+import * as tokens from '../../../tokens';
 
 import FeedAll from './Feed.all';
 import FeedParticipation from './Feed.participation';

@@ -8,7 +8,7 @@ import {
 	Routes,
 	useNavigate,
 } from 'react-router-dom';
-import * as tokens from '../../tokens';
+import * as tokens from '../../../tokens';
 import * as FeedMainS from './Styles/Feed.main.styles';
 import * as FeedparicipateS from './Styles/Feed.participation.styles';
 
