@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import {
 	BrowserRouter,
@@ -29,6 +29,7 @@ function FeedTitle(props) {
 	const [clicked, setClicked] = useState(false);
 	const [value, setValue] = useState(props.category);
 	const [isDragging, setIsDragging] = useState(false);
+	const [inputValue, setInputValue] = useState('');
 
 	//Drop Down
 	const handleChange = (event) => {
@@ -56,7 +57,7 @@ function FeedTitle(props) {
 		event.target.scrollLeft -= deltaX; // 가로 스크롤 이동
 	};
 
-	//Bulma InputBoxconst
+	//Bulma InputBox
 	const bulmaInputStyles = clicked
 		? {
 				border: `solid 2px ${tokens.colors.green_500}`,
@@ -68,6 +69,10 @@ function FeedTitle(props) {
 				boxShadow: 'none',
 				height: '60px',
 		  };
+
+	const handleInputChange = (event) => {
+		setInputValue(event.target.value);
+	};
 
 	return (
 		<>
@@ -186,6 +191,7 @@ function FeedTitle(props) {
 						<div className="field">
 							<div className="control">
 								<input
+									onChange={handleInputChange}
 									autoFocus
 									className="input"
 									type="text"
@@ -210,7 +216,11 @@ function FeedTitle(props) {
 					</titleS.FeedCategoryInputWrapper>
 				</titleS.FeedCategory>
 			</infoS.FeedCategorySelectArea>
-			<infoS.FeedWriteSubmitArea>다음</infoS.FeedWriteSubmitArea>
+			<infoS.FeedWriteSubmitArea
+				is_category_selected={inputValue.length > 0 ? true : false}
+			>
+				다음
+			</infoS.FeedWriteSubmitArea>
 		</>
 	);
 }
