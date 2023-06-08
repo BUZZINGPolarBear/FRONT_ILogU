@@ -11,6 +11,7 @@ import {
 import * as recoilMain from './recoil/recoil.App';
 import HomeMain from './APP/Home/Home.main';
 import FeedMain from './APP/Feed/getFeed/Feed.main';
+import FeedWrite from './APP/Feed/writeFeed/writeFeed.info';
 import * as tokens from './tokens';
 import {
 	BrowserRouter,
@@ -78,6 +79,7 @@ function App() {
 						path="/feed/participation"
 						element={<FeedMain setNavigateBtn={setNavigateBtn} />}
 					/>
+					<Route path="/feed/write" element={<FeedWrite></FeedWrite>} />
 					<Route path="*" element={<HomeMain />} />
 				</Routes>
 			</MainScreen>
