@@ -133,6 +133,9 @@ function FeedParticipation() {
 					</FeedparicipateS.FeedChallengeTopBottomWrapper>
 				</FeedparicipateS.FeedChallengeContentWrapper>
 			</FeedparicipateS.FeedChallengeWrapper>
+			<FeedMainS.WriteFeedIconArea>
+				<FeedMainS.WriteFeedIcon></FeedMainS.WriteFeedIcon>
+			</FeedMainS.WriteFeedIconArea>
 		</>
 	);
 }

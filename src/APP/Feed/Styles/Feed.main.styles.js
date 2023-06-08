@@ -103,3 +103,29 @@ export const DropdownCustom = styled.div`
 	border-radius: 40px;
 	background-color: ${tokens.colors.grey_50};
 `;
+
+export const WriteFeedIconArea = styled.div`
+	position: fixed;
+	bottom: 11vh;
+	right: 3vw;
+	width: 48px;
+	height: 48px;
+	border-radius: 20px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: #1dcb9d;
+	box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
+	z-index: 9999;
+`;
+
+export const WriteFeedIcon = styled.div`
+	width: 18px;
+	height: 18px;
+
+	background-image: url('/Feed/write_feed.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+`;
