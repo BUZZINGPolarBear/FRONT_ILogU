@@ -62,7 +62,6 @@ function FeedMain(props) {
 	};
 
 	const handWriteFeedClick = (e, type) => {
-		e.preventDefault();
 		navigate(`/feed/write`);
 	};
 	return (

@@ -110,6 +110,11 @@ export const FeedCategory = styled.div`
 
 	border-radius: 10px;
 	background-color: white;
+
+	${(props) =>
+		props.isSelected == true
+			? `border: solid 2px ${tokens.colors.green_500}; background-color: rgba(26,185,143, 0.2);`
+			: `border: none; `}
 `;
 
 export const FeedCategoryImg = styled.div`
@@ -150,7 +155,7 @@ export const FeedWriteSubmitArea = styled.div`
 	text-align: center;
 	${tokens.typography.subtitle_1};
 	${(props) =>
-		props.isSelected == false
+		props.isCategorySelected == false
 			? `background-color: ${tokens.colors.grey_100}; cursor: not-allowed;`
 			: `background-color: ${tokens.colors.green_500}; cursor: pointer;`}
 `;

@@ -58,7 +58,7 @@ function App() {
 	const navigate = useNavigate();
 
 	const handleNavClick = (e, type) => {
-		e.preventDefault();
+		// e.preventDefault();
 		navigate(`/${type}`);
 		setNavigateBtn(type);
 	};
