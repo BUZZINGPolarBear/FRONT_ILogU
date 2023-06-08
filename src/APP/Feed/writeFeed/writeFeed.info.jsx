@@ -19,27 +19,19 @@ import * as tokens from '../../../tokens';
 function FeedWrite(props) {
 	const navigate = useNavigate();
 	const handleBackwardClick = (e) => {
+		e.preventDefault();
 		navigate(`/feed/main`);
 	};
-	const [writeStatusRecoil, setWriteStatusRecoil] = useRecoilState(
-		feedRecoil.writeStatusRecoil,
-	);
 	return (
 		<>
 			<infoS.TopNavBar>
 				<infoS.TopBackwardArea
-					onClick={handleBackwardClick()}
+					onClick={(e) => handleBackwardClick(e)}
 				></infoS.TopBackwardArea>
 				<infoS.TopTextArea>기록하기</infoS.TopTextArea>
 			</infoS.TopNavBar>
 			<infoS.FeedWriteArea>
-				{writeStatusRecoil == 'select category' ? (
-					<FeedCategory></FeedCategory>
-				) : writeStatusRecoil == 'select title' ? (
-					<div>타이틀 설정 화면</div>
-				) : (
-					<div></div>
-				)}
+				<FeedCategory></FeedCategory>
 			</infoS.FeedWriteArea>
 		</>
 	);

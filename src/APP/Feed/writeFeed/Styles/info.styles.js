@@ -9,6 +9,7 @@ export const TopNavBar = styled.div`
 	justify-content: space-between;
 
 	width: 100vw;
+	max-width: 800px;
 	height: 7vh;
 
 	border-bottom: solid 1px ${tokens.colors.grey_50};
@@ -30,6 +31,7 @@ export const TopBackwardArea = styled.div`
 `;
 export const TopTextArea = styled.div`
 	width: 100%;
+	max-width: 800px;
 	height: 7vh;
 	position: fixed;
 
@@ -52,6 +54,7 @@ export const FeedWriteArea = styled.div`
 	justify-content: space-around;
 
 	width: 100vw;
+	max-width: 800px;
 	height: 93vh;
 
 	background-color: rgb(250, 250, 250);
@@ -112,7 +115,7 @@ export const FeedCategory = styled.div`
 	background-color: white;
 
 	${(props) =>
-		props.isSelected == true
+		props.is_selected == true
 			? `border: solid 2px ${tokens.colors.green_500}; background-color: rgba(26,185,143, 0.2);`
 			: `border: none; `}
 `;
@@ -155,7 +158,7 @@ export const FeedWriteSubmitArea = styled.div`
 	text-align: center;
 	${tokens.typography.subtitle_1};
 	${(props) =>
-		props.isCategorySelected == false
+		props.is_category_selected == false
 			? `background-color: ${tokens.colors.grey_100}; cursor: not-allowed;`
 			: `background-color: ${tokens.colors.green_500}; cursor: pointer;`}
 `;
