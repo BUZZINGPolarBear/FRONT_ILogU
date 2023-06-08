@@ -43,8 +43,64 @@ export const FeedWriteArea = styled.div`
 	position: fixed;
 	top: 7vh;
 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+
 	width: 100vw;
-	height: 90vh;
+	height: 93vh;
 
 	background-color: white;
+`;
+
+export const FeedCatergoryTitleArea = styled.div`
+	width: 95%;
+	height: 25%;
+	margin: auto;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+`;
+
+export const FeedCategorySelectArea = styled.div`
+	width: 95%;
+	height: 50%;
+	margin: auto;
+
+	position: relative;
+	bakcground-color: #a8f0ff;
+`;
+
+export const FeedTitleMain = styled.h1`
+	color: ${tokens.colors.green_600};
+	${tokens.typography.headline_5};
+`;
+
+export const FeedSubTitleMain = styled.span`
+	color: ${tokens.colors.grey_300};
+	${tokens.typography.caption};
+`;
+
+export const FeedWriteSubmitArea = styled.div`
+	width: 90%;
+	height: 55px;
+	margin: auto;
+	border-radius: 20px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: relative;
+	color: #ffffff;
+	text-align: center;
+	${tokens.typography.subtitle_1};
+	${(props) =>
+		props.isSelected == false
+			? `background-color: ${tokens.colors.grey_100}; cursor: not-allowed;`
+			: `background-color: ${tokens.colors.green_500}; cursor: pointer;`}
 `;

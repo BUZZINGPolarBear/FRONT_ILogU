@@ -65,7 +65,7 @@ export const typography = {
 	subtitle_1: {
 		fontFamily: 'Noto Sans KR',
 		fontWeight: 400,
-		fontSize: '14px',
+		fontSize: '16px',
 		letterSpacing: '0.15px',
 	},
 	sub: {
