@@ -8,6 +8,8 @@ import {
 	Routes,
 	useNavigate,
 } from 'react-router-dom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import * as feedRecoil from './recoil/recoild.feed';
 
 import * as infoS from './Styles/info.styles';
 import * as tokens from '../../../tokens';
@@ -15,10 +17,17 @@ import * as tokens from '../../../tokens';
 function FeedCategory() {
 	const [isSelected, setIsSelected] = useState(false);
 	const [selectCategory, setSelectCategory] = useState('none');
+	const [writeStatusRecoil, setWriteStatusRecoil] = useRecoilState(
+		feedRecoil.writeStatusRecoil,
+	);
 
 	const handleCaterogyClick = (e, category) => {
 		setIsSelected(true);
 		setSelectCategory(category);
+	};
+
+	const handleNextBtnClick = () => {
+		setWriteStatusRecoil('select title');
 	};
 
 	return (
@@ -77,7 +86,10 @@ function FeedCategory() {
 					></infoS.FeedCategory>
 				</infoS.FeedCategoryWrapper>
 			</infoS.FeedCategorySelectArea>
-			<infoS.FeedWriteSubmitArea isCategorySelected={isSelected}>
+			<infoS.FeedWriteSubmitArea
+				isCategorySelected={isSelected}
+				onClick={handleNextBtnClick()}
+			>
 				다음
 			</infoS.FeedWriteSubmitArea>
 		</>

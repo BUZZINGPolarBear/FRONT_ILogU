@@ -8,6 +8,8 @@ import {
 	Routes,
 	useNavigate,
 } from 'react-router-dom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import * as feedRecoil from './recoil/recoild.feed';
 
 import FeedCategory from './writeFeed.category';
 
@@ -19,7 +21,9 @@ function FeedWrite(props) {
 	const handleBackwardClick = (e) => {
 		navigate(`/feed/main`);
 	};
-
+	const [writeStatusRecoil, setWriteStatusRecoil] = useRecoilState(
+		feedRecoil.writeStatusRecoil,
+	);
 	return (
 		<>
 			<infoS.TopNavBar>
@@ -29,7 +33,13 @@ function FeedWrite(props) {
 				<infoS.TopTextArea>기록하기</infoS.TopTextArea>
 			</infoS.TopNavBar>
 			<infoS.FeedWriteArea>
-				<FeedCategory></FeedCategory>
+				{writeStatusRecoil == 'select category' ? (
+					<FeedCategory></FeedCategory>
+				) : writeStatusRecoil == 'select title' ? (
+					<div>타이틀 설정 화면</div>
+				) : (
+					<div></div>
+				)}
 			</infoS.FeedWriteArea>
 		</>
 	);
