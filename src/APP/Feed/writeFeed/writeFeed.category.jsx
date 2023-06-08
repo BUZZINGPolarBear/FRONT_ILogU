@@ -30,7 +30,7 @@ function FeedCategory() {
 
 	const handleNextBtnClick = (e) => {
 		e.preventDefault();
-		navigate('/feed/write?type=title');
+		navigate(`/feed/write?type=title&category=${selectCategory}`);
 	};
 
 	return (
@@ -91,7 +91,7 @@ function FeedCategory() {
 			</infoS.FeedCategorySelectArea>
 			<infoS.FeedWriteSubmitArea
 				is_category_selected={isSelected}
-				onClick={(e) => handleNextBtnClick(e)}
+				onClick={(e) => handleNextBtnClick(e, selectCategory)}
 			>
 				다음
 			</infoS.FeedWriteSubmitArea>

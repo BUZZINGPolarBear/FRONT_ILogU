@@ -19,7 +19,7 @@ export const TopNavBar = styled.div`
 `;
 export const TopBackwardArea = styled.div`
 	width: 15%;
-	height: 100%;
+	height: 7vh;
 	position: fixed;
 
 	background-image: url('/Feed/writeFeed/backward.svg');
