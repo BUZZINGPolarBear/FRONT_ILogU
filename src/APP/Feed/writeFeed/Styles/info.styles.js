@@ -94,7 +94,7 @@ export const FeedSubTitleMain = styled.span`
 
 export const FeedCategoryWrapper = styled.div`
 	width: 95%;
-	height: 85px;
+	height: fit-content;
 	margin: auto;
 	margin-bottom: 10px;
 
@@ -105,9 +105,9 @@ export const FeedCategoryWrapper = styled.div`
 
 export const FeedCategory = styled.div`
 	position: relative;
-	width: 40%;
-	height: 50%;
-	padding: 15px;
+	width: 48%;
+	height: 40%;
+	padding: 10px;
 
 	display: flex;
 	align-items: center;
@@ -122,8 +122,9 @@ export const FeedCategory = styled.div`
 `;
 
 export const FeedCategoryImg = styled.div`
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
+	border-radius: 10px;
 
 	display: flex;
 	flex-direction: column;

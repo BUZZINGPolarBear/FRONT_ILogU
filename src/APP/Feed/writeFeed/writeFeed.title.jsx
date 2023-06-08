@@ -25,36 +25,14 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Button, makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-	defaultBorder: {
-		borderColor: tokens.colors.grey_50,
-	},
-	clickedBorder: {
-		borderColor: tokens.colors.green_500,
-	},
-}));
-
 function FeedTitle(props) {
-	const classes = useStyles();
-	const [isActive, setIsActive] = useState(false);
-	const onClick = () => {
-		setIsActive(!isActive);
-	};
-	const [isDragging, setIsDragging] = useState(false); // 드래그 여부 상태 관리
-
-	const nowLocation = useLocation();
-	const navigate = useNavigate();
-	const [active, setActive] = useState(false);
-	const [value, setValue] = React.useState(props.category);
+	const [clicked, setClicked] = useState(false);
+	const [value, setValue] = useState(props.category);
+	const [isDragging, setIsDragging] = useState(false);
 
 	//Drop Down
 	const handleChange = (event) => {
 		setValue(event.target.value);
-	};
-
-	const handleNavBtnClick = (e, type) => {
-		e.preventDefault();
-		navigate(`/${type}`);
 	};
 
 	const handleMouseDown = (event) => {
@@ -78,6 +56,19 @@ function FeedTitle(props) {
 		event.target.scrollLeft -= deltaX; // 가로 스크롤 이동
 	};
 
+	//Bulma InputBoxconst
+	const bulmaInputStyles = clicked
+		? {
+				border: `solid 2px ${tokens.colors.green_500}`,
+				height: '60px',
+				boxShadow: 'none',
+		  }
+		: {
+				border: `solid 2px ${tokens.colors.green_500}`,
+				boxShadow: 'none',
+				height: '60px',
+		  };
+
 	return (
 		<>
 			<infoS.FeedCatergoryTitleArea>
@@ -88,113 +79,135 @@ function FeedTitle(props) {
 			</infoS.FeedCatergoryTitleArea>
 			<infoS.FeedCategorySelectArea>
 				<titleS.FeedCategory>
-					<FormControl
-						sx={{
-							m: 1,
-							width: '140px',
-							height: '70px',
-							borderColor: '#ffffff',
-						}}
-					>
-						<Select
-							value={value}
-							onChange={handleChange}
-							// displayEmpty
-							inputProps={{ 'aria-label': 'Without label' }}
-							displayEmpty
-							style={{
-								borderRadius: '10px',
-								...tokens.typography.subtitle_1_SB,
+					<titleS.FeedCategoryInputWrapper>
+						<FormControl
+							sx={{
+								m: 1,
+								width: '140px',
+
+								borderColor: '#ffffff',
 							}}
 						>
-							<MenuItem
-								value="여행"
+							<Select
+								value={value}
+								onChange={handleChange}
+								// displayEmpty
+								inputProps={{ 'aria-label': 'Without label' }}
+								displayEmpty
 								style={{
-									color: tokens.colors.grey_500,
-									textAlign: 'left',
+									borderRadius: '10px',
+									height: '60px',
+									display: 'flex',
 									...tokens.typography.subtitle_1_SB,
 								}}
 							>
-								<span
+								<MenuItem
+									value="여행"
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									✈️
-								</span>
-								여행
-							</MenuItem>
-							<MenuItem
-								value={'스포츠'}
-								style={{
-									color: tokens.colors.grey_500,
-									...tokens.typography.subtitle_1_SB,
-								}}
-							>
-								<span
+									<span
+										style={{
+											marginRight: '10px',
+										}}
+									>
+										✈️
+									</span>
+									여행
+								</MenuItem>
+								<MenuItem
+									value={'스포츠'}
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									⚽️
-								</span>
-								스포츠
-							</MenuItem>
-							<MenuItem
-								value={'요리'}
-								style={{
-									color: tokens.colors.grey_500,
-									...tokens.typography.subtitle_1_SB,
-								}}
-							>
-								<span
+									<span
+										style={{
+											marginRight: '10px',
+										}}
+									>
+										⚽️
+									</span>
+									스포츠
+								</MenuItem>
+								<MenuItem
+									value={'요리'}
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									🍳
-								</span>
-								요리
-							</MenuItem>
-							<MenuItem
-								value={'금융'}
-								style={{
-									color: tokens.colors.grey_500,
-									...tokens.typography.subtitle_1_SB,
-								}}
-							>
-								<span
+									<span
+										style={{
+											marginRight: '10px',
+										}}
+									>
+										🍳
+									</span>
+									요리
+								</MenuItem>
+								<MenuItem
+									value={'금융'}
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									🏦
-								</span>
-								금융
-							</MenuItem>
-							<MenuItem
-								value={'일상'}
-								style={{
-									color: tokens.colors.grey_500,
-									...tokens.typography.subtitle_1_SB,
-								}}
-							>
-								<span
+									<span
+										style={{
+											marginRight: '10px',
+										}}
+									>
+										🏦
+									</span>
+									금융
+								</MenuItem>
+								<MenuItem
+									value={'일상'}
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									👩‍👩‍👧‍👦
-								</span>
-								일상
-							</MenuItem>
-						</Select>
-					</FormControl>
+									<span
+										style={{
+											marginRight: '10px',
+										}}
+									>
+										👩‍👩‍👧‍👦
+									</span>
+									일상
+								</MenuItem>
+							</Select>
+						</FormControl>
+						<div className="field">
+							<div className="control">
+								<input
+									autoFocus
+									className="input"
+									type="text"
+									onClicked={() => setClicked(true)}
+									placeholder={
+										value == '여행'
+											? '#아이와 함께 경주'
+											: value == '스포츠'
+											? '#아이와 함께 축구'
+											: value == '요리'
+											? '#아이와 함께 제빵'
+											: value == '금융'
+											? '#아이와 함께 하나은행'
+											: value == '기타'
+											? '#아이와 추억쌓기'
+											: '#아이와 추억쌓기'
+									}
+									style={bulmaInputStyles}
+								/>
+							</div>
+						</div>
+					</titleS.FeedCategoryInputWrapper>
 				</titleS.FeedCategory>
 			</infoS.FeedCategorySelectArea>
 			<infoS.FeedWriteSubmitArea>다음</infoS.FeedWriteSubmitArea>
