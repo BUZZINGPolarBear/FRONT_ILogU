@@ -33,7 +33,37 @@ function FeedWrite(props) {
 								참여 중인 챌린지 카테고리 중 선택할 수 있어요!
 							</infoS.FeedSubTitleMain>
 						</infoS.FeedCatergoryTitleArea>
-						<infoS.FeedCategorySelectArea></infoS.FeedCategorySelectArea>
+						<infoS.FeedCategorySelectArea>
+							<infoS.FeedCategoryWrapper>
+								<infoS.FeedCategory>
+									<infoS.FeedCategoryImg>✈️</infoS.FeedCategoryImg>
+									<infoS.FeedCategoryText>여행</infoS.FeedCategoryText>
+								</infoS.FeedCategory>
+								<infoS.FeedCategory>
+									<infoS.FeedCategoryImg>⚽️</infoS.FeedCategoryImg>
+									<infoS.FeedCategoryText>스포츠</infoS.FeedCategoryText>
+								</infoS.FeedCategory>
+							</infoS.FeedCategoryWrapper>
+							<infoS.FeedCategoryWrapper>
+								<infoS.FeedCategory>
+									<infoS.FeedCategoryImg>🍳</infoS.FeedCategoryImg>
+									<infoS.FeedCategoryText>요리</infoS.FeedCategoryText>
+								</infoS.FeedCategory>
+								<infoS.FeedCategory>
+									<infoS.FeedCategoryImg>🏦</infoS.FeedCategoryImg>
+									<infoS.FeedCategoryText>금융</infoS.FeedCategoryText>
+								</infoS.FeedCategory>
+							</infoS.FeedCategoryWrapper>
+							<infoS.FeedCategoryWrapper>
+								<infoS.FeedCategory>
+									<infoS.FeedCategoryImg>👩‍👩‍👧‍👦</infoS.FeedCategoryImg>
+									<infoS.FeedCategoryText>일상</infoS.FeedCategoryText>
+								</infoS.FeedCategory>
+								<infoS.FeedCategory
+									style={{ backgroundColor: 'rgb(250, 250, 250)' }}
+								></infoS.FeedCategory>
+							</infoS.FeedCategoryWrapper>
+						</infoS.FeedCategorySelectArea>
 						<infoS.FeedWriteSubmitArea isSelected={isSelected}>
 							다음
 						</infoS.FeedWriteSubmitArea>

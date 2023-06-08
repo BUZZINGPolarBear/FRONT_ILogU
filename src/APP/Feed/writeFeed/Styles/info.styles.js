@@ -19,18 +19,19 @@ export const TopNavBar = styled.div`
 export const TopBackwardArea = styled.div`
 	width: 15%;
 	height: 100%;
-	position: relative;
+	position: fixed;
 
 	background-image: url('/Feed/writeFeed/backward.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 
 	background-color: #fffff;
+	z-index: 9999;
 `;
 export const TopTextArea = styled.div`
-	width: 85%;
-	height: 100%;
-	position: relative;
+	width: 100%;
+	height: 7vh;
+	position: fixed;
 
 	display: flex;
 	align-items: center;
@@ -38,6 +39,8 @@ export const TopTextArea = styled.div`
 
 	color: #000000;
 	${tokens.typography.subtitle_1_SB};
+
+	z-index: 9990;
 `;
 export const FeedWriteArea = styled.div`
 	position: fixed;
@@ -51,7 +54,7 @@ export const FeedWriteArea = styled.div`
 	width: 100vw;
 	height: 93vh;
 
-	background-color: white;
+	background-color: rgb(250, 250, 250);
 `;
 
 export const FeedCatergoryTitleArea = styled.div`
@@ -85,6 +88,53 @@ export const FeedSubTitleMain = styled.span`
 	${tokens.typography.caption};
 `;
 
+export const FeedCategoryWrapper = styled.div`
+	width: 95%;
+	height: 85px;
+	margin: auto;
+	margin-bottom: 10px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+`;
+
+export const FeedCategory = styled.div`
+	position: relative;
+	width: 40%;
+	height: 50%;
+	padding: 15px;
+
+	display: flex;
+	align-items: center;
+
+	border-radius: 10px;
+	background-color: white;
+`;
+
+export const FeedCategoryImg = styled.div`
+	width: 40px;
+	height: 40px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	${tokens.typography.subtitle_1_SB};
+	background-color: ${tokens.colors.green_50};
+`;
+
+export const FeedCategoryText = styled.div`
+	width: 100px;
+	height: 40px;
+
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+	color: ${tokens.colors.grey_500};
+	${tokens.typography.subtitle_1_SB};
+`;
 export const FeedWriteSubmitArea = styled.div`
 	width: 90%;
 	height: 55px;
