@@ -25,17 +25,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Button, makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-	defaultBorder: {
-		borderColor: tokens.colors.grey_50,
-	},
-	clickedBorder: {
-		borderColor: tokens.colors.green_500,
-	},
-}));
-
 function FeedTitle(props) {
-	const classes = useStyles();
 	const [isActive, setIsActive] = useState(false);
 	const onClick = () => {
 		setIsActive(!isActive);
@@ -88,113 +78,138 @@ function FeedTitle(props) {
 			</infoS.FeedCatergoryTitleArea>
 			<infoS.FeedCategorySelectArea>
 				<titleS.FeedCategory>
-					<FormControl
-						sx={{
-							m: 1,
-							width: '140px',
-							height: '70px',
-							borderColor: '#ffffff',
-						}}
-					>
-						<Select
-							value={value}
-							onChange={handleChange}
-							// displayEmpty
-							inputProps={{ 'aria-label': 'Without label' }}
-							displayEmpty
-							style={{
-								borderRadius: '10px',
-								...tokens.typography.subtitle_1_SB,
+					<titleS.FeedCategoryInputWrapper>
+						<FormControl
+							sx={{
+								m: 1,
+								width: '140px',
+
+								borderColor: '#ffffff',
 							}}
 						>
-							<MenuItem
-								value="여행"
+							<Select
+								value={value}
+								onChange={handleChange}
+								// displayEmpty
+								inputProps={{ 'aria-label': 'Without label' }}
+								displayEmpty
 								style={{
-									color: tokens.colors.grey_500,
-									textAlign: 'left',
+									borderRadius: '10px',
+									height: '60px',
 									...tokens.typography.subtitle_1_SB,
 								}}
 							>
-								<span
+								<MenuItem
+									value="여행"
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										textAlign: 'left',
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									✈️
-								</span>
-								여행
-							</MenuItem>
-							<MenuItem
-								value={'스포츠'}
-								style={{
-									color: tokens.colors.grey_500,
-									...tokens.typography.subtitle_1_SB,
-								}}
-							>
-								<span
+									<span
+										style={{
+											backgroundColor: tokens.colors.green_50,
+											marginRight: '10px',
+										}}
+									>
+										✈️
+									</span>
+									여행
+								</MenuItem>
+								<MenuItem
+									value={'스포츠'}
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									⚽️
-								</span>
-								스포츠
-							</MenuItem>
-							<MenuItem
-								value={'요리'}
-								style={{
-									color: tokens.colors.grey_500,
-									...tokens.typography.subtitle_1_SB,
-								}}
-							>
-								<span
+									<span
+										style={{
+											backgroundColor: tokens.colors.green_50,
+											marginRight: '10px',
+										}}
+									>
+										⚽️
+									</span>
+									스포츠
+								</MenuItem>
+								<MenuItem
+									value={'요리'}
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									🍳
-								</span>
-								요리
-							</MenuItem>
-							<MenuItem
-								value={'금융'}
-								style={{
-									color: tokens.colors.grey_500,
-									...tokens.typography.subtitle_1_SB,
-								}}
-							>
-								<span
+									<span
+										style={{
+											backgroundColor: tokens.colors.green_50,
+											marginRight: '10px',
+										}}
+									>
+										🍳
+									</span>
+									요리
+								</MenuItem>
+								<MenuItem
+									value={'금융'}
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									🏦
-								</span>
-								금융
-							</MenuItem>
-							<MenuItem
-								value={'일상'}
-								style={{
-									color: tokens.colors.grey_500,
-									...tokens.typography.subtitle_1_SB,
-								}}
-							>
-								<span
+									<span
+										style={{
+											backgroundColor: tokens.colors.green_50,
+											marginRight: '10px',
+										}}
+									>
+										🏦
+									</span>
+									금융
+								</MenuItem>
+								<MenuItem
+									value={'일상'}
 									style={{
-										backgroundColor: tokens.colors.green_50,
-										marginRight: '10px',
+										color: tokens.colors.grey_500,
+										...tokens.typography.subtitle_1_SB,
 									}}
 								>
-									👩‍👩‍👧‍👦
-								</span>
-								일상
-							</MenuItem>
-						</Select>
-					</FormControl>
+									<span
+										style={{
+											backgroundColor: tokens.colors.green_50,
+											marginRight: '10px',
+										}}
+									>
+										👩‍👩‍👧‍👦
+									</span>
+									일상
+								</MenuItem>
+							</Select>
+						</FormControl>
+						<div className="field">
+							<div className="control">
+								<input
+									className="input"
+									type="text"
+									placeholder={
+										value == '여행'
+											? '#아이와 함께 경주'
+											: value == '스포츠'
+											? '#아이와 함께 축구'
+											: value == '요리'
+											? '#아이와 함께 제빵'
+											: value == '금융'
+											? '#아이와 함께 하나은행'
+											: value == '기타'
+											? '#아이와 추억쌓기'
+											: '#아이와 추억쌓기'
+									}
+									style={{ height: '60px' }}
+								/>
+							</div>
+						</div>
+					</titleS.FeedCategoryInputWrapper>
 				</titleS.FeedCategory>
 			</infoS.FeedCategorySelectArea>
 			<infoS.FeedWriteSubmitArea>다음</infoS.FeedWriteSubmitArea>
