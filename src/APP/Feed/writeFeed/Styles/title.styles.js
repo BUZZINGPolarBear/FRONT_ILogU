@@ -22,3 +22,15 @@ export const FeedCategoryInputWrapper = styled.div`
 	align-items: center;
 	justify-content: space-around;
 `;
+
+export const FeedCategoryImageSpan = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+
+	background-color: ${tokens.colors.green_50};
+`;

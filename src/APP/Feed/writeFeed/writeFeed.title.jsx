@@ -26,25 +26,13 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Button, makeStyles } from '@material-ui/core';
 
 function FeedTitle(props) {
-	const [isActive, setIsActive] = useState(false);
-	const onClick = () => {
-		setIsActive(!isActive);
-	};
-	const [isDragging, setIsDragging] = useState(false); // 드래그 여부 상태 관리
-
-	const nowLocation = useLocation();
-	const navigate = useNavigate();
-	const [active, setActive] = useState(false);
-	const [value, setValue] = React.useState(props.category);
+	const [clicked, setClicked] = useState(false);
+	const [value, setValue] = useState(props.category);
+	const [isDragging, setIsDragging] = useState(false);
 
 	//Drop Down
 	const handleChange = (event) => {
 		setValue(event.target.value);
-	};
-
-	const handleNavBtnClick = (e, type) => {
-		e.preventDefault();
-		navigate(`/${type}`);
 	};
 
 	const handleMouseDown = (event) => {
@@ -67,6 +55,19 @@ function FeedTitle(props) {
 		console.log(deltaX);
 		event.target.scrollLeft -= deltaX; // 가로 스크롤 이동
 	};
+
+	//Bulma InputBoxconst
+	const bulmaInputStyles = clicked
+		? {
+				border: `solid 2px ${tokens.colors.green_500}`,
+				height: '60px',
+				boxShadow: 'none',
+		  }
+		: {
+				border: `solid 2px ${tokens.colors.green_500}`,
+				boxShadow: 'none',
+				height: '60px',
+		  };
 
 	return (
 		<>
@@ -96,6 +97,7 @@ function FeedTitle(props) {
 								style={{
 									borderRadius: '10px',
 									height: '60px',
+									display: 'flex',
 									...tokens.typography.subtitle_1_SB,
 								}}
 							>
@@ -103,13 +105,11 @@ function FeedTitle(props) {
 									value="여행"
 									style={{
 										color: tokens.colors.grey_500,
-										textAlign: 'left',
 										...tokens.typography.subtitle_1_SB,
 									}}
 								>
 									<span
 										style={{
-											backgroundColor: tokens.colors.green_50,
 											marginRight: '10px',
 										}}
 									>
@@ -126,7 +126,6 @@ function FeedTitle(props) {
 								>
 									<span
 										style={{
-											backgroundColor: tokens.colors.green_50,
 											marginRight: '10px',
 										}}
 									>
@@ -143,7 +142,6 @@ function FeedTitle(props) {
 								>
 									<span
 										style={{
-											backgroundColor: tokens.colors.green_50,
 											marginRight: '10px',
 										}}
 									>
@@ -160,7 +158,6 @@ function FeedTitle(props) {
 								>
 									<span
 										style={{
-											backgroundColor: tokens.colors.green_50,
 											marginRight: '10px',
 										}}
 									>
@@ -177,7 +174,6 @@ function FeedTitle(props) {
 								>
 									<span
 										style={{
-											backgroundColor: tokens.colors.green_50,
 											marginRight: '10px',
 										}}
 									>
@@ -190,8 +186,10 @@ function FeedTitle(props) {
 						<div className="field">
 							<div className="control">
 								<input
+									autoFocus
 									className="input"
 									type="text"
+									onClicked={() => setClicked(true)}
 									placeholder={
 										value == '여행'
 											? '#아이와 함께 경주'
@@ -205,7 +203,7 @@ function FeedTitle(props) {
 											? '#아이와 추억쌓기'
 											: '#아이와 추억쌓기'
 									}
-									style={{ height: '60px' }}
+									style={bulmaInputStyles}
 								/>
 							</div>
 						</div>
