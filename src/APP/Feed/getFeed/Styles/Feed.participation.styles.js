@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as tokens from '../../../tokens';
+import * as tokens from '../../../../tokens';
 
 const defaultProfilePicUrl = '/Feed/Default_pfp.png';
 export const FeedChallengeWrapper = styled.div`

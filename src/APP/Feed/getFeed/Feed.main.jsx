@@ -9,7 +9,7 @@ import {
 	useNavigate,
 } from 'react-router-dom';
 import * as FeedMainS from './Styles/Feed.main.styles';
-import * as tokens from '../../tokens';
+import * as tokens from '../../../tokens';
 
 import FeedAll from './Feed.all';
 import FeedParticipation from './Feed.participation';
@@ -29,7 +29,6 @@ function FeedMain(props) {
 	const navigate = useNavigate();
 	const [active, setActive] = useState(false);
 	const [value, setValue] = React.useState('전체');
-
 	//Drop Down
 	const handleChange = (event) => {
 		setValue(event.target.value);
@@ -62,6 +61,9 @@ function FeedMain(props) {
 		event.target.scrollLeft -= deltaX; // 가로 스크롤 이동
 	};
 
+	const handWriteFeedClick = (e, type) => {
+		navigate(`/feed/write`);
+	};
 	return (
 		<div style={{ backgroundColor: 'white' }}>
 			<div>
@@ -234,7 +236,7 @@ function FeedMain(props) {
 						<FeedParticipation></FeedParticipation>
 					</FeedMainS.FeedMainScreen>
 				)}
-				<FeedMainS.WriteFeedIconArea>
+				<FeedMainS.WriteFeedIconArea onClick={(e) => handWriteFeedClick()}>
 					<FeedMainS.WriteFeedIcon></FeedMainS.WriteFeedIcon>
 				</FeedMainS.WriteFeedIconArea>
 			</div>

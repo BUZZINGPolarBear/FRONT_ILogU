@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as tokens from '../../../tokens';
+import * as tokens from '../../../../tokens';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const TopNavBar = styled.div`
