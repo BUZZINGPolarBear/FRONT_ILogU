@@ -94,7 +94,8 @@ export const FeedSubTitleMain = styled.span`
 
 export const FeedCategoryWrapper = styled.div`
 	width: 95%;
-	height: fit-content;
+	height: 7vh;
+	max-height: 60px;
 	margin: auto;
 	margin-bottom: 10px;
 
