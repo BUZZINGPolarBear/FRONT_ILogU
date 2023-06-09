@@ -58,7 +58,7 @@ export const FeedWriteArea = styled.div`
 	height: 93vh;
 	margin-bottom: 10vh;
 
-	background-color: rgb(250, 250, 250);
+	background-color: rgb(252, 252, 252);
 `;
 
 export const FeedCatergoryTitleArea = styled.div`
