@@ -26,20 +26,14 @@ function UploadPhoto(props) {
 	const title = params.title;
 
 	// mobile imge upload
-	const handleImageChange = (e) => {
-		e.preventDefault();
+	const [selectedImages, setSelectedImages] = useState([]);
 
-		let reader = new FileReader();
-		let file = e.target.files[0];
-
-		reader.onloadend = () => {
-			// Here, you can set the image file to state and display it as needed.
-			console.log(reader.result); // This will log Base64 of image, you can display it using an img tag
-		};
-
-		if (file) {
-			reader.readAsDataURL(file);
+	const handleImagesChange = (e) => {
+		let images = [];
+		for (let i = 0; i < e.target.files.length; i++) {
+			images.push(URL.createObjectURL(e.target.files[i]));
 		}
+		setSelectedImages(images);
 	};
 	return (
 		<>
@@ -116,6 +110,9 @@ function UploadPhoto(props) {
 				<photoS.PhotoUploadArea
 					onClick={() => document.getElementById('fileInput').click()}
 				>
+					{selectedImages.map((image, index) => (
+						<img key={index} src={image} alt="" width="200" height="200" />
+					))}
 					<photoS.PhotoUploadClickArea>
 						<photoS.PhotoUploadImage></photoS.PhotoUploadImage>
 						이미지 선택
@@ -124,7 +121,8 @@ function UploadPhoto(props) {
 						id="fileInput"
 						type="file"
 						accept="image/*"
-						onChange={handleImageChange}
+						multiple
+						onChange={handleImagesChange}
 						style={{ display: 'none' }}
 					/>
 				</photoS.PhotoUploadArea>
