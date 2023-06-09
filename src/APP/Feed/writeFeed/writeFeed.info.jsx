@@ -14,6 +14,7 @@ import queryString from 'query-string';
 
 import FeedCategory from './writeFeed.category';
 import FeedTitle from './writeFeed.title';
+import UploadPhoto from './writeFeed.uploadPhoto';
 
 import * as infoS from './Styles/info.styles';
 import * as tokens from '../../../tokens';
@@ -24,13 +25,19 @@ function FeedWrite(props) {
 	const params = queryString.parse(nowLocation.search);
 	const type = params.type;
 	const category = params.category;
+	let title = '';
+	try {
+		title = params.title;
+	} catch {
+		console.log('title is not yet defined');
+	}
 
+	console.log(title.length);
 	const handleBackwardClick = (e) => {
 		e.preventDefault();
 		navigate(`/feed/main`);
 	};
 
-	console.log(type);
 	return (
 		<>
 			<infoS.TopNavBar>
@@ -42,8 +49,10 @@ function FeedWrite(props) {
 			<infoS.FeedWriteArea>
 				{type == undefined ? (
 					<FeedCategory></FeedCategory>
-				) : type == 'title' ? (
+				) : type == 'title' && title.length < 1 ? (
 					<FeedTitle category={category}></FeedTitle>
+				) : title.length > 0 ? (
+					<UploadPhoto category={category} title={title}></UploadPhoto>
 				) : (
 					<></>
 				)}
