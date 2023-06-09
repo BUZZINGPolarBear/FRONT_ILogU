@@ -29,7 +29,7 @@ function FeedTitle(props) {
 	const [clicked, setClicked] = useState(false);
 	const [value, setValue] = useState(props.category);
 	const [isDragging, setIsDragging] = useState(false);
-	const [inputValue, setInputValue] = useState('');
+	const [inputValue, setInputValue] = useState('#');
 
 	//Drop Down
 	const handleChange = (event) => {
@@ -77,6 +77,23 @@ function FeedTitle(props) {
 
 	const handleInputChange = (event) => {
 		setInputValue(event.target.value);
+	};
+
+	// 다음 버튼 관련 설정
+	const navigate = useNavigate();
+	const nowLocation = useLocation();
+	let params = new URLSearchParams(nowLocation.search);
+	if (params.has('title')) {
+		// If title query string exists, change it
+		params.set('title', inputValue);
+	} else {
+		// If title query string does not exist, add it
+		params.append('title', inputValue);
+	}
+	const hanleNextBtnClick = () => {
+		const nextStage = `${nowLocation.pathname}?${params.toString()}`;
+		console.log(nextStage);
+		navigate(nextStage);
 	};
 
 	return (
@@ -223,7 +240,8 @@ function FeedTitle(props) {
 				</titleS.FeedCategory>
 			</infoS.FeedCategorySelectArea>
 			<infoS.FeedWriteSubmitArea
-				is_category_selected={inputValue.length > 0 ? true : false}
+				is_category_selected={inputValue.length > 1 ? true : false}
+				onClick={hanleNextBtnClick}
 			>
 				다음
 			</infoS.FeedWriteSubmitArea>
