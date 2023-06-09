@@ -23,16 +23,17 @@ function FeedWrite(props) {
 	const navigate = useNavigate();
 	const nowLocation = useLocation();
 	const params = queryString.parse(nowLocation.search);
-	const type = params.type;
-	const category = params.category;
+	const type = '';
+	const category = '';
 	let title = '';
 	try {
 		title = params.title;
+		type = params.type;
+		category = params.category;
 	} catch {
-		console.log('title is not yet defined');
+		console.log('params is not yet defined');
 	}
 
-	console.log(title.length);
 	const handleBackwardClick = (e) => {
 		e.preventDefault();
 		navigate(`/feed/main`);
@@ -47,11 +48,11 @@ function FeedWrite(props) {
 				<infoS.TopTextArea>기록하기</infoS.TopTextArea>
 			</infoS.TopNavBar>
 			<infoS.FeedWriteArea>
-				{type == undefined ? (
+				{type == '' ? (
 					<FeedCategory></FeedCategory>
 				) : type == 'title' && title.length < 1 ? (
 					<FeedTitle category={category}></FeedTitle>
-				) : title.length > 0 ? (
+				) : title != '' && title.length > 0 ? (
 					<UploadPhoto category={category} title={title}></UploadPhoto>
 				) : (
 					<></>
