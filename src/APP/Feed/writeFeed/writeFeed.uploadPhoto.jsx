@@ -33,7 +33,7 @@ function UploadPhoto(props) {
 					아이와의 기억을 사진으로 추억할 수 있어요!
 				</infoS.FeedSubTitleMain>
 			</infoS.FeedCatergoryTitleArea>
-			<infoS.FeedCategorySelectArea>
+			<infoS.FeedCategorySelectArea style={{ width: '90%' }}>
 				<infoS.FeedCategoryWrapper>
 					<photoS.TitleDiv width={30} typo={'subtitle_1_sb'}>
 						{category == '여행' ? (
@@ -97,6 +97,12 @@ function UploadPhoto(props) {
 						{title}
 					</photoS.TitleDiv>
 				</infoS.FeedCategoryWrapper>
+				<photoS.PhotoUploadArea>
+					<photoS.PhotoUploadClickArea>
+						<photoS.PhotoUploadImage></photoS.PhotoUploadImage>
+						이미지 선택
+					</photoS.PhotoUploadClickArea>
+				</photoS.PhotoUploadArea>
 			</infoS.FeedCategorySelectArea>
 			<infoS.FeedWriteSubmitArea>다음</infoS.FeedWriteSubmitArea>
 		</>
