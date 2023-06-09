@@ -69,6 +69,11 @@ function FeedTitle(props) {
 				boxShadow: 'none',
 				height: '60px',
 		  };
+	const handleInputClick = () => {
+		if (!inputValue) {
+			setInputValue('#');
+		}
+	};
 
 	const handleInputChange = (event) => {
 		setInputValue(event.target.value);
@@ -191,11 +196,12 @@ function FeedTitle(props) {
 						<div className="field">
 							<div className="control">
 								<input
-									onChange={handleInputChange}
 									autoFocus
 									className="input"
 									type="text"
-									onClicked={() => setClicked(true)}
+									value={inputValue}
+									onClick={handleInputClick}
+									onChange={handleInputChange}
 									placeholder={
 										value == '여행'
 											? '#아이와 함께 경주'
