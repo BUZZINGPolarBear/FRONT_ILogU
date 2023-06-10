@@ -44,11 +44,13 @@ function UploadPhoto(props) {
 	};
 
 	return (
-		<div style={{ width: '98%', minHeight: '110vh', height: 'fit-content' }}>
-			<infoS.FeedCatergoryTitleArea>
+		<div style={{ width: '98%', height: 'fit-content' }}>
+			<infoS.FeedCatergoryTitleArea style={{ marginTop: '0' }}>
 				{isNextBtnClicked == true ? (
 					<>
-						<infoS.FeedTitleMain>이야기를 적어주세요</infoS.FeedTitleMain>
+						<infoS.FeedTitleMain style={{ marginTop: '15vh' }}>
+							이야기를 적어주세요
+						</infoS.FeedTitleMain>
 						<infoS.FeedSubTitleMain>
 							글을 함께 남기면 기억이 2배로 남아요~
 						</infoS.FeedSubTitleMain>
@@ -66,7 +68,7 @@ function UploadPhoto(props) {
 				style={{
 					width: '90%',
 					height: 'fit-content',
-					paddingBottom: '5vh',
+					// paddingBottom: '5vh',
 					paddingTop: '5vh',
 				}}
 			>

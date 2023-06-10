@@ -54,8 +54,9 @@ export const FeedWriteArea = styled.div`
 	justify-content: space-around;
 
 	width: 100vw;
+	height: fit-content;
 	max-width: 800px;
-	height: 93vh;
+	min-height: 100vh;
 	margin-bottom: 10vh;
 
 	background-color: rgb(252, 252, 252);
@@ -65,6 +66,8 @@ export const FeedCatergoryTitleArea = styled.div`
 	width: 95%;
 	height: 25%;
 	margin: auto;
+	margin-top: 15vh;
+	margin-bottom: 0;
 	position: relative;
 
 	display: flex;
@@ -78,6 +81,7 @@ export const FeedCategorySelectArea = styled.div`
 	height: 50%;
 	margin: auto;
 
+	margin-top: 30px;
 	position: relative;
 	bakcground-color: #a8f0ff;
 `;
