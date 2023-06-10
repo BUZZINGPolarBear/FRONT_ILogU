@@ -122,6 +122,7 @@ function UploadPhoto(props) {
 						type="file"
 						accept="image/*"
 						multiple
+						capture="filesystem"
 						onChange={handleImagesChange}
 						style={{ display: 'none' }}
 					/>
