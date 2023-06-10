@@ -27,7 +27,8 @@ export const TitleDiv = styled.div`
 export const PhotoUploadArea = styled.div`
 	width: 98%;
 	height: 60%;
-	max-height: 250px;
+	min-width: 365px;
+	max-height: 265px;
 	position: relative;
 
 	border-radius: 10px;
