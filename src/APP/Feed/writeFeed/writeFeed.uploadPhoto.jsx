@@ -66,6 +66,7 @@ function UploadPhoto(props) {
 				style={{
 					width: '90%',
 					height: 'fit-content',
+					minHeight: '105vh',
 					paddingBottom: '5vh',
 					paddingTop: '5vh',
 				}}
