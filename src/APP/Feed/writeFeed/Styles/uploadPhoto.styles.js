@@ -80,3 +80,41 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
 
 	overflow: hidden;
 `;
+
+export const InputText = styled.textarea`
+	width: 98%;
+	height: 150px;
+	padding: 10px;
+
+	font-size: 16px;
+	border: 1px solid ${tokens.colors.grey_50};
+	border-radius: 4px;
+	resize: none;
+
+	&::placeholder {
+		color: ${tokens.colors.grey_100};
+	}
+`;
+
+export const BottomBtnWrapper = styled.div`
+	width: 100%;
+	height: 35px;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+`;
+
+export const AutoGenerateStoryBtn = styled.div`
+	width: 125px;
+	height: 100%;
+	border-radius: 10px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: white;
+	${tokens.typography.body_3_SB};
+	background-color: ${tokens.colors.green_500};
+`;

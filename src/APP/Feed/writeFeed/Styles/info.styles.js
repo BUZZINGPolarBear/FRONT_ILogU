@@ -149,7 +149,7 @@ export const FeedCategoryText = styled.div`
 `;
 export const FeedWriteSubmitArea = styled.div`
 	width: 90%;
-	height: 55px;
+	min-height: 45px;
 	margin: auto;
 	border-radius: 20px;
 
