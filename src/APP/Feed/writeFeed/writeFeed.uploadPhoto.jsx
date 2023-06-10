@@ -26,24 +26,50 @@ function UploadPhoto(props) {
 	const category = params.category;
 	const title = params.title;
 
+	const [isNextBtnClicked, setIsNextBtnClicked] = useState(false);
 	// mobile imge upload
 	const [selectedImages, setSelectedImages] = useState([]);
 
+	// 이미지 업로드
 	const handleImagesChange = (e) => {
 		let images = Array.from(e.target.files);
 		const imageUrls = images.map((file) => URL.createObjectURL(file));
 		setSelectedImages(imageUrls);
 	};
 
+	//다음 버튼 클릭
+	const handleNextBtn = (e) => {
+		console.log('next btn is clicked');
+		setIsNextBtnClicked(true);
+	};
+
 	return (
 		<>
 			<infoS.FeedCatergoryTitleArea>
-				<infoS.FeedTitleMain>사진을 추가해주세요</infoS.FeedTitleMain>
-				<infoS.FeedSubTitleMain>
-					아이와의 기억을 사진으로 추억할 수 있어요!
-				</infoS.FeedSubTitleMain>
+				{isNextBtnClicked == true ? (
+					<>
+						<infoS.FeedTitleMain>이야기를 적어주세요</infoS.FeedTitleMain>
+						<infoS.FeedSubTitleMain>
+							글을 함께 남기면 기억이 2배로 남아요~
+						</infoS.FeedSubTitleMain>
+					</>
+				) : (
+					<>
+						<infoS.FeedTitleMain>사진을 추가해주세요</infoS.FeedTitleMain>
+						<infoS.FeedSubTitleMain>
+							아이와의 기억을 사진으로 추억할 수 있어요!
+						</infoS.FeedSubTitleMain>
+					</>
+				)}
 			</infoS.FeedCatergoryTitleArea>
-			<infoS.FeedCategorySelectArea style={{ width: '90%' }}>
+			<infoS.FeedCategorySelectArea
+				style={{
+					width: '90%',
+					height: 'fit-content',
+					paddingBottom: '5vh',
+					paddingTop: '5vh',
+				}}
+			>
 				<infoS.FeedCategoryWrapper>
 					<photoS.TitleDiv width={30} typo={'subtitle_1_sb'}>
 						{category == '여행' ? (
@@ -128,13 +154,30 @@ function UploadPhoto(props) {
 						/>
 					</photoS.PhotoUploadArea>
 				) : (
-					<photoS.PhotoUploadArea>
+					<photoS.PhotoUploadArea
+						style={{ backgroundColor: 'none', border: 'none' }}
+					>
 						<PhotoSlider imageArr={selectedImages}></PhotoSlider>
 					</photoS.PhotoUploadArea>
 				)}
+				{isNextBtnClicked == true ? (
+					<>
+						<photoS.InputText
+							type="text"
+							placeholder="설명을 적어주세요."
+						></photoS.InputText>
+						<photoS.BottomBtnWrapper>
+							<photoS.AutoGenerateStoryBtn>
+								✍️이야기 자동완성
+							</photoS.AutoGenerateStoryBtn>
+						</photoS.BottomBtnWrapper>
+					</>
+				) : null}
 			</infoS.FeedCategorySelectArea>
+
 			<infoS.FeedWriteSubmitArea
 				is_category_selected={selectedImages.length > 0 ? true : false}
+				onClick={handleNextBtn}
 			>
 				다음
 			</infoS.FeedWriteSubmitArea>
