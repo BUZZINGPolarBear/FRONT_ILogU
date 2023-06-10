@@ -25,7 +25,7 @@ function PhotoSlider(props) {
 				<div key={photo.id}>
 					<img
 						src={photo.url}
-						style={{ width: '700px', height: 'auto', borderRadius: '10px' }}
+						style={{ width: '365px', height: '245px', borderRadius: '10px' }}
 						alt={`Photo ${photo.id}`}
 					/>
 				</div>
