@@ -54,8 +54,9 @@ export const FeedWriteArea = styled.div`
 	justify-content: space-around;
 
 	width: 100vw;
+	height: fit-content;
 	max-width: 800px;
-	height: 93vh;
+	min-height: 100vh;
 	margin-bottom: 10vh;
 
 	background-color: rgb(252, 252, 252);
@@ -65,6 +66,8 @@ export const FeedCatergoryTitleArea = styled.div`
 	width: 95%;
 	height: 25%;
 	margin: auto;
+	margin-top: 15vh;
+	margin-bottom: 0;
 	position: relative;
 
 	display: flex;
@@ -78,6 +81,7 @@ export const FeedCategorySelectArea = styled.div`
 	height: 50%;
 	margin: auto;
 
+	margin-top: 30px;
 	position: relative;
 	bakcground-color: #a8f0ff;
 `;
@@ -98,7 +102,7 @@ export const FeedCategoryWrapper = styled.div`
 	max-height: 60px;
 	margin: auto;
 	margin-bottom: 10px;
-
+	padding-top: 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -151,7 +155,7 @@ export const FeedWriteSubmitArea = styled.div`
 	width: 90%;
 	min-height: 45px;
 	margin: auto;
-	border-radius: 20px;
+	border-radius: 10px;
 
 	display: flex;
 	align-items: center;

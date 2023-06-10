@@ -44,11 +44,13 @@ function UploadPhoto(props) {
 	};
 
 	return (
-		<>
-			<infoS.FeedCatergoryTitleArea>
+		<div style={{ width: '98%', height: 'fit-content' }}>
+			<infoS.FeedCatergoryTitleArea style={{ marginTop: '0' }}>
 				{isNextBtnClicked == true ? (
 					<>
-						<infoS.FeedTitleMain>이야기를 적어주세요</infoS.FeedTitleMain>
+						<infoS.FeedTitleMain style={{ marginTop: '15vh' }}>
+							이야기를 적어주세요
+						</infoS.FeedTitleMain>
 						<infoS.FeedSubTitleMain>
 							글을 함께 남기면 기억이 2배로 남아요~
 						</infoS.FeedSubTitleMain>
@@ -66,8 +68,7 @@ function UploadPhoto(props) {
 				style={{
 					width: '90%',
 					height: 'fit-content',
-					minHeight: '105vh',
-					paddingBottom: '5vh',
+					// paddingBottom: '5vh',
 					paddingTop: '5vh',
 				}}
 			>
@@ -162,7 +163,7 @@ function UploadPhoto(props) {
 					</photoS.PhotoUploadArea>
 				)}
 				{isNextBtnClicked == true ? (
-					<>
+					<photoS.WriteFeedTestArea>
 						<photoS.InputText
 							type="text"
 							placeholder="설명을 적어주세요."
@@ -172,7 +173,7 @@ function UploadPhoto(props) {
 								✍️이야기 자동완성
 							</photoS.AutoGenerateStoryBtn>
 						</photoS.BottomBtnWrapper>
-					</>
+					</photoS.WriteFeedTestArea>
 				) : null}
 			</infoS.FeedCategorySelectArea>
 
@@ -182,7 +183,7 @@ function UploadPhoto(props) {
 			>
 				다음
 			</infoS.FeedWriteSubmitArea>
-		</>
+		</div>
 	);
 }
 

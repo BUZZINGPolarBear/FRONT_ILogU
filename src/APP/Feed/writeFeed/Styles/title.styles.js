@@ -4,7 +4,7 @@ import * as tokens from '../../../../tokens';
 export const FeedCategory = styled.div`
 	position: relative;
 	width: 95%;
-	height: 50%;
+	height: fit-content;
 	padding: 15px;
 	margin: auto;
 
