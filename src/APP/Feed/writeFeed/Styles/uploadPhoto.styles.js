@@ -26,9 +26,9 @@ export const TitleDiv = styled.div`
 
 export const PhotoUploadArea = styled.div`
 	width: 98%;
-	height: 60%;
+	// height: 60%;
 	min-width: 365px;
-	max-height: 265px;
+	min-height: 265px;
 	position: relative;
 
 	border-radius: 10px;
@@ -97,6 +97,11 @@ export const InputText = styled.textarea`
 	}
 `;
 
+export const WriteFeedTestArea = styled.div`
+	width: 100%;
+	height: fit-content;
+`;
+
 export const BottomBtnWrapper = styled.div`
 	width: 100%;
 	height: 35px;
@@ -104,6 +109,8 @@ export const BottomBtnWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+
+	margin-bottom: 5vh;
 `;
 
 export const AutoGenerateStoryBtn = styled.div`

@@ -44,7 +44,7 @@ function UploadPhoto(props) {
 	};
 
 	return (
-		<>
+		<div style={{ width: '98%', minHeight: '110vh', height: 'fit-content' }}>
 			<infoS.FeedCatergoryTitleArea>
 				{isNextBtnClicked == true ? (
 					<>
@@ -66,7 +66,6 @@ function UploadPhoto(props) {
 				style={{
 					width: '90%',
 					height: 'fit-content',
-					minHeight: '105vh',
 					paddingBottom: '5vh',
 					paddingTop: '5vh',
 				}}
@@ -162,7 +161,7 @@ function UploadPhoto(props) {
 					</photoS.PhotoUploadArea>
 				)}
 				{isNextBtnClicked == true ? (
-					<>
+					<photoS.WriteFeedTestArea>
 						<photoS.InputText
 							type="text"
 							placeholder="설명을 적어주세요."
@@ -172,7 +171,7 @@ function UploadPhoto(props) {
 								✍️이야기 자동완성
 							</photoS.AutoGenerateStoryBtn>
 						</photoS.BottomBtnWrapper>
-					</>
+					</photoS.WriteFeedTestArea>
 				) : null}
 			</infoS.FeedCategorySelectArea>
 
@@ -182,7 +181,7 @@ function UploadPhoto(props) {
 			>
 				다음
 			</infoS.FeedWriteSubmitArea>
-		</>
+		</div>
 	);
 }
 

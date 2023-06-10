@@ -98,7 +98,7 @@ export const FeedCategoryWrapper = styled.div`
 	max-height: 60px;
 	margin: auto;
 	margin-bottom: 10px;
-
+	padding-top: 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -151,7 +151,7 @@ export const FeedWriteSubmitArea = styled.div`
 	width: 90%;
 	min-height: 45px;
 	margin: auto;
-	border-radius: 20px;
+	border-radius: 10px;
 
 	display: flex;
 	align-items: center;
