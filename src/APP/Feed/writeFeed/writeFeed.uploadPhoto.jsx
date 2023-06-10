@@ -30,11 +30,9 @@ function UploadPhoto(props) {
 	const [selectedImages, setSelectedImages] = useState([]);
 
 	const handleImagesChange = (e) => {
-		let images = [];
-		for (let i = 0; i < e.target.files.length; i++) {
-			images.push(URL.createObjectURL(e.target.files[i]));
-		}
-		setSelectedImages(images);
+		let images = Array.from(e.target.files);
+		const imageUrls = images.map((file) => URL.createObjectURL(file));
+		setSelectedImages(imageUrls);
 	};
 
 	return (
