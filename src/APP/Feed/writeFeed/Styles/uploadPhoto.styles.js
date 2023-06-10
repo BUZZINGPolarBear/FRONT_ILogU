@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import * as tokens from '../../../../tokens';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const TitleDiv = styled.div`
 	width: ${(props) => props.width}%;
@@ -65,4 +66,17 @@ export const PhotoUploadImage = styled.div`
 	border-radius: 50%;
 
 	margin-bottom: 10px;
+`;
+
+export const StyledSwiper = styled(Swiper)`
+	width: 100%;
+	max-width: 800px;
+	height: 97%;
+`;
+
+export const StyledSwiperSlide = styled(SwiperSlide)`
+	width: 100%;
+	height: 100%;
+
+	overflow: hidden;
 `;

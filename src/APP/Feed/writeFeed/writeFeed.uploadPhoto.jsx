@@ -13,6 +13,7 @@ import * as feedRecoil from './recoil/recoild.feed';
 import queryString from 'query-string';
 import 'bulma/css/bulma.css';
 
+import PhotoSlider from './writeFeed.photoSlides';
 import * as infoS from './Styles/info.styles';
 import * as photoS from './Styles/uploadPhoto.styles';
 import * as titleS from './Styles/title.styles';
@@ -35,6 +36,7 @@ function UploadPhoto(props) {
 		}
 		setSelectedImages(images);
 	};
+
 	return (
 		<>
 			<infoS.FeedCatergoryTitleArea>
@@ -107,27 +109,37 @@ function UploadPhoto(props) {
 						{title}
 					</photoS.TitleDiv>
 				</infoS.FeedCategoryWrapper>
-				<photoS.PhotoUploadArea
-					onClick={() => document.getElementById('fileInput').click()}
-				>
-					{selectedImages.map((image, index) => (
-						<img key={index} src={image} alt="" width="200" height="200" />
-					))}
-					<photoS.PhotoUploadClickArea>
-						<photoS.PhotoUploadImage></photoS.PhotoUploadImage>
-						이미지 선택
-					</photoS.PhotoUploadClickArea>
-					<input
-						id="fileInput"
-						type="file"
-						accept="image/*"
-						multiple
-						onChange={handleImagesChange}
-						style={{ display: 'none' }}
-					/>
-				</photoS.PhotoUploadArea>
+				{selectedImages.length == 0 ? (
+					<photoS.PhotoUploadArea
+						onClick={() => document.getElementById('fileInput').click()}
+					>
+						{selectedImages.map((image, index) => (
+							<img key={index} src={image} alt="" width="200" height="200" />
+						))}
+						<photoS.PhotoUploadClickArea>
+							<photoS.PhotoUploadImage></photoS.PhotoUploadImage>
+							이미지 선택
+						</photoS.PhotoUploadClickArea>
+						<input
+							id="fileInput"
+							type="file"
+							accept="image/*"
+							multiple
+							onChange={handleImagesChange}
+							style={{ display: 'none' }}
+						/>
+					</photoS.PhotoUploadArea>
+				) : (
+					<photoS.PhotoUploadArea>
+						<PhotoSlider imageArr={selectedImages}></PhotoSlider>
+					</photoS.PhotoUploadArea>
+				)}
 			</infoS.FeedCategorySelectArea>
-			<infoS.FeedWriteSubmitArea>다음</infoS.FeedWriteSubmitArea>
+			<infoS.FeedWriteSubmitArea
+				is_category_selected={selectedImages.length > 0 ? true : false}
+			>
+				다음
+			</infoS.FeedWriteSubmitArea>
 		</>
 	);
 }
