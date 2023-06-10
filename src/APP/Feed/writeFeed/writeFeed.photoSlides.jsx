@@ -3,14 +3,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-function blobToDataURL(blob, callback) {
-	var reader = new FileReader();
-	reader.onloadend = function () {
-		callback(reader.result);
-	};
-	reader.readAsDataURL(blob);
-}
-
 function PhotoSlider(props) {
 	const selectedImages = props.imageArr;
 	const photos = [];
@@ -28,10 +20,14 @@ function PhotoSlider(props) {
 	};
 
 	return (
-		<Slider {...settings}>
+		<Slider {...settings} className="carousel-container">
 			{photos.map((photo) => (
 				<div key={photo.id}>
-					<img src={photo.url} alt={`Photo ${photo.id}`} />
+					<img
+						src={photo.url}
+						style={{ width: '700px', height: 'auto' }}
+						alt={`Photo ${photo.id}`}
+					/>
 				</div>
 			))}
 		</Slider>
