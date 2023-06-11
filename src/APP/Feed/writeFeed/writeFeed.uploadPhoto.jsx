@@ -13,6 +13,8 @@ import * as feedRecoil from './recoil/recoild.feed';
 import queryString from 'query-string';
 import 'bulma/css/bulma.css';
 
+import * as api from './APIs/uploadPhoto';
+
 import PhotoSlider from './writeFeed.photoSlides';
 import * as infoS from './Styles/info.styles';
 import * as photoS from './Styles/uploadPhoto.styles';
@@ -38,9 +40,16 @@ function UploadPhoto(props) {
 	};
 
 	//다음 버튼 클릭
-	const handleNextBtn = (e) => {
+	const handleNextBtn = async (e) => {
 		console.log('next btn is clicked');
 		setIsNextBtnClicked(true);
+	};
+
+	//피드 자동 생성 클릭
+	const handleAutoGenerateFeed = async (e) => {
+		console.log('자동 생성 버튼 클릭됨');
+		console.log(`blob file: ${selectedImages[0]}`);
+		const autoGenerateResult = await api.autoGenerateFeed(selectedImages[0]);
 	};
 
 	return (
@@ -169,7 +178,7 @@ function UploadPhoto(props) {
 							placeholder="설명을 적어주세요."
 						></photoS.InputText>
 						<photoS.BottomBtnWrapper>
-							<photoS.AutoGenerateStoryBtn>
+							<photoS.AutoGenerateStoryBtn onClick={handleAutoGenerateFeed}>
 								✍️이야기 자동완성
 							</photoS.AutoGenerateStoryBtn>
 						</photoS.BottomBtnWrapper>
