@@ -55,7 +55,7 @@ function UploadPhoto(props) {
 		setFeedWrite('사진을 분석하고 있습니다. 잠시만 기다려 주세요! 🙂');
 		const autoGenerateResult = await api.autoGenerateFeed(selectedImages[0]);
 		console.log(autoGenerateResult);
-		setFeedWrite(autoGenerateResult.result.slice(1, -1));
+		setFeedWrite(autoGenerateResult.result);
 	};
 
 	return (
