@@ -177,7 +177,11 @@ function UploadPhoto(props) {
 					</photoS.PhotoUploadArea>
 				) : (
 					<photoS.PhotoUploadArea
-						style={{ backgroundColor: 'none', border: 'none' }}
+						style={{
+							backgroundColor: 'none',
+							border: 'none',
+							marginBottom: isNextBtnClicked ? 0 : '20vh',
+						}}
 					>
 						<PhotoSlider imageArr={selectedImages}></PhotoSlider>
 					</photoS.PhotoUploadArea>
