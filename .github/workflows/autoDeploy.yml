@@ -24,7 +24,7 @@ jobs:
             git reset --hard origin/main
             git pull
             touch .env
-            echo "${{ secrets.DOTENV }}" >> .env
+            echo sudo "${{ secrets.DOTENV }}" >> .env
             npm install
             npm run build
             sudo systemctl stop nginx.service
