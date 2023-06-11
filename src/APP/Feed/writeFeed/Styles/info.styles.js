@@ -97,7 +97,7 @@ export const FeedSubTitleMain = styled.span`
 `;
 
 export const FeedCategoryWrapper = styled.div`
-	width: 95%;
+	width: 100%;
 	height: 7vh;
 	max-height: 60px;
 	margin: auto;

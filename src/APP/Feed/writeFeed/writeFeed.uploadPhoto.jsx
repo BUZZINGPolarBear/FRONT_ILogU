@@ -156,6 +156,7 @@ function UploadPhoto(props) {
 				</infoS.FeedCategoryWrapper>
 				{selectedImages.length == 0 ? (
 					<photoS.PhotoUploadArea
+						style={{ marginBottom: '20vh' }}
 						onClick={() => document.getElementById('fileInput').click()}
 					>
 						{selectedImages.map((image, index) => (
