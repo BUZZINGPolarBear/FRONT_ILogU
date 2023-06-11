@@ -53,7 +53,11 @@ function UploadPhoto(props) {
 	//피드 자동 생성 클릭
 	const handleAutoGenerateFeed = async (e) => {
 		setFeedWrite('사진을 분석하고 있습니다. 잠시만 기다려 주세요! 🙂');
-		const autoGenerateResult = await api.autoGenerateFeed(selectedImages[0]);
+		const autoGenerateResult = await api.autoGenerateFeed(
+			selectedImages[0],
+			category,
+			title,
+		);
 		console.log(autoGenerateResult);
 		setFeedWrite(autoGenerateResult.result);
 	};
