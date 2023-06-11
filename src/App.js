@@ -70,7 +70,12 @@ function App() {
 
 	return (
 		<div className="App">
-			<MainScreen>
+			<MainScreen
+				style={{
+					backgroundColor:
+						nowLocation.pathname == '/' ? tokens.colors.grey_50 : 'white',
+				}}
+			>
 				<Routes>
 					<Route path="/" element={<HomeMain />} />
 					<Route
