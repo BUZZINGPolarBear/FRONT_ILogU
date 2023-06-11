@@ -29,6 +29,7 @@ function UploadPhoto(props) {
 	const title = params.title;
 
 	const [isNextBtnClicked, setIsNextBtnClicked] = useState(false);
+	const [feedWrite, setFeedWrite] = useState('');
 	// mobile imge upload
 	const [selectedImages, setSelectedImages] = useState([]);
 
@@ -45,11 +46,16 @@ function UploadPhoto(props) {
 		setIsNextBtnClicked(true);
 	};
 
+	//피드 글 작성
+	const handleFeedWrite = (e) => {
+		setFeedWrite(e.target.value);
+	};
 	//피드 자동 생성 클릭
 	const handleAutoGenerateFeed = async (e) => {
-		console.log('자동 생성 버튼 클릭됨');
-		console.log(`blob file: ${selectedImages[0]}`);
+		setFeedWrite('사진을 분석하고 있습니다. 잠시만 기다려 주세요! 🙂');
 		const autoGenerateResult = await api.autoGenerateFeed(selectedImages[0]);
+		console.log(autoGenerateResult);
+		setFeedWrite(autoGenerateResult.result.slice(1, -1));
 	};
 
 	return (
@@ -175,6 +181,8 @@ function UploadPhoto(props) {
 					<photoS.WriteFeedTestArea>
 						<photoS.InputText
 							type="text"
+							onChange={handleFeedWrite}
+							value={feedWrite}
 							placeholder="설명을 적어주세요."
 						></photoS.InputText>
 						<photoS.BottomBtnWrapper>
