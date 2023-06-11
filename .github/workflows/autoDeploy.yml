@@ -6,13 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - run: ls
-      - run: echo "${{ secrets.DOTENV }}" >> ./.env
-      - run: cat ./.env
-      - run: ls
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -30,6 +23,8 @@ jobs:
             cd front-ilogu
             git reset --hard origin/main
             git pull
+            touch .env
+            echo "${{ secrets.DOTENV }}" >> .env
             npm install
             npm run build
             sudo systemctl stop nginx.service
