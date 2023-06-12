@@ -111,7 +111,10 @@ export const AutoGenerateStoryBtn = styled.div`
 
 	color: white;
 	${tokens.typography.body_3_SB};
-	background-color: ${tokens.colors.green_500};
+	${(props) =>
+		props.is_auto_generate_feed_clicked == false
+			? `background-color: ${tokens.colors.green_500}; cursor: pointer;`
+			: `background-color: ${tokens.colors.grey_100}; cursor: not-allowed;`}
 `;
 
 export const SlideImage = styled.div`
