@@ -69,19 +69,6 @@ export const PhotoUploadImage = styled.div`
 	margin-bottom: 10px;
 `;
 
-export const StyledSwiper = styled(Swiper)`
-	width: 100%;
-	max-width: 800px;
-	height: 97%;
-`;
-
-export const StyledSwiperSlide = styled(SwiperSlide)`
-	width: 100%;
-	height: 100%;
-
-	overflow: hidden;
-`;
-
 export const InputText = styled.textarea`
 	width: 98%;
 	height: 150px;
@@ -125,4 +112,38 @@ export const AutoGenerateStoryBtn = styled.div`
 	color: white;
 	${tokens.typography.body_3_SB};
 	background-color: ${tokens.colors.green_500};
+`;
+
+export const SlideImage = styled.div`
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	background-image: url(${(props) => props.picUrl || ''});
+	background-size: cover;
+	background-position: center;
+
+	background-color: antiquewhite;
+	@media (max-width: 380px) {
+		width: 40px;
+		height: 40px;
+	}
+`;
+
+export const StyledSwiper = styled(Swiper)`
+	width: 100%;
+	max-width: 800px;
+	height: 100%;
+
+	position: relative;
+`;
+
+export const StyledSwiperSlide = styled(SwiperSlide)`
+	width: 100%;
+	height: 100%;
+
+	overflow: hidden;
+	background-image: url(${(props) => props.picUrl || ''});
+	background-size: cover;
+	background-position: center;
 `;

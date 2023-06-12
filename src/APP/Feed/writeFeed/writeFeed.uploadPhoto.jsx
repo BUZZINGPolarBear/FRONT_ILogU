@@ -76,7 +76,9 @@ function UploadPhoto(props) {
 					</>
 				) : (
 					<>
-						<infoS.FeedTitleMain>사진을 추가해주세요</infoS.FeedTitleMain>
+						<infoS.FeedTitleMain style={{ marginTop: '15vh' }}>
+							사진을 추가해주세요
+						</infoS.FeedTitleMain>
 						<infoS.FeedSubTitleMain>
 							아이와의 기억을 사진으로 추억할 수 있어요!
 						</infoS.FeedSubTitleMain>
