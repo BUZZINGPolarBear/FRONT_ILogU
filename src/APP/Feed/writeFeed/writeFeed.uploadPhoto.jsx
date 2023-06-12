@@ -29,6 +29,8 @@ function UploadPhoto(props) {
 	const title = params.title;
 
 	const [isNextBtnClicked, setIsNextBtnClicked] = useState(false);
+	const [isAutoGenerateFeedClicked, setIsAutoGenerateFeedClicked] =
+		useState(false);
 	const [feedWrite, setFeedWrite] = useState('');
 	// mobile imge upload
 	const [selectedImages, setSelectedImages] = useState([]);
@@ -53,11 +55,13 @@ function UploadPhoto(props) {
 	//피드 자동 생성 클릭
 	const handleAutoGenerateFeed = async (e) => {
 		setFeedWrite('사진을 분석하고 있습니다. 잠시만 기다려 주세요! 🙂');
+		setIsAutoGenerateFeedClicked(true);
 		const autoGenerateResult = await api.autoGenerateFeed(
 			selectedImages[0],
 			category,
 			title,
 		);
+		setIsAutoGenerateFeedClicked(false);
 		console.log(autoGenerateResult);
 		setFeedWrite(autoGenerateResult.result);
 	};
@@ -197,7 +201,10 @@ function UploadPhoto(props) {
 							placeholder="설명을 적어주세요."
 						></photoS.InputText>
 						<photoS.BottomBtnWrapper>
-							<photoS.AutoGenerateStoryBtn onClick={handleAutoGenerateFeed}>
+							<photoS.AutoGenerateStoryBtn
+								onClick={handleAutoGenerateFeed}
+								is_auto_generate_feed_clicked={isAutoGenerateFeedClicked}
+							>
 								✍️이야기 자동완성
 							</photoS.AutoGenerateStoryBtn>
 						</photoS.BottomBtnWrapper>
@@ -208,6 +215,7 @@ function UploadPhoto(props) {
 			<infoS.FeedWriteSubmitArea
 				is_category_selected={selectedImages.length > 0 ? true : false}
 				onClick={handleNextBtn}
+				isAutoGenerateFeedClicked={isAutoGenerateFeedClicked}
 			>
 				다음
 			</infoS.FeedWriteSubmitArea>
