@@ -191,3 +191,63 @@ export const CheckBoxTitle = styled.div`
 			? tokens.typography.SUIT
 			: tokens.typography.SUIT_sub};
 `;
+
+export const BinarySelectBox = styled.div`
+	width: 48%;
+	height: 50%;
+
+	padding: 3% 5%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 10px;
+	background-color: #ffffff;
+	box-shadow: 1px 5px 4px 1px rgba(0, 0, 0, 0.06);
+`;
+
+export const BinarySelectBoxContentWrapper = styled.div`
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+`;
+export const BinarySelectPic = styled.div`
+	width: 80%;
+	height: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	${(props) =>
+		props.type == 'family'
+			? `background-image: url('/SignIn/Family.svg')`
+			: `background-image: url('/SignIn/love_letter.svg')`};
+
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+`;
+
+export const BinarySelectTitle = styled.span`
+	width: 100%;
+	height: 50%;
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: ${tokens.colors.grey_600};
+	${tokens.typography.SUIT}
+`;
+
+export const BinarySelectTitleImpact = styled.span`
+	font-size: 18px;
+	font-weight: 700;
+`;
