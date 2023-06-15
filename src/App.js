@@ -14,6 +14,7 @@ import FeedMain from './APP/Feed/getFeed/Feed.main';
 import FeedWrite from './APP/Feed/writeFeed/writeFeed.info';
 import LoginMain from './APP/Login/Login.Main';
 import SignUpMain from './APP/Login/Sign.Up.Main';
+import SelectIsParent from './APP/Login/Sign.Up.isParent';
 import * as tokens from './tokens';
 import {
 	BrowserRouter,
