@@ -82,7 +82,7 @@ export const MainTitleWrapper = styled.div`
 export const MainContentWrapper = styled.div`
 	position: relative;
 	width: 95%;
-	height: 60vh;
+	height: 48vh;
 
 	margin: auto;
 `;
