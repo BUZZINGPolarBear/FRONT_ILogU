@@ -16,6 +16,7 @@ import * as signInRecoil from './recoil/Login.recoil.states';
 
 import TermsOfUseAgree from './Sign.Up.TermsOfUse';
 import SelectIsParent from './Sign.Up.isParent';
+import SignUpGetInfo from './Sign.Up.getInfo';
 
 function SignUpMain() {
 	const navigate = useNavigate();
@@ -25,14 +26,32 @@ function SignUpMain() {
 	const [isTermsOfUseSelected, setIsTermsOfUseSelected] = useState(false);
 	const [isPrivateInfoSelected, setIsPrivateInfoSelected] = useState(false);
 	const [isAdvertiseSelected, setIsAdvertiseSelected] = useState(false);
+
 	const [isNextBtnClicked, setIsNextBtnClicked] = useRecoilState(
 		signInRecoil.isTermsOfAgreeBtnClicked,
+	);
+	const [isGetInfoBtnClicked, setIsGetInfoBtnClicked] = useRecoilState(
+		signInRecoil.isGetInfoBtnClicked,
 	);
 
 	const handleBackwardClick = (e) => {
 		e.preventDefault();
+		setIsNextBtnClicked(false);
+		setIsGetInfoBtnClicked(false);
 		navigate(`/`);
 	};
+
+	//보여질 컴포넌트 수정
+	let ComponentToShow;
+
+	if (isNextBtnClicked === false) {
+		ComponentToShow = TermsOfUseAgree;
+	} else if (isNextBtnClicked === true && isGetInfoBtnClicked === false) {
+		ComponentToShow = SelectIsParent;
+	} else if (isNextBtnClicked === true && isGetInfoBtnClicked === true) {
+		ComponentToShow = SignUpGetInfo;
+	}
+	console.log(isNextBtnClicked, isGetInfoBtnClicked);
 
 	return (
 		<>
@@ -43,11 +62,7 @@ function SignUpMain() {
 				<signUpS.TopTextArea>회원가입</signUpS.TopTextArea>
 			</signUpS.TopNavBar>
 			<signUpS.SignUpMain>
-				{isNextBtnClicked === false ? (
-					<TermsOfUseAgree></TermsOfUseAgree>
-				) : (
-					<SelectIsParent></SelectIsParent>
-				)}
+				<ComponentToShow></ComponentToShow>
 			</signUpS.SignUpMain>
 		</>
 	);
