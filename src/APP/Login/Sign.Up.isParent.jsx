@@ -68,7 +68,13 @@ function SelectIsParent(props) {
 					</signUpS.BinarySelectBoxContentWrapper>
 				</signUpS.BinarySelectBox>
 			</signUpS.MainContentWrapper>
-			<signUpS.BtnWrapper>다음</signUpS.BtnWrapper>
+			<signUpS.BtnWrapper
+				is_btn_available={
+					isParentClicked == true || isInviteClicked == true ? true : false
+				}
+			>
+				다음
+			</signUpS.BtnWrapper>
 		</>
 	);
 }
