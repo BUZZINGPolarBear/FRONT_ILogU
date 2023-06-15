@@ -32,16 +32,15 @@ export const TopBackwardArea = styled.div`
 `;
 
 export const SignUpMain = styled.div`
-	// position: fixed;
+	position: fixed;
 	top: 7vh;
-
+	padding: 20px 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 
 	width: 100vw;
-	height: fit-content;
 	max-width: 800px;
 	min-height: 100vh;
 	margin-bottom: 10vh;
@@ -63,4 +62,80 @@ export const TopTextArea = styled.div`
 	${tokens.typography.subtitle_1_SB};
 
 	z-index: 9990;
+`;
+
+export const MainTitleWrapper = styled.div`
+	position: relative;
+	width: 95%;
+	height: 5vh;
+	max-height: 60px;
+
+	margin: auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-around;
+	// background-color: antiquewhite;
+`;
+
+export const MainContentWrapper = styled.div`
+	position: relative;
+	width: 95%;
+	height: 82vh;
+
+	margin: auto;
+`;
+
+export const MainTitle = styled.h1`
+	${tokens.typography.headline_5};
+`;
+
+export const MainSubTitle = styled.p`
+	color: ${tokens.colors.grey_300};
+	${tokens.typography.caption}
+`;
+
+export const MainQuestionWrapper = styled.div`
+	position: relative;
+	width: 100%;
+	height: 10%;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	// background-color: antiquewhite;
+`;
+
+export const CheckBoxWrapper = styled.div`
+	width: 20px;
+	height: 20px;
+
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	${(props) =>
+		props.isSelected == false
+			? `background-image: url('/SignIn/checkbox_unclicked.svg')`
+			: `background-image: url('/SignIn/checkbox_clicked.svg')`};
+
+	background-size: cover;
+	background-position: center;
+`;
+
+export const CheckBoxTitle = styled.div`
+	width: 85%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	${(props) =>
+		props.is_main == true
+			? tokens.typography.SUIT
+			: tokens.typography.SUIT_sub};
 `;
