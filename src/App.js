@@ -12,6 +12,8 @@ import * as recoilMain from './recoil/recoil.App';
 import HomeMain from './APP/Home/Home.main';
 import FeedMain from './APP/Feed/getFeed/Feed.main';
 import FeedWrite from './APP/Feed/writeFeed/writeFeed.info';
+import LoginMain from './APP/Login/Login.Main';
+import SignUpMain from './APP/Login/Sign.Up.Main';
 import * as tokens from './tokens';
 import {
 	BrowserRouter,
@@ -77,7 +79,9 @@ function App() {
 				}}
 			>
 				<Routes>
-					<Route path="/" element={<HomeMain />} />
+					<Route path="/" element={<LoginMain />} />
+					<Route path="/signup" element={<SignUpMain />} />
+					<Route path="/home" element={<HomeMain />} />
 					<Route
 						path="/feed/main"
 						element={<FeedMain setNavigateBtn={setNavigateBtn} />}
@@ -90,7 +94,9 @@ function App() {
 					<Route path="*" element={<HomeMain />} />
 				</Routes>
 			</MainScreen>
-			{nowLocation.pathname != '/feed/write' ? (
+			{nowLocation.pathname != '/feed/write' &&
+			nowLocation.pathname != '/' &&
+			nowLocation.pathname != '/signup' ? (
 				<BottomNavBar>
 					<NavImg onClick={(e) => handleNavClick(e, 'home')}>
 						{navigateReoilSelectState === 'home' ? (

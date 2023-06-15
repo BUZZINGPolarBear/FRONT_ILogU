@@ -68,6 +68,18 @@ export const typography = {
 		fontSize: '16px',
 		letterSpacing: '0.15px',
 	},
+	SUIT: {
+		fontFamily: 'Noto Sans KR',
+		fontWeight: 400,
+		fontSize: '16px',
+		letterSpacing: '0.15px',
+	},
+	SUIT_sub: {
+		fontFamily: 'Noto Sans KR',
+		fontWeight: 400,
+		fontSize: '14px',
+		letterSpacing: '0.15px',
+	},
 	sub: {
 		fontFamily: 'Noto Sans KR',
 		fontWeight: 400,
