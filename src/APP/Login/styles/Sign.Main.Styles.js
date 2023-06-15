@@ -33,7 +33,7 @@ export const MainBtnWrapper = styled.div`
 `;
 
 export const MainBtn = styled.button`
-	width: 95%;
+	width: 90%;
 	height: 50px;
 	max-width: 760px;
 
