@@ -104,7 +104,7 @@ export const BtnWrapper = styled.div`
 	color: #ffffff;
 	${tokens.typography.subtitle_1}
 	${(props) =>
-		props.is_btn_available == false
+		props.is_btn_available == true
 			? `background-color: ${tokens.colors.green_500}; cursor: pointer;`
 			: `background-color: ${tokens.colors.grey_100}; cursor: not-allowed;`}
 `;
