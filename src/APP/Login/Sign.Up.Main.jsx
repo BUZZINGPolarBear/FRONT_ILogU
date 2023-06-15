@@ -11,6 +11,7 @@ import {
 import { useRecoilState, useRecoilValue } from 'recoil';
 
 import * as signUpS from './styles/Sign.Up.Main.Styles';
+import * as mainS from './styles/Sign.Main.Styles';
 
 function SignUpMain() {
 	const navigate = useNavigate();
@@ -81,6 +82,7 @@ function SignUpMain() {
 						</signUpS.CheckBoxTitle>
 					</signUpS.SubCheckBoxWrapper>
 				</signUpS.MainContentWrapper>
+				<signUpS.BtnWrapper>약관에 동의합니다</signUpS.BtnWrapper>
 			</signUpS.SignUpMain>
 		</>
 	);

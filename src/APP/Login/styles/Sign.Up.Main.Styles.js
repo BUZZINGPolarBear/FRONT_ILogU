@@ -82,9 +82,31 @@ export const MainTitleWrapper = styled.div`
 export const MainContentWrapper = styled.div`
 	position: relative;
 	width: 95%;
-	height: 82vh;
+	height: 60vh;
 
 	margin: auto;
+`;
+
+export const BtnWrapper = styled.div`
+	position: relative;
+	width: 95%;
+	height: 55px;
+
+	margin: auto;
+	margin-bottom: 10vh;
+	background-color: antiquewhite;
+
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: #ffffff;
+	${tokens.typography.subtitle_1}
+	${(props) =>
+		props.is_btn_available == false
+			? `background-color: ${tokens.colors.green_500}; cursor: pointer;`
+			: `background-color: ${tokens.colors.grey_100}; cursor: not-allowed;`}
 `;
 
 export const MainTitle = styled.h1`
