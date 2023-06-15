@@ -44,7 +44,7 @@ export const SignUpMain = styled.div`
 	max-width: 800px;
 	min-height: 100vh;
 	margin-bottom: 10vh;
-
+	padding-bottom: 11vh;
 	background-color: rgb(252, 252, 252);
 `;
 
