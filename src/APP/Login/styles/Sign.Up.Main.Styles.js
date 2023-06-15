@@ -96,7 +96,7 @@ export const MainSubTitle = styled.p`
 	${tokens.typography.caption}
 `;
 
-export const MainQuestionWrapper = styled.div`
+export const MainCheckBoxWrapper = styled.div`
 	position: relative;
 	width: 100%;
 	height: 10%;
@@ -108,7 +108,19 @@ export const MainQuestionWrapper = styled.div`
 	// background-color: antiquewhite;
 `;
 
-export const CheckBoxWrapper = styled.div`
+export const SubCheckBoxWrapper = styled.div`
+	position: relative;
+	width: 100%;
+	height: 30px;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	// background-color: antiquewhite;
+`;
+
+export const CheckBoxImageWrapper = styled.div`
 	width: 20px;
 	height: 20px;
 
@@ -118,9 +130,27 @@ export const CheckBoxWrapper = styled.div`
 	justify-content: center;
 
 	${(props) =>
-		props.isSelected == false
+		props.is_selected == false
 			? `background-image: url('/SignIn/checkbox_unclicked.svg')`
 			: `background-image: url('/SignIn/checkbox_clicked.svg')`};
+
+	background-size: cover;
+	background-position: center;
+`;
+
+export const SubCheckBoxImageWrapper = styled.div`
+	width: 20px;
+	height: 20px;
+
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	${(props) =>
+		props.is_selected == false
+			? `background-image: url('/SignIn/check_unclicked.svg')`
+			: `background-image: url('/SignIn/check_clicked.svg')`};
 
 	background-size: cover;
 	background-position: center;

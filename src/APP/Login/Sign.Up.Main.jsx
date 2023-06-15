@@ -39,14 +39,47 @@ function SignUpMain() {
 				</signUpS.MainTitleWrapper>
 
 				<signUpS.MainContentWrapper>
-					<signUpS.MainQuestionWrapper>
-						<signUpS.CheckBoxWrapper
-							isSelected={isMainSelected}
-						></signUpS.CheckBoxWrapper>
-						<signUpS.CheckBoxTitle is_main="true">
+					<signUpS.MainCheckBoxWrapper>
+						<signUpS.CheckBoxImageWrapper
+							is_selected={isMainSelected}
+						></signUpS.CheckBoxImageWrapper>
+						<signUpS.CheckBoxTitle is_main={true}>
 							모두 동의 (선택 약관 포함)
 						</signUpS.CheckBoxTitle>
-					</signUpS.MainQuestionWrapper>
+					</signUpS.MainCheckBoxWrapper>
+					<hr style={{ margin: '0' }} />
+					<signUpS.SubCheckBoxWrapper style={{ marginTop: '20px' }}>
+						<signUpS.SubCheckBoxImageWrapper
+							is_selected={isMainSelected}
+						></signUpS.SubCheckBoxImageWrapper>
+						<signUpS.CheckBoxTitle is_main={false}>
+							[필수] 14세 이상
+						</signUpS.CheckBoxTitle>
+					</signUpS.SubCheckBoxWrapper>
+					<signUpS.SubCheckBoxWrapper>
+						<signUpS.SubCheckBoxImageWrapper
+							is_selected={isMainSelected}
+						></signUpS.SubCheckBoxImageWrapper>
+						<signUpS.CheckBoxTitle is_main={false}>
+							[필수] 이용약관 동의 <u>보기</u>
+						</signUpS.CheckBoxTitle>
+					</signUpS.SubCheckBoxWrapper>
+					<signUpS.SubCheckBoxWrapper>
+						<signUpS.SubCheckBoxImageWrapper
+							is_selected={isMainSelected}
+						></signUpS.SubCheckBoxImageWrapper>
+						<signUpS.CheckBoxTitle is_main={false}>
+							[필수] 개인정보 처리 방침 동의 <u>보기</u>
+						</signUpS.CheckBoxTitle>
+					</signUpS.SubCheckBoxWrapper>
+					<signUpS.SubCheckBoxWrapper>
+						<signUpS.SubCheckBoxImageWrapper
+							is_selected={isMainSelected}
+						></signUpS.SubCheckBoxImageWrapper>
+						<signUpS.CheckBoxTitle is_main={false}>
+							[선택] 광고성 정보 수집 및 마케팅 활용 동의
+						</signUpS.CheckBoxTitle>
+					</signUpS.SubCheckBoxWrapper>
 				</signUpS.MainContentWrapper>
 			</signUpS.SignUpMain>
 		</>
