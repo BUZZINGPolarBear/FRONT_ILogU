@@ -11,7 +11,7 @@ export const MainScreenWrapper = styled.div`
 	flex-direction: column;
 	justify-content: space-around;
 
-	background-color: ${tokens.colors.green_50};
+	// background-color: ${tokens.colors.green_50};
 `;
 export const MainLogoArea = styled.div`
 	position: relative;
@@ -30,6 +30,26 @@ export const MainBtnWrapper = styled.div`
 	position: relative;
 	width: 100%;
 	height: 25vh;
+`;
 
-	background-color: ${tokens.colors.green_100};
+export const MainBtn = styled.button`
+	width: 95%;
+	height: 50px;
+	max-width: 760px;
+
+	margin: auto;
+	margin-bottom: 2vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 10px;
+	border: 1px solid ${tokens.colors.green_500};
+
+	${tokens.typography.subtitle_1};
+
+	${(props) =>
+		props.type == 'signup'
+			? `background-color: ${tokens.colors.green_500}; color: white;`
+			: `background-color: white; color: ${tokens.colors.green_500};`}
 `;
