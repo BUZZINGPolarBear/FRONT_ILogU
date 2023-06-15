@@ -16,9 +16,17 @@ import * as mainS from './styles/Sign.Main.Styles';
 function SelectIsParent(props) {
 	const navigate = useNavigate();
 
-	const handleBackwardClick = (e) => {
-		e.preventDefault();
-		navigate(`/signin`);
+	const [isParentClicked, setIsParentClicked] = useState(false);
+	const [isInviteClicked, setIsInviteClicked] = useState(false);
+
+	const handleCardClick = (e, type) => {
+		if (type == 'parent') {
+			setIsParentClicked(true);
+			setIsInviteClicked(false);
+		} else if (type == 'invite') {
+			setIsParentClicked(false);
+			setIsInviteClicked(true);
+		}
 	};
 	return (
 		<>
@@ -31,7 +39,10 @@ function SelectIsParent(props) {
 			<signUpS.MainContentWrapper
 				style={{ display: 'flex', justifyContent: 'space-between' }}
 			>
-				<signUpS.BinarySelectBox>
+				<signUpS.BinarySelectBox
+					onClick={(e) => handleCardClick(e, 'parent')}
+					is_clicked={isParentClicked}
+				>
 					<signUpS.BinarySelectBoxContentWrapper>
 						<signUpS.BinarySelectPic type="family"></signUpS.BinarySelectPic>
 						<signUpS.BinarySelectTitle>
@@ -42,7 +53,10 @@ function SelectIsParent(props) {
 						</signUpS.BinarySelectTitle>
 					</signUpS.BinarySelectBoxContentWrapper>
 				</signUpS.BinarySelectBox>
-				<signUpS.BinarySelectBox>
+				<signUpS.BinarySelectBox
+					onClick={(e) => handleCardClick(e, 'invite')}
+					is_clicked={isInviteClicked}
+				>
 					<signUpS.BinarySelectBoxContentWrapper>
 						<signUpS.BinarySelectPic type="letter"></signUpS.BinarySelectPic>
 						<signUpS.BinarySelectTitle>

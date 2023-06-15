@@ -204,8 +204,12 @@ export const BinarySelectBox = styled.div`
 	justify-content: center;
 
 	border-radius: 10px;
-	background-color: #ffffff;
 	box-shadow: 1px 5px 4px 1px rgba(0, 0, 0, 0.06);
+
+	${(props) =>
+		props.is_clicked === true
+			? `border: 2px solid ${tokens.colors.green_500}; background-color: rgba(26, 185, 143, 0.2);`
+			: `border: none; background-color: #ffffff;`}
 `;
 
 export const BinarySelectBoxContentWrapper = styled.div`
