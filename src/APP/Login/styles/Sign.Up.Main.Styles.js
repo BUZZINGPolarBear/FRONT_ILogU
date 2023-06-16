@@ -115,6 +115,7 @@ export const BtnWrapper = styled.div`
 `;
 
 export const MainTitle = styled.h1`
+	text-align: left;
 	${tokens.typography.headline_5};
 `;
 
@@ -259,4 +260,25 @@ export const BinarySelectTitle = styled.span`
 export const BinarySelectTitleImpact = styled.span`
 	font-size: 18px;
 	font-weight: 700;
+`;
+
+export const SimplePwWrapper = styled.div`
+	width: 100%;
+	max-width: 720px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	// background-color: antiquewhite;
+`;
+
+export const PasswordCircle = styled.div`
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin: 5px;
+	border-radius: 50%;
+	background-color: ${(props) =>
+		props.filled ? tokens.colors.green_500 : tokens.colors.grey_50};
+	box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.1);
 `;

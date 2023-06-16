@@ -11,7 +11,7 @@ export const MainScreenWrapper = styled.div`
 	flex-direction: column;
 	justify-content: space-around;
 
-	// background-color: ${tokens.colors.green_50};
+	background-color: #ffffff;
 `;
 export const MainLogoArea = styled.div`
 	position: relative;
@@ -23,7 +23,7 @@ export const MainLogoArea = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	background-color: ${tokens.colors.grey_50};
+	// background-color: ${tokens.colors.grey_50};
 `;
 
 export const MainBtnWrapper = styled.div`
