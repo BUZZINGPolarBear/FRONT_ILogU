@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import {
 	BrowserRouter,
 	Route,
@@ -12,7 +11,6 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import * as feedRecoil from './recoil/recoild.feed';
 
 import * as infoS from './Styles/info.styles';
-import * as tokens from '../../../tokens';
 
 function FeedCategory() {
 	const [isSelected, setIsSelected] = useState(false);

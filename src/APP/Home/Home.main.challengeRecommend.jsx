@@ -1,16 +1,7 @@
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
-import {
-	RecoilRoot,
-	atom,
-	selector,
-	useRecoilState,
-	useRecoilValue,
-} from 'recoil';
 import * as HomeS from './Styles/Home.main.styles';
 import * as incomeS from './Styles/Home.main.incomeCard.styles';
 import * as challengeS from './Styles/Home.main.challengeRecommend.styles';
-import * as tokens from '../../tokens';
 import 'swiper/swiper-bundle.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';

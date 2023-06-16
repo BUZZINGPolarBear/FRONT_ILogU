@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import {
 	BrowserRouter,
 	Route,
@@ -8,7 +7,6 @@ import {
 	Routes,
 	useNavigate,
 } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
 
 import * as mainS from './styles/Sign.Main.Styles';
 

@@ -1,25 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
-import {
-	BrowserRouter,
-	Route,
-	Router,
-	useLocation,
-	Routes,
-	useNavigate,
-} from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
-
-import * as signUpS from './styles/Sign.Up.Main.Styles';
-import * as mainS from './styles/Sign.Main.Styles';
 import * as getInfoS from './styles/Sign.Up.getInfo.Styles';
-import * as tokens from '../../tokens';
 
 //date picker
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
-import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 
 function dateToString(date) {
 	const year = date.getFullYear(); // 2023

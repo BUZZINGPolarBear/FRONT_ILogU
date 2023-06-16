@@ -13,7 +13,6 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import * as signInRecoil from './recoil/Login.recoil.states';
 
 import * as signUpS from './styles/Sign.Up.Main.Styles';
-import * as mainS from './styles/Sign.Main.Styles';
 
 function SelectIsParent(props) {
 	const navigate = useNavigate();
