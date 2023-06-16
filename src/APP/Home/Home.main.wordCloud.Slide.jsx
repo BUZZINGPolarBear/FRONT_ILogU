@@ -57,7 +57,10 @@ function RecommendWordCloudCard() {
 								<wordCloudS.SwiperInnerSubText>
 									상품 자세히 보러가기
 									<span style={{ marginLeft: '10px' }}>
-										<img src="/mainScreen/rightPointer.png"></img>
+										<img
+											src="/mainScreen/rightPointer.png"
+											alt="오른쪽 포인터"
+										></img>
 									</span>
 								</wordCloudS.SwiperInnerSubText>
 							</wordCloudS.SwiperInnerTextArea>
@@ -73,7 +76,10 @@ function RecommendWordCloudCard() {
 								<wordCloudS.SwiperInnerSubText>
 									상품 자세히 보러가기
 									<span style={{ marginLeft: '10px' }}>
-										<img src="/mainScreen/rightPointer.png"></img>
+										<img
+											src="/mainScreen/rightPointer.png"
+											alt="오른쪽 포인터"
+										></img>
 									</span>
 								</wordCloudS.SwiperInnerSubText>
 							</wordCloudS.SwiperInnerTextArea>
@@ -91,7 +97,10 @@ function RecommendWordCloudCard() {
 								<wordCloudS.SwiperInnerSubText>
 									상품 자세히 보러가기
 									<span style={{ marginLeft: '10px' }}>
-										<img src="/mainScreen/rightPointer.png"></img>
+										<img
+											src="/mainScreen/rightPointer.png"
+											alt="오른쪽 포인터"
+										></img>
 									</span>
 								</wordCloudS.SwiperInnerSubText>
 							</wordCloudS.SwiperInnerTextArea>

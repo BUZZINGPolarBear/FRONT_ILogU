@@ -19,7 +19,10 @@ function FeedParticipation() {
 		<>
 			<FeedparicipateS.FeedChallengeWrapper>
 				<FeedparicipateS.FeedChallengeUserWrapper>
-					<FeedparicipateS.FeedChallengeUserImage picUrl="/Feed/userPic.jpg"></FeedparicipateS.FeedChallengeUserImage>
+					<FeedparicipateS.FeedChallengeUserImage
+						picUrl="/Feed/userPic.jpg"
+						alt="사용자"
+					></FeedparicipateS.FeedChallengeUserImage>
 					<FeedparicipateS.FeedChallengeUserInfoWrapper>
 						<FeedparicipateS.FeedChallengeUserInfo>
 							준휘대디
@@ -30,16 +33,19 @@ function FeedParticipation() {
 					</FeedparicipateS.FeedChallengeUserInfoWrapper>
 				</FeedparicipateS.FeedChallengeUserWrapper>
 
-				<FeedparicipateS.FeedPictureArea picUrl="/Feed/feed_sample.jpg"></FeedparicipateS.FeedPictureArea>
+				<FeedparicipateS.FeedPictureArea
+					picUrl="/Feed/feed_sample.jpg"
+					alt="사용자"
+				></FeedparicipateS.FeedPictureArea>
 
 				<FeedparicipateS.FeedChallengeContentWrapper>
 					<FeedparicipateS.FeedChallengeTopBottomWrapper>
 						<FeedparicipateS.TopInfo>
-							<img src="/Feed/icons/like.svg"></img>
+							<img src="/Feed/icons/like.svg" alt="좋아요"></img>
 							<div>10</div>
 						</FeedparicipateS.TopInfo>
 						<FeedparicipateS.TopInfo>
-							<img src="/Feed/icons/comment.svg"></img>
+							<img src="/Feed/icons/comment.svg" alt="좋아요"></img>
 							<div>10</div>
 						</FeedparicipateS.TopInfo>
 					</FeedparicipateS.FeedChallengeTopBottomWrapper>
@@ -58,7 +64,10 @@ function FeedParticipation() {
 
 			<FeedparicipateS.FeedChallengeWrapper>
 				<FeedparicipateS.FeedChallengeUserWrapper>
-					<FeedparicipateS.FeedChallengeUserImage picUrl="/Feed/userPic.jpg"></FeedparicipateS.FeedChallengeUserImage>
+					<FeedparicipateS.FeedChallengeUserImage
+						picUrl="/Feed/userPic.jpg"
+						alt="좋아요"
+					></FeedparicipateS.FeedChallengeUserImage>
 					<FeedparicipateS.FeedChallengeUserInfoWrapper>
 						<FeedparicipateS.FeedChallengeUserInfo>
 							준휘대디
@@ -69,16 +78,19 @@ function FeedParticipation() {
 					</FeedparicipateS.FeedChallengeUserInfoWrapper>
 				</FeedparicipateS.FeedChallengeUserWrapper>
 
-				<FeedparicipateS.FeedPictureArea picUrl="/Feed/feed_sample.jpg"></FeedparicipateS.FeedPictureArea>
+				<FeedparicipateS.FeedPictureArea
+					picUrl="/Feed/feed_sample.jpg"
+					alt="좋아요"
+				></FeedparicipateS.FeedPictureArea>
 
 				<FeedparicipateS.FeedChallengeContentWrapper>
 					<FeedparicipateS.FeedChallengeTopBottomWrapper>
 						<FeedparicipateS.TopInfo>
-							<img src="/Feed/icons/like.svg"></img>
+							<img src="/Feed/icons/like.svg" alt="좋아요"></img>
 							<div>10</div>
 						</FeedparicipateS.TopInfo>
 						<FeedparicipateS.TopInfo>
-							<img src="/Feed/icons/comment.svg"></img>
+							<img src="/Feed/icons/comment.svg" alt="댓글"></img>
 							<div>10</div>
 						</FeedparicipateS.TopInfo>
 					</FeedparicipateS.FeedChallengeTopBottomWrapper>
@@ -97,7 +109,10 @@ function FeedParticipation() {
 
 			<FeedparicipateS.FeedChallengeWrapper>
 				<FeedparicipateS.FeedChallengeUserWrapper>
-					<FeedparicipateS.FeedChallengeUserImage picUrl="/Feed/userPic.jpg"></FeedparicipateS.FeedChallengeUserImage>
+					<FeedparicipateS.FeedChallengeUserImage
+						picUrl="/Feed/userPic.jpg"
+						alt="사용자"
+					></FeedparicipateS.FeedChallengeUserImage>
 					<FeedparicipateS.FeedChallengeUserInfoWrapper>
 						<FeedparicipateS.FeedChallengeUserInfo>
 							준휘대디
@@ -108,16 +123,19 @@ function FeedParticipation() {
 					</FeedparicipateS.FeedChallengeUserInfoWrapper>
 				</FeedparicipateS.FeedChallengeUserWrapper>
 
-				<FeedparicipateS.FeedPictureArea picUrl="/Feed/feed_sample.jpg"></FeedparicipateS.FeedPictureArea>
+				<FeedparicipateS.FeedPictureArea
+					picUrl="/Feed/feed_sample.jpg"
+					alt="예시 피드"
+				></FeedparicipateS.FeedPictureArea>
 
 				<FeedparicipateS.FeedChallengeContentWrapper>
 					<FeedparicipateS.FeedChallengeTopBottomWrapper>
 						<FeedparicipateS.TopInfo>
-							<img src="/Feed/icons/like.svg"></img>
+							<img src="/Feed/icons/like.svg" alt="좋아요"></img>
 							<div>10</div>
 						</FeedparicipateS.TopInfo>
 						<FeedparicipateS.TopInfo>
-							<img src="/Feed/icons/comment.svg"></img>
+							<img src="/Feed/icons/comment.svg" alt="댓글"></img>
 							<div>10</div>
 						</FeedparicipateS.TopInfo>
 					</FeedparicipateS.FeedChallengeTopBottomWrapper>

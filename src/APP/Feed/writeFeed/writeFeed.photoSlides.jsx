@@ -39,7 +39,7 @@ function PhotoSlider(props) {
 							objectFit: 'cover',
 							objectPosition: '50% 50%',
 						}}
-						alt={`Photo ${photo.id}`}
+						alt={`사진 ${photo.id}`}
 					/>
 				</photoStyle.StyledSwiperSlide>
 			))}

@@ -8,7 +8,6 @@ function KeywordCloud({ searchKeyword }) {
 	let cloudDataArr = [];
 
 	useEffect(() => {
-		console.log(`KeywordCloud: ${searchKeyword}`);
 		const fetchchildKeyword = async () => {
 			const response = await cloudAPIs.getChildCloudData(searchKeyword);
 			console.log(response);
