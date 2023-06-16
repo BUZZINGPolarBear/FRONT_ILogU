@@ -15,15 +15,10 @@ import * as signInRecoil from './recoil/Login.recoil.states';
 import TermsOfUseAgree from './Sign.Up.TermsOfUse';
 import SelectIsParent from './Sign.Up.isParent';
 import SignUpGetInfo from './Sign.Up.getInfo';
+import SimplePassWord from './Sign.Up.getInfo.SimplePW';
 
 function SignUpMain() {
 	const navigate = useNavigate();
-
-	const [isMainSelected, setIsMainSelected] = useState(false);
-	const [isOver14Selecetd, setIsOver14Selected] = useState(false);
-	const [isTermsOfUseSelected, setIsTermsOfUseSelected] = useState(false);
-	const [isPrivateInfoSelected, setIsPrivateInfoSelected] = useState(false);
-	const [isAdvertiseSelected, setIsAdvertiseSelected] = useState(false);
 
 	//유저의 답변
 	const [babyName, setBabyName] = useRecoilState(signInRecoil.babyName);
@@ -74,10 +69,26 @@ function SignUpMain() {
 
 	if (isNextBtnClicked === false) {
 		ComponentToShow = TermsOfUseAgree;
-	} else if (isNextBtnClicked === true && isGetInfoBtnClicked === false) {
+	} else if (
+		isNextBtnClicked === true &&
+		isGetInfoBtnClicked === false &&
+		goToSimplePassword == false
+	) {
 		ComponentToShow = SelectIsParent;
-	} else if (isNextBtnClicked === true && isGetInfoBtnClicked === true) {
+	} else if (
+		isNextBtnClicked === true &&
+		isGetInfoBtnClicked === true &&
+		goToSimplePassword == false
+	) {
 		ComponentToShow = SignUpGetInfo;
+	} else if (
+		isNextBtnClicked === true &&
+		isGetInfoBtnClicked === true &&
+		goToSimplePassword == true
+	) {
+		console.log('gogo');
+		setIsChattingState(false);
+		ComponentToShow = SimplePassWord;
 	}
 
 	return (
