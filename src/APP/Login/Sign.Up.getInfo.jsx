@@ -43,6 +43,7 @@ function SignUpGetInfo(props) {
 	useEffect(() => {
 		if (inputRef.current) {
 			inputRef.current.scrollIntoView({ behavior: 'smooth' });
+			inputRef.current.focus();
 		}
 		setSpeechBubble([
 			<getInfoS.SpeechBubbleWrapper
@@ -53,15 +54,28 @@ function SignUpGetInfo(props) {
 					아이의 이름을 알려주세요!
 				</getInfoS.SpeechBubble>
 			</getInfoS.SpeechBubbleWrapper>,
+			<getInfoS.SpeechBubbleWrapper
+				top={2 + bubbleIndex * 10}
+				type="userSpeaking"
+			>
+				<getInfoS.SpeechBubble type="userSpeaking">
+					<getInfoS.StyledInput
+						type="text"
+						placeholder="아이의 이름을 알려주세요."
+						onKeyDown={(e) => handleKeyDown(e)}
+						ref={inputRef}
+					/>
+				</getInfoS.SpeechBubble>
+			</getInfoS.SpeechBubbleWrapper>,
 		]);
 	}, []);
 
 	useEffect(() => {
 		if (userName != '' && userName.length >= 1) {
 			bubbleIndex += 1;
-
+			const newSpeechBubble = speechBubble.slice(0, -1);
 			setSpeechBubble([
-				...speechBubble,
+				...newSpeechBubble,
 				<getInfoS.SpeechBubbleWrapper
 					top={2 + (bubbleIndex - 1) * 10}
 					type="userSpeaking"
@@ -84,12 +98,7 @@ function SignUpGetInfo(props) {
 		}
 	}, [userName, babyBirth, userNickName, userPassword_1, userPassword_2]);
 
-	return (
-		<>
-			{speechBubble}
-			<input type="text" onKeyDown={(e) => handleKeyDown(e)} ref={inputRef} />;
-		</>
-	);
+	return <>{speechBubble}</>;
 }
 
 export default SignUpGetInfo;

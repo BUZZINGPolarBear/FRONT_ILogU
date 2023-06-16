@@ -43,3 +43,11 @@ export const SpeechBubble = styled.div`
             border-top-right-radius: 10px;
             border-bottom-left-radius: 10px;`}
 `;
+
+export const StyledInput = styled.input`
+	font-size: 1.25em;
+	border: none;
+	border-radius: 5px;
+	background-color: ${tokens.colors.green_500};
+	outline: none;
+`;
