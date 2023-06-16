@@ -4,13 +4,15 @@ on:
       - main
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout source code. # 레포지토리 체크아웃
         uses: actions/checkout@master
 
       - name: Install Dependencies # 의존 파일 설치
-        run: npm install
+        run: |
+          npm install -g npm
+          npm install
 
       - name: Build # React Build
         run: |
