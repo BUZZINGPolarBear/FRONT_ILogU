@@ -30,6 +30,7 @@ function SelectIsParent(props) {
 		} else if (type == 'invite') {
 			setIsParentClicked(false);
 			setIsInviteClicked(true);
+			alert('여긴 아직 안만들었슴ㅎㅎ ㅈㅅ;;');
 		}
 	};
 
