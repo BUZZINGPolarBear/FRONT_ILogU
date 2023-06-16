@@ -1,19 +1,10 @@
-import styled from "styled-components";
-import {
-	RecoilRoot,
-	atom,
-	selector,
-	useRecoilState,
-	useRecoilValue,
-} from "recoil";
-import * as HomeS from "./Styles/Home.main.styles";
-import * as incomeS from "./Styles/Home.main.incomeCard.styles";
-import * as tokens from "../../tokens";
+import * as incomeS from './Styles/Home.main.incomeCard.styles';
+import * as tokens from '../../tokens';
 
 function IncomeCard() {
 	return (
 		<incomeS.HomeMainIncomeCard
-			style={{ paddingTop: "10%", paddingBottom: "1%" }}
+			style={{ paddingTop: '10%', paddingBottom: '1%' }}
 		>
 			<incomeS.HomeIncomeInfoText>
 				<incomeS.HomeIncomeWrapper>
@@ -69,7 +60,7 @@ function IncomeCard() {
 					</incomeS.HomeIncomeInnerWrapper>
 				</incomeS.HomeIncomeWrapper>
 			</incomeS.HomeIncomeInfoText>
-			<incomeS.HomeIncomeInfoText style={{ width: "100%" }}>
+			<incomeS.HomeIncomeInfoText style={{ width: '100%' }}>
 				<incomeS.HomeIncomeDetailViewBtn>
 					수익률 현황 자세히 보러가기
 				</incomeS.HomeIncomeDetailViewBtn>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
 import {
 	BrowserRouter,
 	Route,
@@ -8,9 +7,6 @@ import {
 	Routes,
 	useNavigate,
 } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import * as feedRecoil from './recoil/recoild.feed';
-import queryString from 'query-string';
 import 'bulma/css/bulma.css';
 
 import * as infoS from './Styles/info.styles';
@@ -18,12 +14,9 @@ import * as titleS from './Styles/title.styles';
 import * as tokens from '../../../tokens';
 
 // material ui
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Button, makeStyles } from '@material-ui/core';
 
 function FeedTitle(props) {
 	const [clicked, setClicked] = useState(false);

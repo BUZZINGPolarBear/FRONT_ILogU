@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import {
 	BrowserRouter,
 	Route,
@@ -8,8 +7,6 @@ import {
 	Routes,
 	useNavigate,
 } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import * as feedRecoil from './recoil/recoild.feed';
 import queryString from 'query-string';
 
 import FeedCategory from './writeFeed.category';
@@ -17,7 +14,6 @@ import FeedTitle from './writeFeed.title';
 import UploadPhoto from './writeFeed.uploadPhoto';
 
 import * as infoS from './Styles/info.styles';
-import * as tokens from '../../../tokens';
 
 function FeedWrite(props) {
 	const navigate = useNavigate();

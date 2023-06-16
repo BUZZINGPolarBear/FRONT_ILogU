@@ -1,15 +1,11 @@
-import React, { useRef, useState, useEffect } from "react";
-import ReactWordcloud from "react-wordcloud";
-import styled from "styled-components";
-import * as HomeS from "./Styles/Home.main.styles";
-import * as incomeS from "./Styles/Home.main.incomeCard.styles";
-import * as challengeS from "./Styles/Home.main.challengeRecommend.styles";
-import * as wordCloudS from "./Styles/Home.main.wordCloud.styles";
-import * as tokens from "../../tokens";
-import "swiper/swiper-bundle.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import KeywordCloud from "./Home.main.wordCloud.cloud";
+import React, { useRef, useState, useEffect } from 'react';
+import * as HomeS from './Styles/Home.main.styles';
+import * as challengeS from './Styles/Home.main.challengeRecommend.styles';
+import * as wordCloudS from './Styles/Home.main.wordCloud.styles';
+import 'swiper/swiper-bundle.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import KeywordCloud from './Home.main.wordCloud.cloud';
 
 SwiperCore.use([Scrollbar, A11y]);
 
@@ -29,7 +25,7 @@ function calculateSpaceBetween(width) {
 function RecommendWordCloudCard() {
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 	const [swiperSpacing, setSwiperSpacing] = useState(
-		calculateSpaceBetween(window.innerWidth)
+		calculateSpaceBetween(window.innerWidth),
 	);
 
 	useEffect(() => {
@@ -38,16 +34,16 @@ function RecommendWordCloudCard() {
 			setSwiperSpacing(calculateSpaceBetween(windowWidth));
 		};
 
-		window.addEventListener("resize", handleWindowResize);
+		window.addEventListener('resize', handleWindowResize);
 
 		return () => {
-			window.removeEventListener("resize", handleWindowResize);
+			window.removeEventListener('resize', handleWindowResize);
 		};
 	});
 
 	return (
 		<wordCloudS.HomeMainChallengeCard>
-			<HomeS.HomeMainCardTitle style={{ height: "12%" }}>
+			<HomeS.HomeMainCardTitle style={{ height: '12%' }}>
 				김하나님에게 이런 상품을 추천해요!
 			</HomeS.HomeMainCardTitle>
 			<challengeS.HomeMainChallengeSwiperArea>
@@ -60,13 +56,13 @@ function RecommendWordCloudCard() {
 								</wordCloudS.SwiperInnerTitle>
 								<wordCloudS.SwiperInnerSubText>
 									상품 자세히 보러가기
-									<span style={{ marginLeft: "10px" }}>
+									<span style={{ marginLeft: '10px' }}>
 										<img src="/mainScreen/rightPointer.png"></img>
 									</span>
 								</wordCloudS.SwiperInnerSubText>
 							</wordCloudS.SwiperInnerTextArea>
 							<wordCloudS.SwiperInnerWordCloudArea>
-								<KeywordCloud searchKeyword={"2차 전지"}></KeywordCloud>
+								<KeywordCloud searchKeyword={'2차 전지'}></KeywordCloud>
 							</wordCloudS.SwiperInnerWordCloudArea>
 						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
@@ -76,13 +72,13 @@ function RecommendWordCloudCard() {
 								<wordCloudS.SwiperInnerTitle>#ESG</wordCloudS.SwiperInnerTitle>
 								<wordCloudS.SwiperInnerSubText>
 									상품 자세히 보러가기
-									<span style={{ marginLeft: "10px" }}>
+									<span style={{ marginLeft: '10px' }}>
 										<img src="/mainScreen/rightPointer.png"></img>
 									</span>
 								</wordCloudS.SwiperInnerSubText>
 							</wordCloudS.SwiperInnerTextArea>
 							<wordCloudS.SwiperInnerWordCloudArea>
-								<KeywordCloud searchKeyword={"ESG"}></KeywordCloud>
+								<KeywordCloud searchKeyword={'ESG'}></KeywordCloud>
 							</wordCloudS.SwiperInnerWordCloudArea>
 						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>
@@ -94,13 +90,13 @@ function RecommendWordCloudCard() {
 								</wordCloudS.SwiperInnerTitle>
 								<wordCloudS.SwiperInnerSubText>
 									상품 자세히 보러가기
-									<span style={{ marginLeft: "10px" }}>
+									<span style={{ marginLeft: '10px' }}>
 										<img src="/mainScreen/rightPointer.png"></img>
 									</span>
 								</wordCloudS.SwiperInnerSubText>
 							</wordCloudS.SwiperInnerTextArea>
 							<wordCloudS.SwiperInnerWordCloudArea>
-								<KeywordCloud searchKeyword={"우주 탐사"}></KeywordCloud>
+								<KeywordCloud searchKeyword={'우주 탐사'}></KeywordCloud>
 							</wordCloudS.SwiperInnerWordCloudArea>
 						</wordCloudS.HomeMainSwiperCard>
 					</SwiperSlide>

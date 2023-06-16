@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import ReactWordcloud from "react-wordcloud";
-import axios, * as others from "axios";
-import * as tokens from "../../tokens";
-import * as cloudAPIs from "./Apis/Home.main.wordCloud.cloud.apis";
+import React, { useEffect, useState } from 'react';
+import ReactWordcloud from 'react-wordcloud';
+import * as tokens from '../../tokens';
+import * as cloudAPIs from './Apis/Home.main.wordCloud.cloud.apis';
 
 function KeywordCloud({ searchKeyword }) {
 	const [wordcloudData, setWordcloudData] = useState([]);
@@ -47,14 +46,14 @@ function KeywordCloud({ searchKeyword }) {
 			`#33C3B9`,
 		],
 		deterministic: false,
-		fontFamily: "impact",
+		fontFamily: 'impact',
 		fontSizes: [10, 50],
-		fontStyle: "normal",
-		fontWeight: "normal",
+		fontStyle: 'normal',
+		fontWeight: 'normal',
 		padding: 1,
 		rotations: 0,
 		// rotate: (words) => (cloudDataArr.value % 2 === 0 ? 0 : -90),
-		scale: "sqrt",
+		scale: 'sqrt',
 		// spiral: "archimedean",
 		transitionDuration: 1000,
 	};
