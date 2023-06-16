@@ -9,6 +9,9 @@ import {
 } from 'react-router-dom';
 
 import * as mainS from './styles/Sign.Main.Styles';
+//recoil
+import { useRecoilState, useRecoilValue } from 'recoil';
+import * as signInRecoil from './recoil/Login.recoil.states';
 
 function LoginMain() {
 	const navigate = useNavigate();
@@ -17,6 +20,10 @@ function LoginMain() {
 		e.preventDefault();
 		navigate('signup');
 	};
+	const [isChattingState, setIsChattingState] = useRecoilState(
+		signInRecoil.isChattingState,
+	);
+	useEffect(() => {}, [setIsChattingState(false)]);
 	return (
 		<mainS.MainScreenWrapper>
 			<mainS.MainLogoArea>여긴 로고인데 나중에 추가</mainS.MainLogoArea>

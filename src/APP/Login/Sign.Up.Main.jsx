@@ -31,6 +31,9 @@ function SignUpMain() {
 	const [isGetInfoBtnClicked, setIsGetInfoBtnClicked] = useRecoilState(
 		signInRecoil.isGetInfoBtnClicked,
 	);
+	const [isChattingState, setIsChattingState] = useRecoilState(
+		signInRecoil.isChattingState,
+	);
 
 	const handleBackwardClick = (e) => {
 		e.preventDefault();
@@ -58,7 +61,7 @@ function SignUpMain() {
 				></signUpS.TopBackwardArea>
 				<signUpS.TopTextArea>회원가입</signUpS.TopTextArea>
 			</signUpS.TopNavBar>
-			<signUpS.SignUpMain>
+			<signUpS.SignUpMain isChattingState={isChattingState}>
 				<ComponentToShow></ComponentToShow>
 			</signUpS.SignUpMain>
 		</>

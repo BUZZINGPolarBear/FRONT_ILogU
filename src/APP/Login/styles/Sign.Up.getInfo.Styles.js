@@ -1,5 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import * as tokens from '../../../tokens';
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 export const SpeechBubbleWrapper = styled.div`
 	position: absolute;
@@ -27,6 +36,8 @@ export const SpeechBubble = styled.div`
 	box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.03);
 	display: flex;
 	align-items: center;
+
+	animation: ${fadeIn} 0.5s;
 
 	${(props) =>
 		props.type == 'iloguSpeaking'
