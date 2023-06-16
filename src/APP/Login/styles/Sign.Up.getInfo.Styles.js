@@ -24,7 +24,7 @@ export const SpeechBubble = styled.div`
 	padding: 0 20px;
 	height: 90%;
 	${tokens.typography.body_1}
-	box-shadow: 3px 5px 3px 1px rgba(0, 0, 0, 0.07);
+	box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.03);
 	display: flex;
 	align-items: center;
 
@@ -36,7 +36,7 @@ export const SpeechBubble = styled.div`
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;`
-			: `color: white; 
+			: `color: #fafafa; 
             justify-content: flex-end;
             background-color: ${tokens.colors.green_500}; 
             border-top-left-radius: 10px;
@@ -45,9 +45,22 @@ export const SpeechBubble = styled.div`
 `;
 
 export const StyledInput = styled.input`
-	font-size: 1.25em;
+	width: 180px;
 	border: none;
-	border-radius: 5px;
 	background-color: ${tokens.colors.green_500};
 	outline: none;
+	color: #fafafa;
+	${tokens.typography.body_1};
+
+	::placeholder {
+		color: #black;
+	}
+`;
+
+export const StyledDatePicker = styled.input.attrs({ type: 'date' })`
+	border: none;
+	background-color: ${tokens.colors.green_500};
+	outline: none;
+	color: #fafafa;
+	${tokens.typography.body_1};
 `;

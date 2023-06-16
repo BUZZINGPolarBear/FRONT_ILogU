@@ -51,7 +51,6 @@ function SignUpMain() {
 	} else if (isNextBtnClicked === true && isGetInfoBtnClicked === true) {
 		ComponentToShow = SignUpGetInfo;
 	}
-	console.log(isNextBtnClicked, isGetInfoBtnClicked);
 
 	return (
 		<>
