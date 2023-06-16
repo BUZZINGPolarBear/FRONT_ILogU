@@ -53,7 +53,7 @@ function SimplePassWord() {
 						value={password}
 						onChange={handleChange}
 						maxLength={maxLength}
-						// style={{ display: 'none' }} // Hides the actual input
+						style={{ display: 'none' }} // Hides the actual input
 					/>
 					<signUpS.SimplePwWrapper>
 						{[...Array(maxLength)].map((_, i) => (
