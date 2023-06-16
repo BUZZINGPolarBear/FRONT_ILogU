@@ -57,10 +57,12 @@ function SimplePassWord() {
 				>
 					<input
 						type="number"
+						inputmode="numeric"
 						ref={inputRef}
 						value={password}
 						onChange={handleChange}
 						maxLength={maxLength}
+						keyboardType="number-pad"
 						style={{
 							position: 'absolute',
 							left: '-1000px',
