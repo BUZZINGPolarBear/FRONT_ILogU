@@ -11,8 +11,7 @@ jobs:
 
       - name: Install Dependencies # 의존 파일 설치
         run: |
-          npm install -g npm
-          npm install
+          npm install --force
 
       - name: Build # React Build
         run: |
