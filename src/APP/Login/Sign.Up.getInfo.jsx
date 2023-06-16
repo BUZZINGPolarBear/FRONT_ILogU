@@ -80,6 +80,13 @@ function SignUpGetInfo(props) {
 					setUserPassword_1(event.target.value);
 				}
 			}
+			if (type == 'password_2') {
+				if (userPassword_2 == '') {
+					if (userPassword_1 != event.target.value)
+						alert('비밀번호가 다릅니다. 다시 입력해주세요.');
+					else setUserPassword_2(event.target.value);
+				}
+			}
 		}
 	};
 
@@ -279,6 +286,51 @@ function SignUpGetInfo(props) {
 							placeholder="비밀번호를 입력해주세요."
 							placeholderTextColor="#fafafa"
 							onKeyDown={(e) => handleKeyDown(e, 'password_1')}
+							ref={inputRef}
+						/>
+					</getInfoS.SpeechBubble>
+				</getInfoS.SpeechBubbleWrapper>,
+			]);
+			bubbleIndex += 2;
+		}
+		if (
+			userName.length >= 1 &&
+			isBirthUpdate === true &&
+			userNickName.length >= 1 &&
+			userEmail.length >= 1 &&
+			userPassword_1.length >= 1
+		) {
+			bubbleIndex += 1;
+			const newSpeechBubble = speechBubble.slice(0, -1);
+			setSpeechBubble([]);
+			setSpeechBubble([
+				...newSpeechBubble,
+				<getInfoS.SpeechBubbleWrapper
+					top={2 + (bubbleIndex - 5) * 10}
+					type="userSpeaking"
+				>
+					<getInfoS.SpeechBubble type="userSpeaking">
+						*******
+					</getInfoS.SpeechBubble>
+				</getInfoS.SpeechBubbleWrapper>,
+				<getInfoS.SpeechBubbleWrapper
+					top={2 + (bubbleIndex - 4) * 10}
+					type="iloguSpeaking"
+				>
+					<getInfoS.SpeechBubble type="iloguSpeaking">
+						비밀번호를 다시 한 번 입력해주세요!
+					</getInfoS.SpeechBubble>
+				</getInfoS.SpeechBubbleWrapper>,
+				<getInfoS.SpeechBubbleWrapper
+					top={2 + (bubbleIndex - 3) * 10}
+					type="userSpeaking"
+				>
+					<getInfoS.SpeechBubble type="userSpeaking">
+						<getInfoS.StyledInput
+							type="password"
+							placeholder="비밀번호를 입력해주세요."
+							placeholderTextColor="#fafafa"
+							onKeyDown={(e) => handleKeyDown(e, 'password_2')}
 							ref={inputRef}
 						/>
 					</getInfoS.SpeechBubble>
