@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.AWS_SSH_USERNAME }}
           key: ${{ secrets.AWS_SSH_KEY }}
           source: "build/*"
-          target: "/home/ubuntu/front-ilogu/build"
+          target: "/home/ubuntu/front-ilogu/build/"
           
       - name: SSH Commands
         uses: appleboy/ssh-action@v0.1.6
