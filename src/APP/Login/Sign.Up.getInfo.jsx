@@ -13,14 +13,16 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import * as signUpS from './styles/Sign.Up.Main.Styles';
 import * as mainS from './styles/Sign.Main.Styles';
 import * as getInfoS from './styles/Sign.Up.getInfo.Styles';
+import * as tokens from '../../tokens';
 
 //date picker
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { ko } from 'date-fns/esm/locale';
+import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 
 function SignUpGetInfo(props) {
 	const [speechBubble, setSpeechBubble] = useState([]);
-	const [startDate, setStartDate] = useState(new Date());
 
 	//유저의 답변
 	let bubbleIndex = 1;
@@ -34,13 +36,16 @@ function SignUpGetInfo(props) {
 	let bubbleTop = 2;
 	const inputRef = useRef(null);
 
+	const handleDateChanged = (date) => {
+		console.log(date);
+	};
+
 	const handleKeyDown = (event) => {
 		if (event.key === 'Enter') {
 			event.preventDefault();
 
 			if (userName == '') {
 				setUserName(event.target.value);
-				console.log('Input value:', event.target.value);
 			}
 		}
 	};
@@ -104,15 +109,20 @@ function SignUpGetInfo(props) {
 					type="userSpeaking"
 				>
 					<getInfoS.SpeechBubble type="userSpeaking">
-						<getInfoS.StyledDatePicker
-							selected={startDate}
+						<DatePicker
+							className="datePicker"
+							locale={ko}
+							selected={babyBirth}
+							// onSelect={handleDateChange}
 							onChange={(date) => setBabyBirth(date)}
+							dateFormat="yyyy/MM/dd"
 						/>
 					</getInfoS.SpeechBubble>
 				</getInfoS.SpeechBubbleWrapper>,
 			]);
 			bubbleIndex += 2;
 		}
+		console.log(babyBirth);
 	}, [userName, babyBirth, userNickName, userPassword_1, userPassword_2]);
 
 	return <>{speechBubble}</>;
