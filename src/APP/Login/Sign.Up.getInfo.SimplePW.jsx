@@ -22,8 +22,10 @@ function SimplePassWord() {
 		inputRef.current.focus();
 	}, []);
 
-	const handleChange = (event) => {
-		setPassword(event.target.value);
+	const handleChange = (e) => {
+		if (e.target.value.length <= 6) {
+			setPassword(e.target.value);
+		}
 	};
 
 	const handleSubmitBtnClick = (e) => {
