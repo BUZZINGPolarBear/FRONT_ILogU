@@ -6,6 +6,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
 
+//recoil
+import { useRecoilState, useRecoilValue } from 'recoil';
+import * as signInRecoil from './recoil/Login.recoil.states';
+
 function dateToString(date) {
 	const year = date.getFullYear(); // 2023
 	const month = String(date.getMonth() + 1).padStart(2, '0'); // 06, because getMonth() returns 0-11
@@ -24,7 +28,9 @@ function validateEmail(email) {
 
 function SignUpGetInfo(props) {
 	const [speechBubble, setSpeechBubble] = useState([]);
-
+	const [isChattingState, setIsChattingState] = useRecoilState(
+		signInRecoil.isChattingState,
+	);
 	//유저의 답변
 	let bubbleIndex = 1;
 	const [userName, setUserName] = useState('');
@@ -62,11 +68,16 @@ function SignUpGetInfo(props) {
 			if (type == 'email') {
 				if (userEmail == '') {
 					if (validateEmail(event.target.value)) {
-						setUserNickName(event.target.value);
+						setUserEmail(event.target.value);
 					} else {
 						event.target.value = '';
 						event.target.placeholder = '이메일 형식을 확인해주세요.';
 					}
+				}
+			}
+			if (type == 'password_1') {
+				if (userPassword_1 == '') {
+					setUserPassword_1(event.target.value);
 				}
 			}
 		}
@@ -101,6 +112,7 @@ function SignUpGetInfo(props) {
 				</getInfoS.SpeechBubble>
 			</getInfoS.SpeechBubbleWrapper>,
 		]);
+		setIsChattingState(true);
 	}, []);
 
 	useEffect(() => {
@@ -223,6 +235,50 @@ function SignUpGetInfo(props) {
 							placeholder="이메일을 입력해주세요."
 							placeholderTextColor="#fafafa"
 							onKeyDown={(e) => handleKeyDown(e, 'email')}
+							ref={inputRef}
+						/>
+					</getInfoS.SpeechBubble>
+				</getInfoS.SpeechBubbleWrapper>,
+			]);
+			bubbleIndex += 2;
+		}
+		if (
+			userName.length >= 1 &&
+			isBirthUpdate === true &&
+			userNickName.length >= 1 &&
+			userEmail.length >= 1
+		) {
+			bubbleIndex += 1;
+			const newSpeechBubble = speechBubble.slice(0, -1);
+			setSpeechBubble([]);
+			setSpeechBubble([
+				...newSpeechBubble,
+				<getInfoS.SpeechBubbleWrapper
+					top={2 + (bubbleIndex - 4) * 10}
+					type="userSpeaking"
+				>
+					<getInfoS.SpeechBubble type="userSpeaking">
+						{userEmail}
+					</getInfoS.SpeechBubble>
+				</getInfoS.SpeechBubbleWrapper>,
+				<getInfoS.SpeechBubbleWrapper
+					top={2 + (bubbleIndex - 3) * 10}
+					type="iloguSpeaking"
+				>
+					<getInfoS.SpeechBubble type="iloguSpeaking">
+						사용하실 비밀번호를 알려주세요!
+					</getInfoS.SpeechBubble>
+				</getInfoS.SpeechBubbleWrapper>,
+				<getInfoS.SpeechBubbleWrapper
+					top={2 + (bubbleIndex - 2) * 10}
+					type="userSpeaking"
+				>
+					<getInfoS.SpeechBubble type="userSpeaking">
+						<getInfoS.StyledInput
+							type="password"
+							placeholder="비밀번호를 입력해주세요."
+							placeholderTextColor="#fafafa"
+							onKeyDown={(e) => handleKeyDown(e, 'password_1')}
 							ref={inputRef}
 						/>
 					</getInfoS.SpeechBubble>

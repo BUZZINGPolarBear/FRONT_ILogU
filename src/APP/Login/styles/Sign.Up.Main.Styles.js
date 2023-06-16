@@ -15,7 +15,7 @@ export const TopNavBar = styled.div`
 	border-bottom: solid 1px ${tokens.colors.grey_50};
 	box-shadow: 0px 5px 3px 0 rgba(0, 0, 0, 0.01);
 	background-color: white;
-	z-index: 10;
+	z-index: 20;
 `;
 
 export const TopBackwardArea = styled.div`
@@ -32,7 +32,11 @@ export const TopBackwardArea = styled.div`
 `;
 
 export const SignUpMain = styled.div`
-	position: fixed;
+	${(props) =>
+		props.isChattingState == true
+			? `position: absolute; min-height: 140vh;`
+			: `position: fixed; min-height: 100vh;`};
+
 	top: 7vh;
 	padding: 20px 20px;
 	display: flex;
@@ -42,10 +46,11 @@ export const SignUpMain = styled.div`
 
 	width: 100vw;
 	max-width: 800px;
-	min-height: 100vh;
+
 	margin-bottom: 10vh;
 	padding-bottom: 11vh;
 	background-color: rgb(252, 252, 252);
+	z-index: 10;
 `;
 
 export const TopTextArea = styled.div`
