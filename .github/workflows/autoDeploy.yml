@@ -6,6 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout source code. # 레포지토리 체크아웃
+        uses: actions/checkout@master
+
+      - name: Install Dependencies # 의존 파일 설치
+        run: npm install
+
+      - name: Build # React Build
+        run: npm run build
+        run: ls
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -27,6 +37,6 @@ jobs:
             touch .env
             echo sudo "${{ secrets.DOTENV }}" >> .env
             npm install
-            npm run build
+            # npm run build
             sudo systemctl stop nginx.service
             sudo systemctl start nginx.service
