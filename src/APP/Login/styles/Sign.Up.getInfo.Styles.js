@@ -44,6 +44,10 @@ export const SpeechBubble = styled.div`
             border-bottom-left-radius: 10px;`}
 `;
 
+export const SpeechBubbleSmall = styled.span`
+	font-size: 12px;
+`;
+
 export const StyledInput = styled.input`
 	width: 200px;
 	border: none;
