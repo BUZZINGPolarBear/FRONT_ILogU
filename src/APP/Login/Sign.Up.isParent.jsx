@@ -73,7 +73,7 @@ function SelectIsParent(props) {
 							<signUpS.BinarySelectTitleImpact>
 								초대
 							</signUpS.BinarySelectTitleImpact>
-							를 받았어요
+							받았어요
 						</signUpS.BinarySelectTitle>
 					</signUpS.BinarySelectBoxContentWrapper>
 				</signUpS.BinarySelectBox>
