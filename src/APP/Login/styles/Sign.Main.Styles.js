@@ -29,6 +29,7 @@ export const MainLogoArea = styled.div`
 export const MainBtnWrapper = styled.div`
 	position: relative;
 	width: 100%;
+	max-width: 800px;
 	height: 25vh;
 `;
 
