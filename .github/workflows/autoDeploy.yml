@@ -13,16 +13,11 @@ jobs:
         run: npm install
 
       - name: Build # React Build
-        run: npm run build
-        run: ls
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_USER_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_USER_PW }}
-          aws-region: ap-northeast-2
-      - name: SSH Commands
+        run: |
+          npm run build
+          ls
+          
+      - name: remove build files
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.AWS_SSH_HOST }}
@@ -30,13 +25,32 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           port: ${{ secrets.AWS_SSH_PORT }}
           script: |
+            rm -rf /home/ubuntu/front-ilogu/build/*
+            
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_USER_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_USER_PW }}
+          aws-region: ap-northeast-2
+          
+      - name: SSH Commands
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.AWS_SSH_HOST }}
+          username: ${{ secrets.AWS_SSH_USERNAME }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          port: ${{ secrets.AWS_SSH_PORT }}
+          source: "build/*"
+          target: "/home/ubuntu/front-ilogu/build/"
+          script: |
             cd front-ilogu
             git reset --hard origin/main
             git pull
             rm -f .env
             touch .env
             echo sudo "${{ secrets.DOTENV }}" >> .env
-            npm install
+            npm install --production
             # npm run build
             sudo systemctl stop nginx.service
             sudo systemctl start nginx.service
