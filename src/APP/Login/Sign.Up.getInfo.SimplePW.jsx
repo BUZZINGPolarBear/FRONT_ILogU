@@ -30,6 +30,10 @@ function SimplePassWord() {
 		e.preventDefault();
 	};
 
+	const handleCircleWrapClick = () => {
+		inputRef.current.focus();
+	};
+
 	return (
 		<>
 			<signUpS.SignUpMain>
@@ -43,6 +47,7 @@ function SimplePassWord() {
 				</signUpS.MainTitleWrapper>
 
 				<signUpS.MainContentWrapper
+					onClick={handleCircleWrapClick}
 					style={{
 						display: 'flex',
 						alignItems: 'flex-start',
