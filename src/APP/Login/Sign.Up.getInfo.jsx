@@ -33,13 +33,20 @@ function SignUpGetInfo(props) {
 	);
 	//유저의 답변
 	let bubbleIndex = 1;
-	const [userName, setUserName] = useState('');
-	const [babyBirth, setBabyBirth] = useState(new Date());
+	const [babyName, setBabyName] = useRecoilState(signInRecoil.babyName);
+	const [babyBirth, setBabyBirth] = useRecoilState(signInRecoil.babyBirth);
 	const [isBirthUpdate, setIsBirthUpdate] = useState(false);
-	const [userNickName, setUserNickName] = useState('');
-	const [userEmail, setUserEmail] = useState('');
+	const [userNickName, setUserNickName] = useRecoilState(
+		signInRecoil.userNickname,
+	);
+	const [userEmail, setUserEmail] = useRecoilState(signInRecoil.userEmail);
 	const [userPassword_1, setUserPassword_1] = useState('');
-	const [userPassword_2, setUserPassword_2] = useState('');
+	const [userPassword_2, setUserPassword_2] = useRecoilState(
+		signInRecoil.userPassword,
+	);
+	const [goToSimplePassword, setGotoSimplePassword] = useRecoilState(
+		signInRecoil.goToSimplePassword,
+	);
 
 	const userType = props.userType;
 	let bubbleTop = 2;
@@ -55,8 +62,8 @@ function SignUpGetInfo(props) {
 			event.preventDefault();
 
 			if (type == 'babyName') {
-				if (userName == '') {
-					setUserName(event.target.value);
+				if (babyName == '') {
+					setBabyName(event.target.value);
 				}
 			}
 
@@ -120,10 +127,17 @@ function SignUpGetInfo(props) {
 			</getInfoS.SpeechBubbleWrapper>,
 		]);
 		setIsChattingState(true);
+		setIsBirthUpdate(false);
+		setUserEmail('');
+		setBabyName('');
+		setUserNickName('');
+		setUserPassword_1('');
+		setUserPassword_2('');
+		setBabyBirth(new Date());
 	}, []);
 
 	useEffect(() => {
-		if (userName != '' && userName.length >= 1) {
+		if (babyName != '' && babyName.length >= 1) {
 			bubbleIndex += 1;
 			const newSpeechBubble = speechBubble.slice(0, -1);
 			setSpeechBubble([]);
@@ -134,7 +148,7 @@ function SignUpGetInfo(props) {
 					type="userSpeaking"
 				>
 					<getInfoS.SpeechBubble type="userSpeaking">
-						{userName}
+						{babyName}
 					</getInfoS.SpeechBubble>
 				</getInfoS.SpeechBubbleWrapper>,
 				<getInfoS.SpeechBubbleWrapper
@@ -163,7 +177,7 @@ function SignUpGetInfo(props) {
 			]);
 			bubbleIndex += 2;
 		}
-		if (userName.length >= 1 && isBirthUpdate === true) {
+		if (babyName.length >= 1 && isBirthUpdate === true) {
 			bubbleIndex += 1;
 			const newSpeechBubble = speechBubble.slice(0, -1);
 			setSpeechBubble([]);
@@ -207,7 +221,7 @@ function SignUpGetInfo(props) {
 			bubbleIndex += 2;
 		}
 		if (
-			userName.length >= 1 &&
+			babyName.length >= 1 &&
 			isBirthUpdate === true &&
 			userNickName.length >= 1
 		) {
@@ -250,7 +264,7 @@ function SignUpGetInfo(props) {
 			bubbleIndex += 2;
 		}
 		if (
-			userName.length >= 1 &&
+			babyName.length >= 1 &&
 			isBirthUpdate === true &&
 			userNickName.length >= 1 &&
 			userEmail.length >= 1
@@ -294,7 +308,7 @@ function SignUpGetInfo(props) {
 			bubbleIndex += 2;
 		}
 		if (
-			userName.length >= 1 &&
+			babyName.length >= 1 &&
 			isBirthUpdate === true &&
 			userNickName.length >= 1 &&
 			userEmail.length >= 1 &&
@@ -337,8 +351,45 @@ function SignUpGetInfo(props) {
 				</getInfoS.SpeechBubbleWrapper>,
 			]);
 		}
+		if (
+			babyName.length >= 1 &&
+			isBirthUpdate === true &&
+			userNickName.length >= 1 &&
+			userEmail.length >= 1 &&
+			userPassword_1.length >= 1 &&
+			userPassword_2.length >= 1
+		) {
+			bubbleIndex += 1;
+			const newSpeechBubble = speechBubble.slice(0, -1);
+			setSpeechBubble([]);
+			setSpeechBubble([
+				...newSpeechBubble,
+				<getInfoS.SpeechBubbleWrapper
+					top={2 + (bubbleIndex - 4) * 10}
+					type="userSpeaking"
+				>
+					<getInfoS.SpeechBubble type="userSpeaking">
+						{userPassword_2.replace(/./g, '*')}
+					</getInfoS.SpeechBubble>
+				</getInfoS.SpeechBubbleWrapper>,
+				<getInfoS.SpeechBubbleWrapper
+					top={2 + (bubbleIndex - 3) * 10}
+					type="iloguSpeaking"
+				>
+					<getInfoS.SpeechBubble type="iloguSpeaking">
+						좋아요! 3초뒤에 다음 화면으로 넘어가요.
+					</getInfoS.SpeechBubble>
+				</getInfoS.SpeechBubbleWrapper>,
+			]);
+		}
+
+		if (userPassword_2.length >= 1) {
+			const timer = setTimeout(() => {
+				setGotoSimplePassword(true);
+			}, 3000);
+		}
 	}, [
-		userName,
+		babyName,
 		isBirthUpdate,
 		userNickName,
 		userEmail,

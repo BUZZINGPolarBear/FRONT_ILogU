@@ -25,6 +25,22 @@ function SignUpMain() {
 	const [isPrivateInfoSelected, setIsPrivateInfoSelected] = useState(false);
 	const [isAdvertiseSelected, setIsAdvertiseSelected] = useState(false);
 
+	//유저의 답변
+	const [babyName, setBabyName] = useRecoilState(signInRecoil.babyName);
+	const [babyBirth, setBabyBirth] = useRecoilState(signInRecoil.babyBirth);
+	const [isBirthUpdate, setIsBirthUpdate] = useState(false);
+	const [userNickName, setUserNickName] = useRecoilState(
+		signInRecoil.userNickname,
+	);
+	const [userEmail, setUserEmail] = useRecoilState(signInRecoil.userEmail);
+	const [userPassword_1, setUserPassword_1] = useState('');
+	const [userPassword_2, setUserPassword_2] = useRecoilState(
+		signInRecoil.userPassword,
+	);
+	const [goToSimplePassword, setGotoSimplePassword] = useRecoilState(
+		signInRecoil.goToSimplePassword,
+	);
+
 	const [isNextBtnClicked, setIsNextBtnClicked] = useRecoilState(
 		signInRecoil.isTermsOfAgreeBtnClicked,
 	);
@@ -39,6 +55,17 @@ function SignUpMain() {
 		e.preventDefault();
 		setIsNextBtnClicked(false);
 		setIsGetInfoBtnClicked(false);
+
+		setIsChattingState(true);
+		setIsBirthUpdate(false);
+		setUserEmail('');
+		setBabyName('');
+		setUserNickName('');
+		setUserPassword_1('');
+		setUserPassword_2('');
+		setBabyBirth(new Date());
+		setGotoSimplePassword(false);
+
 		navigate(`/`);
 	};
 
