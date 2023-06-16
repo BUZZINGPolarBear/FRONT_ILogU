@@ -310,7 +310,7 @@ function SignUpGetInfo(props) {
 					type="userSpeaking"
 				>
 					<getInfoS.SpeechBubble type="userSpeaking">
-						*******
+						{userPassword_1.replace(/./g, '*')}
 					</getInfoS.SpeechBubble>
 				</getInfoS.SpeechBubbleWrapper>,
 				<getInfoS.SpeechBubbleWrapper
