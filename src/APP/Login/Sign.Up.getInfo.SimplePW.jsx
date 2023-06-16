@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
 	BrowserRouter,
 	Route,
@@ -14,15 +14,17 @@ import * as signInRecoil from './recoil/Login.recoil.states';
 
 function SimplePassWord() {
 	const [password, setPassword] = useState('');
+	const inputRef = useRef();
+
 	const maxLength = 6;
+
+	useEffect(() => {
+		inputRef.current.focus();
+	}, []);
 
 	const handleChange = (event) => {
 		setPassword(event.target.value);
 	};
-
-	const [isNextBtnClicked, setIsNextBtnClicked] = useRecoilState(
-		signInRecoil.isTermsOfAgreeBtnClicked,
-	);
 
 	const handleSubmitBtnClick = (e) => {
 		e.preventDefault();
@@ -50,10 +52,11 @@ function SimplePassWord() {
 				>
 					<input
 						type="number"
+						ref={inputRef}
 						value={password}
 						onChange={handleChange}
 						maxLength={maxLength}
-						style={{ display: 'none' }} // Hides the actual input
+						// style={{ display: 'none' }} // Hides the actual input
 					/>
 					<signUpS.SimplePwWrapper>
 						{[...Array(maxLength)].map((_, i) => (
@@ -62,7 +65,7 @@ function SimplePassWord() {
 					</signUpS.SimplePwWrapper>
 				</signUpS.MainContentWrapper>
 				<signUpS.BtnWrapper
-					is_btn_available={false}
+					is_btn_available={password.length == 6}
 					onClick={(e) => handleSubmitBtnClick(e)}
 				>
 					완료
