@@ -86,6 +86,11 @@ export const typography = {
 		fontSize: '10px',
 		letterSpacing: '0.15px',
 	},
+	body_1: {
+		fontFamily: 'Noto Sans KR',
+		fontSize: '16px',
+		letterSpacing: '0.5px',
+	},
 	body_2: {
 		fontFamily: 'Noto Sans KR',
 		fontSize: '14px',
