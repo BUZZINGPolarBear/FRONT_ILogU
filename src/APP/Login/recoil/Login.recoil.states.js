@@ -10,6 +10,10 @@ export const isGetInfoBtnClicked = atom({
 	default: false,
 });
 
+export const signUpType = atom({
+	key: 'signUpType',
+	default: '',
+});
 export const isChattingState = atom({
 	key: 'isChattingState',
 	default: false,

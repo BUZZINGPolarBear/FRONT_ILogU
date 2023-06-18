@@ -14,7 +14,7 @@ import * as signInRecoil from './recoil/Login.recoil.states';
 
 import TermsOfUseAgree from './Sign.Up.TermsOfUse';
 import SelectIsParent from './Sign.Up.isParent';
-import SignUpGetInfo from './Sign.Up.getInfo';
+import SignUpGetInfo from './Sign.Up.parent.getInfo';
 import SimplePassWord from './Sign.Up.getInfo.SimplePW';
 
 function SignUpMain() {
@@ -86,7 +86,6 @@ function SignUpMain() {
 		isGetInfoBtnClicked === true &&
 		goToSimplePassword == true
 	) {
-		console.log('gogo');
 		setIsChattingState(false);
 		ComponentToShow = SimplePassWord;
 	}
