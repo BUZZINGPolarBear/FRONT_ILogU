@@ -22,20 +22,21 @@ function SelectIsParent(props) {
 	const [isGetInfoBtnClicked, setIsGetInfoBtnClicked] = useRecoilState(
 		signInRecoil.isGetInfoBtnClicked,
 	);
+	const [signUpType, setSignUpType] = useRecoilState(signInRecoil.signUpType);
 
 	const handleCardClick = (e, type) => {
 		if (type == 'parent') {
 			setIsParentClicked(true);
 			setIsInviteClicked(false);
+			setSignUpType('parent');
 		} else if (type == 'invite') {
 			setIsParentClicked(false);
 			setIsInviteClicked(true);
-			alert('여긴 아직 안만들었슴ㅎㅎ ㅈㅅ;;');
+			setSignUpType('invite');
 		}
 	};
 
 	const handleGetInfoBtnClick = (e) => {
-		console.log(isGetInfoBtnClicked);
 		setIsGetInfoBtnClicked(true);
 	};
 	return (

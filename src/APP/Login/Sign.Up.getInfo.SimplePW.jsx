@@ -15,7 +15,7 @@ import * as signInRecoil from './recoil/Login.recoil.states';
 function SimplePassWord() {
 	const [password, setPassword] = useState('');
 	const inputRef = useRef();
-
+	const navigate = useNavigate();
 	const maxLength = 6;
 
 	useEffect(() => {
@@ -30,6 +30,7 @@ function SimplePassWord() {
 
 	const handleSubmitBtnClick = (e) => {
 		e.preventDefault();
+		navigate('/home');
 	};
 
 	const handleCircleWrapClick = () => {
