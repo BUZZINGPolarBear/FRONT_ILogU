@@ -27,7 +27,7 @@ root.render(
 	<React.StrictMode>
 		<QueryClientProvider client={queryClient}>
 			{/* devtools */}
-			<ReactQueryDevtools initialIsOpen={true} />
+			{/* <ReactQueryDevtools initialIsOpen={true} /> */}
 			<RecoilRoot>
 				<BrowserRouter>
 					<App />

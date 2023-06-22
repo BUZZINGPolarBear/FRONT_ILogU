@@ -72,6 +72,7 @@ function App() {
 		recoilMain.navigateRecoil,
 	);
 	const nowLocation = useLocation();
+	console.log(nowLocation.pathname);
 
 	return (
 		<div className="App">
@@ -101,7 +102,7 @@ function App() {
 			{nowLocation.pathname != '/feed/write' &&
 			nowLocation.pathname != '/' &&
 			nowLocation.pathname != '/signup' &&
-			nowLocation.pathname != '/signin' ? (
+			nowLocation.pathname != '/signin/' ? (
 				<BottomNavBar>
 					<NavImg onClick={(e) => handleNavClick(e, 'home')}>
 						{navigateReoilSelectState === 'home' ? (

@@ -22,7 +22,7 @@ function LoginMain() {
 	};
 	const handleSignInBtn = (e) => {
 		e.preventDefault();
-		navigate('signin');
+		navigate('/signin');
 	};
 	const [isChattingState, setIsChattingState] = useRecoilState(
 		signInRecoil.isChattingState,
