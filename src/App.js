@@ -112,19 +112,6 @@ function App() {
 							></img>
 						)}
 					</NavImg>
-					<NavImg onClick={(e) => handleNavClick(e, 'finance')}>
-						{navigateReoilSelectState === 'finance' ? (
-							<img
-								src="/bottomNavBar/finance_clicked.svg"
-								alt="finance clicked"
-							></img>
-						) : (
-							<img
-								src="/bottomNavBar/finance_unclicked.svg"
-								alt="finance unclicked"
-							></img>
-						)}
-					</NavImg>
 					<NavImg onClick={(e) => handleNavClick(e, 'feed/main')}>
 						{navigateReoilSelectState === 'feed/main' ||
 						navigateReoilSelectState === 'feed/participation' ? (
@@ -139,15 +126,28 @@ function App() {
 							></img>
 						)}
 					</NavImg>
-					<NavImg onClick={(e) => handleNavClick(e, 'challenge')}>
-						{navigateReoilSelectState === 'challenge' ? (
+					<NavImg onClick={(e) => handleNavClick(e, 'history')}>
+						{navigateReoilSelectState === 'history' ? (
 							<img
-								src="/bottomNavBar/challenge_clicked.svg"
+								src="/bottomNavBar/history_clicked.svg"
 								alt="challenge clicked"
 							></img>
 						) : (
 							<img
-								src="/bottomNavBar/challenge_unclicked.svg"
+								src="/bottomNavBar/history_unclicked.svg"
+								alt="challenge unclicked"
+							></img>
+						)}
+					</NavImg>
+					<NavImg onClick={(e) => handleNavClick(e, 'ourfamily')}>
+						{navigateReoilSelectState === 'ourfamily' ? (
+							<img
+								src="/bottomNavBar/ourFamily_clicked.svg"
+								alt="challenge clicked"
+							></img>
+						) : (
+							<img
+								src="/bottomNavBar/ourFamily_unclicked.svg"
 								alt="challenge unclicked"
 							></img>
 						)}
