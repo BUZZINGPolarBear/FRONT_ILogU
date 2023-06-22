@@ -18,31 +18,38 @@ function SignInMain() {
 	const [isLoginAvailable, setIsLoginAvailable] = useState(false);
 	const [idInput, setIdInput] = useState('');
 	const [pwInput, setPwInput] = useState('');
-	const isCheckboxClicked = localStorage.getItem('isCheckboxClicked');
+	const [isCheckboxClicked, setIsCheckboxClicked] = useState(
+		localStorage.getItem('isCheckboxClicked'),
+	);
 
 	const handleBackwardClick = (e) => {
 		navigate(`/`);
 	};
 
-	const handleIdEnter = (e) => {
+	const handleIdEnter = (e, type) => {
 		const inputValue = e.target.value;
-		setIdInput(inputValue);
+		if (type == 'id') {
+			setIdInput(inputValue);
 
-		if (inputValue.length === 0 || pwInput.length === 0) {
-			setIsLoginAvailable(false);
-		} else {
-			setIsLoginAvailable(true);
+			if (inputValue.length === 0 || pwInput.length === 0) {
+				setIsLoginAvailable(false);
+			} else {
+				setIsLoginAvailable(true);
+			}
+		}
+		if (type == 'pw') {
+			setPwInput(e.target.value);
+
+			if (inputValue.length === 0 || idInput.length === 0) {
+				setIsLoginAvailable(false);
+			} else {
+				setIsLoginAvailable(true);
+			}
 		}
 	};
-	const handlePwEnter = (e) => {
-		const inputValue = e.target.value;
-		setPwInput(e.target.value);
 
-		if (inputValue.length === 0 || idInput.length === 0) {
-			setIsLoginAvailable(false);
-		} else {
-			setIsLoginAvailable(true);
-		}
+	const handleAutoLoginBtn = (e) => {
+		setIsCheckboxClicked(!isCheckboxClicked);
 	};
 
 	return (
@@ -67,20 +74,21 @@ function SignInMain() {
 							type="text"
 							placeholder="아이디"
 							placeholderTextColor="#797A7A"
-							onChange={(e) => handleIdEnter(e)}
+							onChange={(e) => handleIdEnter(e, 'id')}
 							value={idInput}
 						></signInS.userInput>
 						<signInS.userInput
 							type="password"
 							placeholder="영문, 숫자, 특수문자 조합 8자리 이상"
 							placeholderTextColor="#797A7A"
-							onChange={(e) => handlePwEnter(e)}
+							onChange={(e) => handleIdEnter(e, 'pw')}
 							value={pwInput}
 						></signInS.userInput>
 						<signInS.SignInTextWrapper>
 							<signInS.AutoSignInWrapper>
 								<signInS.AutoSignInBox
 									isCheckboxClicked={isCheckboxClicked}
+									onClick={(e) => handleAutoLoginBtn(e)}
 								></signInS.AutoSignInBox>
 								자동 로그인
 							</signInS.AutoSignInWrapper>
