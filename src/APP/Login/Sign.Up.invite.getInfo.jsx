@@ -33,9 +33,8 @@ function SignUpGetInfo(props) {
 	);
 	//유저의 답변
 	let bubbleIndex = 1;
-	const [babyName, setBabyName] = useRecoilState(signInRecoil.babyName);
-	const [babyBirth, setBabyBirth] = useRecoilState(signInRecoil.babyBirth);
-	const [isBirthUpdate, setIsBirthUpdate] = useState(false);
+	const [inviteCode, setInviteCode] = useRecoilState(signInRecoil.inviteCode);
+	const [relateName, setRelateName] = useRecoilState(signInRecoil.relateName);
 	const [userNickName, setUserNickName] = useRecoilState(
 		signInRecoil.userNickname,
 	);
@@ -52,18 +51,18 @@ function SignUpGetInfo(props) {
 	let bubbleTop = 2;
 	const inputRef = useRef(null);
 
-	const handleDateChanged = (date) => {
-		setBabyBirth(date);
-		setIsBirthUpdate(true);
-	};
-
 	const handleKeyDown = (event, type) => {
 		if (event.key === 'Enter') {
 			event.preventDefault();
 
-			if (type == 'babyName') {
-				if (babyName == '') {
-					setBabyName(event.target.value);
+			if (type == 'inviteCode') {
+				if (inviteCode == '') {
+					setInviteCode(event.target.value);
+				}
+			}
+			if (type == 'relateName') {
+				if (relateName == '') {
+					setRelateName(event.target.value);
 				}
 			}
 
@@ -120,24 +119,21 @@ function SignUpGetInfo(props) {
 						type="text"
 						placeholder="가입코드를 입력해주세요."
 						placeholderTextColor="#fafafa"
-						onKeyDown={(e) => handleKeyDown(e, 'babyName')}
+						onKeyDown={(e) => handleKeyDown(e, 'inviteCode')}
 						ref={inputRef}
 					/>
 				</getInfoS.SpeechBubble>
 			</getInfoS.SpeechBubbleWrapper>,
 		]);
 		setIsChattingState(true);
-		setIsBirthUpdate(false);
 		setUserEmail('');
-		setBabyName('');
 		setUserNickName('');
 		setUserPassword_1('');
 		setUserPassword_2('');
-		setBabyBirth(new Date());
 	}, []);
 
 	useEffect(() => {
-		if (babyName != '' && babyName.length >= 1) {
+		if (inviteCode != '' && inviteCode.length >= 1) {
 			bubbleIndex += 1;
 			const newSpeechBubble = speechBubble.slice(0, -1);
 			setSpeechBubble([]);
@@ -148,7 +144,7 @@ function SignUpGetInfo(props) {
 					type="userSpeaking"
 				>
 					<getInfoS.SpeechBubble type="userSpeaking">
-						{babyName}
+						{inviteCode}
 					</getInfoS.SpeechBubble>
 				</getInfoS.SpeechBubbleWrapper>,
 				<getInfoS.SpeechBubbleWrapper
@@ -156,28 +152,30 @@ function SignUpGetInfo(props) {
 					type="iloguSpeaking"
 				>
 					<getInfoS.SpeechBubble type="iloguSpeaking">
-						아이의 생년월일은 언제인가요?
+						환영해요! 당신은 누구인가요?
+						<getInfoS.SpeechBubbleSmall style={{ display: 'inline' }}>
+							&nbsp;(이모, 삼촌 등)
+						</getInfoS.SpeechBubbleSmall>
 					</getInfoS.SpeechBubble>
 				</getInfoS.SpeechBubbleWrapper>,
 				<getInfoS.SpeechBubbleWrapper
-					top={2 + bubbleIndex + 3 * 10}
+					top={2 + (bubbleIndex + 1) * 10}
 					type="userSpeaking"
 				>
 					<getInfoS.SpeechBubble type="userSpeaking">
-						<DatePicker
-							className="datePicker"
-							locale={ko}
-							selected={babyBirth}
-							// onSelect={handleDateChange}
-							onChange={(date) => handleDateChanged(date)}
-							dateFormat="yyyy/MM/dd"
+						<getInfoS.StyledInput
+							type="text"
+							placeholder="아이와 관계를 알려주세요."
+							placeholderTextColor="#fafafa"
+							onKeyDown={(e) => handleKeyDown(e, 'relateName')}
+							ref={inputRef}
 						/>
 					</getInfoS.SpeechBubble>
 				</getInfoS.SpeechBubbleWrapper>,
 			]);
 			bubbleIndex += 2;
 		}
-		if (babyName.length >= 1 && isBirthUpdate === true) {
+		if (relateName != '' && relateName.length >= 1) {
 			bubbleIndex += 1;
 			const newSpeechBubble = speechBubble.slice(0, -1);
 			setSpeechBubble([]);
@@ -188,7 +186,7 @@ function SignUpGetInfo(props) {
 					type="userSpeaking"
 				>
 					<getInfoS.SpeechBubble type="userSpeaking">
-						{dateToString(babyBirth)}
+						{relateName}
 					</getInfoS.SpeechBubble>
 				</getInfoS.SpeechBubbleWrapper>,
 				<getInfoS.SpeechBubbleWrapper
@@ -221,8 +219,8 @@ function SignUpGetInfo(props) {
 			bubbleIndex += 2;
 		}
 		if (
-			babyName.length >= 1 &&
-			isBirthUpdate === true &&
+			inviteCode.length >= 1 &&
+			relateName.length >= 1 &&
 			userNickName.length >= 1
 		) {
 			bubbleIndex += 1;
@@ -264,8 +262,8 @@ function SignUpGetInfo(props) {
 			bubbleIndex += 2;
 		}
 		if (
-			babyName.length >= 1 &&
-			isBirthUpdate === true &&
+			inviteCode.length >= 1 &&
+			relateName.length >= 1 &&
 			userNickName.length >= 1 &&
 			userEmail.length >= 1
 		) {
@@ -308,8 +306,8 @@ function SignUpGetInfo(props) {
 			bubbleIndex += 2;
 		}
 		if (
-			babyName.length >= 1 &&
-			isBirthUpdate === true &&
+			inviteCode.length >= 1 &&
+			relateName.length >= 1 &&
 			userNickName.length >= 1 &&
 			userEmail.length >= 1 &&
 			userPassword_1.length >= 1
@@ -352,8 +350,8 @@ function SignUpGetInfo(props) {
 			]);
 		}
 		if (
-			babyName.length >= 1 &&
-			isBirthUpdate === true &&
+			inviteCode.length >= 1 &&
+			relateName.length >= 1 &&
 			userNickName.length >= 1 &&
 			userEmail.length >= 1 &&
 			userPassword_1.length >= 1 &&
@@ -389,8 +387,8 @@ function SignUpGetInfo(props) {
 			}, 3000);
 		}
 	}, [
-		babyName,
-		isBirthUpdate,
+		inviteCode,
+		relateName,
 		userNickName,
 		userEmail,
 		userPassword_1,

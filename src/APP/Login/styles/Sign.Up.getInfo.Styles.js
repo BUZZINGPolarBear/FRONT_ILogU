@@ -36,7 +36,7 @@ export const SpeechBubble = styled.div`
 	box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.03);
 	display: flex;
 	align-items: center;
-
+	text-align: left;
 	animation: ${fadeIn} 0.5s;
 
 	${(props) =>

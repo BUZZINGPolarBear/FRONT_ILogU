@@ -48,3 +48,13 @@ export const goToSimplePassword = atom({
 	key: 'goToSimplePassword',
 	default: false,
 });
+
+export const inviteCode = atom({
+	key: 'inviteCode',
+	default: '',
+});
+
+export const relateName = atom({
+	key: 'relateName',
+	default: '',
+});

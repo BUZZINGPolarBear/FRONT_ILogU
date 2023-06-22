@@ -22,6 +22,8 @@ function SignUpMain() {
 	const navigate = useNavigate();
 
 	//유저의 답변
+	const [inviteCode, setInviteCode] = useRecoilState(signInRecoil.inviteCode);
+	const [relateName, setRelateName] = useRecoilState(signInRecoil.relateName);
 	const [babyName, setBabyName] = useRecoilState(signInRecoil.babyName);
 	const [babyBirth, setBabyBirth] = useRecoilState(signInRecoil.babyBirth);
 	const [isBirthUpdate, setIsBirthUpdate] = useState(false);
@@ -53,6 +55,8 @@ function SignUpMain() {
 		setIsNextBtnClicked(false);
 		setIsGetInfoBtnClicked(false);
 
+		setInviteCode('');
+		setRelateName('');
 		setIsChattingState(true);
 		setIsBirthUpdate(false);
 		setUserEmail('');
@@ -65,6 +69,21 @@ function SignUpMain() {
 
 		navigate(`/`);
 	};
+	//유저 회원정보 초기화
+	useEffect(() => {
+		setIsNextBtnClicked(false);
+		setIsGetInfoBtnClicked(false);
+
+		setIsChattingState(true);
+		setIsBirthUpdate(false);
+		setUserEmail('');
+		setBabyName('');
+		setUserNickName('');
+		setUserPassword_1('');
+		setUserPassword_2('');
+		setBabyBirth(new Date());
+		setGotoSimplePassword(false);
+	}, []);
 
 	//보여질 컴포넌트 수정
 	let ComponentToShow;
