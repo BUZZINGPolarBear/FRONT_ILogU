@@ -15,6 +15,7 @@ import * as signInRecoil from './recoil/Login.recoil.states';
 import TermsOfUseAgree from './Sign.Up.TermsOfUse';
 import SelectIsParent from './Sign.Up.isParent';
 import SignUpGetInfo from './Sign.Up.parent.getInfo';
+import SignUpInviteGetInfo from './Sign.Up.invite.getInfo';
 import SimplePassWord from './Sign.Up.getInfo.SimplePW';
 
 function SignUpMain() {
@@ -45,6 +46,7 @@ function SignUpMain() {
 	const [isChattingState, setIsChattingState] = useRecoilState(
 		signInRecoil.isChattingState,
 	);
+	const [signUpType, setSignUpType] = useRecoilState(signInRecoil.signUpType);
 
 	const handleBackwardClick = (e) => {
 		e.preventDefault();
@@ -80,7 +82,8 @@ function SignUpMain() {
 		isGetInfoBtnClicked === true &&
 		goToSimplePassword == false
 	) {
-		ComponentToShow = SignUpGetInfo;
+		if (signUpType == 'parent') ComponentToShow = SignUpGetInfo;
+		else if (signUpType == 'invite') ComponentToShow = SignUpInviteGetInfo;
 	} else if (
 		isNextBtnClicked === true &&
 		isGetInfoBtnClicked === true &&
