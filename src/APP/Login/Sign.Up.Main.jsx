@@ -15,12 +15,15 @@ import * as signInRecoil from './recoil/Login.recoil.states';
 import TermsOfUseAgree from './Sign.Up.TermsOfUse';
 import SelectIsParent from './Sign.Up.isParent';
 import SignUpGetInfo from './Sign.Up.parent.getInfo';
+import SignUpInviteGetInfo from './Sign.Up.invite.getInfo';
 import SimplePassWord from './Sign.Up.getInfo.SimplePW';
 
 function SignUpMain() {
 	const navigate = useNavigate();
 
 	//유저의 답변
+	const [inviteCode, setInviteCode] = useRecoilState(signInRecoil.inviteCode);
+	const [relateName, setRelateName] = useRecoilState(signInRecoil.relateName);
 	const [babyName, setBabyName] = useRecoilState(signInRecoil.babyName);
 	const [babyBirth, setBabyBirth] = useRecoilState(signInRecoil.babyBirth);
 	const [isBirthUpdate, setIsBirthUpdate] = useState(false);
@@ -45,12 +48,15 @@ function SignUpMain() {
 	const [isChattingState, setIsChattingState] = useRecoilState(
 		signInRecoil.isChattingState,
 	);
+	const [signUpType, setSignUpType] = useRecoilState(signInRecoil.signUpType);
 
 	const handleBackwardClick = (e) => {
 		e.preventDefault();
 		setIsNextBtnClicked(false);
 		setIsGetInfoBtnClicked(false);
 
+		setInviteCode('');
+		setRelateName('');
 		setIsChattingState(true);
 		setIsBirthUpdate(false);
 		setUserEmail('');
@@ -63,6 +69,21 @@ function SignUpMain() {
 
 		navigate(`/`);
 	};
+	//유저 회원정보 초기화
+	useEffect(() => {
+		setIsNextBtnClicked(false);
+		setIsGetInfoBtnClicked(false);
+
+		setIsChattingState(true);
+		setIsBirthUpdate(false);
+		setUserEmail('');
+		setBabyName('');
+		setUserNickName('');
+		setUserPassword_1('');
+		setUserPassword_2('');
+		setBabyBirth(new Date());
+		setGotoSimplePassword(false);
+	}, []);
 
 	//보여질 컴포넌트 수정
 	let ComponentToShow;
@@ -80,7 +101,8 @@ function SignUpMain() {
 		isGetInfoBtnClicked === true &&
 		goToSimplePassword == false
 	) {
-		ComponentToShow = SignUpGetInfo;
+		if (signUpType == 'parent') ComponentToShow = SignUpGetInfo;
+		else if (signUpType == 'invite') ComponentToShow = SignUpInviteGetInfo;
 	} else if (
 		isNextBtnClicked === true &&
 		isGetInfoBtnClicked === true &&
