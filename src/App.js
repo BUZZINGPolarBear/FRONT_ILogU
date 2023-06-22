@@ -15,6 +15,7 @@ import FeedWrite from './APP/Feed/writeFeed/writeFeed.info';
 import LoginMain from './APP/Login/Login.Main';
 import SignUpMain from './APP/Login/Sign.Up.Main';
 import SelectIsParent from './APP/Login/Sign.Up.isParent';
+import SignInMain from './APP/Login/Sign.In.Main';
 import * as tokens from './tokens';
 import {
 	BrowserRouter,
@@ -83,6 +84,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<LoginMain />} />
 					<Route path="/signup" element={<SignUpMain />} />
+					<Route path="/signin" element={<SignInMain />} />
 					<Route path="/home" element={<HomeMain />} />
 					<Route
 						path="/feed/main"
@@ -98,7 +100,8 @@ function App() {
 			</MainScreen>
 			{nowLocation.pathname != '/feed/write' &&
 			nowLocation.pathname != '/' &&
-			nowLocation.pathname != '/signup' ? (
+			nowLocation.pathname != '/signup' &&
+			nowLocation.pathname != '/signin' ? (
 				<BottomNavBar>
 					<NavImg onClick={(e) => handleNavClick(e, 'home')}>
 						{navigateReoilSelectState === 'home' ? (

@@ -20,6 +20,10 @@ function LoginMain() {
 		e.preventDefault();
 		navigate('signup');
 	};
+	const handleSignInBtn = (e) => {
+		e.preventDefault();
+		navigate('signin');
+	};
 	const [isChattingState, setIsChattingState] = useRecoilState(
 		signInRecoil.isChattingState,
 	);
@@ -31,7 +35,9 @@ function LoginMain() {
 				<mainS.MainBtn type="signup" onClick={(e) => handleSignUpBtn(e)}>
 					회원가입
 				</mainS.MainBtn>
-				<mainS.MainBtn type="signin">로그인</mainS.MainBtn>
+				<mainS.MainBtn type="signin" onClick={(e) => handleSignInBtn(e)}>
+					로그인
+				</mainS.MainBtn>
 			</mainS.MainBtnWrapper>
 		</mainS.MainScreenWrapper>
 	);
