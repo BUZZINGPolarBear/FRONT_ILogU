@@ -98,3 +98,11 @@ export const HomeMainCategoryBtn = styled.div`
 			? `color:${tokens.colors.green_500}; border-bottom: 2px solid ${tokens.colors.green_500};`
 			: `color:${tokens.colors.grey_100};`}
 `;
+
+export const HomeMainCategoryArea = styled.div`
+	width: 98%;
+	height: 70vh;
+	margin: auto;
+
+	background-color: antiquewhite;
+`;

@@ -56,6 +56,8 @@ function HomeMain() {
 					예적금 상품
 				</HomeS.HomeMainCategoryBtn>
 			</HomeS.HomeMainSelectWrapper>
+
+			<HomeS.HomeMainCategoryArea></HomeS.HomeMainCategoryArea>
 		</HomeS.HomeMainScreen>
 	);
 }
