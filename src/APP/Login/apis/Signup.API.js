@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import * as recoilInfo from '../recoil/Login.recoil.states';
 
-export const SignInParents = async (
+export const SignUpParents = async (
 	userEmail,
 	userPassword_2,
 	simplePw,
@@ -30,8 +30,26 @@ export const SignInParents = async (
 			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/user/join`,
 			requestBody,
 		);
-		console.log(response);
-		return 'job done';
+
+		return response.data.result;
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+export const SignInUser = async (userEmail, userPw) => {
+	try {
+		const requestBody = {
+			email: userEmail,
+			password: userPw,
+		};
+
+		const response = await axios.post(
+			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/user/login`,
+			requestBody,
+		);
+
+		return response.data;
 	} catch (error) {
 		console.error(error);
 	}

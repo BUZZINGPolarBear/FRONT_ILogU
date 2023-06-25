@@ -46,9 +46,9 @@ function SimplePassWord() {
 
 	const handleSubmitBtnClick = async (e) => {
 		e.preventDefault();
-		console.log(`signUp type : ${signUpType}`);
+
 		if (signUpType == 'parent') {
-			const signUpResult = await signInApi.SignInParents(
+			const signUpResult = await signInApi.SignUpParents(
 				userEmail,
 				userPassword_2,
 				simplePw,
