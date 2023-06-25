@@ -59,7 +59,7 @@ function SimplePassWord() {
 			);
 		}
 
-		// navigate('/home');
+		navigate('/signin');
 	};
 
 	const handleCircleWrapClick = () => {

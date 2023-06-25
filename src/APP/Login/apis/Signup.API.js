@@ -13,17 +13,17 @@ export const SignInParents = async (
 	babyBirth,
 ) => {
 	try {
+		let strBabyBirth = babyBirth.toDateString();
 		const requestBody = {
-			request: {
-				email: userEmail,
-				password: userPassword_2,
-				simplePassword: simplePw,
-				nickname: userNickName,
-				familyType: 'PARENTS',
-				childName: babyName,
-				childBirth: babyBirth,
-			},
-			file: 'null',
+			email: userEmail,
+			password: userPassword_2,
+			simplePassword: simplePw,
+			nickname: userNickName,
+			familyType: 'PARENTS',
+			familyName: '루리네 가족',
+			verifyCode: 'onehana',
+			childName: babyName,
+			childBirth: strBabyBirth,
 		};
 
 		const response = await axios.post(
