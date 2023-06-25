@@ -13,6 +13,8 @@ import * as signUpS from './styles/Sign.Up.Main.Styles';
 import * as signInS from './styles/Sign.In.Styles';
 import * as signInRecoil from './recoil/Login.recoil.states';
 
+import * as signInApi from './apis/Signup.API';
+
 function SignInMain() {
 	const navigate = useNavigate();
 	const [isLoginAvailable, setIsLoginAvailable] = useState(false);
@@ -45,6 +47,24 @@ function SignInMain() {
 			} else {
 				setIsLoginAvailable(true);
 			}
+		}
+	};
+
+	const handleLoginBtn = async (e) => {
+		e.preventDefault();
+
+		const response = await signInApi.SignInUser(idInput, pwInput);
+
+		if (response.isSuccess == false) {
+			alert('아이디/비밀번호를 다시 확인해주세요.');
+			setIdInput('');
+			setPwInput('');
+		} else {
+			const accessToken = response.result.accessToken;
+			const refreshToken = response.result.refreshToken;
+			localStorage.setItem('access', accessToken);
+			localStorage.setItem('refresh', refreshToken);
+			navigate('/home');
 		}
 	};
 
@@ -95,7 +115,10 @@ function SignInMain() {
 							<signInS.FindPassword>비밀번호 찾기</signInS.FindPassword>
 						</signInS.SignInTextWrapper>
 					</signInS.SignInWrapper>
-					<signInS.SignInBtn isAvailable={isLoginAvailable}>
+					<signInS.SignInBtn
+						isAvailable={isLoginAvailable}
+						onClick={handleLoginBtn}
+					>
 						로그인
 					</signInS.SignInBtn>
 				</signInS.MainWrapper>

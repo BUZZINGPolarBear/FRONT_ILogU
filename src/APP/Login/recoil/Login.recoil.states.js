@@ -44,6 +44,11 @@ export const userPassword = atom({
 	default: '',
 });
 
+export const userSimplePassword = atom({
+	key: 'userSimplePassword',
+	default: '',
+});
+
 export const goToSimplePassword = atom({
 	key: 'goToSimplePassword',
 	default: false,

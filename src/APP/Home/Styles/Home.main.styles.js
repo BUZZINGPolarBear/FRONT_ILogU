@@ -1,65 +1,56 @@
-import styled from "styled-components";
-import * as tokens from "../../../tokens";
+import styled from 'styled-components';
+import * as tokens from '../../../tokens';
 
 export const HomeMainScreen = styled.div`
-	width: 100%;
+	width: 100vw;
 	max-width: 800px;
-	// min-height: 100vh;
+	min-height: 100vh;
 	height: fit-content;
 	margin-bottom: 10vh;
-	background-color: ${tokens.colors.grey_50};
+	background-color: #ffffff;
 `;
 
-export const HomeMainTopUserInfo = styled.div`
+export const HomeMainScreenHeader = styled.div`
 	width: 100%;
-	max-width: 800px;
-	height: 20vh;
-
-	display: flex;
-	justify-content: space-between;
-	position: fixed;
-	top: 0;
-
-	background-color: ${tokens.colors.green_500};
-	z-index: 1;
-`;
-
-export const HomeMainTopInfoArea = styled.div`
-	width: 44%;
-	height: 100%;
+	height: 15vh;
+	margin-top: 10px;
+	min-height: 120px;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
-	${tokens.typography.subtitle_2}
-	color: white;
-	position: relative;
 `;
 
-export const DivInnerContainer = styled.div`
-	width: 100%;
-	max-width: 800px;
-	min-height: 95vh;
-	height: fit-content;
-	position: relative;
-	top: 18vh;
-
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
-
-	padding-bottom: 10vh;
-
-	background-color: ${tokens.colors.grey_50};
-	z-index: 2;
-`;
-
-export const HomeMainCardTitle = styled.div`
+export const HomeMainHeaderContent = styled.div`
 	width: 90%;
-	height: 15%;
-	position: relative;
-	text-align: left;
+	height: 92%;
 
-	${tokens.typography.subtitle_1_SB}
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	padding: 0 15px;
+	border-radius: 16px;
+	background-color: rgba(29, 203, 157, 0.1);
+`;
+
+export const HomeMainHeaderContentTitle = styled.div`
+	width: 45%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
+	background-color: antiquewhite;
+`;
+
+export const HomeMainHeaderTitle = styled.span`
+	color: ${tokens.colors.green_600};
+	${(props) =>
+		props.type === 'sub'
+			? tokens.typography.body_2
+			: tokens.typography.headline_5};
 `;

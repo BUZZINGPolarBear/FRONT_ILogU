@@ -72,7 +72,7 @@ function App() {
 		recoilMain.navigateRecoil,
 	);
 	const nowLocation = useLocation();
-	console.log(nowLocation.pathname);
+	// console.log(nowLocation.pathname);
 
 	return (
 		<div className="App">
