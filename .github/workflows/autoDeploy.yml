@@ -25,6 +25,9 @@ jobs:
 
       - name: Build # React Build
         run: |
+          rm -f .env
+          touch .env
+          echo sudo "${{ secrets.DOTENV }}" >> .env
           npm run build
           ls
 
