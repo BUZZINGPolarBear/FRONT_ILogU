@@ -12,8 +12,24 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import * as signUpS from './styles/Sign.Up.Main.Styles';
 import * as signInRecoil from './recoil/Login.recoil.states';
 
+import * as signInApi from './apis/Signup.API';
+
 function SimplePassWord() {
-	const [password, setPassword] = useState('');
+	//유저의 답변
+	const [signUpType, setSignUpType] = useRecoilState(signInRecoil.signUpType);
+	const [babyName, setBabyName] = useRecoilState(signInRecoil.babyName);
+	const [babyBirth, setBabyBirth] = useRecoilState(signInRecoil.babyBirth);
+	const [userNickName, setUserNickName] = useRecoilState(
+		signInRecoil.userNickname,
+	);
+	const [userEmail, setUserEmail] = useRecoilState(signInRecoil.userEmail);
+	const [userPassword_2, setUserPassword_2] = useRecoilState(
+		signInRecoil.userPassword,
+	);
+
+	const [simplePw, setSimplePw] = useRecoilState(
+		signInRecoil.userSimplePassword,
+	);
 	const inputRef = useRef();
 	const navigate = useNavigate();
 	const maxLength = 6;
@@ -24,13 +40,26 @@ function SimplePassWord() {
 
 	const handleChange = (e) => {
 		if (e.target.value.length <= 6) {
-			setPassword(e.target.value);
+			setSimplePw(e.target.value);
 		}
 	};
 
-	const handleSubmitBtnClick = (e) => {
+	const handleSubmitBtnClick = async (e) => {
 		e.preventDefault();
-		navigate('/home');
+		console.log(`signUp type : ${signUpType}`);
+		if (signUpType == 'parent') {
+			const signUpResult = await signInApi.SignInParents(
+				userEmail,
+				userPassword_2,
+				simplePw,
+				userNickName,
+				'PARENTS',
+				babyName,
+				babyBirth,
+			);
+		}
+
+		// navigate('/home');
 	};
 
 	const handleCircleWrapClick = () => {
@@ -62,7 +91,7 @@ function SimplePassWord() {
 						type="number"
 						inputmode="numeric"
 						ref={inputRef}
-						value={password}
+						value={simplePw}
 						onChange={handleChange}
 						maxLength={maxLength}
 						keyboardType="number-pad"
@@ -74,12 +103,12 @@ function SimplePassWord() {
 					/>
 					<signUpS.SimplePwWrapper>
 						{[...Array(maxLength)].map((_, i) => (
-							<signUpS.PasswordCircle key={i} filled={i < password.length} />
+							<signUpS.PasswordCircle key={i} filled={i < simplePw.length} />
 						))}
 					</signUpS.SimplePwWrapper>
 				</signUpS.MainContentWrapper>
 				<signUpS.BtnWrapper
-					is_btn_available={password.length == 6}
+					is_btn_available={simplePw.length == 6}
 					onClick={(e) => handleSubmitBtnClick(e)}
 				>
 					완료
