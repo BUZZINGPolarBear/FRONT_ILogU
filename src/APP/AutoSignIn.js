@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export const RefreshToken = async () => {
 	const RefreshToken = localStorage.getItem('refresh');
-	console.log(RefreshToken);
 	const axiosResponse = await axios.post(
 		`${process.env.REACT_APP_ILOGU_API_SERVER}/api/user/token/refresh`,
 		{

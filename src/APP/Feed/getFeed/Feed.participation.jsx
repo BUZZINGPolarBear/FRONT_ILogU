@@ -26,7 +26,6 @@ function FeedParticipation(props) {
 			if (fetchResponse.length == 0) setBoardBodyArr(localDiv);
 			for (let i = 0; i < fetchResponse.length; i++) {
 				const localContent = fetchResponse[i];
-				console.log(localContent);
 				const dateStr = utils.changeDateStr(localContent.createdAt);
 				const content = utils.truncateString(localContent.content, 65);
 				localDiv.push(
