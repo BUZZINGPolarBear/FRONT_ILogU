@@ -102,7 +102,7 @@ function App() {
 			{nowLocation.pathname != '/write' &&
 			nowLocation.pathname != '/' &&
 			nowLocation.pathname != '/signup' &&
-			nowLocation.pathname != '/signin/' ? (
+			nowLocation.pathname != '/signin' ? (
 				<BottomNavBar>
 					<NavImg onClick={(e) => handleNavClick(e, 'home')}>
 						{navigateReoilSelectState === 'home' ? (
