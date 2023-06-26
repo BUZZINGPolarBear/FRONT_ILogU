@@ -86,8 +86,10 @@ export const TopNavBarCategoryItems = styled.div`
 	align-items: center;
 	justify-content: center;
 	${tokens.typography.subtitle_2};
-	color: ${tokens.colors.grey_400};
-	background-color: rgba(192, 192, 192, 0.1);
+	${(props) =>
+		props.isselected == 'true'
+			? `background-color: ${tokens.colors.green_500}; color: #ffffff;`
+			: `background-color: rgba(192, 192, 192, 0.1); color: ${tokens.colors.grey_400};`}
 `;
 
 export const StyledSwiper = styled(Swiper)`
