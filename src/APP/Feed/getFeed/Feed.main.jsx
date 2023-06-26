@@ -69,53 +69,19 @@ function FeedMain(props) {
 		<div style={{ backgroundColor: 'white' }}>
 			<div>
 				<FeedMainS.TopNavBar>
-					<FeedMainS.TopNavArea>
-						<FeedMainS.TopNavBarItem
-							onClick={(e) => handleNavBtnClick(e, 'feed/main')}
-						>
-							<FeedMainS.TopNavBarItemText
-								style={
-									nowLocation.pathname == '/feed/main'
-										? {
-												color: tokens.colors.green_500,
-												borderBottom: `3px solid ${tokens.colors.green_500}`,
-										  }
-										: { color: tokens.colors.grey_300 }
-								}
-							>
-								전체 피드
-							</FeedMainS.TopNavBarItemText>
-						</FeedMainS.TopNavBarItem>
-						<FeedMainS.TopNavBarItem
-							onClick={(e) => handleNavBtnClick(e, 'feed/participation')}
-						>
-							<FeedMainS.TopNavBarItemText
-								style={
-									nowLocation.pathname == '/feed/participation'
-										? {
-												color: tokens.colors.green_500,
-												borderBottom: `3px solid ${tokens.colors.green_500}`,
-										  }
-										: { color: tokens.colors.grey_300 }
-								}
-							>
-								참여 챌린지
-							</FeedMainS.TopNavBarItemText>
-						</FeedMainS.TopNavBarItem>
-					</FeedMainS.TopNavArea>
 					{nowLocation.pathname == '/feed/main' && (
 						<FeedMainS.TopNavBarCategoryItemArea
 							onMouseDown={handleMouseDown}
 							onMouseUp={handleMouseUp}
 							onMouseMove={handleMouseMove}
 						>
-							<FeedMainS.StyledSwiper spaceBetween={7} slidesPerView={5}>
+							<FeedMainS.StyledSwiper spaceBetween={7} slidesPerView={4}>
 								<SwiperSlide>
 									<FeedMainS.TopNavBarCategoryItems
-										style={{
-											backgroundColor: tokens.colors.green_500,
-											color: 'white',
-										}}
+									// style={{
+									// 	backgroundColor: tokens.colors.green_500,
+									// 	color: 'white',
+									// }}
 									>
 										전체
 									</FeedMainS.TopNavBarCategoryItems>
@@ -132,12 +98,7 @@ function FeedMain(props) {
 								</SwiperSlide>
 								<SwiperSlide>
 									<FeedMainS.TopNavBarCategoryItems>
-										🍳요리
-									</FeedMainS.TopNavBarCategoryItems>
-								</SwiperSlide>
-								<SwiperSlide>
-									<FeedMainS.TopNavBarCategoryItems>
-										🏦금융
+										👩‍👩‍👧‍👦일상
 									</FeedMainS.TopNavBarCategoryItems>
 								</SwiperSlide>
 								<SwiperSlide>
