@@ -49,7 +49,7 @@ export const TopNavBarItemText = styled.div`
 export const FeedMainScreen = styled.div`
 	width: 100%;
 	min-height: 100vh;
-	top: 12vh;
+	top: 8vh;
 	height: fit-content;
 	position: relative;
 	margin-bottom: 23vh;
