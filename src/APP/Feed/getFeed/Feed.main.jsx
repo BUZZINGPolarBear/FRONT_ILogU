@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import {
 	BrowserRouter,
 	Route,
@@ -11,24 +10,21 @@ import {
 import * as FeedMainS from './Styles/Feed.main.styles';
 import * as tokens from '../../../tokens';
 
-import FeedAll from './Feed.all';
 import FeedParticipation from './Feed.participation';
-
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import 'swiper/swiper-bundle.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+
+import { useRecoilState, useRecoilValue } from 'recoil';
+import * as recoil from './recoil/recoild.feed';
 
 function FeedMain(props) {
 	const [isDragging, setIsDragging] = useState(false); // 드래그 여부 상태 관리
 	const nowLocation = useLocation();
-	const [selectedCategory, setSelectedCategory] = useState('전체');
-
+	const [selectedCategory, setSelectedCategory] = useRecoilState(
+		recoil.feedCategoryRecoil,
+	);
+	console.log(selectedCategory);
 	const handleMouseDown = (event) => {
 		console.log('Down');
 		event.preventDefault();
