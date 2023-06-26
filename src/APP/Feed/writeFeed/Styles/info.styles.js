@@ -110,10 +110,11 @@ export const FeedCategoryWrapper = styled.div`
 
 export const FeedCategory = styled.div`
 	position: relative;
-	width: 48%;
+	width: 90%;
 	// height: 40%;
 	main-height: 60px;
 	padding: 10px;
+	margin: auto;
 
 	display: flex;
 	align-items: center;

@@ -237,9 +237,6 @@ function FeedMain(props) {
 						<FeedParticipation></FeedParticipation>
 					</FeedMainS.FeedMainScreen>
 				)}
-				<FeedMainS.WriteFeedIconArea onClick={(e) => handWriteFeedClick()}>
-					<FeedMainS.WriteFeedIcon></FeedMainS.WriteFeedIcon>
-				</FeedMainS.WriteFeedIconArea>
 			</div>
 		</div>
 	);

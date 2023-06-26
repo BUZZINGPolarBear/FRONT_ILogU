@@ -27,6 +27,7 @@ function FeedTitle(props) {
 	//Drop Down
 	const handleChange = (event) => {
 		setValue(event.target.value);
+		console.log(value);
 	};
 
 	const handleMouseDown = (event) => {
@@ -85,7 +86,6 @@ function FeedTitle(props) {
 	}
 	const hanleNextBtnClick = () => {
 		const nextStage = `${nowLocation.pathname}?${params.toString()}`;
-		console.log(nextStage);
 		navigate(nextStage);
 	};
 
@@ -110,7 +110,7 @@ function FeedTitle(props) {
 						>
 							<Select
 								value={value}
-								onChange={handleChange}
+								onChange={(e) => handleChange(e)}
 								// displayEmpty
 								inputProps={{ 'aria-label': 'Without label' }}
 								displayEmpty
@@ -153,38 +153,7 @@ function FeedTitle(props) {
 									</span>
 									스포츠
 								</MenuItem>
-								<MenuItem
-									value={'요리'}
-									style={{
-										color: tokens.colors.grey_500,
-										...tokens.typography.subtitle_1_SB,
-									}}
-								>
-									<span
-										style={{
-											marginRight: '10px',
-										}}
-									>
-										🍳
-									</span>
-									요리
-								</MenuItem>
-								<MenuItem
-									value={'금융'}
-									style={{
-										color: tokens.colors.grey_500,
-										...tokens.typography.subtitle_1_SB,
-									}}
-								>
-									<span
-										style={{
-											marginRight: '10px',
-										}}
-									>
-										🏦
-									</span>
-									금융
-								</MenuItem>
+
 								<MenuItem
 									value={'일상'}
 									style={{
@@ -206,7 +175,6 @@ function FeedTitle(props) {
 						<div className="field">
 							<div className="control">
 								<input
-									autoFocus
 									className="input"
 									type="text"
 									value={inputValue}
@@ -214,14 +182,10 @@ function FeedTitle(props) {
 									onChange={handleInputChange}
 									placeholder={
 										value == '여행'
-											? '#아이와 함께 경주'
+											? '#아이와 함께 제주'
 											: value == '스포츠'
 											? '#아이와 함께 축구'
-											: value == '요리'
-											? '#아이와 함께 제빵'
-											: value == '금융'
-											? '#아이와 함께 하나은행'
-											: value == '기타'
+											: value == '일상'
 											? '#아이와 추억쌓기'
 											: '#아이와 추억쌓기'
 									}

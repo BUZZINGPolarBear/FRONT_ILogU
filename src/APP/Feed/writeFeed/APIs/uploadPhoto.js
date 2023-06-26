@@ -25,3 +25,44 @@ export const autoGenerateFeed = async (file, category, title) => {
 		console.error(error);
 	}
 };
+
+export const uploadPhoto = async (title, content, category, token, files) => {
+	try {
+		let blobImageArr = [];
+		const formData = new FormData();
+
+		for (let i = 0; i < files.length; i++) {
+			const readResponse = await fetch(files[i]);
+			const blobData = await readResponse.blob();
+
+			formData.append('files', blobData);
+		}
+
+		const requestData = {
+			title: title,
+			content: content,
+			category: 'DAILY',
+		};
+
+		const jsonBlob = new Blob([JSON.stringify(requestData)], {
+			type: 'application/json',
+		});
+
+		formData.append('request', jsonBlob);
+
+		const axiosResponse = await axios.post(
+			//1. 배포 서버로 테스트시 주석 해제
+			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/upload`,
+			formData,
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			},
+		);
+
+		return axiosResponse.data;
+	} catch (error) {
+		console.error(error);
+	}
+};

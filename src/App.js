@@ -95,11 +95,11 @@ function App() {
 						path="/feed/participation"
 						element={<FeedMain setNavigateBtn={setNavigateBtn} />}
 					/>
-					<Route path="/feed/write" element={<FeedWrite></FeedWrite>} />
+					<Route path="/write" element={<FeedWrite></FeedWrite>} />
 					<Route path="*" element={<HomeMain />} />
 				</Routes>
 			</MainScreen>
-			{nowLocation.pathname != '/feed/write' &&
+			{nowLocation.pathname != '/write' &&
 			nowLocation.pathname != '/' &&
 			nowLocation.pathname != '/signup' &&
 			nowLocation.pathname != '/signin/' ? (
@@ -131,8 +131,8 @@ function App() {
 							></img>
 						)}
 					</NavImg>
-					<NavImg onClick={(e) => handleNavClick(e, 'history')}>
-						{navigateReoilSelectState === 'history' ? (
+					<NavImg onClick={(e) => handleNavClick(e, 'write')}>
+						{navigateReoilSelectState === 'write' ? (
 							<img
 								src="/bottomNavBar/history_clicked.svg"
 								alt="challenge clicked"

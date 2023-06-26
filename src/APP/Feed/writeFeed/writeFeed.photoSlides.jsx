@@ -16,8 +16,6 @@ function PhotoSlider(props) {
 
 	selectedImages.map((image, index) => photos.push({ id: index, url: image }));
 
-	console.log(photos);
-
 	const settings = {
 		dots: true,
 		infinite: true,

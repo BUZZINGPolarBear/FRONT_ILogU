@@ -150,3 +150,8 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
 	background-size: cover;
 	background-position: center;
 `;
+
+export const SlideImageInfo = styled.div`
+	width: 100%;
+	height: 20px;
+`;

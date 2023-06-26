@@ -37,10 +37,20 @@ function UploadPhoto(props) {
 		setSelectedImages(imageUrls);
 	};
 
-	//다음 버튼 클릭
+	//업로드 버튼 클릭
 	const handleNextBtn = async (e) => {
-		console.log('next btn is clicked');
-		setIsNextBtnClicked(true);
+		if (isNextBtnClicked == false) {
+			setIsNextBtnClicked(true);
+		} else {
+			const token = localStorage.getItem('access');
+			const response = await api.uploadPhoto(
+				title,
+				feedWrite,
+				category,
+				token,
+				selectedImages,
+			);
+		}
 	};
 
 	//피드 글 작성
@@ -116,28 +126,6 @@ function UploadPhoto(props) {
 								</span>
 								<span>스포츠</span>
 							</>
-						) : category == '요리' ? (
-							<>
-								<span
-									style={{
-										marginRight: '10px',
-									}}
-								>
-									🍳
-								</span>
-								<span>요리</span>
-							</>
-						) : category == '금융' ? (
-							<>
-								<span
-									style={{
-										marginRight: '10px',
-									}}
-								>
-									🏦
-								</span>
-								<span>금융</span>
-							</>
 						) : (
 							<>
 								<span
@@ -147,7 +135,7 @@ function UploadPhoto(props) {
 								>
 									👩‍👩‍👧‍👦
 								</span>
-								<span>기타</span>
+								<span>일상</span>
 							</>
 						)}
 					</photoS.TitleDiv>
@@ -212,7 +200,7 @@ function UploadPhoto(props) {
 				onClick={handleNextBtn}
 				isAutoGenerateFeedClicked={isAutoGenerateFeedClicked}
 			>
-				다음
+				{isNextBtnClicked == false ? '다음' : '게시하기'}
 			</infoS.FeedWriteSubmitArea>
 		</div>
 	);
