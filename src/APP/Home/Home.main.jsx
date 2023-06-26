@@ -3,6 +3,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import * as HomeS from './Styles/Home.main.styles';
 import * as tokens from '../../tokens';
 
+import InvestmentComponent from './Home.investment';
+
 function HomeMain() {
 	const [mainCategory, setMainCategory] = useState('investment');
 
@@ -57,7 +59,9 @@ function HomeMain() {
 				</HomeS.HomeMainCategoryBtn>
 			</HomeS.HomeMainSelectWrapper>
 
-			<HomeS.HomeMainCategoryArea></HomeS.HomeMainCategoryArea>
+			<HomeS.HomeMainCategoryArea>
+				{mainCategory == 'investment' ? <InvestmentComponent /> : ' '}
+			</HomeS.HomeMainCategoryArea>
 		</HomeS.HomeMainScreen>
 	);
 }
