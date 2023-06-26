@@ -26,12 +26,22 @@ export const autoGenerateFeed = async (file, category, title) => {
 	}
 };
 
-export const uploadPhoto = async (title, content, category, token, files) => {
+export const uploadPhoto = async (
+	title,
+	content,
+	userCategory,
+	token,
+	files,
+) => {
 	let axiosResponse;
 	try {
 		let blobImageArr = [];
 		const formData = new FormData();
+		let category;
 
+		if (userCategory === '여행') category = 'TRAVEL';
+		if (userCategory === '스포츠') category = 'SPORTS';
+		if (userCategory === '일상') category = 'DAILY';
 		for (let i = 0; i < files.length; i++) {
 			const readResponse = await fetch(files[i]);
 			const blobData = await readResponse.blob();
@@ -42,7 +52,7 @@ export const uploadPhoto = async (title, content, category, token, files) => {
 		const requestData = {
 			title: title,
 			content: content,
-			category: 'DAILY',
+			category: category,
 		};
 
 		const jsonBlob = new Blob([JSON.stringify(requestData)], {

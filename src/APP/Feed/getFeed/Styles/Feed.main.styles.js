@@ -5,13 +5,18 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 export const TopNavBar = styled.div`
 	width: 100%;
 	max-width: 800px;
-	height: 12vh;
+	height: 65px;
 	position: fixed;
 	top: 0;
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	align-items: center;
+	justify-content: center;
 	background-color: white;
+	scroll-y: hidden;
+	scroll-x: hidden;
+
+	border-bottom: 1px solid ${tokens.colors.grey_50};
+	box-shadow: inset 0px -5px 5px -5px rgba(0, 0, 0, 0.05);
 	z-index: 9999;
 `;
 export const TopNavArea = styled.div`
@@ -56,38 +61,42 @@ export const TopNavBarCategoryItemArea = styled.div`
 	width: 95%;
 	// max-width: 100%;
 	position: relative;
-	height: 3.5vh;
+	height: 55px;
 
 	display: flex;
-	align-items: flex-start;
-	justify-content: space-around;
+	align-items: center;
+	justify-content: center;
 
 	margin-left: 5%;
-	margin-bottom: 1vh;
+	// margin-bottom: 1vh;
 
 	// padding: 1% 5%;
 	background-color: white;
-	overflow-x: scroll;
+
+	scroll-y: hidden;
+	scroll-x: hidden;
 	z-index: 9998;
 `;
 
 export const TopNavBarCategoryItems = styled.div`
 	width: 75px;
-	height: 3.5vh;
+	height: 100%;
 	border-radius: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	${tokens.typography.subtitle_2};
-	color: ${tokens.colors.grey_400};
-	background-color: rgba(192, 192, 192, 0.1);
+	${(props) =>
+		props.isselected == 'true'
+			? `background-color: ${tokens.colors.green_500}; color: #ffffff;`
+			: `background-color: rgba(192, 192, 192, 0.1); color: ${tokens.colors.grey_400};`}
 `;
 
 export const StyledSwiper = styled(Swiper)`
 	width: 100%;
 	max-width: 800px;
 	margin: auto;
-	height: 97%;
+	height: 80%;
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
