@@ -29,7 +29,7 @@ export const typography = {
 	headline_4: {
 		fontFamily: 'Noto Sans KR',
 		fontWeight: 400,
-		size: '2.125rem',
+		fontSize: '2.125rem',
 		letterSpacing: '0.0073529412em',
 	},
 	headline_5: {
@@ -101,6 +101,12 @@ export const typography = {
 		fontSize: '12px',
 		fontWeight: 600,
 		letterSpacing: '0.4px',
+	},
+	button: {
+		fontFamily: 'Noto Sans KR',
+		fontSize: '14px',
+		fontWeight: 400,
+		letterSpacing: '1.25px',
 	},
 	caption: {
 		fontFamily: 'Noto Sans KR',
