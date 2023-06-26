@@ -1,20 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import {
-	BrowserRouter,
-	Route,
-	Router,
-	useLocation,
-	Routes,
-	useNavigate,
-} from 'react-router-dom';
-import queryString from 'query-string';
-import 'bulma/css/bulma.css';
 import Modal from 'react-modal';
-import * as api from './APIs/uploadPhoto';
-
-import PhotoSlider from './writeFeed.photoSlides';
-import * as infoS from './Styles/info.styles';
-import * as photoS from './Styles/uploadPhoto.styles';
+import { useNavigate } from 'react-router-dom';
+import * as modalS from './Styles/modal.styles';
 
 function AfterUploadModal(props) {
 	const ModalStyle = {
@@ -29,7 +16,10 @@ function AfterUploadModal(props) {
 		},
 		content: {
 			display: 'flex',
-			justifyContent: 'center',
+			flexDirection: 'column',
+			alignItems: 'center',
+			justifyContent: 'space-around',
+			paddingTop: '10%',
 			background: '#ffffff',
 			overflow: 'auto',
 			top: '30vh',
@@ -43,6 +33,12 @@ function AfterUploadModal(props) {
 		},
 	};
 
+	const navigate = useNavigate();
+	const handleToFirstPage = (e) => {
+		e.preventDefault();
+		navigate(`/feed/main`);
+	};
+
 	return (
 		<>
 			<Modal
@@ -51,7 +47,15 @@ function AfterUploadModal(props) {
 				onRequestClose={true} // 오버레이나 esc를 누르면 핸들러 동작
 				ariaHideApp={false}
 			>
-				모달 내용 or 컴포넌트
+				<modalS.TopImageWrapper></modalS.TopImageWrapper>
+				<modalS.MainTitleWrapper>
+					<modalS.MainTitle type="sub">아이와의 행복한 순간의</modalS.MainTitle>
+					<modalS.MainTitle type="main">기록이 완료되었어요!</modalS.MainTitle>
+				</modalS.MainTitleWrapper>
+				<modalS.BtnWrapper onClick={(e) => handleToFirstPage(e)}>
+					<modalS.ModalBtn isFirst="true">가족에게 알림보내기</modalS.ModalBtn>
+					<modalS.ModalBtn isFirst="false">처음으로</modalS.ModalBtn>
+				</modalS.BtnWrapper>
 			</Modal>
 			{/* <button onClick={모달토글핸들러}></button> */}
 		</>

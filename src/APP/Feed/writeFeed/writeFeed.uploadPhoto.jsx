@@ -9,7 +9,6 @@ import {
 } from 'react-router-dom';
 import queryString from 'query-string';
 import 'bulma/css/bulma.css';
-import Modal from 'react-modal';
 import * as api from './APIs/uploadPhoto';
 
 import PhotoSlider from './writeFeed.photoSlides';
