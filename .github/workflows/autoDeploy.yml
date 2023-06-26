@@ -8,16 +8,36 @@ jobs:
     steps:
       - name: Checkout source code. # 레포지토리 체크아웃
         uses: actions/checkout@master
-
+      
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            ./.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+          
       - name: Install Dependencies # 의존 파일 설치
         run: |
           npm install --force
 
       - name: Build # React Build
         run: |
+          rm -f .env
+          touch .env
+          echo sudo "${{ secrets.DOTENV }}" >> .env
           npm run build
           ls
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_USER_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_USER_PW }}
+          aws-region: ap-northeast-2
+          
       - name: remove build files
         uses: appleboy/ssh-action@v0.1.6
         with:
@@ -26,15 +46,17 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           port: ${{ secrets.AWS_SSH_PORT }}
           script: |
-            rm -rf /home/ubuntu/front-ilogu/build/*
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+             rm -rf /home/ubuntu/front-ilogu/build
+            
+      - name: Copy files to EC2
+        uses: appleboy/scp-action@master
         with:
-          aws-access-key-id: ${{ secrets.AWS_USER_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_USER_PW }}
-          aws-region: ap-northeast-2
-
+          host: ${{ secrets.AWS_SSH_HOST }}
+          username: ${{ secrets.AWS_SSH_USERNAME }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          source: "build/*"
+          target: "/home/ubuntu/front-ilogu/"
+          
       - name: SSH Commands
         uses: appleboy/ssh-action@v0.1.6
         with:
@@ -42,8 +64,6 @@ jobs:
           username: ${{ secrets.AWS_SSH_USERNAME }}
           key: ${{ secrets.AWS_SSH_KEY }}
           port: ${{ secrets.AWS_SSH_PORT }}
-          source: 'build/*'
-          target: '/home/ubuntu/front-ilogu/build'
           script: |
             cd front-ilogu
             git reset --hard origin/main

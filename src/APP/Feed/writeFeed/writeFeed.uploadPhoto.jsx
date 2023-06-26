@@ -9,13 +9,13 @@ import {
 } from 'react-router-dom';
 import queryString from 'query-string';
 import 'bulma/css/bulma.css';
-
 import * as api from './APIs/uploadPhoto';
 
 import PhotoSlider from './writeFeed.photoSlides';
+import AfterUploadModal from './writeFeed.upload.modal';
 import * as infoS from './Styles/info.styles';
 import * as photoS from './Styles/uploadPhoto.styles';
-
+import * as tokenAPI from '../../AutoSignIn';
 function UploadPhoto(props) {
 	const nowLocation = useLocation();
 	const params = queryString.parse(nowLocation.search);
@@ -24,6 +24,8 @@ function UploadPhoto(props) {
 	const title = params.title;
 
 	const [isNextBtnClicked, setIsNextBtnClicked] = useState(false);
+	const [isUploadBtnClicked, setIsUploadBtnClicked] = useState(false);
+	const [isUploadComplete, setIsUploadComplete] = useState(false);
 	const [isAutoGenerateFeedClicked, setIsAutoGenerateFeedClicked] =
 		useState(false);
 	const [feedWrite, setFeedWrite] = useState('');
@@ -37,10 +39,37 @@ function UploadPhoto(props) {
 		setSelectedImages(imageUrls);
 	};
 
-	//다음 버튼 클릭
+	//업로드 버튼 클릭
 	const handleNextBtn = async (e) => {
-		console.log('next btn is clicked');
-		setIsNextBtnClicked(true);
+		if (isNextBtnClicked == false) {
+			setIsNextBtnClicked(true);
+		} else {
+			setIsUploadBtnClicked(true);
+			const token = localStorage.getItem('access');
+			const response = await api.uploadPhoto(
+				title,
+				feedWrite,
+				category,
+				token,
+				selectedImages,
+			);
+			if (response == '400-03-04') {
+				//업로드 에러
+				const tokenRefreshResult = tokenAPI.RefreshToken();
+				const token = localStorage.getItem('access');
+				const response = await api.uploadPhoto(
+					title,
+					feedWrite,
+					category,
+					token,
+					selectedImages,
+				);
+				setIsUploadComplete(true);
+			}
+			if (response.isSuccess == true) {
+				setIsUploadComplete(true);
+			}
+		}
 	};
 
 	//피드 글 작성
@@ -63,6 +92,7 @@ function UploadPhoto(props) {
 
 	return (
 		<div style={{ width: '98%', height: 'fit-content' }}>
+			{isUploadComplete == true ? <AfterUploadModal></AfterUploadModal> : <></>}
 			<infoS.FeedCatergoryTitleArea style={{ marginTop: '0' }}>
 				{isNextBtnClicked == true ? (
 					<>
@@ -116,28 +146,6 @@ function UploadPhoto(props) {
 								</span>
 								<span>스포츠</span>
 							</>
-						) : category == '요리' ? (
-							<>
-								<span
-									style={{
-										marginRight: '10px',
-									}}
-								>
-									🍳
-								</span>
-								<span>요리</span>
-							</>
-						) : category == '금융' ? (
-							<>
-								<span
-									style={{
-										marginRight: '10px',
-									}}
-								>
-									🏦
-								</span>
-								<span>금융</span>
-							</>
 						) : (
 							<>
 								<span
@@ -147,7 +155,7 @@ function UploadPhoto(props) {
 								>
 									👩‍👩‍👧‍👦
 								</span>
-								<span>기타</span>
+								<span>일상</span>
 							</>
 						)}
 					</photoS.TitleDiv>
@@ -182,28 +190,40 @@ function UploadPhoto(props) {
 							backgroundColor: 'none',
 							border: 'none',
 							marginBottom: isNextBtnClicked ? 0 : '20vh',
+							display: setIsUploadComplete == true ? 'none' : 'block',
 						}}
 					>
-						<PhotoSlider imageArr={selectedImages}></PhotoSlider>
+						<PhotoSlider
+							imageArr={selectedImages}
+							isUploadComplete={isUploadComplete}
+						></PhotoSlider>
 					</photoS.PhotoUploadArea>
 				)}
 				{isNextBtnClicked == true ? (
-					<photoS.WriteFeedTestArea>
-						<photoS.InputText
-							type="text"
-							onChange={handleFeedWrite}
-							value={feedWrite}
-							placeholder="설명을 적어주세요."
-						></photoS.InputText>
-						<photoS.BottomBtnWrapper>
-							<photoS.AutoGenerateStoryBtn
-								onClick={handleAutoGenerateFeed}
-								is_auto_generate_feed_clicked={isAutoGenerateFeedClicked}
-							>
-								✍️이야기 자동완성
-							</photoS.AutoGenerateStoryBtn>
-						</photoS.BottomBtnWrapper>
-					</photoS.WriteFeedTestArea>
+					<>
+						<photoS.SlideImageInfo>
+							<photoS.RecommendIcon></photoS.RecommendIcon>
+							<photoS.InfoText>
+								노이즈를 통해 아이들의 사진이 무단 활용될 염려를 줄일 수 있어요!
+							</photoS.InfoText>
+						</photoS.SlideImageInfo>
+						<photoS.WriteFeedTestArea>
+							<photoS.InputText
+								type="text"
+								onChange={handleFeedWrite}
+								value={feedWrite}
+								placeholder="설명을 적어주세요."
+							></photoS.InputText>
+							<photoS.BottomBtnWrapper>
+								<photoS.AutoGenerateStoryBtn
+									onClick={handleAutoGenerateFeed}
+									is_auto_generate_feed_clicked={isAutoGenerateFeedClicked}
+								>
+									✍️이야기 자동완성
+								</photoS.AutoGenerateStoryBtn>
+							</photoS.BottomBtnWrapper>
+						</photoS.WriteFeedTestArea>
+					</>
 				) : null}
 			</infoS.FeedCategorySelectArea>
 
@@ -211,8 +231,13 @@ function UploadPhoto(props) {
 				is_category_selected={selectedImages.length > 0 ? true : false}
 				onClick={handleNextBtn}
 				isAutoGenerateFeedClicked={isAutoGenerateFeedClicked}
+				isUploadBtnClicked={isUploadBtnClicked}
 			>
-				다음
+				{isNextBtnClicked == false && isUploadBtnClicked == false
+					? '다음'
+					: isUploadBtnClicked == false
+					? '게시하기'
+					: '이미지를 안전하게 업로드중이에요.'}
 			</infoS.FeedWriteSubmitArea>
 		</div>
 	);

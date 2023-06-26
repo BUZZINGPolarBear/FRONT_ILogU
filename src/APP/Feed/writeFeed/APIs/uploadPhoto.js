@@ -25,3 +25,57 @@ export const autoGenerateFeed = async (file, category, title) => {
 		console.error(error);
 	}
 };
+
+export const uploadPhoto = async (
+	title,
+	content,
+	userCategory,
+	token,
+	files,
+) => {
+	let axiosResponse;
+	try {
+		let blobImageArr = [];
+		const formData = new FormData();
+		let category;
+
+		if (userCategory === '여행') category = 'TRAVEL';
+		if (userCategory === '스포츠') category = 'SPORTS';
+		if (userCategory === '일상') category = 'DAILY';
+		for (let i = 0; i < files.length; i++) {
+			const readResponse = await fetch(files[i]);
+			const blobData = await readResponse.blob();
+
+			formData.append('files', blobData);
+		}
+
+		const requestData = {
+			title: title,
+			content: content,
+			category: category,
+		};
+
+		const jsonBlob = new Blob([JSON.stringify(requestData)], {
+			type: 'application/json',
+		});
+
+		formData.append('request', jsonBlob);
+
+		axiosResponse = await axios.post(
+			//1. 배포 서버로 테스트시 주석 해제
+			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/upload`,
+			formData,
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			},
+		);
+
+		return axiosResponse.data;
+	} catch (error) {
+		console.log(`Error is : ${error.response.data.code}`);
+		console.error(error);
+		return error.response.data.code;
+	}
+};
