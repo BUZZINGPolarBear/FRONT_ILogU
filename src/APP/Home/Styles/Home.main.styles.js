@@ -98,3 +98,37 @@ export const HomeMainCategoryBtn = styled.div`
 			? `color:${tokens.colors.green_500}; border-bottom: 2px solid ${tokens.colors.green_500};`
 			: `color:${tokens.colors.grey_100};`}
 `;
+
+export const HomeMainCategoryArea = styled.div`
+	width: 98%;
+	height: 70vh;
+	margin: auto;
+`;
+
+export const MainCardWrapper = styled.div`
+	width: 96%;
+	height: 25vh;
+	min-height: 280px;
+	margin: auto;
+	padding: 5% 5% 0 5%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+
+export const MainCardTitleWrapper = styled.div`
+	width: 100%;
+	height: 20%;
+	min-height: 60px;
+`;
+
+export const MainCardTitle = styled.div`
+	text-align: left;
+	padding: 0 5px;
+
+	${(props) =>
+		props.ismain == 'true'
+			? `color: ${tokens.colors.grey_700}; font-weight: ${tokens.typography.headline_6.fontWeight}; font-size: ${tokens.typography.headline_6.fontSize};`
+			: `color: ${tokens.colors.grey_300}; font-weight: ${tokens.typography.body_2}; font-size: ${tokens.typography.body_2.fontSize};`};
+`;
