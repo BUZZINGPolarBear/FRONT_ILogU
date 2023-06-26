@@ -131,15 +131,9 @@ function FeedMain(props) {
 					)}
 				</FeedMainS.TopNavBar>
 
-				{nowLocation.pathname == '/feed/main' ? (
-					<FeedMainS.FeedMainScreen>
-						<FeedAll></FeedAll>
-					</FeedMainS.FeedMainScreen>
-				) : (
-					<FeedMainS.FeedMainScreen>
-						<FeedParticipation></FeedParticipation>
-					</FeedMainS.FeedMainScreen>
-				)}
+				<FeedMainS.FeedMainScreen>
+					<FeedParticipation category={selectedCategory}></FeedParticipation>
+				</FeedMainS.FeedMainScreen>
 			</div>
 		</div>
 	);
