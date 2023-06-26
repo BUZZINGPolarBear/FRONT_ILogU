@@ -27,6 +27,7 @@ export const autoGenerateFeed = async (file, category, title) => {
 };
 
 export const uploadPhoto = async (title, content, category, token, files) => {
+	let axiosResponse;
 	try {
 		let blobImageArr = [];
 		const formData = new FormData();
@@ -50,7 +51,7 @@ export const uploadPhoto = async (title, content, category, token, files) => {
 
 		formData.append('request', jsonBlob);
 
-		const axiosResponse = await axios.post(
+		axiosResponse = await axios.post(
 			//1. 배포 서버로 테스트시 주석 해제
 			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/upload`,
 			formData,
@@ -63,6 +64,8 @@ export const uploadPhoto = async (title, content, category, token, files) => {
 
 		return axiosResponse.data;
 	} catch (error) {
+		console.log(`Error is : ${error.response.data.code}`);
 		console.error(error);
+		return error.response.data.code;
 	}
 };
