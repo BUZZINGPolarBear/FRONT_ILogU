@@ -19,19 +19,21 @@ export const HomeMainChallengeCard = styled.div`
 
 	padding: 5% 0 5% 5%;
 	z-index: 1;
+
+	background-color: antiquewhite;
 `;
 
 export const InvestmentSwiperArea = styled.div`
-	width: 100%;
+	width: 100vw;
 	max-width: 800px;
-	height: 60%;
+	height: 100%;
 	position: relative;
 `;
 
 export const HomeMainSwiperCard = styled.div`
-	width: 62vw;
+	width: 180px;
 	max-width: 400px;
-	height: 96%;
+	height: 100%;
 	position: relative;
 	margin-bottom: 1.5vh;
 
@@ -51,7 +53,9 @@ export const HomeMainSwiperCard = styled.div`
 export const StyledSwiper = styled(Swiper)`
 	width: 100%;
 	max-width: 800px;
-	height: 97%;
+	height: 85%;
+
+	background-color: ${tokens.colors.grey_100};
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`

@@ -10,7 +10,7 @@ function ChallengRecommendCard() {
 	return (
 		<slideS.HomeMainChallengeCard>
 			<slideS.InvestmentSwiperArea>
-				<slideS.StyledSwiper spaceBetween={150} slidesPerView={2}>
+				<slideS.StyledSwiper spaceBetween={180} slidesPerView={3}>
 					<SwiperSlide>
 						<slideS.HomeMainSwiperCard
 							style={{
