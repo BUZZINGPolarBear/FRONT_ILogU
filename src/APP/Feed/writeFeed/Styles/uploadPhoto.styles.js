@@ -153,5 +153,27 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
 
 export const SlideImageInfo = styled.div`
 	width: 100%;
-	height: 20px;
+	height: 30px;
+
+	margin-bottom: 10px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+`;
+
+export const RecommendIcon = styled.div`
+	width: 15px;
+	height: 15px;
+
+	margin-right: 10px;
+
+	background-image: url('/SignIn/info.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center top;
+`;
+
+export const InfoText = styled.span`
+	color: ${tokens.colors.grey_200};
+	${tokens.typography.sub};
 `;
