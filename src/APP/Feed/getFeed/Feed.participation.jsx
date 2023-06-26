@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as FeedparicipateS from './Styles/Feed.participation.styles';
 import * as FeedApi from './APIs/getFeed.api';
+import * as tokenAPI from '../../AutoSignIn';
 import * as utils from './feed.utils';
 
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -22,7 +23,6 @@ function FeedParticipation(props) {
 
 		const addBoardDivs = (fetchResponse) => {
 			let localDiv = [];
-			console.log(fetchResponse);
 			if (fetchResponse.length == 0) setBoardBodyArr(localDiv);
 			for (let i = 0; i < fetchResponse.length; i++) {
 				const localContent = fetchResponse[i];
@@ -83,7 +83,12 @@ function FeedParticipation(props) {
 
 		if (category == 'ALL') {
 			const fetchData = async () => {
-				const getData = await FeedApi.getFeed(category, 30);
+				let getData = await FeedApi.getFeed(category, 30);
+				if (getData == '400-03-04') {
+					await tokenAPI.RefreshToken();
+					getData = await FeedApi.getFeed(category, 30);
+				}
+
 				boardResponseArr = getData.result.content;
 				addBoardDivs(boardResponseArr);
 			};
@@ -91,7 +96,11 @@ function FeedParticipation(props) {
 		} else {
 			const fetchData = async () => {
 				const getData = await FeedApi.getFeed(category, 30);
-				console.log(getData);
+				if (getData == '400-03-04') {
+					await tokenAPI.RefreshToken();
+					getData = await FeedApi.getFeed(category, 30);
+				}
+
 				if (getData.result && getData.result.content === undefined) {
 					addBoardDivs([]);
 				}
