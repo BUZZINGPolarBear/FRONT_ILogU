@@ -15,7 +15,7 @@ import PhotoSlider from './writeFeed.photoSlides';
 import AfterUploadModal from './writeFeed.upload.modal';
 import * as infoS from './Styles/info.styles';
 import * as photoS from './Styles/uploadPhoto.styles';
-
+import * as tokenAPI from '../../AutoSignIn';
 function UploadPhoto(props) {
 	const nowLocation = useLocation();
 	const params = queryString.parse(nowLocation.search);
@@ -53,6 +53,19 @@ function UploadPhoto(props) {
 				token,
 				selectedImages,
 			);
+			if (response == '400-03-04') {
+				//업로드 에러
+				const tokenRefreshResult = tokenAPI.RefreshToken();
+				const token = localStorage.getItem('access');
+				const response = await api.uploadPhoto(
+					title,
+					feedWrite,
+					category,
+					token,
+					selectedImages,
+				);
+				setIsUploadComplete(true);
+			}
 			if (response.isSuccess == true) {
 				setIsUploadComplete(true);
 			}

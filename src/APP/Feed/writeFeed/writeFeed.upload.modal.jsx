@@ -25,7 +25,7 @@ function AfterUploadModal(props) {
 			top: '30vh',
 			left: '10vw',
 			right: '10vw',
-			bottom: '30vh',
+			height: '360px',
 			WebkitOverflowScrolling: 'touch',
 			borderRadius: '25px',
 			outline: 'none',
