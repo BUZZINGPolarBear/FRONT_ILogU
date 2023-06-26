@@ -135,3 +135,28 @@ export const MainCardTitle = styled.div`
 			? `color: ${tokens.colors.grey_700}; font-weight: ${tokens.typography.headline_6.fontWeight}; font-size: ${tokens.typography.headline_6.fontSize};`
 			: `color: ${tokens.colors.grey_300}; font-weight: ${tokens.typography.body_2}; font-size: ${tokens.typography.body_2.fontSize};`};
 `;
+
+export const MainRecommendCardWrapper = styled.div`
+	width: 100%;
+	height: 20vh;
+	min-height: 220px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+`;
+
+export const MainRecommendContentWrapper = styled.div`
+	width: 100%;
+	height: 28%;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	border-radius: 16px;
+
+	background-color: #f6f6f6;
+`;

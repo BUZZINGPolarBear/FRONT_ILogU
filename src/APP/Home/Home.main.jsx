@@ -4,7 +4,7 @@ import * as HomeS from './Styles/Home.main.styles';
 import * as tokens from '../../tokens';
 
 import InvestmentComponent from './Home.investment';
-
+import InsurenceComponent from './Home.insurence';
 function HomeMain() {
 	const [mainCategory, setMainCategory] = useState('investment');
 
@@ -60,7 +60,13 @@ function HomeMain() {
 			</HomeS.HomeMainSelectWrapper>
 
 			<HomeS.HomeMainCategoryArea>
-				{mainCategory == 'investment' ? <InvestmentComponent /> : ' '}
+				{mainCategory == 'investment' ? (
+					<InvestmentComponent />
+				) : mainCategory == 'insurence' ? (
+					<InsurenceComponent />
+				) : (
+					' '
+				)}
 			</HomeS.HomeMainCategoryArea>
 		</HomeS.HomeMainScreen>
 	);
