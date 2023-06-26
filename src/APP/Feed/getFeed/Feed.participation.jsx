@@ -12,6 +12,7 @@ import * as tokens from '../../../tokens';
 import * as FeedMainS from './Styles/Feed.main.styles';
 import * as FeedparicipateS from './Styles/Feed.participation.styles';
 import * as FeedApi from './APIs/getFeed.api';
+import * as utils from './feed.utils';
 
 function FeedParticipation(props) {
 	const [boardBodyArr, setBoardBodyArr] = useState([]);
@@ -27,60 +28,60 @@ function FeedParticipation(props) {
 
 		const addBoardDivs = (fetchResponse) => {
 			let localDiv = [];
-			const newBoardBodyArr = fetchResponse.map((localContent, index) =>
-				localContent.mainImage.s3url != undefined
-					? (localDiv.push = (
-							<FeedparicipateS.FeedChallengeWrapper>
-								<FeedparicipateS.FeedChallengeUserWrapper>
-									<FeedparicipateS.FeedChallengeUserImage
-										picUrl="/Feed/userPic.jpg"
-										alt="사용자"
-									></FeedparicipateS.FeedChallengeUserImage>
-									<FeedparicipateS.FeedChallengeUserInfoWrapper>
-										<FeedparicipateS.FeedChallengeUserInfo>
-											{localContent.nickname}
-										</FeedparicipateS.FeedChallengeUserInfo>
-										<FeedparicipateS.FeedChallengeUserInfoDate>
-											{localContent.createdAt}
-										</FeedparicipateS.FeedChallengeUserInfoDate>
-									</FeedparicipateS.FeedChallengeUserInfoWrapper>
-								</FeedparicipateS.FeedChallengeUserWrapper>
+			for (let i = 0; i < fetchResponse.length; i++) {
+				const localContent = fetchResponse[i];
+				const dateStr = utils.changeDateStr(localContent.createdAt);
+				const content = utils.truncateString(localContent.content, 65);
+				localDiv.push(
+					<FeedparicipateS.FeedChallengeWrapper>
+						<FeedparicipateS.FeedChallengeUserWrapper>
+							<FeedparicipateS.FeedChallengeUserImage
+								picUrl="/Feed/userPic.jpg"
+								alt="사용자"
+							></FeedparicipateS.FeedChallengeUserImage>
+							<FeedparicipateS.FeedChallengeUserInfoWrapper>
+								<FeedparicipateS.FeedChallengeUserInfo>
+									{localContent.nickname}
+								</FeedparicipateS.FeedChallengeUserInfo>
+								<FeedparicipateS.FeedChallengeUserInfoDate>
+									{dateStr}
+								</FeedparicipateS.FeedChallengeUserInfoDate>
+							</FeedparicipateS.FeedChallengeUserInfoWrapper>
+						</FeedparicipateS.FeedChallengeUserWrapper>
 
-								<FeedparicipateS.FeedPictureArea
-									picUrl={
-										localContent.mainImage.s3url ?? '/Feed/feed_sample.jpg'
-									}
-									alt="사용자"
-								></FeedparicipateS.FeedPictureArea>
+						<FeedparicipateS.FeedPictureArea
+							picUrl={localContent.mainImage.s3url ?? '/Feed/feed_sample.jpg'}
+							alt="사용자"
+						></FeedparicipateS.FeedPictureArea>
 
-								<FeedparicipateS.FeedChallengeContentWrapper>
-									<FeedparicipateS.FeedChallengeTopBottomWrapper>
-										<FeedparicipateS.TopInfo>
-											<img src="/Feed/icons/like.svg" alt="좋아요"></img>
-											<div>{localContent.likesCount}</div>
-										</FeedparicipateS.TopInfo>
-										<FeedparicipateS.TopInfo>
-											<img src="/Feed/icons/comment.svg" alt="좋아요"></img>
-											<div>{localContent.commentsCount}</div>
-										</FeedparicipateS.TopInfo>
-									</FeedparicipateS.FeedChallengeTopBottomWrapper>
-									<FeedparicipateS.FeedChallengeMiddleWrapper>
-										{localContent.content}
-									</FeedparicipateS.FeedChallengeMiddleWrapper>
-									<FeedparicipateS.FeedChallengeTopBottomWrapper
-										style={{ height: '35%' }}
-									>
-										<FeedparicipateS.FeedTag>🧳 여행</FeedparicipateS.FeedTag>
-										<FeedparicipateS.FeedTag>
-											#{localContent.hashtags[0]}
-										</FeedparicipateS.FeedTag>
-									</FeedparicipateS.FeedChallengeTopBottomWrapper>
-								</FeedparicipateS.FeedChallengeContentWrapper>
-							</FeedparicipateS.FeedChallengeWrapper>
-					  ))
-					: null,
-			);
-			setBoardBodyArr(newBoardBodyArr);
+						<FeedparicipateS.FeedChallengeContentWrapper>
+							<FeedparicipateS.FeedChallengeTopBottomWrapper>
+								<FeedparicipateS.TopInfo>
+									<img src="/Feed/icons/like.svg" alt="좋아요"></img>
+									<div>{localContent.likesCount}</div>
+								</FeedparicipateS.TopInfo>
+								<FeedparicipateS.TopInfo>
+									<img src="/Feed/icons/comment.svg" alt="좋아요"></img>
+									<div>{localContent.commentsCount}</div>
+								</FeedparicipateS.TopInfo>
+							</FeedparicipateS.FeedChallengeTopBottomWrapper>
+							<FeedparicipateS.FeedChallengeMiddleWrapper>
+								{content}
+							</FeedparicipateS.FeedChallengeMiddleWrapper>
+							<FeedparicipateS.FeedChallengeTopBottomWrapper
+								style={{ height: '35%' }}
+							>
+								<FeedparicipateS.FeedTag>🧳 여행</FeedparicipateS.FeedTag>
+								<FeedparicipateS.FeedTag>
+									#{localContent.hashtags[0]}
+								</FeedparicipateS.FeedTag>
+							</FeedparicipateS.FeedChallengeTopBottomWrapper>
+						</FeedparicipateS.FeedChallengeContentWrapper>
+					</FeedparicipateS.FeedChallengeWrapper>,
+				);
+			}
+
+			setBoardBodyArr(localDiv);
 		};
 
 		if (category == 'ALL') {
