@@ -33,7 +33,7 @@ function InvestmentComponent() {
 				</InvestS.KeywordWrapper>
 			</HomeS.MainCardWrapper>
 
-			<HomeS.MainCardWrapper>
+			<HomeS.MainCardWrapper style={{ marginTop: '1vh' }}>
 				<HomeS.MainCardTitleWrapper>
 					<HomeS.MainCardTitle ismain="true">ETF 상품</HomeS.MainCardTitle>
 					<HomeS.MainCardTitle ismain="false">

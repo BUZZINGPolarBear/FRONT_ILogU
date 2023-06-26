@@ -19,19 +19,17 @@ export const HomeMainChallengeCard = styled.div`
 
 	padding: 5% 0 5% 5%;
 	z-index: 1;
-
-	background-color: antiquewhite;
 `;
 
 export const InvestmentSwiperArea = styled.div`
-	width: 100vw;
+	width: 90vw;
 	max-width: 800px;
 	height: 100%;
 	position: relative;
 `;
 
 export const HomeMainSwiperCard = styled.div`
-	width: 180px;
+	width: 170px;
 	max-width: 400px;
 	height: 100%;
 	position: relative;
@@ -43,19 +41,33 @@ export const HomeMainSwiperCard = styled.div`
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.07);
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-end;
 `;
 
+export const SwiperImage = styled.div`
+	width: 100%;
+	height: 75%;
+
+	border-radius: 15px;
+	background-color: white;
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+`;
+export const SwiperText = styled.span`
+	width: fit-content;
+	height: 100%;
+`;
+
 export const StyledSwiper = styled(Swiper)`
 	width: 100%;
 	max-width: 800px;
 	height: 85%;
-
-	background-color: ${tokens.colors.grey_100};
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
@@ -81,14 +93,17 @@ export const SwiperInnerTextArea = styled.div`
 
 export const SwiperInnerTitle = styled.div`
 	text-align: left;
-	margin-left: 14px;
 	color: ${tokens.colors.grey_400};
 	${tokens.typography.subtitle_3};
 `;
 
 export const SwiperInnerSubText = styled.div`
+	width: 100%;
 	text-align: left;
-	margin-left: 14px;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-start;
 	color: ${tokens.colors.grey_400};
 	${tokens.typography.sub};
 `;

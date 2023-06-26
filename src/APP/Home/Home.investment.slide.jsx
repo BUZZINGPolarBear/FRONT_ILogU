@@ -12,49 +12,52 @@ function ChallengRecommendCard() {
 			<slideS.InvestmentSwiperArea>
 				<slideS.StyledSwiper spaceBetween={180} slidesPerView={3}>
 					<SwiperSlide>
-						<slideS.HomeMainSwiperCard
-							style={{
-								backgroundImage: 'url(/mainScreen/babyPicture.svg)',
-							}}
-						>
+						<slideS.HomeMainSwiperCard>
+							<slideS.SwiperImage
+								style={{
+									backgroundImage: 'url(/mainScreen/ETF_1.svg)',
+								}}
+							></slideS.SwiperImage>
 							<slideS.SwiperInnerTextArea>
 								<slideS.SwiperInnerTitle>
-									#아이 지문 등록하기
+									KOSEF KRX 레저 여행
 								</slideS.SwiperInnerTitle>
 								<slideS.SwiperInnerSubText>
-									가까운 하나은행에서 아이의 지문을 등록해봐요!
+									미래에셋자산운용&emsp;&emsp;수익률 19.6%
 								</slideS.SwiperInnerSubText>
 							</slideS.SwiperInnerTextArea>
 						</slideS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
-						<slideS.HomeMainSwiperCard
-							style={{
-								backgroundImage: 'url(/mainScreen/babyPlayWith.svg)',
-							}}
-						>
+						<slideS.HomeMainSwiperCard>
+							<slideS.SwiperImage
+								style={{
+									backgroundImage: 'url(/mainScreen/ETF_2.svg)',
+								}}
+							></slideS.SwiperImage>
 							<slideS.SwiperInnerTextArea>
 								<slideS.SwiperInnerTitle>
-									#아이와 뛰어놀기
+									KOSEF KRX 레저 여행
 								</slideS.SwiperInnerTitle>
 								<slideS.SwiperInnerSubText>
-									아이와 함께하는 추억을 남겨봐요!
+									미래에셋자산운용&emsp;&emsp;수익률 19.6%
 								</slideS.SwiperInnerSubText>
 							</slideS.SwiperInnerTextArea>
 						</slideS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
-						<slideS.HomeMainSwiperCard
-							style={{
-								backgroundImage: 'url(/mainScreen/babyTravel.svg)',
-							}}
-						>
+						<slideS.HomeMainSwiperCard>
+							<slideS.SwiperImage
+								style={{
+									backgroundImage: 'url(/mainScreen/ETF_3.svg)',
+								}}
+							></slideS.SwiperImage>
 							<slideS.SwiperInnerTextArea>
 								<slideS.SwiperInnerTitle>
-									#3대가 함께하는 여행
+									KOSEF KRX 레저 여행
 								</slideS.SwiperInnerTitle>
 								<slideS.SwiperInnerSubText>
-									온 가족이 함께하는 여행으로 추억을 남겨보세요!
+									미래에셋자산운용&emsp;&emsp;수익률 19.6%
 								</slideS.SwiperInnerSubText>
 							</slideS.SwiperInnerTextArea>
 						</slideS.HomeMainSwiperCard>
