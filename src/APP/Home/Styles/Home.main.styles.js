@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import * as tokens from '../../../tokens';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const HomeMainScreen = styled.div`
 	width: 100vw;
@@ -107,14 +108,16 @@ export const HomeMainCategoryArea = styled.div`
 
 export const MainCardWrapper = styled.div`
 	width: 96%;
-	height: 25vh;
-	min-height: 280px;
+	height: fit-content;
+	min-height: 200px;
 	margin: auto;
 	padding: 5% 5% 0 5%;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	// background-color: antiquewhite;
 `;
 
 export const MainCardTitleWrapper = styled.div`
