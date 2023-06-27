@@ -3,18 +3,20 @@ import React, { useEffect, useState, useRef } from 'react';
 import * as HomeS from './Styles/Home.main.styles';
 import * as InsurenceS from './Styles/Home.insurence.styles';
 import * as InsurenceApi from './Apis/Home.insurence';
-import InvestRecommendSwiper from './Home.investment.slide';
+import InsurenceRecommendSwiper from './Home.insurence.slide';
 
 function InsurenceComponent() {
+	const [hanaInsurenceDiv, setHanaInsurenceDiv] = useState([]);
 	const [hanaInsurence, setHanaInsurence] = useState([]);
 
 	useEffect(() => {
 		const fetchInsurence = async () => {
 			let fetchResponse = await InsurenceApi.getInsurence();
-			console.log(fetchResponse.result);
 			let localInsurenceDiv = [];
+			let localInsurenceInfo = [];
 			for (let i = 0; i < fetchResponse.result.length; i++) {
 				const localInsurence = fetchResponse.result[i];
+				localInsurenceInfo.push(localInsurence);
 				if (localInsurence.id == 19) {
 					localInsurenceDiv.push(
 						<HomeS.MainRecommendContentWrapper>
@@ -22,7 +24,7 @@ function InsurenceComponent() {
 								<InsurenceS.InsurenceImage image="car"></InsurenceS.InsurenceImage>
 							</InsurenceS.InsurenceRecommendImage>
 							<InsurenceS.InsurenceRecommendText>
-								엔젤꿈나무사랑보험
+								{localInsurence.name}
 							</InsurenceS.InsurenceRecommendText>
 							<InsurenceS.InsurenceRecommendImage>
 								<InsurenceS.InsurenceImage image="detailView"></InsurenceS.InsurenceImage>
@@ -37,7 +39,7 @@ function InsurenceComponent() {
 								<InsurenceS.InsurenceImage image="travel"></InsurenceS.InsurenceImage>
 							</InsurenceS.InsurenceRecommendImage>
 							<InsurenceS.InsurenceRecommendText>
-								e우리아이보장보험
+								{localInsurence.name}
 							</InsurenceS.InsurenceRecommendText>
 							<InsurenceS.InsurenceRecommendImage>
 								<InsurenceS.InsurenceImage image="detailView"></InsurenceS.InsurenceImage>
@@ -49,10 +51,10 @@ function InsurenceComponent() {
 					localInsurenceDiv.push(
 						<HomeS.MainRecommendContentWrapper>
 							<InsurenceS.InsurenceRecommendImage>
-								<InsurenceS.InsurenceImage image="travel"></InsurenceS.InsurenceImage>
+								<InsurenceS.InsurenceImage image="car"></InsurenceS.InsurenceImage>
 							</InsurenceS.InsurenceRecommendImage>
 							<InsurenceS.InsurenceRecommendText>
-								NH운전자상해보험
+								{localInsurence.name}
 							</InsurenceS.InsurenceRecommendText>
 							<InsurenceS.InsurenceRecommendImage>
 								<InsurenceS.InsurenceImage image="detailView"></InsurenceS.InsurenceImage>
@@ -61,7 +63,8 @@ function InsurenceComponent() {
 					);
 				}
 			}
-			setHanaInsurence(localInsurenceDiv);
+			setHanaInsurenceDiv(localInsurenceDiv);
+			setHanaInsurence(localInsurenceInfo);
 		};
 
 		fetchInsurence();
@@ -77,8 +80,18 @@ function InsurenceComponent() {
 					</HomeS.MainCardTitle>
 				</HomeS.MainCardTitleWrapper>
 				<HomeS.MainRecommendCardWrapper>
-					{hanaInsurence}
+					{hanaInsurenceDiv}
 				</HomeS.MainRecommendCardWrapper>
+
+				<HomeS.MainCardTitleWrapper style={{ marginTop: '20px' }}>
+					<HomeS.MainCardTitle ismain="true">인기 보험</HomeS.MainCardTitle>
+					<HomeS.MainCardTitle ismain="false">
+						여행러들이 많이 선택한 보험!
+					</HomeS.MainCardTitle>
+				</HomeS.MainCardTitleWrapper>
+				<InsurenceRecommendSwiper
+					insurences={hanaInsurence}
+				></InsurenceRecommendSwiper>
 			</HomeS.MainCardWrapper>
 		</>
 	);
