@@ -4,6 +4,7 @@ import * as HomeS from './Styles/Home.main.styles';
 import * as InsurenceS from './Styles/Home.insurence.styles';
 import * as DepositS from './Styles/Home.deposit.styles';
 import InsurenceRecommendSwiper from './Home.insurence.slide';
+import DepositSwiper from './Home.deposit.slide';
 
 function DepositComponent() {
 	return (
@@ -63,14 +64,14 @@ function DepositComponent() {
 				</HomeS.MainRecommendCardWrapper>
 
 				<HomeS.MainCardTitleWrapper style={{ marginTop: '20px' }}>
-					<HomeS.MainCardTitle ismain="true">인기 보험</HomeS.MainCardTitle>
+					<HomeS.MainCardTitle ismain="true">
+						적금 상품 추천
+					</HomeS.MainCardTitle>
 					<HomeS.MainCardTitle ismain="false">
-						여행러들이 많이 선택한 보험!
+						여행자금을 모으고 싶은 여행러를 위한 적금 상품
 					</HomeS.MainCardTitle>
 				</HomeS.MainCardTitleWrapper>
-				<InsurenceRecommendSwiper
-				// insurences={hanaInsurence}
-				></InsurenceRecommendSwiper>
+				<DepositSwiper></DepositSwiper>
 			</HomeS.MainCardWrapper>
 		</>
 	);
