@@ -27,7 +27,7 @@ jobs:
         run: |
           rm -f .env
           touch .env
-          echo sudo "${{ secrets.DOTENV }}" >> .env
+          echo "${{ secrets.DOTENV }}" >> .env
           npm run build
           ls
 
