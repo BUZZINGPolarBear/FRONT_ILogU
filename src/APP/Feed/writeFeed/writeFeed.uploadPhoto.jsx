@@ -25,6 +25,7 @@ function UploadPhoto(props) {
 
 	const [isNextBtnClicked, setIsNextBtnClicked] = useState(false);
 	const [isUploadBtnClicked, setIsUploadBtnClicked] = useState(false);
+	const [isBannedImage, setIsBannedImage] = useState(false);
 	const [isUploadComplete, setIsUploadComplete] = useState(false);
 	const [isAutoGenerateFeedClicked, setIsAutoGenerateFeedClicked] =
 		useState(false);
@@ -66,6 +67,15 @@ function UploadPhoto(props) {
 				);
 				setIsUploadComplete(true);
 			}
+			console.log(response.result);
+			if (
+				response.result.isAdult == true ||
+				response.result.isGory == true ||
+				response.result.isRacy == true
+			) {
+				setIsUploadComplete(true);
+				setIsBannedImage(true);
+			}
 			if (response.isSuccess == true) {
 				setIsUploadComplete(true);
 			}
@@ -92,7 +102,11 @@ function UploadPhoto(props) {
 
 	return (
 		<div style={{ width: '98%', height: 'fit-content' }}>
-			{isUploadComplete == true ? <AfterUploadModal></AfterUploadModal> : <></>}
+			{isUploadComplete == true ? (
+				<AfterUploadModal isbannedimage={isBannedImage}></AfterUploadModal>
+			) : (
+				<></>
+			)}
 			<infoS.FeedCatergoryTitleArea style={{ marginTop: '0' }}>
 				{isNextBtnClicked == true ? (
 					<>

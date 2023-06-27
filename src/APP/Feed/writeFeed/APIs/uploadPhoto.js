@@ -62,8 +62,7 @@ export const uploadPhoto = async (
 		formData.append('request', jsonBlob);
 
 		axiosResponse = await axios.post(
-			//1. 배포 서버로 테스트시 주석 해제
-			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/upload`,
+			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/upload/adult`,
 			formData,
 			{
 				headers: {
@@ -71,6 +70,8 @@ export const uploadPhoto = async (
 				},
 			},
 		);
+
+		console.log(axiosResponse.data);
 
 		return axiosResponse.data;
 	} catch (error) {

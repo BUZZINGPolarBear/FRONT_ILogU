@@ -28,6 +28,12 @@ function FeedParticipation(props) {
 				const localContent = fetchResponse[i];
 				const dateStr = utils.changeDateStr(localContent.createdAt);
 				const content = utils.truncateString(localContent.content, 65);
+
+				if (
+					localContent.mainImage == null ||
+					typeof localContent.mainImage.s3url == 'undefined'
+				)
+					continue;
 				localDiv.push(
 					<FeedparicipateS.FeedChallengeWrapper key={`feed_key${i}`}>
 						<FeedparicipateS.FeedChallengeUserWrapper>
