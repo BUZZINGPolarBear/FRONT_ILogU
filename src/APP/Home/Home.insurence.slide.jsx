@@ -7,12 +7,12 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 SwiperCore.use([Scrollbar, A11y]);
 
 function InsurenceRecommendCard(props) {
-	const insurenceArr = props.insurences;
+	const [insurenceArr, setInsurenceArr] = useState(props.insurences);
 	const [insurenceSlider, setInsurenceSlider] = useState([]);
 
 	useEffect(() => {
 		let localSlider = [];
-		for (let i = 0; i < insurenceArr.length; i++) {
+		for (let i = 0; i < insurenceArr.length / 2; i++) {
 			const localInsurenceInfo = insurenceArr[i];
 			// console.log(localInsurenceInfo);
 			localSlider.push(
@@ -21,7 +21,6 @@ function InsurenceRecommendCard(props) {
 						<slideS.SwiperCardTitle>
 							{localInsurenceInfo.name}
 						</slideS.SwiperCardTitle>
-
 						<slideS.SwiperInnerTextArea>
 							<slideS.SwiperInnerSubText>
 								{localInsurenceInfo.managementCompany}
@@ -33,7 +32,7 @@ function InsurenceRecommendCard(props) {
 		}
 
 		setInsurenceSlider(localSlider);
-	}, []);
+	}, [insurenceArr]);
 	console.log(insurenceArr);
 	return (
 		<slideS.HomeMainChallengeCard>
