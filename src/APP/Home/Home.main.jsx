@@ -5,6 +5,7 @@ import * as tokens from '../../tokens';
 
 import InvestmentComponent from './Home.investment';
 import InsurenceComponent from './Home.insurence';
+import DepositComponent from './Home.main.deposit';
 function HomeMain() {
 	const [mainCategory, setMainCategory] = useState('investment');
 
@@ -64,6 +65,8 @@ function HomeMain() {
 					<InvestmentComponent />
 				) : mainCategory == 'insurence' ? (
 					<InsurenceComponent />
+				) : mainCategory == 'deposit' ? (
+					<DepositComponent />
 				) : (
 					' '
 				)}
