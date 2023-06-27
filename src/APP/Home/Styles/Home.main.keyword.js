@@ -44,7 +44,7 @@ export const TopTextArea = styled.div`
 
 	z-index: 9990;
 `;
-export const FeedWriteArea = styled.div`
+export const KeywordInfoArea = styled.div`
 	// position: fixed;
 	top: 7vh;
 
@@ -172,4 +172,16 @@ export const FeedWriteSubmitArea = styled.div`
 			? `background-color: ${tokens.colors.grey_100}; cursor: not-allowed; pointer-events: none;`
 			: `background-color: ${tokens.colors.green_500}; cursor: pointer;`}
 	}
+`;
+
+export const KeywordDetailInfoArea = styled.div`
+	width: 100%;
+	height: 25vh;
+	min-width: 360px;
+	min-height: 255px;
+
+	border-radius: 10px;
+	background-color: #ffffff;
+
+	box-shadow: 0px 5px 3px 0 rgba(0, 0, 0, 0.01);
 `;
