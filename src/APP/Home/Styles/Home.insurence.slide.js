@@ -32,12 +32,12 @@ export const InvestmentSwiperArea = styled.div`
 export const HomeMainSwiperCard = styled.div`
 	width: 150px;
 	max-width: 400px;
-	height: 100%;
+	height: 95%;
 	position: relative;
 	margin-bottom: 1.5vh;
 	padding: 10%;
 
-	border-radius: 20px;
+	border-radius: 10px;
 
 	background-repeat: no-repeat;
 	background-position: center;
@@ -80,7 +80,8 @@ export const SwiperText = styled.span`
 export const StyledSwiper = styled(Swiper)`
 	width: 100%;
 	max-width: 800px;
-	height: 85%;
+	height: 100%;
+	min-height: 160px;
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
@@ -91,15 +92,16 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
 `;
 
 export const SwiperInnerTextArea = styled.div`
+	position: relative;
 	width: 100%;
 	height: 35%;
-	position: relative;
+
 	bottom: 0;
-	border-bottom-left-radius: 20px;
-	border-bottom-right-radius: 20px;
+	padding: 0 10%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	border-radius: 10px;
 
 	color: #000000;
 `;
