@@ -3,37 +3,43 @@ import * as slideS from './Styles/Home.insurence.slide';
 import 'swiper/swiper-bundle.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import * as InsurenceApi from './Apis/Home.insurence';
 
 SwiperCore.use([Scrollbar, A11y]);
 
 function InsurenceRecommendCard(props) {
-	const [insurenceArr, setInsurenceArr] = useState(props.insurences);
 	const [insurenceSlider, setInsurenceSlider] = useState([]);
 
 	useEffect(() => {
-		let localSlider = [];
-		for (let i = 0; i < insurenceArr.length / 2; i++) {
-			const localInsurenceInfo = insurenceArr[i];
-			// console.log(localInsurenceInfo);
-			localSlider.push(
-				<SwiperSlide key={`insurence_slider_${i}`}>
-					<slideS.HomeMainSwiperCard>
-						<slideS.SwiperCardTitle>
-							{localInsurenceInfo.name}
-						</slideS.SwiperCardTitle>
-						<slideS.SwiperInnerTextArea>
-							<slideS.SwiperInnerSubText>
-								{localInsurenceInfo.managementCompany}
-							</slideS.SwiperInnerSubText>
-						</slideS.SwiperInnerTextArea>
-					</slideS.HomeMainSwiperCard>
-				</SwiperSlide>,
-			);
-		}
+		const fetchInsurence = async () => {
+			let fetchResponse = await InsurenceApi.getInsurence();
+			// console.log(fetchResponse);
+			const insurenceArr = fetchResponse.result;
+			let localSlider = [];
+			for (let i = 0; i < insurenceArr.length / 2; i++) {
+				const localInsurenceInfo = insurenceArr[i];
+				console.log(localInsurenceInfo);
+				localSlider.push(
+					<SwiperSlide key={`insurence_slider_${i}`}>
+						<slideS.HomeMainSwiperCard>
+							<slideS.SwiperCardTitle>
+								{localInsurenceInfo.name}
+							</slideS.SwiperCardTitle>
+							<slideS.SwiperInnerTextArea>
+								<slideS.SwiperInnerSubText>
+									{localInsurenceInfo.managementCompany}
+								</slideS.SwiperInnerSubText>
+							</slideS.SwiperInnerTextArea>
+						</slideS.HomeMainSwiperCard>
+					</SwiperSlide>,
+				);
+			}
+			setInsurenceSlider(localSlider);
+		};
 
-		setInsurenceSlider(localSlider);
-	}, [insurenceArr]);
-	console.log(insurenceArr);
+		fetchInsurence();
+	}, []);
+
 	return (
 		<slideS.HomeMainChallengeCard>
 			<slideS.InvestmentSwiperArea>
