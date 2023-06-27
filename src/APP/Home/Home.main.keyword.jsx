@@ -35,10 +35,10 @@ function DetailKeyword() {
 				<HomeS.MainCardWrapper>
 					<HomeS.MainCardTitleWrapper>
 						<HomeS.MainCardTitle ismain="true">
-							실시간 여행 #키워드
+							워드클라우드
 						</HomeS.MainCardTitle>
 						<HomeS.MainCardTitle ismain="false">
-							여행관련 이슈 키워드를 확인하세요!
+							키워드를 바탕으로 도출된 워드 클라우드입니다
 						</HomeS.MainCardTitle>
 					</HomeS.MainCardTitleWrapper>
 					<infoS.KeywordDetailInfoArea>

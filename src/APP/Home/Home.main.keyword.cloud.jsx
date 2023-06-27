@@ -9,13 +9,10 @@ function KeywordCloud(props) {
 	let cloudDataArr = [];
 	const searchKeyword = props.searchKeyword;
 
-	console.log(`searchKeyword: ${searchKeyword}`);
-
 	useEffect(() => {
-		console.log(`KeywordCloud: ${searchKeyword}`);
 		const fetchchildKeyword = async () => {
 			const response = await cloudAPIs.getChildCloudData(searchKeyword);
-			console.log(response);
+			// console.log(response);
 			setWordcloudData(response);
 		};
 		fetchchildKeyword();
@@ -28,7 +25,7 @@ function KeywordCloud(props) {
 			totalSum +=
 				wordcloudData[i].duplicateCnt * wordcloudData[i].sumKeywordWorth;
 
-		for (let i = 0; i < 20; i++) {
+		for (let i = 0; i < wordcloudData.length; i++) {
 			cloudDataArr.push({
 				text: wordcloudData[i].childKeyword,
 				value: (
@@ -39,7 +36,7 @@ function KeywordCloud(props) {
 			});
 		}
 	}
-
+	cloudDataArr = cloudDataArr.slice(0, 15);
 	const options = {
 		colors: [
 			`${tokens.colors.green_800}`,
@@ -51,7 +48,7 @@ function KeywordCloud(props) {
 		],
 		deterministic: false,
 		fontFamily: 'impact',
-		fontSizes: [10, 55],
+		fontSizes: [10, 50],
 		fontStyle: 'normal',
 		fontWeight: 'normal',
 		padding: 1,
