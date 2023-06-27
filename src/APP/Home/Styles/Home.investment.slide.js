@@ -93,7 +93,7 @@ export const SwiperInnerTextArea = styled.div`
 
 export const SwiperInnerTitle = styled.div`
 	text-align: left;
-	color: ${tokens.colors.grey_400};
+	color: #000000;
 	${tokens.typography.subtitle_3};
 `;
 
