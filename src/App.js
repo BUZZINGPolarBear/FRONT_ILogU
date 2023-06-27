@@ -16,6 +16,7 @@ import LoginMain from './APP/Login/Login.Main';
 import SignUpMain from './APP/Login/Sign.Up.Main';
 import SelectIsParent from './APP/Login/Sign.Up.isParent';
 import SignInMain from './APP/Login/Sign.In.Main';
+import DetailKeyword from './APP/Home/Home.main.keyword';
 import * as tokens from './tokens';
 import {
 	BrowserRouter,
@@ -87,6 +88,7 @@ function App() {
 					<Route path="/signup" element={<SignUpMain />} />
 					<Route path="/signin" element={<SignInMain />} />
 					<Route path="/home" element={<HomeMain />} />
+					<Route path="/home/keyword/*" element={<DetailKeyword />} />
 					<Route
 						path="/feed/main"
 						element={<FeedMain setNavigateBtn={setNavigateBtn} />}

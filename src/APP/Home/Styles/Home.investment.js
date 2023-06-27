@@ -26,6 +26,7 @@ export const KeywordDiv = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin-right: 8px;
+	cursor: pointer;
 	color: ${tokens.colors.green_600};
 	${tokens.typography.body_2}
 `;
