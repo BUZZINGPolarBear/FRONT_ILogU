@@ -4,13 +4,18 @@ import axios, * as others from 'axios';
 import * as tokens from '../../tokens';
 import * as cloudAPIs from './Apis/Home.main.wordCloud.cloud.apis';
 
-function KeywordCloud({ searchKeyword }) {
+function KeywordCloud(props) {
 	const [wordcloudData, setWordcloudData] = useState([]);
 	let cloudDataArr = [];
+	const searchKeyword = props.searchKeyword;
+
+	console.log(`searchKeyword: ${searchKeyword}`);
 
 	useEffect(() => {
+		console.log(`KeywordCloud: ${searchKeyword}`);
 		const fetchchildKeyword = async () => {
 			const response = await cloudAPIs.getChildCloudData(searchKeyword);
+			console.log(response);
 			setWordcloudData(response);
 		};
 		fetchchildKeyword();
@@ -23,7 +28,7 @@ function KeywordCloud({ searchKeyword }) {
 			totalSum +=
 				wordcloudData[i].duplicateCnt * wordcloudData[i].sumKeywordWorth;
 
-		for (let i = 0; i < 25; i++) {
+		for (let i = 0; i < 20; i++) {
 			cloudDataArr.push({
 				text: wordcloudData[i].childKeyword,
 				value: (
