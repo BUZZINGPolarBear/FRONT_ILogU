@@ -138,8 +138,8 @@ export const MainCardTitle = styled.div`
 
 export const MainRecommendCardWrapper = styled.div`
 	width: 100%;
-	height: 20vh;
-	min-height: 220px;
+	height: 16vh;
+	min-height: 200px;
 
 	display: flex;
 	flex-direction: column;

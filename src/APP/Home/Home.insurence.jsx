@@ -1,10 +1,22 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 import * as HomeS from './Styles/Home.main.styles';
-import * as InvestS from './Styles/Home.investment';
+import * as InsurenceS from './Styles/Home.insurence.styles';
+import * as InsurenceApi from './Apis/Home.insurence';
 import InvestRecommendSwiper from './Home.investment.slide';
 
 function InsurenceComponent() {
+	const [hanaInsurence, setHanaInsurence] = useState([]);
+
+	useEffect(() => {
+		const fetchInsurence = async () => {
+			let fetchResponse = await InsurenceApi.getInsurence();
+			console.log(fetchResponse.result);
+		};
+
+		fetchInsurence();
+	}, []);
+
 	return (
 		<>
 			<HomeS.MainCardWrapper>
@@ -15,9 +27,39 @@ function InsurenceComponent() {
 					</HomeS.MainCardTitle>
 				</HomeS.MainCardTitleWrapper>
 				<HomeS.MainRecommendCardWrapper>
-					<HomeS.MainRecommendContentWrapper></HomeS.MainRecommendContentWrapper>
-					<HomeS.MainRecommendContentWrapper></HomeS.MainRecommendContentWrapper>
-					<HomeS.MainRecommendContentWrapper></HomeS.MainRecommendContentWrapper>
+					<HomeS.MainRecommendContentWrapper>
+						<InsurenceS.InsurenceRecommendImage>
+							<InsurenceS.InsurenceImage image="car"></InsurenceS.InsurenceImage>
+						</InsurenceS.InsurenceRecommendImage>
+						<InsurenceS.InsurenceRecommendText>
+							참좋은 운전자 보험
+						</InsurenceS.InsurenceRecommendText>
+						<InsurenceS.InsurenceRecommendImage>
+							<InsurenceS.InsurenceImage image="detailView"></InsurenceS.InsurenceImage>
+						</InsurenceS.InsurenceRecommendImage>
+					</HomeS.MainRecommendContentWrapper>
+					<HomeS.MainRecommendContentWrapper>
+						<InsurenceS.InsurenceRecommendImage>
+							<InsurenceS.InsurenceImage image="travel"></InsurenceS.InsurenceImage>
+						</InsurenceS.InsurenceRecommendImage>
+						<InsurenceS.InsurenceRecommendText>
+							여행자 보험
+						</InsurenceS.InsurenceRecommendText>
+						<InsurenceS.InsurenceRecommendImage>
+							<InsurenceS.InsurenceImage image="detailView"></InsurenceS.InsurenceImage>
+						</InsurenceS.InsurenceRecommendImage>
+					</HomeS.MainRecommendContentWrapper>
+					<HomeS.MainRecommendContentWrapper>
+						<InsurenceS.InsurenceRecommendImage>
+							<InsurenceS.InsurenceImage image="car"></InsurenceS.InsurenceImage>
+						</InsurenceS.InsurenceRecommendImage>
+						<InsurenceS.InsurenceRecommendText>
+							원데이 운전자 보험
+						</InsurenceS.InsurenceRecommendText>
+						<InsurenceS.InsurenceRecommendImage>
+							<InsurenceS.InsurenceImage image="detailView"></InsurenceS.InsurenceImage>
+						</InsurenceS.InsurenceRecommendImage>
+					</HomeS.MainRecommendContentWrapper>
 				</HomeS.MainRecommendCardWrapper>
 			</HomeS.MainCardWrapper>
 		</>
