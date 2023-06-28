@@ -10,15 +10,8 @@ import { ko } from 'date-fns/esm/locale';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import * as signInRecoil from './recoil/Login.recoil.states';
 
-function dateToString(date) {
-	const year = date.getFullYear(); // 2023
-	const month = String(date.getMonth() + 1).padStart(2, '0'); // 06, because getMonth() returns 0-11
-	const day = String(date.getDate()).padStart(2, '0'); // 16
-
-	const formattedDate = `${year}.${month}.${day}`; // 2023.06.16
-
-	return formattedDate;
-}
+//api
+import * as api from './apis/Signup.API';
 
 function validateEmail(email) {
 	const re =
@@ -51,13 +44,22 @@ function SignUpGetInfo(props) {
 	let bubbleTop = 2;
 	const inputRef = useRef(null);
 
-	const handleKeyDown = (event, type) => {
+	const handleKeyDown = async (event, type) => {
 		if (event.key === 'Enter') {
 			event.preventDefault();
 
 			if (type == 'inviteCode') {
 				if (inviteCode == '') {
-					setInviteCode(event.target.value);
+					const familyCheckResponse = await api.SignUpInvitedCode(
+						event.target.value,
+					);
+					if (familyCheckResponse === false) {
+						alert('가족코드를 확인해주세요.');
+						event.target.value = '';
+						setInviteCode('');
+					} else {
+						setInviteCode(event.target.value);
+					}
 				}
 			}
 			if (type == 'relateName') {

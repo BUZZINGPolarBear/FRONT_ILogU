@@ -54,3 +54,15 @@ export const SignInUser = async (userEmail, userPw) => {
 		console.error(error);
 	}
 };
+
+export const SignUpInvitedCode = async (code) => {
+	try {
+		const response = await axios.get(
+			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/user/join/familyCode/${code}`,
+		);
+
+		return response.data.isSuccess;
+	} catch (error) {
+		console.error(error);
+	}
+};
