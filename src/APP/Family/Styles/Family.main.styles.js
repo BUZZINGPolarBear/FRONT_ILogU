@@ -82,7 +82,7 @@ export const MainRankWrapper = styled.div`
 export const RankArea = styled.div`
 	position: relative;
 	width: 100%;
-	height: 30%;
+	height: 31%;
 	min-height: 55px;
 
 	display: flex;
@@ -101,7 +101,8 @@ export const RankNum = styled.span`
 	align-items: center;
 	justify-content: flex-start;
 
-	color: ${tokens.colors.green_500};
+	color: ${(props) =>
+		props.type == 'money' ? tokens.colors.green_500 : tokens.colors.red_500};
 	${tokens.typography.headline_6};
 
 	// background-color: antiquewhite;
@@ -123,26 +124,36 @@ export const RankTitle = styled.span`
 	// background-color: antiquewhite;
 `;
 
+export const RankContentArea = styled.div`
+	width: 25%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+`;
+
 export const RankContent = styled.span`
 	width: fit-content;
 	height: ${tokens.typography.subtitle_1_SB.fontSize};
 
-	padding: 12px 15px;
-	border-radius: 10px;
+	padding: 15px 15px;
+	border-radius: 6px;
 
-	background-color: #1dcb9d33;
+	background-color: ${(props) =>
+		props.type == 'money' ? '#1dcb9d33' : '#FE2C6233'};
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
-	color: ${tokens.colors.green_500};
+	color: ${(props) =>
+		props.type == 'money' ? tokens.colors.green_500 : tokens.colors.red_500};
 	${tokens.typography.body_2};
 `;
 
 export const RankProfilePic = styled.div`
-	width: 35px;
-	height: 35px;
+	width: 45px;
+	height: 45px;
 	margin-right: 10px;
 	border-radius: 50%;
 
