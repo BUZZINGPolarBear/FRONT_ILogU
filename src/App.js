@@ -14,7 +14,7 @@ import FeedMain from './APP/Feed/getFeed/Feed.main';
 import FeedWrite from './APP/Feed/writeFeed/writeFeed.info';
 import LoginMain from './APP/Login/Login.Main';
 import SignUpMain from './APP/Login/Sign.Up.Main';
-import SelectIsParent from './APP/Login/Sign.Up.isParent';
+import FamilyMainScreen from './APP/Family/Family.main';
 import SignInMain from './APP/Login/Sign.In.Main';
 import DetailKeyword from './APP/Home/Home.main.keyword';
 import * as tokens from './tokens';
@@ -98,6 +98,7 @@ function App() {
 						element={<FeedMain setNavigateBtn={setNavigateBtn} />}
 					/>
 					<Route path="/write" element={<FeedWrite></FeedWrite>} />
+					<Route path="/family" element={<FamilyMainScreen />} />
 					<Route path="*" element={<HomeMain />} />
 				</Routes>
 			</MainScreen>
@@ -147,8 +148,8 @@ function App() {
 							></img>
 						)}
 					</NavImg>
-					<NavImg onClick={(e) => handleNavClick(e, 'ourfamily')}>
-						{navigateReoilSelectState === 'ourfamily' ? (
+					<NavImg onClick={(e) => handleNavClick(e, 'family')}>
+						{navigateReoilSelectState === 'family' ? (
 							<img
 								src="/bottomNavBar/ourFamily_clicked.svg"
 								alt="challenge clicked"

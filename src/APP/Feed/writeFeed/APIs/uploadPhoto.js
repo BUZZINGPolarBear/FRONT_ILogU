@@ -62,7 +62,7 @@ export const uploadPhoto = async (
 		formData.append('request', jsonBlob);
 
 		axiosResponse = await axios.post(
-			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/upload/adult`,
+			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/upload`,
 			formData,
 			{
 				headers: {
