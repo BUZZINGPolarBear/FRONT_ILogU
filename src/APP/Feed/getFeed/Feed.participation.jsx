@@ -28,6 +28,12 @@ function FeedParticipation(props) {
 				const localContent = fetchResponse[i];
 				const dateStr = utils.changeDateStr(localContent.createdAt);
 				const content = utils.truncateString(localContent.content, 65);
+				let category = localContent.category;
+
+				if (category === 'DAILY') category = '👩‍👩‍👧‍👦 일상';
+				else if (category === 'SPORTS') category = '⚽️ 스포츠';
+				else if (category === 'TRAVEL') category = '🧳 여행';
+				else category = '👩‍👩‍👧‍👦 일상';
 
 				if (
 					localContent.mainImage == null ||
@@ -73,9 +79,9 @@ function FeedParticipation(props) {
 							<FeedparicipateS.FeedChallengeTopBottomWrapper
 								style={{ height: '35%' }}
 							>
-								<FeedparicipateS.FeedTag>🧳 여행</FeedparicipateS.FeedTag>
+								<FeedparicipateS.FeedTag>{category}</FeedparicipateS.FeedTag>
 								<FeedparicipateS.FeedTag>
-									#{localContent.hashtags[0]}
+									{localContent.title}
 								</FeedparicipateS.FeedTag>
 							</FeedparicipateS.FeedChallengeTopBottomWrapper>
 						</FeedparicipateS.FeedChallengeContentWrapper>

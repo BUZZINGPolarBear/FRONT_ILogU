@@ -41,47 +41,22 @@ function AfterUploadModal(props) {
 
 	return (
 		<>
-			{props.isbannedimage == 'false' ? (
-				<Modal
-					isOpen={true}
-					style={ModalStyle}
-					onRequestClose={true} // 오버레이나 esc를 누르면 핸들러 동작
-					ariaHideApp={false}
-				>
-					<modalS.TopImageWrapper></modalS.TopImageWrapper>
-					<modalS.MainTitleWrapper>
-						<modalS.MainTitle type="sub">
-							아이와의 행복한 순간의
-						</modalS.MainTitle>
-						<modalS.MainTitle type="main">
-							기록이 완료되었어요!
-						</modalS.MainTitle>
-					</modalS.MainTitleWrapper>
-					<modalS.BtnWrapper onClick={(e) => handleToFirstPage(e)}>
-						<modalS.ModalBtn isFirst="true">
-							가족에게 알림보내기
-						</modalS.ModalBtn>
-						<modalS.ModalBtn isFirst="false">처음으로</modalS.ModalBtn>
-					</modalS.BtnWrapper>
-				</Modal>
-			) : (
-				<Modal
-					isOpen={true}
-					style={ModalStyle}
-					onRequestClose={true} // 오버레이나 esc를 누르면 핸들러 동작
-					ariaHideApp={false}
-				>
-					<modalS.TopImageWrapper></modalS.TopImageWrapper>
-					<modalS.MainTitleWrapper>
-						<modalS.MainTitle type="main">부적절한 이미지에요</modalS.MainTitle>
-					</modalS.MainTitleWrapper>
-					<modalS.BtnWrapper onClick={(e) => handleToFirstPage(e)}>
-						<modalS.ModalBtn isFirst="false">처음으로</modalS.ModalBtn>
-					</modalS.BtnWrapper>
-				</Modal>
-			)}
-
-			{/* <button onClick={모달토글핸들러}></button> */}
+			<Modal
+				isOpen={true}
+				style={ModalStyle}
+				onRequestClose={true} // 오버레이나 esc를 누르면 핸들러 동작
+				ariaHideApp={false}
+			>
+				<modalS.TopImageWrapper></modalS.TopImageWrapper>
+				<modalS.MainTitleWrapper>
+					<modalS.MainTitle type="sub">아이와의 행복한 순간의</modalS.MainTitle>
+					<modalS.MainTitle type="main">기록이 완료되었어요!</modalS.MainTitle>
+				</modalS.MainTitleWrapper>
+				<modalS.BtnWrapper onClick={(e) => handleToFirstPage(e)}>
+					<modalS.ModalBtn isFirst="true">가족에게 알림보내기</modalS.ModalBtn>
+					<modalS.ModalBtn isFirst="false">처음으로</modalS.ModalBtn>
+				</modalS.BtnWrapper>
+			</Modal>
 		</>
 	);
 }
