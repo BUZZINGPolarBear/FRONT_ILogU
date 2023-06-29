@@ -16,6 +16,20 @@ export const MainPicWrapper = styled.div`
 	z-index: 9999;
 `;
 
+export const MainPicBackward = styled.div`
+	position: fixed;
+	top: 1vh;
+	width: 95vw;
+	height: 60px;
+	margin: 0 2.5vw;
+
+	background-color: transparent;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+`;
+
 export const MainScreenWrapper = styled.div`
 	position: absolute;
 	padding: 5% 5%;

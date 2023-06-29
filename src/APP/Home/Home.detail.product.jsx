@@ -10,9 +10,22 @@ import {
 import * as HomeS from './Styles/Home.main.styles';
 import * as DetailS from './Styles/Home.detail.product.styles';
 function DetailVeiw() {
+	const navigate = useNavigate();
+
+	const handleTo1QBtn = () => {
+		alert('하나원큐로 이동합니다.');
+	};
+
+	const handleBackwardBtn = () => {
+		navigate('/home');
+	};
 	return (
 		<>
-			<DetailS.MainPicWrapper img="/mainScreen/detail/paris.svg"></DetailS.MainPicWrapper>
+			<DetailS.MainPicWrapper img="/mainScreen/detail/paris.svg">
+				<DetailS.MainPicBackward onClick={handleBackwardBtn}>
+					<img src="/Feed/writeFeed/backward.svg"></img>
+				</DetailS.MainPicBackward>
+			</DetailS.MainPicWrapper>
 			<DetailS.MainScreenWrapper>
 				<DetailS.MainContentWrapper>
 					<DetailS.MainScreenTitleWrapper>
@@ -57,7 +70,9 @@ function DetailVeiw() {
 					<DetailS.InfoMsg>
 						*자세한 내용은 하나원큐 상품 가입 페이지를 참고해주세요.
 					</DetailS.InfoMsg>
-					<DetailS.To1QBtn>하나원큐로 이동하기</DetailS.To1QBtn>
+					<DetailS.To1QBtn onClick={handleTo1QBtn}>
+						하나원큐로 이동하기
+					</DetailS.To1QBtn>
 				</DetailS.BtnWrapper>
 			</DetailS.MainScreenWrapper>
 		</>
