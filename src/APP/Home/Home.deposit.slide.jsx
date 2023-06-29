@@ -3,16 +3,34 @@ import * as slideS from './Styles/Home.investment.slide';
 import 'swiper/swiper-bundle.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import {
+	BrowserRouter,
+	Route,
+	Router,
+	useLocation,
+	Routes,
+	useNavigate,
+} from 'react-router-dom';
 
 SwiperCore.use([Scrollbar, A11y]);
 
 function DepositSwiper() {
+	const navigate = useNavigate();
+
+	const handleDepositDetailView = (e, type) => {
+		e.preventDefault();
+
+		navigate(`/home/deposit/detail/${type}`);
+	};
+
 	return (
 		<slideS.HomeMainChallengeCard>
 			<slideS.InvestmentSwiperArea>
 				<slideS.StyledSwiper spaceBetween={180} slidesPerView={3}>
 					<SwiperSlide>
-						<slideS.HomeMainSwiperCard>
+						<slideS.HomeMainSwiperCard
+							onClick={(e) => handleDepositDetailView(e, 'travel-log')}
+						>
 							<slideS.SwiperImage
 								style={{
 									backgroundImage:
