@@ -26,6 +26,16 @@ export const MainLogoArea = styled.div`
 	// background-color: ${tokens.colors.grey_50};
 `;
 
+export const MainLogo = styled.div`
+	width: 108px;
+	height: 73px;
+
+	background-image: url('/mainLogo/mainScreenLogo.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+`;
+
 export const MainBtnWrapper = styled.div`
 	position: relative;
 	width: 100%;

@@ -30,7 +30,9 @@ function LoginMain() {
 	useEffect(() => {}, [setIsChattingState(false)]);
 	return (
 		<mainS.MainScreenWrapper>
-			<mainS.MainLogoArea>여긴 로고인데 나중에 추가</mainS.MainLogoArea>
+			<mainS.MainLogoArea>
+				<mainS.MainLogo></mainS.MainLogo>
+			</mainS.MainLogoArea>
 			<mainS.MainBtnWrapper>
 				<mainS.MainBtn type="signup" onClick={(e) => handleSignUpBtn(e)}>
 					회원가입
