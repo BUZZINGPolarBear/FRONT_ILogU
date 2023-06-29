@@ -53,6 +53,12 @@ function DetailVeiw() {
 						</DetailS.ContentRowWrapper>
 					</DetailS.ContentWrapper>
 				</DetailS.MainContentWrapper>
+				<DetailS.BtnWrapper>
+					<DetailS.InfoMsg>
+						*자세한 내용은 하나원큐 상품 가입 페이지를 참고해주세요.
+					</DetailS.InfoMsg>
+					<DetailS.To1QBtn>하나원큐로 이동하기</DetailS.To1QBtn>
+				</DetailS.BtnWrapper>
 			</DetailS.MainScreenWrapper>
 		</>
 	);

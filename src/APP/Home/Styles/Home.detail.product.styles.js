@@ -115,3 +115,42 @@ export const Content = styled.span`
 	color: ${tokens.colors.grey_700};
 	${tokens.typography.body_2}
 `;
+
+export const BtnWrapper = styled.div`
+	width: 100%;
+	height: 15%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+`;
+
+export const InfoMsg = styled.span`
+	width: 100%;
+	height: fit-content;
+
+	color: ${tokens.colors.grey_300};
+	${tokens.typography.sub};
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+`;
+
+export const To1QBtn = styled.button`
+	width: 100%;
+	height: 50px;
+
+	background-color: ${tokens.colors.green_500};
+	color: #ffffff;
+	${tokens.typography.button};
+	border-radius: 15px;
+	border: none;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+`;
