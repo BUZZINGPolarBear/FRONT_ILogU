@@ -51,7 +51,8 @@ function DepositSwiper() {
 						<slideS.HomeMainSwiperCard>
 							<slideS.SwiperImage
 								style={{
-									backgroundImage: 'url(/mainScreen/deposit/paris.svg)',
+									backgroundImage:
+										'url(https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/paris.svg)',
 								}}
 							></slideS.SwiperImage>
 							<slideS.SwiperInnerTextArea>
@@ -68,7 +69,8 @@ function DepositSwiper() {
 						<slideS.HomeMainSwiperCard>
 							<slideS.SwiperImage
 								style={{
-									backgroundImage: 'url(/mainScreen/deposit/tailand.svg)',
+									backgroundImage:
+										'url(https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/tailand.svg)',
 								}}
 							></slideS.SwiperImage>
 							<slideS.SwiperInnerTextArea>
@@ -85,7 +87,8 @@ function DepositSwiper() {
 						<slideS.HomeMainSwiperCard>
 							<slideS.SwiperImage
 								style={{
-									backgroundImage: 'url(/mainScreen/deposit/taiwan.svg)',
+									backgroundImage:
+										'url(https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/taiwan.svg)',
 								}}
 							></slideS.SwiperImage>
 							<slideS.SwiperInnerTextArea>

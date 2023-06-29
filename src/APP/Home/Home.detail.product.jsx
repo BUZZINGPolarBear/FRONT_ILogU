@@ -21,7 +21,7 @@ function DetailVeiw() {
 	};
 	return (
 		<>
-			<DetailS.MainPicWrapper img="/mainScreen/detail/paris.svg">
+			<DetailS.MainPicWrapper img="https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/paris.svg">
 				<DetailS.MainPicBackward onClick={handleBackwardBtn}>
 					<img src="/Feed/writeFeed/backward.svg"></img>
 				</DetailS.MainPicBackward>

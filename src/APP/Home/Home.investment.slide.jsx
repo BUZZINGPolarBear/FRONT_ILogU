@@ -15,7 +15,8 @@ function ChallengRecommendCard() {
 						<slideS.HomeMainSwiperCard>
 							<slideS.SwiperImage
 								style={{
-									backgroundImage: 'url(/mainScreen/ETF_1.svg)',
+									backgroundImage:
+										'url(https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/ETF_3.svg)',
 								}}
 							></slideS.SwiperImage>
 							<slideS.SwiperInnerTextArea>
@@ -32,7 +33,8 @@ function ChallengRecommendCard() {
 						<slideS.HomeMainSwiperCard>
 							<slideS.SwiperImage
 								style={{
-									backgroundImage: 'url(/mainScreen/ETF_2.svg)',
+									backgroundImage:
+										'url(https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/ETF_2.svg)',
 								}}
 							></slideS.SwiperImage>
 							<slideS.SwiperInnerTextArea>
@@ -49,7 +51,8 @@ function ChallengRecommendCard() {
 						<slideS.HomeMainSwiperCard>
 							<slideS.SwiperImage
 								style={{
-									backgroundImage: 'url(/mainScreen/ETF_3.svg)',
+									backgroundImage:
+										'url(https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/ETF_3.svg)',
 								}}
 							></slideS.SwiperImage>
 							<slideS.SwiperInnerTextArea>
