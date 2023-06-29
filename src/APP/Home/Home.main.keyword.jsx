@@ -31,14 +31,27 @@ function DetailKeyword() {
 				></infoS.TopBackwardArea>
 				<infoS.TopTextArea>키워드</infoS.TopTextArea>
 			</infoS.TopNavBar>
-			<infoS.KeywordInfoArea>
-				<HomeS.MainCardWrapper>
+			<infoS.KeywordInfoArea style={{ justifyContent: 'flex-start' }}>
+				<HomeS.MainCardWrapper style={{ marginTop: '70px' }}>
 					<HomeS.MainCardTitleWrapper>
 						<HomeS.MainCardTitle ismain="true">
 							워드클라우드
 						</HomeS.MainCardTitle>
 						<HomeS.MainCardTitle ismain="false">
 							키워드를 바탕으로 도출된 워드 클라우드입니다
+						</HomeS.MainCardTitle>
+					</HomeS.MainCardTitleWrapper>
+					<infoS.KeywordDetailInfoArea>
+						<KeywordCloud searchKeyword={keyword}></KeywordCloud>
+					</infoS.KeywordDetailInfoArea>
+				</HomeS.MainCardWrapper>
+
+				<HomeS.MainCardWrapper style={{ marginTop: '20px' }}>
+					<HomeS.MainCardTitleWrapper
+						style={{ height: '15%', minHeight: '35px' }}
+					>
+						<HomeS.MainCardTitle ismain="true">
+							트렌드 지속 확인
 						</HomeS.MainCardTitle>
 					</HomeS.MainCardTitleWrapper>
 					<infoS.KeywordDetailInfoArea>

@@ -183,5 +183,5 @@ export const KeywordDetailInfoArea = styled.div`
 	border-radius: 10px;
 	background-color: #ffffff;
 
-	box-shadow: 0px 5px 3px 0 rgba(0, 0, 0, 0.01);
+	box-shadow: 0px 5px 3px 0 rgba(0, 0, 0, 0.05);
 `;

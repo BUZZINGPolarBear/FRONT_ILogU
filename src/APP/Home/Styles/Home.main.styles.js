@@ -108,9 +108,10 @@ export const HomeMainCategoryArea = styled.div`
 
 export const MainCardWrapper = styled.div`
 	width: 96%;
-	height: fit-content;
+	height: 30vh;
 	min-height: 200px;
-	margin: auto;
+	margin-top: 0;
+	margin-bottom: 10px;
 	padding: 5% 5% 0 5%;
 
 	display: flex;
