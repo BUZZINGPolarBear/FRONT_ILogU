@@ -48,7 +48,7 @@ function KeywordCloud(props) {
 		],
 		deterministic: false,
 		fontFamily: 'impact',
-		fontSizes: [10, 50],
+		fontSizes: [30, 70],
 		fontStyle: 'normal',
 		fontWeight: 'normal',
 		padding: 1,
