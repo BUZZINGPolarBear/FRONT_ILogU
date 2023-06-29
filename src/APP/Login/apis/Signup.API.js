@@ -11,25 +11,47 @@ export const SignUpParents = async (
 	familyType,
 	babyName,
 	babyBirth,
+	inviteCode,
 ) => {
 	try {
 		let strBabyBirth = babyBirth.toDateString();
-		const requestBody = {
-			email: userEmail,
-			password: userPassword_2,
-			simplePassword: simplePw,
-			nickname: userNickName,
-			familyType: 'PARENTS',
-			familyName: '루리네 가족',
-			verifyCode: 'onehana',
-			childName: babyName,
-			childBirth: strBabyBirth,
-		};
+		let requestBody = {};
+
+		if (familyType === 'PARENTS') {
+			requestBody = {
+				email: userEmail,
+				password: userPassword_2,
+				simplePassword: simplePw,
+				nickname: userNickName,
+				familyType: 'PARENTS',
+				familyName: '루리네 가족',
+				verifyCode: 'onehana',
+				childName: babyName,
+				childBirth: strBabyBirth,
+			};
+		} else {
+			requestBody = {
+				email: userEmail,
+				password: userPassword_2,
+				simplePassword: simplePw,
+				nickname: userNickName,
+				familyType: 'OTHERS',
+				familyName: '루리네 가족',
+				verifyCode: 'onehana',
+				childName: babyName,
+				childBirth: strBabyBirth,
+				inviteCode: inviteCode,
+			};
+		}
+
+		console.log(requestBody);
 
 		const response = await axios.post(
 			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/user/join`,
 			requestBody,
 		);
+
+		console.log(response.data);
 
 		return response.data.result;
 	} catch (error) {

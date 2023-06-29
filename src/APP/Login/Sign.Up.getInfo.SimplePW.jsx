@@ -26,7 +26,7 @@ function SimplePassWord() {
 	const [userPassword_2, setUserPassword_2] = useRecoilState(
 		signInRecoil.userPassword,
 	);
-
+	const [inviteCode, setInviteCode] = useRecoilState(signInRecoil.inviteCode);
 	const [simplePw, setSimplePw] = useRecoilState(
 		signInRecoil.userSimplePassword,
 	);
@@ -57,8 +57,27 @@ function SimplePassWord() {
 				babyName,
 				babyBirth,
 			);
+		} else if (signUpType == 'invite') {
+			console.log('invite sign in');
+			const signUpResult = await signInApi.SignUpParents(
+				userEmail,
+				userPassword_2,
+				simplePw,
+				userNickName,
+				'OTHERS',
+				babyName,
+				babyBirth,
+				inviteCode,
+			);
 		}
-
+		setSignUpType('');
+		setBabyName('');
+		setBabyBirth('');
+		setUserNickName('');
+		setUserEmail('');
+		setUserPassword_2('');
+		setInviteCode('');
+		setSimplePw('');
 		navigate('/signin');
 	};
 
