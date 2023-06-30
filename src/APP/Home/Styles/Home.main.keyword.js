@@ -175,9 +175,8 @@ export const FeedWriteSubmitArea = styled.div`
 `;
 
 export const KeywordDetailInfoArea = styled.div`
-	width: 100%;
 	height: 25vh;
-	min-width: 360px;
+	width: 100%;
 	min-height: 190px;
 
 	border-radius: 10px;

@@ -8,6 +8,7 @@ import {
 	useNavigate,
 } from 'react-router-dom';
 
+import * as tokens from '../../tokens';
 import * as infoS from './Styles/Home.main.keyword';
 import * as HomeS from './Styles/Home.main.styles';
 import KeywordCloud from './Home.main.keyword.cloud';
@@ -67,7 +68,7 @@ function DetailKeyword() {
 							<infoS.TitleWrapper>
 								<infoS.TitleCircle
 									style={{ marginRight: '10px' }}
-									color="green"
+									color="other"
 								></infoS.TitleCircle>{' '}
 								Actual Predict start
 							</infoS.TitleWrapper>
@@ -75,7 +76,19 @@ function DetailKeyword() {
 						<infoS.ChartArea>
 							<TrendPredictionGraph></TrendPredictionGraph>
 						</infoS.ChartArea>
-						<infoS.KeywordTitle></infoS.KeywordTitle>
+						<infoS.KeywordTitle
+							style={{
+								justifyContent: 'space-around',
+								color: tokens.colors.grey_300,
+							}}
+						>
+							<span>2019.06</span>
+							<span>2022.01</span>
+							<span>2022.06</span>
+							<span>2023.01</span>
+							<span>2023.12</span>
+							<span>2024.06</span>
+						</infoS.KeywordTitle>
 					</infoS.KeywordDetailInfoArea>
 				</HomeS.MainCardWrapper>
 			</infoS.KeywordInfoArea>

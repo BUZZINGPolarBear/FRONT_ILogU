@@ -112,7 +112,7 @@ export const MainCardWrapper = styled.div`
 	min-height: 200px;
 	margin-top: 0;
 	margin-bottom: 10px;
-	padding: 5% 5% 0 5%;
+	padding: 5% 5%;
 
 	display: flex;
 	flex-direction: column;
@@ -125,6 +125,11 @@ export const MainCardTitleWrapper = styled.div`
 	width: 100%;
 	height: 20%;
 	min-height: 60px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
 `;
 
 export const MainCardTitle = styled.div`

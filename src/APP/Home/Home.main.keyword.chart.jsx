@@ -158,15 +158,16 @@ function TrendPredictionGraph() {
 			datasets: [
 				{
 					label: ' Real Value',
+					borderWidth: 1,
 					data: copiedTrendRealData,
 					borderColor: '#1DCB9D',
 					pointRadius: 0,
 					bezierCurve: true,
-					tension: 0.2,
+					tension: 0.8,
 					fill: 'start',
 					backgroundColor: (context) => {
 						const ctx = context.chart.ctx;
-						const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+						const gradient = ctx.createLinearGradient(0, 0, 0, 130);
 						gradient.addColorStop(0, 'rgba(29,203,157, 1)');
 						gradient.addColorStop(1, 'rgba(255,255,255, 0)');
 						return gradient;
@@ -174,6 +175,7 @@ function TrendPredictionGraph() {
 				},
 				{
 					label: 'Predict Value',
+					borderWidth: 1,
 					data: Array(
 						copiedTrendRealData.length - copiedTrendPredictData.length,
 					)
@@ -181,11 +183,11 @@ function TrendPredictionGraph() {
 						.concat(copiedTrendPredictData),
 					borderColor: '#FE2C62',
 					pointRadius: 0,
-					lineTension: 0.8,
+					tension: 0.8,
 					fill: 'start',
 					backgroundColor: (context) => {
 						const ctx = context.chart.ctx;
-						const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+						const gradient = ctx.createLinearGradient(0, 0, 0, 130);
 						gradient.addColorStop(0, 'rgba(254,44,98, 1)');
 						gradient.addColorStop(1, 'rgba(255,255,255, 0)');
 						return gradient;
@@ -238,21 +240,7 @@ function TrendPredictionGraph() {
 
 	return (
 		<>
-			<Line data={data()} options={options} />
-			{/* <GraphLabel>
-				<RealLabel>
-					<RealLabelText>{outputMonths[0]}</RealLabelText>
-					<RealLabelText>{outputMonths[12]}</RealLabelText>
-					<RealLabelText>{outputMonths[24]}</RealLabelText>
-					<RealLabelText>{outputMonths[36]}</RealLabelText>
-					<RealLabelText>{outputMonths[48]}</RealLabelText>
-				</RealLabel>
-				<PredictLabel>
-					<RealLabelText>오늘</RealLabelText>
-					<RealLabelText>6개월 후</RealLabelText>
-					<RealLabelText>1년 후</RealLabelText>
-				</PredictLabel>
-			</GraphLabel> */}
+			<Line data={data()} options={options} id="chart" />
 		</>
 	);
 }
