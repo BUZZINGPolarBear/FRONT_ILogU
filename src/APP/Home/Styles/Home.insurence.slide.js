@@ -56,7 +56,7 @@ export const HomeMainSwiperCard = styled.div`
 
 export const SwiperCardTitle = styled.div`
 	width: 80%;
-	height: 35%;
+	height: 50%;
 	text-align: left;
 	font-size: 15px;
 	// margin: auto;

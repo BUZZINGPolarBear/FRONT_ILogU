@@ -59,7 +59,7 @@ function KeywordETFrecommendSlide(props) {
 								justifyContent: 'space-around',
 							}}
 						>
-							<slideS.SwiperCardTitle>
+							<slideS.SwiperCardTitle style={{ height: '35%' }}>
 								TIGER여행레저(주식)
 								<slideS.SwiperCardSubTitle>
 									수익률 4.3%
@@ -79,7 +79,7 @@ function KeywordETFrecommendSlide(props) {
 								justifyContent: 'space-around',
 							}}
 						>
-							<slideS.SwiperCardTitle>
+							<slideS.SwiperCardTitle style={{ height: '35%' }}>
 								Defiance Hotel, Airline, Cruise
 								<slideS.SwiperCardSubTitle>
 									수익률 37.99%
@@ -100,7 +100,7 @@ function KeywordETFrecommendSlide(props) {
 								justifyContent: 'space-around',
 							}}
 						>
-							<slideS.SwiperCardTitle>
+							<slideS.SwiperCardTitle style={{ height: '35%' }}>
 								ALPS Travel Beneficiaries
 								<slideS.SwiperCardSubTitle>
 									수익률 23.81%
@@ -113,13 +113,13 @@ function KeywordETFrecommendSlide(props) {
 					</SwiperSlide>
 					<SwiperSlide>
 						<slideS.HomeMainSwiperCard
-							style={{
+							s3tyle={{
 								backgroundColor: '#ffffff',
 								boxShadow: '0 0 5px rgba(0, 0, 0, 0.08)',
 								justifyContent: 'space-around',
 							}}
 						>
-							<slideS.SwiperCardTitle>
+							<slideS.SwiperCardTitle style={{ height: '35%' }}>
 								ETFMG Travel Tech
 								<slideS.SwiperCardSubTitle>
 									수익률 -5.59%
