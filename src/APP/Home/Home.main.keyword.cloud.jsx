@@ -1,11 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import ReactWordcloud from 'react-wordcloud';
+
 import axios, * as others from 'axios';
 import * as tokens from '../../tokens';
+//word cloud
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/scale.css';
+import ReactWordcloud from 'react-wordcloud';
+import 'd3-transition';
+import { select } from 'd3-selection';
 import * as cloudAPIs from './Apis/Home.main.wordCloud.cloud.apis';
+import {
+	RecoilRoot,
+	atom,
+	selector,
+	useRecoilState,
+	useRecoilValue,
+} from 'recoil';
+import * as trendRecoil from './recoil/Home.main.keyword.chart';
 
 function KeywordCloud(props) {
 	const [wordcloudData, setWordcloudData] = useState([]);
+	const [rankSelectedKeyword, setRankSelectedKeyword] = useRecoilState(
+		trendRecoil.rankSelectedKeyword,
+	);
 	let cloudDataArr = [];
 	const searchKeyword = props.searchKeyword;
 
@@ -17,6 +34,30 @@ function KeywordCloud(props) {
 		};
 		fetchchildKeyword();
 	}, []);
+
+	//word cloud call back
+	const callbacks = {
+		getWordTooltip: (word) =>
+			`"${word.text}" - ${word.value}% 연관되어 있습니다.`,
+		onWordClick: getCallback('onWordClick'),
+		onWordMouseOut: getCallback('onWordMouseOut'),
+		onWordMouseOver: getCallback('onWordMouseOver'),
+	};
+
+	function getCallback(callback) {
+		return function (word, event) {
+			const isActive = callback !== 'onWordMouseOut';
+			const element = event.target;
+			const text = select(element);
+			text
+				.on('click', () => {
+					if (isActive) {
+						setRankSelectedKeyword(word.text);
+					}
+				})
+				.attr('text-decoration', isActive ? 'underline' : 'none');
+		};
+	}
 
 	// 데이터 정규화를 위해 전체 합을 구합니다.
 	let totalSum = 0;
@@ -59,7 +100,13 @@ function KeywordCloud(props) {
 		transitionDuration: 1000,
 	};
 
-	return <ReactWordcloud words={cloudDataArr} options={options} />;
+	return (
+		<ReactWordcloud
+			callbacks={callbacks}
+			words={cloudDataArr}
+			options={options}
+		/>
+	);
 }
 
 export default KeywordCloud;

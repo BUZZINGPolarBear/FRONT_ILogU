@@ -11,6 +11,7 @@ import {
 import * as infoS from './Styles/Home.main.keyword';
 import * as HomeS from './Styles/Home.main.styles';
 import KeywordCloud from './Home.main.keyword.cloud';
+import TrendPredictionGraph from './Home.main.keyword.chart';
 
 function DetailKeyword() {
 	const navigate = useNavigate();
@@ -55,7 +56,7 @@ function DetailKeyword() {
 						</HomeS.MainCardTitle>
 					</HomeS.MainCardTitleWrapper>
 					<infoS.KeywordDetailInfoArea>
-						<KeywordCloud searchKeyword={keyword}></KeywordCloud>
+						{/* <TrendPredictionGraph></TrendPredictionGraph> */}
 					</infoS.KeywordDetailInfoArea>
 				</HomeS.MainCardWrapper>
 			</infoS.KeywordInfoArea>
