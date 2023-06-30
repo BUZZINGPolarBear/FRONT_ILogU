@@ -79,13 +79,6 @@ function DetailKeyword() {
 								<infoS.TitleWrapper>
 									<infoS.TitleCircle color="red"></infoS.TitleCircle> Real value
 								</infoS.TitleWrapper>
-								<infoS.TitleWrapper>
-									<infoS.TitleCircle
-										style={{ marginRight: '10px' }}
-										color="other"
-									></infoS.TitleCircle>{' '}
-									Actual Predict start
-								</infoS.TitleWrapper>
 							</infoS.KeywordTitle>
 							<infoS.ChartArea>
 								<TrendPredictionGraph></TrendPredictionGraph>
