@@ -13,6 +13,7 @@ import * as infoS from './Styles/Home.main.keyword';
 import * as HomeS from './Styles/Home.main.styles';
 import KeywordCloud from './Home.main.keyword.cloud';
 import TrendPredictionGraph from './Home.main.keyword.chart';
+import KeywordETFrecommendSlide from './Home.main.keyword.slide';
 import {
 	RecoilRoot,
 	atom,
@@ -111,6 +112,16 @@ function DetailKeyword() {
 							</HomeS.ChartNotSelectedWrapper>
 						</infoS.KeywordDetailInfoArea>
 					)}
+				</HomeS.MainCardWrapper>
+				<HomeS.MainCardWrapper style={{ marginTop: '20px' }}>
+					<HomeS.MainCardTitleWrapper
+						style={{ height: '15%', minHeight: '35px' }}
+					>
+						<HomeS.MainCardTitle ismain="true">
+							키워드 별 ETF 상품 추천
+						</HomeS.MainCardTitle>
+					</HomeS.MainCardTitleWrapper>
+					<KeywordETFrecommendSlide></KeywordETFrecommendSlide>
 				</HomeS.MainCardWrapper>
 			</infoS.KeywordInfoArea>
 		</>

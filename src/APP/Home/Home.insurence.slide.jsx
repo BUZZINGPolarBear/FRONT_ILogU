@@ -18,7 +18,7 @@ function InsurenceRecommendCard(props) {
 			let localSlider = [];
 			for (let i = 0; i < insurenceArr.length / 2; i++) {
 				const localInsurenceInfo = insurenceArr[i];
-				console.log(localInsurenceInfo);
+
 				localSlider.push(
 					<SwiperSlide key={`insurence_slider_${i}`}>
 						<slideS.HomeMainSwiperCard>
