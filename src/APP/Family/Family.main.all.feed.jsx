@@ -35,7 +35,7 @@ function FamilyAllFeed(props) {
 					<FeedparicipateS.FeedChallengeWrapper key={`feed_key${i}`}>
 						<FeedparicipateS.FeedChallengeUserWrapper>
 							<FeedparicipateS.FeedChallengeUserImage
-								picUrl="/Feed/userPic.jpg"
+								picUrl={localContent.userProfileUrl}
 								alt="사용자"
 							></FeedparicipateS.FeedChallengeUserImage>
 							<FeedparicipateS.FeedChallengeUserInfoWrapper>
