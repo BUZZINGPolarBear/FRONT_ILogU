@@ -185,3 +185,47 @@ export const KeywordDetailInfoArea = styled.div`
 
 	box-shadow: 0px 5px 3px 0 rgba(0, 0, 0, 0.05);
 `;
+
+export const KeywordTitle = styled.div`
+	width: 100%;
+	height: 10%;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	color: ${tokens.colors.grey_700};
+	${tokens.typography.sub};
+`;
+
+export const ChartArea = styled.div`
+	width: 100%;
+	height: 80%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+export const TitleWrapper = styled.div`
+	min-width: 25%;
+	width: fit-content;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+`;
+
+export const TitleCircle = styled.div`
+	width: ${tokens.typography.sub.fontSize};
+	height: ${tokens.typography.sub.fontSize};
+	border-radius: 50%;
+
+	background-color: ${(props) =>
+		props.color == 'green'
+			? tokens.colors.green_500
+			: props.color == 'red'
+			? tokens.colors.red_500
+			: tokens.colors.green_100};
+`;

@@ -38,8 +38,9 @@ ChartJS.register(
 );
 
 function TrendPredictionGraph() {
-	let rankSelectedKeyword = '에코';
-
+	const [rankSelectedKeyword, setRankSelectedKeyword] = useRecoilState(
+		trendRecoil.rankSelectedKeyword,
+	);
 	const [TrendRealData, setTrendRealData] = useState([]);
 	const [TrendPredictData, setTrendPredictData] = useState([]);
 	const chartRef = useRef(null);
@@ -76,7 +77,10 @@ function TrendPredictionGraph() {
 		const fetchData = async () => {
 			try {
 				const response = await axios.get(
-					`${process.env.process.env.REACT_APP_ONEHANA_API_SERVER}/google/search/${rankSelectedKeyword}`,
+					`${process.env.REACT_APP_ONEHANA_API_SERVER}/google/search/${rankSelectedKeyword}`,
+				);
+				console.log(
+					`${process.env.REACT_APP_ONEHANA_API_SERVER}/google/search/${rankSelectedKeyword}`,
 				);
 				setTrendRealData(response.data.result.actualSearched);
 				setTrendPredictData(response.data.result.predictSearched);
@@ -93,9 +97,7 @@ function TrendPredictionGraph() {
 			}
 		};
 
-		if (rankSelectedKeyword) {
-			fetchData();
-		}
+		fetchData();
 	}, [rankSelectedKeyword]);
 
 	let copiedTrendRealData = [];
@@ -237,7 +239,7 @@ function TrendPredictionGraph() {
 	return (
 		<>
 			<Line data={data()} options={options} />
-			<GraphLabel>
+			{/* <GraphLabel>
 				<RealLabel>
 					<RealLabelText>{outputMonths[0]}</RealLabelText>
 					<RealLabelText>{outputMonths[12]}</RealLabelText>
@@ -250,7 +252,7 @@ function TrendPredictionGraph() {
 					<RealLabelText>6개월 후</RealLabelText>
 					<RealLabelText>1년 후</RealLabelText>
 				</PredictLabel>
-			</GraphLabel>
+			</GraphLabel> */}
 		</>
 	);
 }

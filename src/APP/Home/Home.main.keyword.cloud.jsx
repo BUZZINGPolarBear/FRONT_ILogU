@@ -52,7 +52,9 @@ function KeywordCloud(props) {
 			text
 				.on('click', () => {
 					if (isActive) {
+						// window.open(`https://duckduckgo.com/?q=${word.text}`, '_blank');
 						setRankSelectedKeyword(word.text);
+						console.log(rankSelectedKeyword);
 					}
 				})
 				.attr('text-decoration', isActive ? 'underline' : 'none');

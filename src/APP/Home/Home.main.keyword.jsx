@@ -56,7 +56,26 @@ function DetailKeyword() {
 						</HomeS.MainCardTitle>
 					</HomeS.MainCardTitleWrapper>
 					<infoS.KeywordDetailInfoArea>
-						{/* <TrendPredictionGraph></TrendPredictionGraph> */}
+						<infoS.KeywordTitle>
+							<infoS.TitleWrapper>
+								<infoS.TitleCircle color="green"></infoS.TitleCircle> Predict
+								value
+							</infoS.TitleWrapper>
+							<infoS.TitleWrapper>
+								<infoS.TitleCircle color="red"></infoS.TitleCircle> Real value
+							</infoS.TitleWrapper>
+							<infoS.TitleWrapper>
+								<infoS.TitleCircle
+									style={{ marginRight: '10px' }}
+									color="green"
+								></infoS.TitleCircle>{' '}
+								Actual Predict start
+							</infoS.TitleWrapper>
+						</infoS.KeywordTitle>
+						<infoS.ChartArea>
+							<TrendPredictionGraph></TrendPredictionGraph>
+						</infoS.ChartArea>
+						<infoS.KeywordTitle></infoS.KeywordTitle>
 					</infoS.KeywordDetailInfoArea>
 				</HomeS.MainCardWrapper>
 			</infoS.KeywordInfoArea>
