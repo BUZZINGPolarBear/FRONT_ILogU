@@ -32,7 +32,7 @@ function FeedParticipation(props) {
 
 				if (category === 'DAILY') category = '👩‍👩‍👧‍👦 일상';
 				else if (category === 'SPORTS') category = '⚽️ 스포츠';
-				else if (category === 'TRAVEL') category = '🧳 여행';
+				else if (category === 'TRAVEL') category = '✈️ 여행';
 				else category = '👩‍👩‍👧‍👦 일상';
 
 				if (

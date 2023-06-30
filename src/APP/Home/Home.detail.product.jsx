@@ -33,7 +33,7 @@ function DetailVeiw() {
 							파리여행 26주 적금
 						</DetailS.MainScreenTitle>
 						<DetailS.MainScreenTitle type="sub">
-							아이와 함꼐할 파리여행을 꿈꾸시나요? 하나와 함께하세요!
+							아이와 함께할 파리여행을 꿈꾸시나요? 하나와 함께하세요!
 						</DetailS.MainScreenTitle>
 					</DetailS.MainScreenTitleWrapper>
 					<DetailS.ContentWrapper>
