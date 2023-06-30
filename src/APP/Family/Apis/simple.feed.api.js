@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getSimpleFeed = async (category, page) => {
+export const getSimpleFeed = async (page) => {
 	const token = localStorage.getItem('access');
 	try {
 		try {
