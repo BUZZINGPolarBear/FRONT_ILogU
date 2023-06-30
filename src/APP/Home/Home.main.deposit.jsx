@@ -62,17 +62,14 @@ function DepositComponent() {
 						</InsurenceS.InsurenceRecommendImage>
 					</HomeS.MainRecommendContentWrapper>
 				</HomeS.MainRecommendCardWrapper>
-
-				<HomeS.MainCardTitleWrapper style={{ marginTop: '20px' }}>
-					<HomeS.MainCardTitle ismain="true">
-						적금 상품 추천
-					</HomeS.MainCardTitle>
-					<HomeS.MainCardTitle ismain="false">
-						여행자금을 모으고 싶은 여행러를 위한 적금 상품
-					</HomeS.MainCardTitle>
-				</HomeS.MainCardTitleWrapper>
-				<DepositSwiper></DepositSwiper>
 			</HomeS.MainCardWrapper>
+			<HomeS.MainCardTitleWrapper style={{ marginTop: '20px' }}>
+				<HomeS.MainCardTitle ismain="true">적금 상품 추천</HomeS.MainCardTitle>
+				<HomeS.MainCardTitle ismain="false">
+					여행자금을 모으고 싶은 여행러를 위한 적금 상품
+				</HomeS.MainCardTitle>
+			</HomeS.MainCardTitleWrapper>
+			<DepositSwiper></DepositSwiper>
 		</>
 	);
 }

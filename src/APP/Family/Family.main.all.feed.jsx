@@ -20,6 +20,7 @@ function FamilyAllFeed(props) {
 	const handleBoardLike = async (boardId) => {
 		console.log(boardId);
 		const response = await FeedApi.postLike(boardId);
+		console.log(response);
 	};
 
 	const handleBackward = () => {
