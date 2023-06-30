@@ -95,15 +95,15 @@ function FamilyMainScreen() {
 						</FamilyS.RankArea>
 					</FamilyS.MainRankWrapper>
 				</FamilyS.RankWrapper>
-				<FamilyS.RankWrapper style={{ height: '50vh' }}>
+				<FamilyS.RankWrapper
+					style={{ height: '50vh' }}
+					onClick={handleFamilyStory}
+				>
 					<FamilyS.MainWrapperTitle>
 						우리 가족 이야기
 						<FamilyS.RightPointer></FamilyS.RightPointer>
 					</FamilyS.MainWrapperTitle>
-					<FamilyS.MainRankWrapper
-						style={{ marginBottom: '10vh' }}
-						onClick={handleFamilyStory}
-					>
+					<FamilyS.MainRankWrapper style={{ marginBottom: '10vh' }}>
 						<SimpleFamilyFeed></SimpleFamilyFeed>
 					</FamilyS.MainRankWrapper>
 				</FamilyS.RankWrapper>

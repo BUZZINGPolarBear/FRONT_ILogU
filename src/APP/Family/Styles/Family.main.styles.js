@@ -195,11 +195,11 @@ export const RankProfilePic = styled.div`
 `;
 
 export const RightPointer = styled.div`
-	width: 35px;
-	height: 35px;
+	width: 20px;
+	height: 20px;
 
-	background-image: url('/Family/rightPointer.png');
+	background-image: url('/Family/rightPointer.svg');
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 25px 25px;
+	background-size: 15px 15px;
 `;
