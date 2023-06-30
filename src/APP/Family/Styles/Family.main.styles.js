@@ -12,11 +12,22 @@ export const TopNavBar = styled.div`
 	align-items: center;
 	justify-content: flex-end;
 
+	color: ${tokens.colors.grey_900};
+	${tokens.typography.subtitle_1_SB};
 	border-bottom: solid 1px ${tokens.colors.grey_50};
 	background-color: #ffffff;
 	z-index: 9999;
 `;
 
+export const TopNavTitle = styled.span`
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
 export const TopNavIcon = styled.div`
 	height: 45px;
 	width: 45px;

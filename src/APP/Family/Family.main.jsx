@@ -1,11 +1,25 @@
 import React, { useEffect, useState, useRef } from 'react';
-
+import {
+	BrowserRouter,
+	Route,
+	Router,
+	useLocation,
+	Routes,
+	useNavigate,
+} from 'react-router-dom';
 import * as FamilyS from './Styles/Family.main.styles';
 import SimpleFamilyFeed from './Family.main.simple.feed';
 function FamilyMainScreen() {
+	const nowLocation = useLocation();
+	const navigate = useNavigate();
+
+	const handleFamilyStory = () => {
+		navigate('/family/feed');
+	};
 	return (
 		<>
 			<FamilyS.TopNavBar>
+				<FamilyS.TopNavTitle>우리가족</FamilyS.TopNavTitle>
 				<FamilyS.TopNavIcon icon="baby" />
 				<FamilyS.TopNavIcon icon="money" />
 			</FamilyS.TopNavBar>
@@ -86,7 +100,10 @@ function FamilyMainScreen() {
 						우리 가족 이야기
 						<FamilyS.RightPointer></FamilyS.RightPointer>
 					</FamilyS.MainWrapperTitle>
-					<FamilyS.MainRankWrapper style={{ marginBottom: '10vh' }}>
+					<FamilyS.MainRankWrapper
+						style={{ marginBottom: '10vh' }}
+						onClick={handleFamilyStory}
+					>
 						<SimpleFamilyFeed></SimpleFamilyFeed>
 					</FamilyS.MainRankWrapper>
 				</FamilyS.RankWrapper>

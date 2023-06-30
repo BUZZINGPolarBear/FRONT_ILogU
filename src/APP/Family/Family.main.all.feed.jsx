@@ -1,31 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import * as FeedparicipateS from './Styles/Feed.participation.styles';
-import * as FeedApi from './APIs/getFeed.api';
-import * as tokenAPI from '../../AutoSignIn';
-import * as utils from './feed.utils';
+import * as FeedparicipateS from './Styles/Family.main.all.feed';
+import * as FeedApi from './Apis/simple.feed.api';
+import * as tokenAPI from '../AutoSignIn';
+import * as utils from '../Feed/getFeed/feed.utils';
 
 import { useRecoilState, useRecoilValue } from 'recoil';
-import * as recoil from './recoil/recoild.feed';
 
-function FeedParticipation(props) {
+function FamilyAllFeed(props) {
 	const [boardBodyArr, setBoardBodyArr] = useState([]);
-	const [selectedCategory, setSelectedCategory] = useRecoilState(
-		recoil.feedCategoryRecoil,
-	);
 	useEffect(() => {
-		let category = selectedCategory;
 		let boardResponseArr = [];
-
-		if (category == '전체') category = 'ALL';
-		if (category == '여행') category = 'TRAVEL';
-		if (category == '스포츠') category = 'SPORTS';
-		if (category == '일상') category = 'DAILY';
 
 		const addBoardDivs = (fetchResponse) => {
 			let localDiv = [];
 			if (fetchResponse.length == 0) setBoardBodyArr(localDiv);
 			for (let i = 0; i < fetchResponse.length; i++) {
 				const localContent = fetchResponse[i];
+				// console.log(localContent);
 				const dateStr = utils.changeDateStr(localContent.createdAt);
 				const content = utils.truncateString(localContent.content, 65);
 				let category = localContent.category;
@@ -92,36 +83,19 @@ function FeedParticipation(props) {
 			setBoardBodyArr(localDiv);
 		};
 
-		if (category == 'ALL') {
-			const fetchData = async () => {
-				let getData = await FeedApi.getFeed(category, 30);
-				if (getData == '400-03-04') {
-					await tokenAPI.RefreshToken();
-					getData = await FeedApi.getFeed(category, 30);
-				}
+		const fetchData = async () => {
+			let getData = await FeedApi.getFeed(30);
+			if (getData == '400-03-04') {
+				await tokenAPI.RefreshToken();
+				getData = await FeedApi.getFeed(30);
+			}
 
-				boardResponseArr = getData.result.content;
-				addBoardDivs(boardResponseArr);
-			};
-			const fetchResponse = fetchData();
-		} else {
-			const fetchData = async () => {
-				const getData = await FeedApi.getFeed(category, 30);
-				if (getData == '400-03-04') {
-					await tokenAPI.RefreshToken();
-					getData = await FeedApi.getFeed(category, 30);
-				}
-
-				if (getData.result && getData.result.content === undefined) {
-					addBoardDivs([]);
-				}
-				boardResponseArr = getData.result.content;
-				addBoardDivs(boardResponseArr);
-			};
-			const fetchResponse = fetchData();
-		}
-	}, [selectedCategory]);
+			boardResponseArr = getData.result.content;
+			addBoardDivs(boardResponseArr);
+		};
+		const fetchResponse = fetchData();
+	}, []);
 	return <>{boardBodyArr}</>;
 }
 
-export default FeedParticipation;
+export default FamilyAllFeed;

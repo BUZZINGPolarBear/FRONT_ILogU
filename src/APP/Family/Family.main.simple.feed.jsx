@@ -33,7 +33,7 @@ function SimpleFamilyFeed() {
 				)
 					continue;
 				localDiv.push(
-					<SimpleS.SimpleFeedWrapper>
+					<SimpleS.SimpleFeedWrapper key={`simple_Feed_${i}`}>
 						<SimpleS.SimpleFeedPic
 							src={localContent.mainImage.s3url}
 						></SimpleS.SimpleFeedPic>

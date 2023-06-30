@@ -24,7 +24,6 @@ function FeedMain(props) {
 	const [selectedCategory, setSelectedCategory] = useRecoilState(
 		recoil.feedCategoryRecoil,
 	);
-	console.log(selectedCategory);
 	const handleMouseDown = (event) => {
 		console.log('Down');
 		event.preventDefault();

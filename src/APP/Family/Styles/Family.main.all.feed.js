@@ -1,17 +1,19 @@
 import styled from 'styled-components';
-import * as tokens from '../../../../tokens';
+import * as tokens from '../../../tokens';
 
 const defaultProfilePicUrl = '/Feed/Default_pfp.png';
 export const FeedChallengeWrapper = styled.div`
 	width: 90%;
-	min-height: 60vh;
 	height: fit-content;
+	min-height: 60vh;
 	margin: auto;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin-top: 20px;
+
+	margin-bottom: 20px;
+
 	// background-color: antiquewhite;
 `;
 
@@ -92,6 +94,7 @@ export const FeedChallengeTopBottomWrapper = styled.div`
 	width: 100%;
 	height: 40px;
 	display: flex;
+	margin-top: 10px;
 	align-items: center;
 `;
 
@@ -115,7 +118,7 @@ export const FeedChallengeMiddleWrapper = styled.div`
 
 export const FeedTag = styled.div`
 	width: fit-content;
-	height: 80%;
+	height: 100%;
 	position: relative;
 
 	display: flex;

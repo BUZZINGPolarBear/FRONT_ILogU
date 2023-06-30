@@ -18,6 +18,7 @@ import FamilyMainScreen from './APP/Family/Family.main';
 import SignInMain from './APP/Login/Sign.In.Main';
 import DetailKeyword from './APP/Home/Home.main.keyword';
 import DetailVeiw from './APP/Home/Home.detail.product';
+import FamilyAllFeed from './APP/Family/Family.main.all.feed';
 import * as tokens from './tokens';
 import {
 	BrowserRouter,
@@ -101,6 +102,7 @@ function App() {
 					/>
 					<Route path="/write" element={<FeedWrite></FeedWrite>} />
 					<Route path="/family" element={<FamilyMainScreen />} />
+					<Route path="/family/feed" element={<FamilyAllFeed />} />
 					<Route path="*" element={<HomeMain />} />
 				</Routes>
 			</MainScreen>
