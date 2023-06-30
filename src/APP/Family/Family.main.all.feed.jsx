@@ -17,6 +17,11 @@ function FamilyAllFeed(props) {
 	const [boardBodyArr, setBoardBodyArr] = useState([]);
 	const navigate = useNavigate();
 
+	const handleBoardLike = async (boardId) => {
+		console.log(boardId);
+		const response = await FeedApi.postLike(boardId);
+	};
+
 	const handleBackward = () => {
 		navigate('/family');
 	};
@@ -67,13 +72,26 @@ function FamilyAllFeed(props) {
 
 						<FeedparicipateS.FeedChallengeContentWrapper>
 							<FeedparicipateS.FeedChallengeTopBottomWrapper>
-								<FeedparicipateS.TopInfo>
-									<img src="/Feed/icons/like.svg" alt="좋아요"></img>
+								<FeedparicipateS.TopInfo
+									onClick={(e) => {
+										handleBoardLike(localContent.id);
+									}}
+								>
+									{localContent.isLiked == true ? (
+										<img src="/Feed/icons/clicked_like.svg" alt="좋아요"></img>
+									) : (
+										<img src="/Feed/icons/like.svg" alt="좋아요"></img>
+									)}
+
 									<div>{localContent.likesCount}</div>
 								</FeedparicipateS.TopInfo>
 								<FeedparicipateS.TopInfo>
-									<img src="/Feed/icons/comment.svg" alt="좋아요"></img>
+									<img src="/Feed/icons/comment.svg" alt="댓글"></img>
 									<div>{localContent.commentsCount}</div>
+								</FeedparicipateS.TopInfo>
+								<FeedparicipateS.TopInfo>
+									<img src="/Family/money.svg" alt="용돈"></img>
+									<div>{localContent.balance}</div>
 								</FeedparicipateS.TopInfo>
 							</FeedparicipateS.FeedChallengeTopBottomWrapper>
 							<FeedparicipateS.FeedChallengeMiddleWrapper>
