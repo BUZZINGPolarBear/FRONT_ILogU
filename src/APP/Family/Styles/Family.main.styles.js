@@ -42,6 +42,17 @@ export const TopNavIcon = styled.div`
 	background-size: 25px 25px;
 `;
 
+export const TopNavBackIcon = styled.div`
+	height: 45px;
+	width: 45px;
+
+	background-image: url('/Feed/writeFeed/backward.svg');
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25px 25px;
+`;
+
 export const RankWrapper = styled.div`
 	width: 97%;
 	max-width: 776px;

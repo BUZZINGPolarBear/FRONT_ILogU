@@ -3,11 +3,23 @@ import * as FeedparicipateS from './Styles/Family.main.all.feed';
 import * as FeedApi from './Apis/simple.feed.api';
 import * as tokenAPI from '../AutoSignIn';
 import * as utils from '../Feed/getFeed/feed.utils';
-
+import * as FamilyS from './Styles/Family.main.styles';
 import { useRecoilState, useRecoilValue } from 'recoil';
-
+import {
+	BrowserRouter,
+	Route,
+	Router,
+	useLocation,
+	Routes,
+	useNavigate,
+} from 'react-router-dom';
 function FamilyAllFeed(props) {
 	const [boardBodyArr, setBoardBodyArr] = useState([]);
+	const navigate = useNavigate();
+
+	const handleBackward = () => {
+		navigate('/family');
+	};
 	useEffect(() => {
 		let boardResponseArr = [];
 
@@ -95,7 +107,18 @@ function FamilyAllFeed(props) {
 		};
 		const fetchResponse = fetchData();
 	}, []);
-	return <>{boardBodyArr}</>;
+	return (
+		<>
+			<FamilyS.TopNavBar
+				style={{ justifyContent: 'flex-start' }}
+				onClick={handleBackward}
+			>
+				<FamilyS.TopNavBackIcon />
+				<FamilyS.TopNavTitle>우리가족</FamilyS.TopNavTitle>
+			</FamilyS.TopNavBar>
+			<FamilyS.MainWrapper>{boardBodyArr}</FamilyS.MainWrapper>
+		</>
+	);
 }
 
 export default FamilyAllFeed;

@@ -25,13 +25,11 @@ function FeedMain(props) {
 		recoil.feedCategoryRecoil,
 	);
 	const handleMouseDown = (event) => {
-		console.log('Down');
 		event.preventDefault();
 		setIsDragging(true); // 드래그 시작 시 상태 업데이트
 	};
 
 	const handleMouseUp = (event) => {
-		console.log('Up');
 		event.preventDefault();
 		setIsDragging(false); // 드래그 종료 시 상태 업데이트
 	};
@@ -41,7 +39,6 @@ function FeedMain(props) {
 		event.preventDefault();
 
 		const deltaX = event.nativeEvent.movementX; // X 좌표 이동 거리
-		console.log(deltaX);
 		event.target.scrollLeft -= deltaX; // 가로 스크롤 이동
 	};
 
