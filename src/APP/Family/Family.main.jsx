@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 import * as FamilyS from './Styles/Family.main.styles';
+import SimpleFamilyFeed from './Family.main.simple.feed';
 function FamilyMainScreen() {
 	return (
 		<>
@@ -78,6 +79,15 @@ function FamilyMainScreen() {
 								<FamilyS.RankContent type="like">37</FamilyS.RankContent>
 							</FamilyS.RankContentArea>
 						</FamilyS.RankArea>
+					</FamilyS.MainRankWrapper>
+				</FamilyS.RankWrapper>
+				<FamilyS.RankWrapper style={{ height: '50vh' }}>
+					<FamilyS.MainWrapperTitle>
+						우리 가족 이야기
+						<FamilyS.RightPointer></FamilyS.RightPointer>
+					</FamilyS.MainWrapperTitle>
+					<FamilyS.MainRankWrapper style={{ marginBottom: '10vh' }}>
+						<SimpleFamilyFeed></SimpleFamilyFeed>
 					</FamilyS.MainRankWrapper>
 				</FamilyS.RankWrapper>
 			</FamilyS.MainWrapper>

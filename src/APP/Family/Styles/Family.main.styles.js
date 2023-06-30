@@ -61,6 +61,11 @@ export const MainWrapper = styled.div`
 export const MainWrapperTitle = styled.h1`
 	width: 100%;
 	height: fit-content;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
 	text-align: left;
 	color: #000000;
 	${tokens.typography.headline_6};
@@ -69,7 +74,7 @@ export const MainWrapperTitle = styled.h1`
 export const MainRankWrapper = styled.div`
 	position: relative;
 	width: 100%;
-	height: 70%;
+	height: 80%;
 
 	display: flex;
 	flex-direction: column;
@@ -165,4 +170,14 @@ export const RankProfilePic = styled.div`
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+`;
+
+export const RightPointer = styled.div`
+	width: 35px;
+	height: 35px;
+
+	background-image: url('/Family/rightPointer.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25px 25px;
 `;
