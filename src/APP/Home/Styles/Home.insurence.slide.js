@@ -35,7 +35,7 @@ export const HomeMainSwiperCard = styled.div`
 	height: 95%;
 	position: relative;
 	margin-bottom: 1.5vh;
-	padding: 10%;
+	padding: 10% 0;
 
 	border-radius: 10px;
 
@@ -56,10 +56,17 @@ export const HomeMainSwiperCard = styled.div`
 
 export const SwiperCardTitle = styled.div`
 	width: 80%;
-	height: 40%;
+	height: 35%;
 	text-align: left;
 	font-size: 15px;
-	margin: auto;
+	// margin: auto;
+`;
+export const SwiperCardSubTitle = styled.div`
+	width: 80%;
+	height: fit-content;
+	text-align: left;
+	color: #7c7c7c;
+	${tokens.typography.sub}// margin: auto;
 `;
 export const SwiperImage = styled.div`
 	width: 100%;

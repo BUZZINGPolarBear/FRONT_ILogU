@@ -46,21 +46,28 @@ function KeywordETFrecommendSlide(props) {
 	// }, []);
 
 	return (
-		<slideS.HomeMainChallengeCard>
+		<slideS.HomeMainChallengeCard
+			style={{ height: '15vh', minHeight: '140px' }}
+		>
 			<slideS.InvestmentSwiperArea>
 				<slideS.StyledSwiper spaceBetween={140} slidesPerView={3}>
 					<SwiperSlide>
 						<slideS.HomeMainSwiperCard
 							style={{
 								backgroundColor: '#ffffff',
-								boxShadow: '2px 3px 3px 3px rgba(0, 0, 0, 0.05)',
+								boxShadow: '0 0 5px rgba(0, 0, 0, 0.08)',
+								justifyContent: 'space-around',
 							}}
 						>
 							<slideS.SwiperCardTitle>
-								KOSEF KRX<br></br> 레저·여행
+								TIGER여행레저(주식)
+								<slideS.SwiperCardSubTitle>
+									수익률 4.3%
+								</slideS.SwiperCardSubTitle>
 							</slideS.SwiperCardTitle>
+
 							<slideS.SwiperInnerTextArea>
-								<slideS.SwiperInnerSubText>하나금융</slideS.SwiperInnerSubText>
+								<slideS.SwiperInnerSubText>미래에셋</slideS.SwiperInnerSubText>
 							</slideS.SwiperInnerTextArea>
 						</slideS.HomeMainSwiperCard>
 					</SwiperSlide>
@@ -68,30 +75,20 @@ function KeywordETFrecommendSlide(props) {
 						<slideS.HomeMainSwiperCard
 							style={{
 								backgroundColor: '#ffffff',
-								boxShadow: '2px 3px 3px 3px rgba(0, 0, 0, 0.05)',
+								boxShadow: '0 0 5px rgba(0, 0, 0, 0.08)',
+								justifyContent: 'space-around',
 							}}
 						>
 							<slideS.SwiperCardTitle>
-								KOSEF KRX<br></br> 레저·여행
+								Defiance Hotel, Airline, Cruise
+								<slideS.SwiperCardSubTitle>
+									수익률 37.99%
+								</slideS.SwiperCardSubTitle>
 							</slideS.SwiperCardTitle>
 							<slideS.SwiperInnerTextArea>
-								<slideS.SwiperInnerSubText>하나금융</slideS.SwiperInnerSubText>
-							</slideS.SwiperInnerTextArea>
-						</slideS.HomeMainSwiperCard>
-					</SwiperSlide>
-					,
-					<SwiperSlide>
-						<slideS.HomeMainSwiperCard
-							style={{
-								backgroundColor: '#ffffff',
-								boxShadow: '2px 3px 3px 3px rgba(0, 0, 0, 0.05)',
-							}}
-						>
-							<slideS.SwiperCardTitle>
-								KOSEF KRX<br></br> 레저·여행
-							</slideS.SwiperCardTitle>
-							<slideS.SwiperInnerTextArea>
-								<slideS.SwiperInnerSubText>하나금융</slideS.SwiperInnerSubText>
+								<slideS.SwiperInnerSubText>
+									Defiance ETFs LLC
+								</slideS.SwiperInnerSubText>
 							</slideS.SwiperInnerTextArea>
 						</slideS.HomeMainSwiperCard>
 					</SwiperSlide>
@@ -99,18 +96,41 @@ function KeywordETFrecommendSlide(props) {
 						<slideS.HomeMainSwiperCard
 							style={{
 								backgroundColor: '#ffffff',
-								boxShadow: '2px 3px 3px 3px rgba(0, 0, 0, 0.05)',
+								boxShadow: '0 0 5px rgba(0, 0, 0, 0.08)',
+								justifyContent: 'space-around',
 							}}
 						>
 							<slideS.SwiperCardTitle>
-								KOSEF KRX<br></br> 레저·여행
+								ALPS Travel Beneficiaries
+								<slideS.SwiperCardSubTitle>
+									수익률 23.81%
+								</slideS.SwiperCardSubTitle>
 							</slideS.SwiperCardTitle>
 							<slideS.SwiperInnerTextArea>
-								<slideS.SwiperInnerSubText>하나금융</slideS.SwiperInnerSubText>
+								<slideS.SwiperInnerSubText>ALPS</slideS.SwiperInnerSubText>
 							</slideS.SwiperInnerTextArea>
 						</slideS.HomeMainSwiperCard>
 					</SwiperSlide>
-					<SwiperSlide></SwiperSlide>
+					<SwiperSlide>
+						<slideS.HomeMainSwiperCard
+							style={{
+								backgroundColor: '#ffffff',
+								boxShadow: '0 0 5px rgba(0, 0, 0, 0.08)',
+								justifyContent: 'space-around',
+							}}
+						>
+							<slideS.SwiperCardTitle>
+								ETFMG Travel Tech
+								<slideS.SwiperCardSubTitle>
+									수익률 -5.59%
+								</slideS.SwiperCardSubTitle>
+							</slideS.SwiperCardTitle>
+							<slideS.SwiperInnerTextArea>
+								<slideS.SwiperInnerSubText>ETFMG</slideS.SwiperInnerSubText>
+							</slideS.SwiperInnerTextArea>
+						</slideS.HomeMainSwiperCard>
+					</SwiperSlide>
+					,<SwiperSlide></SwiperSlide>
 				</slideS.StyledSwiper>
 			</slideS.InvestmentSwiperArea>
 		</slideS.HomeMainChallengeCard>
