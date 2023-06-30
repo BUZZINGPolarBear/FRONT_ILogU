@@ -139,7 +139,7 @@ export const MainCardTitle = styled.div`
 	${(props) =>
 		props.ismain == 'true'
 			? `color: ${tokens.colors.grey_700}; font-weight: ${tokens.typography.headline_6.fontWeight}; font-size: ${tokens.typography.headline_6.fontSize};`
-			: `color: ${tokens.colors.grey_300}; font-weight: ${tokens.typography.body_2}; font-size: ${tokens.typography.body_2.fontSize};`};
+			: `color: ${tokens.colors.grey_300}; font-weight: ${tokens.typography.sub}; font-size: ${tokens.typography.sub.fontSize};`};
 `;
 
 export const MainRecommendCardWrapper = styled.div`
@@ -165,4 +165,27 @@ export const MainRecommendContentWrapper = styled.div`
 	border-radius: 16px;
 
 	background-color: #f6f6f6;
+`;
+
+export const ChartNotSelectedWrapper = styled.div`
+	width: 60%;
+	height: 40%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+
+	color: ${tokens.colors.grey_500};
+	${tokens.typography.caption}
+`;
+
+export const ChartNotSelectedIcon = styled.div`
+	width: 30px;
+	height: 30px;
+
+	background-image: url('/mainScreen/detail/hand.svg');
+	background-size: 30px 30px;
+	background-position: center;
+	background-repeat: no-repeat;
 `;
