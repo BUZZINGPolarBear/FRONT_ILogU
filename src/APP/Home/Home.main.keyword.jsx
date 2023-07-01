@@ -46,7 +46,7 @@ function DetailKeyword() {
 				<infoS.TopTextArea>키워드</infoS.TopTextArea>
 			</infoS.TopNavBar>
 			<infoS.KeywordInfoArea style={{ justifyContent: 'flex-start' }}>
-				<HomeS.MainCardWrapper style={{ marginTop: '70px' }}>
+				<HomeS.MainCardWrapper style={{ marginTop: '70px', padding: 0 }}>
 					<HomeS.MainCardTitleWrapper>
 						<HomeS.MainCardTitle ismain="true">
 							워드클라우드
@@ -56,14 +56,14 @@ function DetailKeyword() {
 							클라우드입니다
 						</HomeS.MainCardTitle>
 					</HomeS.MainCardTitleWrapper>
-					<infoS.KeywordDetailInfoArea>
+					<infoS.KeywordDetailInfoArea style={{ marginTop: '20px' }}>
 						<KeywordCloud searchKeyword={keyword}></KeywordCloud>
 					</infoS.KeywordDetailInfoArea>
 				</HomeS.MainCardWrapper>
 
-				<HomeS.MainCardWrapper style={{ marginTop: '20px' }}>
+				<HomeS.MainCardWrapper style={{ marginTop: '30px', padding: 0 }}>
 					<HomeS.MainCardTitleWrapper
-						style={{ height: '15%', minHeight: '35px' }}
+						style={{ padding: 0, marginTop: '30px', minHeight: '40px' }}
 					>
 						<HomeS.MainCardTitle ismain="true">
 							트렌드 지속 확인
@@ -113,9 +113,9 @@ function DetailKeyword() {
 						</infoS.KeywordDetailInfoArea>
 					)}
 				</HomeS.MainCardWrapper>
-				<HomeS.MainCardWrapper style={{ marginTop: '20px' }}>
+				<HomeS.MainCardWrapper style={{ marginTop: '30px', padding: 0 }}>
 					<HomeS.MainCardTitleWrapper
-						style={{ height: '15%', minHeight: '35px' }}
+						style={{ marginTop: '30px', padding: 0, minHeight: '40px' }}
 					>
 						<HomeS.MainCardTitle ismain="true">
 							키워드 별 ETF 상품 추천

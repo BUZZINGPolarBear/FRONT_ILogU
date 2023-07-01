@@ -47,7 +47,7 @@ function KeywordETFrecommendSlide(props) {
 
 	return (
 		<slideS.HomeMainChallengeCard
-			style={{ height: '15vh', minHeight: '140px' }}
+			style={{ height: '15vh', minHeight: '140px', padding: '0 5%' }}
 		>
 			<slideS.InvestmentSwiperArea>
 				<slideS.StyledSwiper spaceBetween={140} slidesPerView={3}>
@@ -113,7 +113,7 @@ function KeywordETFrecommendSlide(props) {
 					</SwiperSlide>
 					<SwiperSlide>
 						<slideS.HomeMainSwiperCard
-							s3tyle={{
+							style={{
 								backgroundColor: '#ffffff',
 								boxShadow: '0 0 5px rgba(0, 0, 0, 0.08)',
 								justifyContent: 'space-around',
