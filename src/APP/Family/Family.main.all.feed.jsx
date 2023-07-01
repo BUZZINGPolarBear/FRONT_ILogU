@@ -15,12 +15,15 @@ import {
 } from 'react-router-dom';
 function FamilyAllFeed(props) {
 	const [boardBodyArr, setBoardBodyArr] = useState([]);
+	const [boardBodyContentArr, setBoardBodyContentArr] = useState([]);
+	const [isLikeArr, setIsLikeArr] = useState([]);
 	const navigate = useNavigate();
 
 	const handleBoardLike = async (boardId) => {
 		console.log(boardId);
 		const response = await FeedApi.postLike(boardId);
-		console.log(response);
+
+		return response.result.isLike;
 	};
 
 	const handleBackward = () => {
@@ -29,14 +32,58 @@ function FamilyAllFeed(props) {
 	useEffect(() => {
 		let boardResponseArr = [];
 
-		const addBoardDivs = (fetchResponse) => {
-			let localDiv = [];
-			if (fetchResponse.length == 0) setBoardBodyArr(localDiv);
+		const addBoardContentArr = (fetchResponse) => {
+			let apiBoardContent = [];
 			for (let i = 0; i < fetchResponse.length; i++) {
 				const localContent = fetchResponse[i];
-				// console.log(localContent);
 				const dateStr = utils.changeDateStr(localContent.createdAt);
 				const content = utils.truncateString(localContent.content, 65);
+				let category = localContent.category;
+
+				if (category === 'DAILY') category = '👩‍👩‍👧‍👦 일상';
+				else if (category === 'SPORTS') category = '⚽️ 스포츠';
+				else if (category === 'TRAVEL') category = '✈️ 여행';
+				else category = '👩‍👩‍👧‍👦 일상';
+				let localContentData = {
+					id: localContent.id,
+					category: category,
+					mainImage: localContent.mainImage.s3url,
+					userProfileUrl: localContent.userProfileUrl,
+					nickname: localContent.nickname,
+					dateStr: dateStr,
+					isLiked: localContent.isLiked,
+					likesCount: localContent.likesCount,
+					commentsCount: localContent.commentsCount,
+					balance: localContent.balance,
+					content: localContent.content,
+					title: localContent.title,
+				};
+				apiBoardContent.push(localContentData);
+			}
+			setBoardBodyContentArr(apiBoardContent);
+		};
+
+		const fetchData = async () => {
+			let getData = await FeedApi.getFeed(30);
+			if (getData == '400-03-04') {
+				await tokenAPI.RefreshToken();
+				getData = await FeedApi.getFeed(30);
+			}
+
+			boardResponseArr = getData.result.content;
+			addBoardContentArr(boardResponseArr);
+		};
+		const fetchResponse = fetchData();
+	}, []);
+
+	useEffect(() => {
+		const drawBoardDiv = (boardBodyContentArr) => {
+			let localDiv = [];
+
+			if (boardBodyContentArr.length == 0) setBoardBodyArr(localDiv);
+
+			for (let i = 0; i < boardBodyContentArr.length; i++) {
+				const localContent = boardBodyContentArr[i];
 				let category = localContent.category;
 
 				if (category === 'DAILY') category = '👩‍👩‍👧‍👦 일상';
@@ -46,9 +93,10 @@ function FamilyAllFeed(props) {
 
 				if (
 					localContent.mainImage == null ||
-					typeof localContent.mainImage.s3url == 'undefined'
+					typeof localContent.mainImage == 'undefined'
 				)
 					continue;
+
 				localDiv.push(
 					<FeedparicipateS.FeedChallengeWrapper key={`feed_key${i}`}>
 						<FeedparicipateS.FeedChallengeUserWrapper>
@@ -61,13 +109,13 @@ function FamilyAllFeed(props) {
 									{localContent.nickname}
 								</FeedparicipateS.FeedChallengeUserInfo>
 								<FeedparicipateS.FeedChallengeUserInfoDate>
-									{dateStr}
+									{localContent.dateStr}
 								</FeedparicipateS.FeedChallengeUserInfoDate>
 							</FeedparicipateS.FeedChallengeUserInfoWrapper>
 						</FeedparicipateS.FeedChallengeUserWrapper>
 
 						<FeedparicipateS.FeedPictureArea
-							picUrl={localContent.mainImage.s3url ?? '/Feed/feed_sample.jpg'}
+							picUrl={localContent.mainImage ?? '/Feed/feed_sample.jpg'}
 							alt="사용자"
 						></FeedparicipateS.FeedPictureArea>
 
@@ -101,7 +149,9 @@ function FamilyAllFeed(props) {
 							<FeedparicipateS.FeedChallengeTopBottomWrapper
 							// style={{ height: '35%' }}
 							>
-								<FeedparicipateS.FeedTag>{category}</FeedparicipateS.FeedTag>
+								<FeedparicipateS.FeedTag>
+									{localContent.category}
+								</FeedparicipateS.FeedTag>
 								<FeedparicipateS.FeedTag>
 									{localContent.title}
 								</FeedparicipateS.FeedTag>
@@ -113,19 +163,8 @@ function FamilyAllFeed(props) {
 
 			setBoardBodyArr(localDiv);
 		};
-
-		const fetchData = async () => {
-			let getData = await FeedApi.getFeed(30);
-			if (getData == '400-03-04') {
-				await tokenAPI.RefreshToken();
-				getData = await FeedApi.getFeed(30);
-			}
-
-			boardResponseArr = getData.result.content;
-			addBoardDivs(boardResponseArr);
-		};
-		const fetchResponse = fetchData();
-	}, []);
+		drawBoardDiv(boardBodyContentArr);
+	}, [boardBodyContentArr]);
 	return (
 		<>
 			<FamilyS.TopNavBar
