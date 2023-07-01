@@ -56,3 +56,45 @@ export const postLike = async (boardId) => {
 		return error.response.data.code;
 	}
 };
+
+export const postComment = async (boardId, comment) => {
+	const token = localStorage.getItem('access');
+	try {
+		const axiosResponse = await axios.post(
+			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/${boardId}/comment`,
+			{ parentComment: null, comment: comment },
+			{
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+			},
+		);
+	} catch (error) {
+		return error.response.data.code;
+	}
+};
+
+export const getComment = async (boardId) => {
+	const token = localStorage.getItem('access');
+	try {
+		console.log(boardId);
+		const axiosResponse = await axios.post(
+			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/${boardId}/comments`,
+			{
+				page: 0,
+				size: 20,
+				sort: ['createdAt,desc'],
+			},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+			},
+		);
+		return axiosResponse;
+	} catch (error) {
+		return error.response.data.code;
+	}
+};

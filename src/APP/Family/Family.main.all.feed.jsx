@@ -55,6 +55,7 @@ function FamilyAllFeed(props) {
 	const handleBackward = () => {
 		navigate('/family');
 	};
+
 	useEffect(() => {
 		let boardResponseArr = [];
 
