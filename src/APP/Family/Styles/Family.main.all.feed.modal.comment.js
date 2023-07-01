@@ -40,6 +40,11 @@ export const CommentProfile = styled.div`
 	height: 40px;
 	border-radius: 50%;
 
+	background-image: url(${(props) => props.src});
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
 	background-color: ${tokens.colors.grey_50};
 `;
 
@@ -58,7 +63,7 @@ export const CommentContentTitle = styled.div`
 	color: ${tokens.colors.grey_700};
 	${tokens.typography.body_3_SB}
 
-	background-color: ${tokens.colors.grey_50};
+	background-color: #ffffff;
 `;
 export const CommentContent = styled.div`
 	width: 100%;
@@ -66,7 +71,7 @@ export const CommentContent = styled.div`
 	color: ${tokens.colors.grey_700};
 	${tokens.typography.body_2};
 
-	background-color: ${tokens.colors.grey_50};
+	background-color: #ffffff;
 `;
 
 export const CommentWriteWrapper = styled.div`

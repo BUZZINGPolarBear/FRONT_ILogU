@@ -54,6 +54,7 @@ function CommentModal(props) {
 					createdAt: utils.changeDateStr(commentArr[i].createdAt),
 					nickname: commentArr[i].nickname,
 					comment: commentArr[i].comment,
+					profile: commentArr[i].imageUrl,
 				};
 				localCommentDataArr.push(localCommentData);
 			}
@@ -81,7 +82,9 @@ function CommentModal(props) {
 			let localDiv = (
 				<modalS.CommentWrapper key={`familyFeedComments_${i}`}>
 					<modalS.CommentProfileWrapper>
-						<modalS.CommentProfile></modalS.CommentProfile>
+						<modalS.CommentProfile
+							src={commentData[i].profile}
+						></modalS.CommentProfile>
 					</modalS.CommentProfileWrapper>
 					<modalS.CommentContentWrapper>
 						<modalS.CommentContentTitle>
