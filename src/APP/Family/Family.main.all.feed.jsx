@@ -20,10 +20,19 @@ function FamilyAllFeed(props) {
 	const navigate = useNavigate();
 
 	const handleBoardLike = async (boardId) => {
-		console.log(boardId);
 		const response = await FeedApi.postLike(boardId);
 
-		return response.result.isLike;
+		let copyBoardBodyContentArr = [...boardBodyContentArr];
+
+		for (let i = 0; i < copyBoardBodyContentArr.length; i++) {
+			if (copyBoardBodyContentArr[i].id == boardId) {
+				copyBoardBodyContentArr[i].isLiked = response.result.isLike;
+				copyBoardBodyContentArr[i].likesCount = response.result.likes;
+				break;
+			}
+		}
+		// copyBoardBodyContentArr[boardId].isLiked = response.result.isLike;
+		setBoardBodyContentArr(copyBoardBodyContentArr);
 	};
 
 	const handleBackward = () => {

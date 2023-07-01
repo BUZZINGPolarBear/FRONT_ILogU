@@ -40,9 +40,6 @@ export const getFeed = async (page) => {
 export const postLike = async (boardId) => {
 	const token = localStorage.getItem('access');
 	try {
-		console.log(
-			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/like/${boardId}`,
-		);
 		const axiosResponse = await axios.put(
 			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/like/${boardId}`,
 			{},
