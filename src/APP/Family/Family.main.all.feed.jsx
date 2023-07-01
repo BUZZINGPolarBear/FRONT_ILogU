@@ -5,6 +5,7 @@ import * as tokenAPI from '../AutoSignIn';
 import * as utils from '../Feed/getFeed/feed.utils';
 import * as FamilyS from './Styles/Family.main.styles';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import * as recoilFamily from './recoil/feed.recoil';
 import {
 	BrowserRouter,
 	Route,
@@ -13,12 +14,20 @@ import {
 	Routes,
 	useNavigate,
 } from 'react-router-dom';
+import CommentModal from './Family.main.all.feed.modal.comment';
+
 function FamilyAllFeed(props) {
 	const [boardBodyArr, setBoardBodyArr] = useState([]);
 	const [boardBodyContentArr, setBoardBodyContentArr] = useState([]);
+	const [isCommentClicked, setIsCommentClicked] = useState(false);
+	const [commentModalId, setCommentModalId] = useState();
+	const [isCommentOpend, setIsCommentOpend] = useRecoilState(
+		recoilFamily.isCommentOpend,
+	);
 	const [isLikeArr, setIsLikeArr] = useState([]);
 	const navigate = useNavigate();
 
+	//좋아요 버튼
 	const handleBoardLike = async (boardId) => {
 		const response = await FeedApi.postLike(boardId);
 
@@ -35,6 +44,14 @@ function FamilyAllFeed(props) {
 		setBoardBodyContentArr(copyBoardBodyContentArr);
 	};
 
+	//댓글
+	const handleComment = (e, boardId) => {
+		e.preventDefault();
+		setCommentModalId(boardId);
+		setIsCommentOpend(true);
+	};
+
+	//뒤로가기
 	const handleBackward = () => {
 		navigate('/family');
 	};
@@ -143,7 +160,11 @@ function FamilyAllFeed(props) {
 
 									<div>{localContent.likesCount}</div>
 								</FeedparicipateS.TopInfo>
-								<FeedparicipateS.TopInfo>
+								<FeedparicipateS.TopInfo
+									onClick={(e) => {
+										handleComment(e, localContent.id);
+									}}
+								>
 									<img src="/Feed/icons/comment.svg" alt="댓글"></img>
 									<div>{localContent.commentsCount}</div>
 								</FeedparicipateS.TopInfo>
@@ -176,6 +197,11 @@ function FamilyAllFeed(props) {
 	}, [boardBodyContentArr]);
 	return (
 		<>
+			{isCommentOpend == true ? (
+				<CommentModal boardId={commentModalId}></CommentModal>
+			) : (
+				<></>
+			)}
 			<FamilyS.TopNavBar
 				style={{ justifyContent: 'flex-start' }}
 				onClick={handleBackward}

@@ -1,0 +1,79 @@
+import styled from 'styled-components';
+import * as tokens from '../../../tokens';
+
+export const TopCommentTitle = styled.div`
+	width: 100%;
+	height: 40px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: ${tokens.colors.grey_500};
+	${tokens.typography.subtitle_3};
+
+	border-bottom: 1px solid ${tokens.colors.grey_50};
+`;
+
+export const CommentWrapper = styled.div`
+	width: 100%;
+	min-height: 50px;
+	height: fit-content;
+	margin-top: 15px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+`;
+
+export const CommentProfileWrapper = styled.div`
+	width: 15%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+export const CommentProfile = styled.div`
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+
+	background-color: ${tokens.colors.grey_50};
+`;
+
+export const CommentContentWrapper = styled.div`
+	width: 85%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+`;
+export const CommentContentTitle = styled.div`
+	width: 100%;
+	height: ${tokens.typography.body_3_SB};
+	color: ${tokens.colors.grey_700};
+	${tokens.typography.body_3_SB}
+
+	background-color: ${tokens.colors.grey_50};
+`;
+export const CommentContent = styled.div`
+	width: 100%;
+	min-height: ${tokens.typography.body_2.fontSize};
+	color: ${tokens.colors.grey_700};
+	${tokens.typography.body_2};
+
+	background-color: ${tokens.colors.grey_50};
+`;
+
+export const CommentWriteWrapper = styled.div`
+	position: fixed;
+	bottom: 8vh;
+	width: 95%;
+	height: 60px;
+
+	background-color: antiquewhite;
+`;
