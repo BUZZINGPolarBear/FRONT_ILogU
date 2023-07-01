@@ -9,7 +9,7 @@ export const HomeMainChallengeCard = styled.div`
 
 	display: flex;
 	flex-direction: column;
-	align-items: space-between;
+	align-items: center;
 	justify-content: space-between;
 
 	margin-bottom: 1.5vh;
@@ -17,7 +17,7 @@ export const HomeMainChallengeCard = styled.div`
 	background-color: white;
 	position: relative;
 
-	padding: 5% 0 5% 5%;
+	padding: 5% 0;
 	z-index: 1;
 `;
 
@@ -50,7 +50,7 @@ export const HomeMainSwiperCard = styled.div`
 
 export const SwiperImage = styled.div`
 	width: 100%;
-	height: 75%;
+	height: 120px;
 
 	border-radius: 15px;
 	background-color: white;

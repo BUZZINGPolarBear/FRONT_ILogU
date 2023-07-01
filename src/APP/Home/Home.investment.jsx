@@ -21,7 +21,7 @@ function InvestmentComponent() {
 
 	return (
 		<>
-			<HomeS.MainCardWrapper>
+			<HomeS.MainCardWrapper style={{ paddingBottom: 0 }}>
 				<HomeS.MainCardTitleWrapper>
 					<HomeS.MainCardTitle ismain="true">
 						실시간 여행 #키워드
@@ -72,7 +72,7 @@ function InvestmentComponent() {
 				</InvestS.KeywordWrapper>
 			</HomeS.MainCardWrapper>
 
-			<HomeS.MainCardWrapper style={{ marginTop: '1vh' }}>
+			<HomeS.MainCardWrapper style={{ marginTop: 0, paddingTop: 0 }}>
 				<HomeS.MainCardTitleWrapper>
 					<HomeS.MainCardTitle ismain="true">ETF 상품</HomeS.MainCardTitle>
 					<HomeS.MainCardTitle ismain="false">

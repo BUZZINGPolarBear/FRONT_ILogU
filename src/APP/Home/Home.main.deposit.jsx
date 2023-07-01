@@ -68,8 +68,8 @@ function DepositComponent() {
 				<HomeS.MainCardTitle ismain="false">
 					여행자금을 모으고 싶은 여행러를 위한 적금 상품
 				</HomeS.MainCardTitle>
+				<DepositSwiper></DepositSwiper>
 			</HomeS.MainCardTitleWrapper>
-			<DepositSwiper></DepositSwiper>
 		</>
 	);
 }

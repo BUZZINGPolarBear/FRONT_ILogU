@@ -13,7 +13,7 @@ function InsurenceRecommendCard(props) {
 	useEffect(() => {
 		const fetchInsurence = async () => {
 			let fetchResponse = await InsurenceApi.getInsurence();
-			// console.log(fetchResponse);
+
 			const insurenceArr = fetchResponse.result;
 			let localSlider = [];
 			for (let i = 0; i < insurenceArr.length / 2; i++) {

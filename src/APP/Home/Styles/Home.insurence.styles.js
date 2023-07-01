@@ -3,7 +3,7 @@ import * as tokens from '../../../tokens';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const InsurenceRecommendImage = styled.div`
-	width: 20%;
+	width: 15%;
 	min-width: 50px;
 	height: 100%;
 

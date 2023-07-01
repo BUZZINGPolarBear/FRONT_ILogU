@@ -18,7 +18,7 @@ export const InsurenceRecommendText = styled.div`
 `;
 
 export const InsurenceRecommendTextWrapper = styled.div`
-	width: 80%;
+	width: 85%;
 	height: 60%;
 
 	display: flex;

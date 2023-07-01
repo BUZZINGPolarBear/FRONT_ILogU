@@ -26,7 +26,7 @@ function DepositSwiper() {
 	return (
 		<slideS.HomeMainChallengeCard>
 			<slideS.InvestmentSwiperArea>
-				<slideS.StyledSwiper spaceBetween={180} slidesPerView={3}>
+				<slideS.StyledSwiper spaceBetween={175} slidesPerView={3}>
 					<SwiperSlide>
 						<slideS.HomeMainSwiperCard
 							onClick={(e) => handleDepositDetailView(e, 'travel-log')}
