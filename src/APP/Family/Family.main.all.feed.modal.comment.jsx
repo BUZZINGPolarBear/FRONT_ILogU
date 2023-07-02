@@ -29,7 +29,7 @@ function CommentModal(props) {
 			zIndex: 100000,
 		},
 		content: {
-			position: 'fixed',
+			position: 'absolute',
 			display: 'flex',
 			flexDirection: 'column',
 			alignItems: 'center',
@@ -57,36 +57,23 @@ function CommentModal(props) {
 				await tokenAPI.RefreshToken();
 				getData = await api.postComment(props.boardId);
 			}
+
+			let localCommentData = {
+				id: getData.data.result.id,
+				createdAt: utils.changeDateStr(getData.data.result.createdAt),
+				nickname: getData.data.result.nickname,
+				comment: getData.data.result.comment,
+				profile: getData.data.result.imageUrl,
+			};
+			console.log(localCommentData);
+
+			let prevCommentData = [...commentData];
+			prevCommentData.push(localCommentData);
+			setCommentData(prevCommentData);
+			setCommentValue('');
 		};
 
-		const addBoardCommentData = (commentArr) => {
-			let localCommentDataArr = [];
-			for (let i = 0; i < commentArr.length; i++) {
-				let localCommentData = {
-					id: commentArr[i].id,
-					createdAt: utils.changeDateStr(commentArr[i].createdAt),
-					nickname: commentArr[i].nickname,
-					comment: commentArr[i].comment,
-					profile: commentArr[i].imageUrl,
-				};
-				localCommentDataArr.push(localCommentData);
-			}
-			setCommentData(localCommentDataArr);
-		};
-
-		const fetchCommentData = async () => {
-			let getData = await api.getComment(props.boardId);
-			if (getData.code == '400-03-04') {
-				await tokenAPI.RefreshToken();
-				getData = await api.getComment(props.boardId);
-			}
-
-			addBoardCommentData(getData.data.result.content);
-		};
-		setCommentValue('');
-
-		const response = fetchData();
-		fetchCommentData();
+		fetchData();
 	};
 
 	//첫 데이터 불러오기
@@ -162,7 +149,6 @@ function CommentModal(props) {
 		const currentY = e.touches[0].clientY;
 		const diffY = currentY - startY;
 		setModalPositionY(diffY);
-		console.log(modalPositionY);
 		if (diffY > 320) {
 			// Swipe downward by at least 100px
 			// You can adjust the threshold value as needed
