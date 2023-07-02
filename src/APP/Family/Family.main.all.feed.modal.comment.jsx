@@ -9,6 +9,15 @@ import * as api from './Apis/simple.feed.api';
 import * as tokenAPI from '../AutoSignIn';
 
 function CommentModal(props) {
+	const [isCommentOpend, setIsCommentOpend] = useRecoilState(
+		recoilFamily.isCommentOpend,
+	);
+	const [commentData, setCommentData] = useState([]);
+	const [commentDiv, setCommentDiv] = useState([]);
+	const inputRef = useRef();
+	const [commentValue, setCommentValue] = useState('');
+	const [modalPositionY, setModalPositionY] = useState(150);
+
 	const ModalStyle = {
 		overlay: {
 			position: 'fixed',
@@ -28,10 +37,10 @@ function CommentModal(props) {
 			paddingTop: '2%',
 			background: '#ffffff',
 			overflow: 'auto',
-			top: '20vh',
+			top: `${modalPositionY}px`,
 			left: '2vw',
 			right: '2vw',
-			height: '80vh',
+			height: '100vh',
 			WebkitOverflowScrolling: 'touch',
 			borderTopLeftRadius: '25px',
 			borderTopRightRadius: '25px',
@@ -40,18 +49,8 @@ function CommentModal(props) {
 		},
 	};
 
-	const [isCommentOpend, setIsCommentOpend] = useRecoilState(
-		recoilFamily.isCommentOpend,
-	);
-	const [commentData, setCommentData] = useState([]);
-	const [commentDiv, setCommentDiv] = useState([]);
-	const inputRef = useRef();
-	const [commentValue, setCommentValue] = useState('');
-
 	//댓글 작성 업로드
 	const handleCommentBtn = () => {
-		console.log(commentValue);
-
 		const fetchData = async () => {
 			let getData = await api.postComment(props.boardId, commentValue);
 			if (getData.code == '400-03-04') {
@@ -148,8 +147,31 @@ function CommentModal(props) {
 		setCommentDiv(localDivArr);
 	}, [commentData]);
 
+	//모달창 끄기
 	const setModalIsOpen = () => {
 		setIsCommentOpend(false);
+	};
+	//모달창 드래그
+	let startY = 0;
+
+	const handleTouchStart = (e) => {
+		startY = e.touches[0].clientY;
+	};
+
+	const handleTouchMove = (e) => {
+		const currentY = e.touches[0].clientY;
+		const diffY = currentY - startY;
+		setModalPositionY(diffY);
+		console.log(modalPositionY);
+		if (diffY > 320) {
+			// Swipe downward by at least 100px
+			// You can adjust the threshold value as needed
+			setModalIsOpen();
+		}
+	};
+
+	const handleTouchEnd = () => {
+		startY = 0;
 	};
 	return (
 		<>
@@ -159,7 +181,13 @@ function CommentModal(props) {
 				onRequestClose={() => setModalIsOpen()} // 오버레이나 esc를 누르면 핸들러 동작
 				ariaHideApp={false}
 			>
-				<modalS.TopCommentTitle>댓글</modalS.TopCommentTitle>
+				<modalS.TopCommentTitle
+					onTouchStart={handleTouchStart}
+					onTouchMove={handleTouchMove}
+					onTouchEnd={handleTouchEnd}
+				>
+					<modalS.DraggableBox></modalS.DraggableBox>댓글
+				</modalS.TopCommentTitle>
 				{commentDiv}
 				<modalS.CommentWriteWrapper>
 					<modalS.commentWriteInput
