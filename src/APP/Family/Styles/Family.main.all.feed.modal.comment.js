@@ -6,15 +6,22 @@ export const TopCommentTitle = styled.div`
 	height: 40px;
 
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-around;
+	cursor: pointer;
 
 	color: ${tokens.colors.grey_500};
 	${tokens.typography.subtitle_3};
 
 	border-bottom: 1px solid ${tokens.colors.grey_50};
 `;
-
+export const DraggableBox = styled.div`
+	width: 40%;
+	height: 3px;
+	border-radius: 10px;
+	background-color: ${tokens.colors.grey_50};
+`;
 export const CommentWrapper = styled.div`
 	width: 100%;
 	min-height: 50px;
