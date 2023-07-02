@@ -17,9 +17,10 @@ function CommentModal(props) {
 			right: 0,
 			bottom: 0,
 			backgroundColor: 'rgba(0, 0, 0, 0.45)',
-			zIndex: 10,
+			zIndex: 100000,
 		},
 		content: {
+			position: 'fixed',
 			display: 'flex',
 			flexDirection: 'column',
 			alignItems: 'center',
@@ -32,9 +33,10 @@ function CommentModal(props) {
 			right: '2vw',
 			height: '80vh',
 			WebkitOverflowScrolling: 'touch',
-			borderRadius: '25px',
+			borderTopLeftRadius: '25px',
+			borderTopRightRadius: '25px',
 			outline: 'none',
-			zIndex: 10,
+			zIndex: 10000,
 		},
 	};
 

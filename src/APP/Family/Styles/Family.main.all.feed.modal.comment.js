@@ -76,9 +76,9 @@ export const CommentContent = styled.div`
 
 export const CommentWriteWrapper = styled.div`
 	position: fixed;
-	bottom: 8vh;
+	bottom: 0;
 	width: 95%;
 	height: 60px;
-
-	background-color: antiquewhite;
+	border-top: 1px solid ${tokens.colors.grey_50};
+	// background-color: antiquewhite;
 `;
