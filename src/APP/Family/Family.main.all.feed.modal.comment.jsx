@@ -45,6 +45,14 @@ function CommentModal(props) {
 	);
 	const [commentData, setCommentData] = useState([]);
 	const [commentDiv, setCommentDiv] = useState([]);
+	const inputRef = useRef();
+	const [commentValue, setCommentValue] = useState('');
+
+	//댓글 작성 완료
+	const handleCommentBtn = () => {
+		console.log(commentValue);
+		setCommentValue('');
+	};
 
 	//첫 데이터 불러오기
 	useEffect(() => {
@@ -118,8 +126,17 @@ function CommentModal(props) {
 				<modalS.TopCommentTitle>댓글</modalS.TopCommentTitle>
 				{commentDiv}
 				<modalS.CommentWriteWrapper>
-					<modalS.commentWriteInput></modalS.commentWriteInput>
-					<modalS.commentWriteBtn></modalS.commentWriteBtn>
+					<modalS.commentWriteInput
+						ref={inputRef}
+						autoFocus={true}
+						value={commentValue}
+						onChange={() => {
+							setCommentValue(inputRef.current.value);
+						}}
+					></modalS.commentWriteInput>
+					<modalS.commentWriteBtn
+						onClick={handleCommentBtn}
+					></modalS.commentWriteBtn>
 				</modalS.CommentWriteWrapper>
 			</Modal>
 		</>
