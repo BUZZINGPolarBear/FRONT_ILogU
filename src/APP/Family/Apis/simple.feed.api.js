@@ -62,7 +62,10 @@ export const postComment = async (boardId, comment) => {
 	try {
 		const axiosResponse = await axios.post(
 			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/${boardId}/comment`,
-			{ parentComment: null, comment: comment },
+			{
+				parentComment: null,
+				comment: comment,
+			},
 			{
 				headers: {
 					'Content-Type': 'application/json',
@@ -70,6 +73,7 @@ export const postComment = async (boardId, comment) => {
 				},
 			},
 		);
+		return axiosResponse;
 	} catch (error) {
 		return error.response.data.code;
 	}

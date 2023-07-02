@@ -48,10 +48,46 @@ function CommentModal(props) {
 	const inputRef = useRef();
 	const [commentValue, setCommentValue] = useState('');
 
-	//댓글 작성 완료
+	//댓글 작성 업로드
 	const handleCommentBtn = () => {
 		console.log(commentValue);
+
+		const fetchData = async () => {
+			let getData = await api.postComment(props.boardId, commentValue);
+			if (getData.code == '400-03-04') {
+				await tokenAPI.RefreshToken();
+				getData = await api.postComment(props.boardId);
+			}
+		};
+
+		const addBoardCommentData = (commentArr) => {
+			let localCommentDataArr = [];
+			for (let i = 0; i < commentArr.length; i++) {
+				let localCommentData = {
+					id: commentArr[i].id,
+					createdAt: utils.changeDateStr(commentArr[i].createdAt),
+					nickname: commentArr[i].nickname,
+					comment: commentArr[i].comment,
+					profile: commentArr[i].imageUrl,
+				};
+				localCommentDataArr.push(localCommentData);
+			}
+			setCommentData(localCommentDataArr);
+		};
+
+		const fetchCommentData = async () => {
+			let getData = await api.getComment(props.boardId);
+			if (getData.code == '400-03-04') {
+				await tokenAPI.RefreshToken();
+				getData = await api.getComment(props.boardId);
+			}
+
+			addBoardCommentData(getData.data.result.content);
+		};
 		setCommentValue('');
+
+		const response = fetchData();
+		fetchCommentData();
 	};
 
 	//첫 데이터 불러오기
