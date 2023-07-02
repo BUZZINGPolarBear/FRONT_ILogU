@@ -79,6 +79,39 @@ export const CommentWriteWrapper = styled.div`
 	bottom: 0;
 	width: 95%;
 	height: 60px;
+	padding: 10px 0px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+
 	border-top: 1px solid ${tokens.colors.grey_50};
 	// background-color: antiquewhite;
+`;
+
+export const commentWriteInput = styled.input`
+	width: 85%;
+	height: 30px;
+	border: none;
+	outline: none;
+
+	border-radius: 10px;
+	color: ${tokens.colors.grey_700};
+	${tokens.typography.body_2};
+	background-color: #efefefce;
+`;
+
+export const commentWriteBtn = styled.button`
+	width: 11%;
+	height: 30px;
+
+	border: none;
+	outline: none;
+
+	background-image: url('/Family/comment_upload.svg');
+	background-size: 23px 23px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #ffffff;
 `;

@@ -118,8 +118,8 @@ function CommentModal(props) {
 				<modalS.TopCommentTitle>댓글</modalS.TopCommentTitle>
 				{commentDiv}
 				<modalS.CommentWriteWrapper>
-					{' '}
-					여기는 댓글 쓰는 곳
+					<modalS.commentWriteInput></modalS.commentWriteInput>
+					<modalS.commentWriteBtn></modalS.commentWriteBtn>
 				</modalS.CommentWriteWrapper>
 			</Modal>
 		</>
