@@ -133,7 +133,7 @@ function MoneyModal(props) {
 							용돈이 이만큼 쌓였어요!
 						</modalS.TopContentWrapper>
 						<modalS.TopContentWrapper type="main">
-							{balance}원
+							{balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
 						</modalS.TopContentWrapper>
 					</modalS.TopContentWrapper>
 				</modalS.MoneyModalConentWrapper>
