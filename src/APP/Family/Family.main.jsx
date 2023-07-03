@@ -13,12 +13,74 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import * as utils from '../Feed/getFeed/feed.utils';
 import * as recoilFamily from './recoil/feed.recoil';
 import MoneyModal from './Family.main.all.feed.modal.money';
+import * as api from './Apis/main.feed.api';
+import * as tokenAPI from '../AutoSignIn';
+
 function FamilyMainScreen() {
 	const [isMoneyOpened, setIsMoneyOpened] = useRecoilState(
 		recoilFamily.isMoneyOpend,
 	);
+	const [moneyRankDiv, setMoneyRankDiv] = useState([]);
+	const [likeRankDiv, setLikeRankDiv] = useState([]);
 	const nowLocation = useLocation();
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		const makeRankFamily = (moneyArr, likeArr) => {
+			let localMoneyRank = [];
+			let localLikeRank = [];
+			for (let i = 0; i < 3; i++) {
+				localMoneyRank.push(
+					<FamilyS.RankArea>
+						<FamilyS.RankNum type="money">{i + 1}.</FamilyS.RankNum>
+						<FamilyS.RankTitle>
+							<FamilyS.RankProfilePic
+								url={moneyArr[i].profileUrl}
+							></FamilyS.RankProfilePic>
+							{moneyArr[i].nickname}
+						</FamilyS.RankTitle>
+						<FamilyS.RankContentArea>
+							<FamilyS.RankContent type="money">
+								{moneyArr[i].sendToChild}
+							</FamilyS.RankContent>
+						</FamilyS.RankContentArea>
+					</FamilyS.RankArea>,
+				);
+
+				localLikeRank.push(
+					<FamilyS.RankArea>
+						<FamilyS.RankNum>{i + 1}.</FamilyS.RankNum>
+						<FamilyS.RankTitle>
+							<FamilyS.RankProfilePic
+								url={likeArr[i].profileUrl}
+							></FamilyS.RankProfilePic>
+							{likeArr[i].nickname}
+						</FamilyS.RankTitle>
+						<FamilyS.RankContentArea>
+							<FamilyS.RankContent type="like">
+								{likeArr[i].likes}
+							</FamilyS.RankContent>
+						</FamilyS.RankContentArea>
+					</FamilyS.RankArea>,
+				);
+			}
+			setMoneyRankDiv(localMoneyRank);
+			setLikeRankDiv(localLikeRank);
+		};
+		const getFamilyRank = async () => {
+			let getFamilyRankResult = await api.getFamilyRank();
+			if (getFamilyRankResult.code == '400-03-04') {
+				await tokenAPI.RefreshToken();
+				getFamilyRankResult = await api.getFamilyRank();
+			}
+			makeRankFamily(
+				getFamilyRankResult.result.familyMoneyRank,
+				getFamilyRankResult.result.familyLikeRank,
+			);
+		};
+
+		getFamilyRank();
+	});
 
 	const handleFamilyStory = () => {
 		navigate('/family/feed');
@@ -43,7 +105,7 @@ function FamilyMainScreen() {
 				<FamilyS.RankWrapper>
 					<FamilyS.MainWrapperTitle>우리 가족 용돈 왕</FamilyS.MainWrapperTitle>
 					<FamilyS.MainRankWrapper>
-						<FamilyS.RankArea>
+						{/* <FamilyS.RankArea>
 							<FamilyS.RankNum type="money">1.</FamilyS.RankNum>
 							<FamilyS.RankTitle>
 								<FamilyS.RankProfilePic url="null"></FamilyS.RankProfilePic>
@@ -72,14 +134,15 @@ function FamilyMainScreen() {
 							<FamilyS.RankContentArea>
 								<FamilyS.RankContent type="money">100,000</FamilyS.RankContent>
 							</FamilyS.RankContentArea>
-						</FamilyS.RankArea>
+						</FamilyS.RankArea> */}
+						{moneyRankDiv}
 					</FamilyS.MainRankWrapper>
 				</FamilyS.RankWrapper>
 
 				<FamilyS.RankWrapper>
 					<FamilyS.MainWrapperTitle>우리 가족 공감 왕</FamilyS.MainWrapperTitle>
 					<FamilyS.MainRankWrapper>
-						<FamilyS.RankArea>
+						{/* <FamilyS.RankArea>
 							<FamilyS.RankNum>1.</FamilyS.RankNum>
 							<FamilyS.RankTitle>
 								<FamilyS.RankProfilePic url="null"></FamilyS.RankProfilePic>
@@ -108,7 +171,8 @@ function FamilyMainScreen() {
 							<FamilyS.RankContentArea>
 								<FamilyS.RankContent type="like">37</FamilyS.RankContent>
 							</FamilyS.RankContentArea>
-						</FamilyS.RankArea>
+						</FamilyS.RankArea> */}
+						{likeRankDiv}
 					</FamilyS.MainRankWrapper>
 				</FamilyS.RankWrapper>
 				<FamilyS.RankWrapper
