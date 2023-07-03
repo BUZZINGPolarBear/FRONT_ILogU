@@ -5,7 +5,7 @@ import * as modalS from './Styles/Family.main.all.feed.modal.comment';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import * as utils from '../Feed/getFeed/feed.utils';
 import * as recoilFamily from './recoil/feed.recoil';
-import * as api from './Apis/simple.feed.api';
+import * as FeedApi from './Apis/simple.feed.api';
 import * as tokenAPI from '../AutoSignIn';
 
 function MoneyModal(props) {
@@ -13,6 +13,7 @@ function MoneyModal(props) {
 		recoilFamily.isMoneyOpend,
 	);
 	const [modalPositionY, setModalPositionY] = useState(500);
+	const [balance, setBalance] = useState(0);
 
 	const ModalStyle = {
 		overlay: {
@@ -57,6 +58,32 @@ function MoneyModal(props) {
 			document.body.style.cssText = '';
 			window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
 		};
+	}, []);
+
+	//용돈 가져오기
+	useEffect(() => {
+		const addBoardContentArr = (fetchResponse) => {
+			console.log(props.boardId);
+			for (let i = 0; i < fetchResponse.length; i++) {
+				const localContent = fetchResponse[i];
+				if ((localContent.id = props.boardId)) {
+					setBalance(localContent.balance);
+					break;
+				}
+			}
+		};
+
+		const fetchData = async () => {
+			let getData = await FeedApi.getFeed(100);
+			if (getData == '400-03-04') {
+				await tokenAPI.RefreshToken();
+				getData = await FeedApi.getFeed(100);
+			}
+
+			const boardResponseArr = getData.result.content;
+			addBoardContentArr(boardResponseArr);
+		};
+		const fetchResponse = fetchData();
 	}, []);
 
 	//모달창 끄기
@@ -106,7 +133,7 @@ function MoneyModal(props) {
 							용돈이 이만큼 쌓였어요!
 						</modalS.TopContentWrapper>
 						<modalS.TopContentWrapper type="main">
-							350,000원
+							{balance}원
 						</modalS.TopContentWrapper>
 					</modalS.TopContentWrapper>
 				</modalS.MoneyModalConentWrapper>
