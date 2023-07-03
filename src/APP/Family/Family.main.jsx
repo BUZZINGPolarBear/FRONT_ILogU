@@ -31,7 +31,7 @@ function FamilyMainScreen() {
 			let localLikeRank = [];
 			for (let i = 0; i < 3; i++) {
 				localMoneyRank.push(
-					<FamilyS.RankArea>
+					<FamilyS.RankArea key={`family_feed_money_${i}`}>
 						<FamilyS.RankNum type="money">{i + 1}.</FamilyS.RankNum>
 						<FamilyS.RankTitle>
 							<FamilyS.RankProfilePic
@@ -48,7 +48,7 @@ function FamilyMainScreen() {
 				);
 
 				localLikeRank.push(
-					<FamilyS.RankArea>
+					<FamilyS.RankArea key={`family_feed_rank_${i}`}>
 						<FamilyS.RankNum>{i + 1}.</FamilyS.RankNum>
 						<FamilyS.RankTitle>
 							<FamilyS.RankProfilePic
@@ -80,7 +80,7 @@ function FamilyMainScreen() {
 		};
 
 		getFamilyRank();
-	});
+	}, []);
 
 	const handleFamilyStory = () => {
 		navigate('/family/feed');
