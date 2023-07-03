@@ -52,7 +52,7 @@ export const MoneyCloseBtn = styled.button`
 	top: 300px;
 	width: 100%;
 	height: 50px;
-
+	cursor: pointer;
 	display: flex;
 	flex-direction: row;
 	align-items: center;

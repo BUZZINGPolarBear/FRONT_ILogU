@@ -9,19 +9,35 @@ import {
 } from 'react-router-dom';
 import * as FamilyS from './Styles/Family.main.styles';
 import SimpleFamilyFeed from './Family.main.simple.feed';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import * as utils from '../Feed/getFeed/feed.utils';
+import * as recoilFamily from './recoil/feed.recoil';
+import MoneyModal from './Family.main.all.feed.modal.money';
 function FamilyMainScreen() {
+	const [isMoneyOpened, setIsMoneyOpened] = useRecoilState(
+		recoilFamily.isMoneyOpend,
+	);
 	const nowLocation = useLocation();
 	const navigate = useNavigate();
 
 	const handleFamilyStory = () => {
 		navigate('/family/feed');
 	};
+
+	const handleMoneyIconClick = (e) => {
+		e.preventDefault();
+		setIsMoneyOpened(true);
+	};
 	return (
 		<>
+			{isMoneyOpened == true ? <MoneyModal type="main"></MoneyModal> : <></>}
 			<FamilyS.TopNavBar>
 				<FamilyS.TopNavTitle>우리가족</FamilyS.TopNavTitle>
 				<FamilyS.TopNavIcon icon="baby" />
-				<FamilyS.TopNavIcon icon="money" />
+				<FamilyS.TopNavIcon
+					icon="money"
+					onClick={(e) => handleMoneyIconClick(e)}
+				/>
 			</FamilyS.TopNavBar>
 			<FamilyS.MainWrapper>
 				<FamilyS.RankWrapper>
