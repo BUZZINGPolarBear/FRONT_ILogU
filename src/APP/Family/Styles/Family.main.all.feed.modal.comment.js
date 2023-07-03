@@ -94,7 +94,20 @@ export const CommentWriteWrapper = styled.div`
 	justify-content: space-around;
 
 	border-top: 1px solid ${tokens.colors.grey_50};
-	// background-color: antiquewhite;
+	// background-color: #efefefce;
+`;
+
+export const CommentWriteAreaWrapper = styled.div`
+	width: 95%;
+	height: 40px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+
+	border-radius: 10px;
+	background-color: #efefefce;
 `;
 
 export const commentWriteInput = styled.input`
@@ -104,8 +117,10 @@ export const commentWriteInput = styled.input`
 	outline: none;
 
 	border-radius: 10px;
-	color: ${tokens.colors.grey_700};
+	color: ${tokens.colors.grey_300};
 	${tokens.typography.body_2};
+	caret-color: ${tokens.colors.green_500};
+	caret-size: 20px;
 	background-color: #efefefce;
 `;
 
@@ -120,5 +135,5 @@ export const commentWriteBtn = styled.button`
 	background-size: 23px 23px;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-color: #ffffff;
+	background-color: #efefefce;
 `;

@@ -47,6 +47,7 @@ function FamilyAllFeed(props) {
 	//댓글
 	const handleComment = (e, boardId) => {
 		e.preventDefault();
+		document.body.style.overflow = 'hidden';
 		setCommentModalId(boardId);
 		setIsCommentOpend(true);
 	};
@@ -57,6 +58,18 @@ function FamilyAllFeed(props) {
 	};
 
 	useEffect(() => {
+		//배경 스크롤 막기
+		document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+		return () => {
+			const scrollY = document.body.style.top;
+			document.body.style.cssText = '';
+			window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+		};
+
 		let boardResponseArr = [];
 
 		const addBoardContentArr = (fetchResponse) => {
