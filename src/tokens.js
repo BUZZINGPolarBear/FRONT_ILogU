@@ -28,7 +28,7 @@ export const colors = {
 export const typography = {
 	headline_4: {
 		fontFamily: 'Noto Sans KR',
-		fontWeight: 400,
+		fontWeight: 600,
 		fontSize: '2.125rem',
 		letterSpacing: '0.0073529412em',
 	},

@@ -92,13 +92,27 @@ function MoneyModal(props) {
 				onRequestClose={() => setModalIsOpen()} // 오버레이나 esc를 누르면 핸들러 동작
 				ariaHideApp={false}
 			>
-				<modalS.TopCommentTitle
+				<modalS.TopMoneyTitle
 					onTouchStart={handleTouchStart}
 					onTouchMove={handleTouchMove}
 					onTouchEnd={handleTouchEnd}
 				>
 					<modalS.DraggableBox></modalS.DraggableBox>
-				</modalS.TopCommentTitle>
+				</modalS.TopMoneyTitle>
+				<modalS.MoneyModalConentWrapper>
+					<modalS.TopMoneyPic></modalS.TopMoneyPic>
+					<modalS.TopContentWrapper style={{ marginTop: '15px' }}>
+						<modalS.TopContentWrapper type="sub">
+							용돈이 이만큼 쌓였어요!
+						</modalS.TopContentWrapper>
+						<modalS.TopContentWrapper type="main">
+							350,000원
+						</modalS.TopContentWrapper>
+					</modalS.TopContentWrapper>
+				</modalS.MoneyModalConentWrapper>
+				<modalS.MoneyCloseBtn onClick={setModalIsOpen}>
+					닫기
+				</modalS.MoneyCloseBtn>
 			</Modal>
 		</>
 	);

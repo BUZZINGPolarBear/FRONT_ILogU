@@ -16,6 +16,68 @@ export const TopCommentTitle = styled.div`
 
 	border-bottom: 1px solid ${tokens.colors.grey_50};
 `;
+
+export const TopMoneyTitle = styled.div`
+	width: 100%;
+	height: 30px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	cursor: pointer;
+`;
+
+export const TopMoneyPic = styled.div`
+	width: 100%;
+	height: 55px;
+
+	background-image: url('/Family/Coin.svg');
+	background-size: 50px 50px;
+	background-position: left;
+	background-repeat: no-repeat;
+`;
+
+export const TopContentWrapper = styled.div`
+	width: 100%;
+	height: fit-content;
+
+	${(props) =>
+		props.type == 'sub'
+			? `color: ${tokens.colors.grey_300}; font-size: ${tokens.typography.body_2.fontSize};`
+			: `color: ${tokens.colors.green_600}; font-size: ${tokens.typography.headline_4.fontSize}; font-weight: ${tokens.typography.headline_4.fontWeight};`}
+`;
+
+export const MoneyCloseBtn = styled.button`
+	top: 300px;
+	width: 100%;
+	height: 50px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	border: none;
+	outline: none;
+	border-radius: 10px;
+
+	margin-top: 40px;
+
+	${tokens.typography.SUIT};
+	background-color: ${tokens.colors.green_500};
+	color: #ffffff;
+`;
+
+export const MoneyModalConentWrapper = styled.div`
+	width: 100%;
+	height: 20%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+`;
 export const DraggableBox = styled.div`
 	width: 40%;
 	height: 3px;
