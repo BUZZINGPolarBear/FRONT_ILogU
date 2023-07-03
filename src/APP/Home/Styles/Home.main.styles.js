@@ -133,7 +133,7 @@ export const MainCardTitleWrapper = styled.div`
 	width: 100%;
 	height: 20%;
 	min-height: 60px;
-	padding: 5% 5%;
+	padding: 5% 0;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
