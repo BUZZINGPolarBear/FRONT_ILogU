@@ -40,6 +40,8 @@ export const TopNavIcon = styled.div`
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25px 25px;
+
+	z-index: 9999;
 `;
 
 export const TopNavBackIcon = styled.div`

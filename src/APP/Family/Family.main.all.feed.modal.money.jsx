@@ -34,7 +34,7 @@ function MoneyModal(props) {
 			paddingTop: '2%',
 			background: '#ffffff',
 			overflow: 'auto',
-			top: `60vh`,
+			top: `50vh`,
 			left: '2vw',
 			right: '2vw',
 			height: '100vh',
@@ -62,7 +62,7 @@ function MoneyModal(props) {
 
 	//용돈 가져오기
 	useEffect(() => {
-		const addBoardContentArr = (fetchResponse) => {
+		const getFeedBabyMoney = (fetchResponse) => {
 			console.log(props.boardId);
 			for (let i = 0; i < fetchResponse.length; i++) {
 				const localContent = fetchResponse[i];
@@ -74,14 +74,24 @@ function MoneyModal(props) {
 		};
 
 		const fetchData = async () => {
-			let getData = await FeedApi.getFeed(100);
-			if (getData == '400-03-04') {
-				await tokenAPI.RefreshToken();
-				getData = await FeedApi.getFeed(100);
-			}
+			if (props.type == 'feed') {
+				let getData = await FeedApi.getFeed(100);
+				if (getData == '400-03-04') {
+					await tokenAPI.RefreshToken();
+					getData = await FeedApi.getFeed(100);
+				}
 
-			const boardResponseArr = getData.result.content;
-			addBoardContentArr(boardResponseArr);
+				const boardResponseArr = getData.result.content;
+				getFeedBabyMoney(boardResponseArr);
+			} else if (props.type == 'main') {
+				let getData = await FeedApi.getBabyAllMoney();
+				if (getData == '400-03-04') {
+					await tokenAPI.RefreshToken();
+					getData = await FeedApi.getBabyAllMoney();
+				}
+
+				setBalance(getData.result);
+			}
 		};
 		const fetchResponse = fetchData();
 	}, []);
