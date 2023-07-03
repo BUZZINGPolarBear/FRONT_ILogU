@@ -15,6 +15,7 @@ import {
 	useNavigate,
 } from 'react-router-dom';
 import CommentModal from './Family.main.all.feed.modal.comment';
+import MoneyModal from './Family.main.all.feed.modal.money';
 
 function FamilyAllFeed(props) {
 	const [boardBodyArr, setBoardBodyArr] = useState([]);
@@ -23,6 +24,9 @@ function FamilyAllFeed(props) {
 	const [commentModalId, setCommentModalId] = useState();
 	const [isCommentOpend, setIsCommentOpend] = useRecoilState(
 		recoilFamily.isCommentOpend,
+	);
+	const [isMoneyOpened, setIsMoneyOpened] = useRecoilState(
+		recoilFamily.isMoneyOpend,
 	);
 	const [isLikeArr, setIsLikeArr] = useState([]);
 	const navigate = useNavigate();
@@ -47,8 +51,17 @@ function FamilyAllFeed(props) {
 	//댓글
 	const handleComment = (e, boardId) => {
 		e.preventDefault();
+		document.body.style.overflow = 'hidden';
 		setCommentModalId(boardId);
 		setIsCommentOpend(true);
+	};
+
+	//용돈
+	const handleMoney = (e, boardId) => {
+		e.preventDefault();
+		document.body.style.overflow = 'hidden';
+		setCommentModalId(boardId);
+		setIsMoneyOpened(true);
 	};
 
 	//뒤로가기
@@ -169,7 +182,11 @@ function FamilyAllFeed(props) {
 									<img src="/Feed/icons/comment.svg" alt="댓글"></img>
 									<div>{localContent.commentsCount}</div>
 								</FeedparicipateS.TopInfo>
-								<FeedparicipateS.TopInfo>
+								<FeedparicipateS.TopInfo
+									onClick={(e) => {
+										handleMoney(e, localContent.id);
+									}}
+								>
 									<img src="/Family/money.svg" alt="용돈"></img>
 									<div>{localContent.balance}</div>
 								</FeedparicipateS.TopInfo>
@@ -177,9 +194,7 @@ function FamilyAllFeed(props) {
 							<FeedparicipateS.FeedChallengeMiddleWrapper>
 								{localContent.content}
 							</FeedparicipateS.FeedChallengeMiddleWrapper>
-							<FeedparicipateS.FeedChallengeTopBottomWrapper
-							// style={{ height: '35%' }}
-							>
+							<FeedparicipateS.FeedChallengeTopBottomWrapper>
 								<FeedparicipateS.FeedTag>
 									{localContent.category}
 								</FeedparicipateS.FeedTag>
@@ -198,6 +213,11 @@ function FamilyAllFeed(props) {
 	}, [boardBodyContentArr]);
 	return (
 		<>
+			{isMoneyOpened == true ? (
+				<MoneyModal boardId={commentModalId}></MoneyModal>
+			) : (
+				<></>
+			)}
 			{isCommentOpend == true ? (
 				<CommentModal boardId={commentModalId}></CommentModal>
 			) : (

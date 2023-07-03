@@ -102,7 +102,6 @@ function CommentModal(props) {
 
 			addBoardCommentData(getData.data.result.content);
 		};
-
 		const response = fetchData();
 	}, []);
 
@@ -176,17 +175,21 @@ function CommentModal(props) {
 				</modalS.TopCommentTitle>
 				{commentDiv}
 				<modalS.CommentWriteWrapper>
-					<modalS.commentWriteInput
-						ref={inputRef}
-						autoFocus={true}
-						value={commentValue}
-						onChange={() => {
-							setCommentValue(inputRef.current.value);
-						}}
-					></modalS.commentWriteInput>
-					<modalS.commentWriteBtn
-						onClick={handleCommentBtn}
-					></modalS.commentWriteBtn>
+					<modalS.CommentWriteAreaWrapper>
+						<modalS.commentWriteInput
+							className="feedComment"
+							ref={inputRef}
+							autoFocus={true}
+							value={commentValue}
+							placeholder="댓글을 입력하세요."
+							onChange={() => {
+								setCommentValue(inputRef.current.value);
+							}}
+						></modalS.commentWriteInput>
+						<modalS.commentWriteBtn
+							onClick={handleCommentBtn}
+						></modalS.commentWriteBtn>
+					</modalS.CommentWriteAreaWrapper>
 				</modalS.CommentWriteWrapper>
 			</Modal>
 		</>

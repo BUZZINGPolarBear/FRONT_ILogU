@@ -19,7 +19,6 @@ export const getSimpleFeed = async (page) => {
 };
 
 export const getFeed = async (page) => {
-	let boardResponseList = [];
 	const token = localStorage.getItem('access');
 
 	try {

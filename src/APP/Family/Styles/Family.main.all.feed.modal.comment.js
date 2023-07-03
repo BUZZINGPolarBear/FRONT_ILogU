@@ -16,6 +16,68 @@ export const TopCommentTitle = styled.div`
 
 	border-bottom: 1px solid ${tokens.colors.grey_50};
 `;
+
+export const TopMoneyTitle = styled.div`
+	width: 100%;
+	height: 30px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	cursor: pointer;
+`;
+
+export const TopMoneyPic = styled.div`
+	width: 100%;
+	height: 55px;
+
+	background-image: url('/Family/Coin.svg');
+	background-size: 50px 50px;
+	background-position: left;
+	background-repeat: no-repeat;
+`;
+
+export const TopContentWrapper = styled.div`
+	width: 100%;
+	height: fit-content;
+
+	${(props) =>
+		props.type == 'sub'
+			? `color: ${tokens.colors.grey_300}; font-size: ${tokens.typography.body_2.fontSize};`
+			: `color: ${tokens.colors.green_600}; font-size: ${tokens.typography.headline_4.fontSize}; font-weight: ${tokens.typography.headline_4.fontWeight};`}
+`;
+
+export const MoneyCloseBtn = styled.button`
+	top: 300px;
+	width: 100%;
+	height: 50px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	border: none;
+	outline: none;
+	border-radius: 10px;
+
+	margin-top: 40px;
+
+	${tokens.typography.SUIT};
+	background-color: ${tokens.colors.green_500};
+	color: #ffffff;
+`;
+
+export const MoneyModalConentWrapper = styled.div`
+	width: 100%;
+	height: 20%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+`;
 export const DraggableBox = styled.div`
 	width: 40%;
 	height: 3px;
@@ -94,7 +156,20 @@ export const CommentWriteWrapper = styled.div`
 	justify-content: space-around;
 
 	border-top: 1px solid ${tokens.colors.grey_50};
-	// background-color: antiquewhite;
+	// background-color: #efefefce;
+`;
+
+export const CommentWriteAreaWrapper = styled.div`
+	width: 95%;
+	height: 40px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+
+	border-radius: 10px;
+	background-color: #efefefce;
 `;
 
 export const commentWriteInput = styled.input`
@@ -104,8 +179,10 @@ export const commentWriteInput = styled.input`
 	outline: none;
 
 	border-radius: 10px;
-	color: ${tokens.colors.grey_700};
+	color: ${tokens.colors.grey_300};
 	${tokens.typography.body_2};
+	caret-color: ${tokens.colors.green_500};
+	caret-size: 20px;
 	background-color: #efefefce;
 `;
 
@@ -120,5 +197,5 @@ export const commentWriteBtn = styled.button`
 	background-size: 23px 23px;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-color: #ffffff;
+	background-color: #efefefce;
 `;
