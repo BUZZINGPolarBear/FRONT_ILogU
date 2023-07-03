@@ -18,19 +18,19 @@ function Slideshow() {
 			loop={true}
 		>
 			<SwiperSlide>
-				<bannerS.HomeMainSwiperCardContent src="/mainScreen/banner/banner_1.png"></bannerS.HomeMainSwiperCardContent>
+				<bannerS.HomeMainSwiperCardContent src="https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/banner_1.svg"></bannerS.HomeMainSwiperCardContent>
 			</SwiperSlide>
 			<SwiperSlide>
-				<bannerS.HomeMainSwiperCardContent src="/mainScreen/banner/banner_2.png"></bannerS.HomeMainSwiperCardContent>
+				<bannerS.HomeMainSwiperCardContent src="https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/banner_2.svg"></bannerS.HomeMainSwiperCardContent>
 			</SwiperSlide>
 			<SwiperSlide>
-				<bannerS.HomeMainSwiperCardContent src="/mainScreen/banner/banner_3.png"></bannerS.HomeMainSwiperCardContent>
+				<bannerS.HomeMainSwiperCardContent src="https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/banner_3.svg"></bannerS.HomeMainSwiperCardContent>
 			</SwiperSlide>
 			<SwiperSlide>
-				<bannerS.HomeMainSwiperCardContent src="/mainScreen/banner/banner_4.png"></bannerS.HomeMainSwiperCardContent>
+				<bannerS.HomeMainSwiperCardContent src="https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/banner_4.svg"></bannerS.HomeMainSwiperCardContent>
 			</SwiperSlide>
 			<SwiperSlide>
-				<bannerS.HomeMainSwiperCardContent src="/mainScreen/banner/banner_5.png"></bannerS.HomeMainSwiperCardContent>
+				<bannerS.HomeMainSwiperCardContent src="https://elasticbeanstalk-ap-northeast-2-273635406644.s3.ap-northeast-2.amazonaws.com/ilogu-resources/home/banner_5.svg"></bannerS.HomeMainSwiperCardContent>
 			</SwiperSlide>
 		</bannerS.StyledSwiper>
 	);
