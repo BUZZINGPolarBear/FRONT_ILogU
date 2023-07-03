@@ -34,7 +34,7 @@ function MoneyModal(props) {
 			paddingTop: '2%',
 			background: '#ffffff',
 			overflow: 'auto',
-			top: `60vh`,
+			top: `50vh`,
 			left: '2vw',
 			right: '2vw',
 			height: '100vh',
