@@ -6,8 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 export const StyledSwiper = styled(Swiper)`
 	width: 100%;
 	max-width: 800px;
-	height: 90%;
-	min-height: 100px;
+	height: 130px;
 
 	display: flex;
 	flex-direction: row;
@@ -44,6 +43,7 @@ export const HomeMainSwiperCardContent = styled.div`
 	width: 90%;
 	height: 92px;
 	margin: 0 auto;
+	border-radius: 10px;
 	background-image: url(${(props) => props.src});
 	background-repeat: no-repeat;
 	background-position: center;
