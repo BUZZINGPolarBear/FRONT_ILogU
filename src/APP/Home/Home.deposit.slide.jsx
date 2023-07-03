@@ -29,26 +29,8 @@ function DepositSwiper() {
 				<slideS.StyledSwiper spaceBetween={175} slidesPerView={3}>
 					<SwiperSlide>
 						<slideS.HomeMainSwiperCard
-							onClick={(e) => handleDepositDetailView(e, 'travel-log')}
+							onClick={(e) => handleDepositDetailView(e, 'paris')}
 						>
-							<slideS.SwiperImage
-								style={{
-									backgroundImage:
-										'url(https://m.hanacard.co.kr/ATTACH/NEW_MOBILE/images/cardinfo/card_img/13917.gif)',
-								}}
-							></slideS.SwiperImage>
-							<slideS.SwiperInnerTextArea>
-								<slideS.SwiperInnerTitle>
-									트래블로그 카드
-								</slideS.SwiperInnerTitle>
-								<slideS.SwiperInnerSubText>
-									수수료 면제 및 하나머니 적립
-								</slideS.SwiperInnerSubText>
-							</slideS.SwiperInnerTextArea>
-						</slideS.HomeMainSwiperCard>
-					</SwiperSlide>
-					<SwiperSlide>
-						<slideS.HomeMainSwiperCard>
 							<slideS.SwiperImage
 								style={{
 									backgroundImage:
@@ -66,7 +48,9 @@ function DepositSwiper() {
 						</slideS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
-						<slideS.HomeMainSwiperCard>
+						<slideS.HomeMainSwiperCard
+							onClick={(e) => handleDepositDetailView(e, 'tailand')}
+						>
 							<slideS.SwiperImage
 								style={{
 									backgroundImage:
@@ -84,7 +68,9 @@ function DepositSwiper() {
 						</slideS.HomeMainSwiperCard>
 					</SwiperSlide>
 					<SwiperSlide>
-						<slideS.HomeMainSwiperCard>
+						<slideS.HomeMainSwiperCard
+							onClick={(e) => handleDepositDetailView(e, 'taiwan')}
+						>
 							<slideS.SwiperImage
 								style={{
 									backgroundImage:
