@@ -34,7 +34,7 @@ function MoneyModal(props) {
 			paddingTop: '2%',
 			background: '#ffffff',
 			overflow: 'auto',
-			top: `${modalPositionY}px`,
+			top: `60vh`,
 			left: '2vw',
 			right: '2vw',
 			height: '100vh',
@@ -119,11 +119,7 @@ function MoneyModal(props) {
 				onRequestClose={() => setModalIsOpen()} // 오버레이나 esc를 누르면 핸들러 동작
 				ariaHideApp={false}
 			>
-				<modalS.TopMoneyTitle
-					onTouchStart={handleTouchStart}
-					onTouchMove={handleTouchMove}
-					onTouchEnd={handleTouchEnd}
-				>
+				<modalS.TopMoneyTitle>
 					<modalS.DraggableBox></modalS.DraggableBox>
 				</modalS.TopMoneyTitle>
 				<modalS.MoneyModalConentWrapper>
