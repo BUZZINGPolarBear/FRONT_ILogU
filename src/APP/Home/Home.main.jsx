@@ -6,6 +6,8 @@ import * as tokens from '../../tokens';
 import InvestmentComponent from './Home.investment';
 import InsurenceComponent from './Home.insurence';
 import DepositComponent from './Home.main.deposit';
+import MainBannerSlide from './Home.main.banner.slide';
+
 function HomeMain() {
 	const [mainCategory, setMainCategory] = useState('investment');
 
@@ -32,6 +34,9 @@ function HomeMain() {
 					</HomeS.HomeMainHeaderContentTitle>
 				</HomeS.HomeMainHeaderContent>
 			</HomeS.HomeMainScreenHeader>
+			<HomeS.HomeMainBannerWrapper>
+				<MainBannerSlide></MainBannerSlide>
+			</HomeS.HomeMainBannerWrapper>
 
 			<HomeS.HomeMainSelectWrapper>
 				<HomeS.HomeMainCategoryBtn

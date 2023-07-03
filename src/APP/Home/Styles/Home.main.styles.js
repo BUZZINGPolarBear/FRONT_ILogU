@@ -23,6 +23,15 @@ export const HomeMainScreenHeader = styled.div`
 	justify-content: center;
 `;
 
+export const HomeMainBannerWrapper = styled.div`
+	width: 100%;
+	height: 140px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+`;
 export const HomeMainHeaderContent = styled.div`
 	width: 90%;
 	height: 92%;

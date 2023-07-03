@@ -8,43 +8,6 @@ import * as InsurenceApi from './Apis/Home.insurence';
 SwiperCore.use([Scrollbar, A11y]);
 
 function KeywordETFrecommendSlide(props) {
-	// const [insurenceSlider, setInsurenceSlider] = useState([]);
-
-	// useEffect(() => {
-	// 	const fetchInsurence = async () => {
-	// 		let fetchResponse = await InsurenceApi.getInsurence();
-	// 		// console.log(fetchResponse);
-	// 		const insurenceArr = fetchResponse.result;
-	// 		let localSlider = [];
-	// 		for (let i = 0; i < insurenceArr.length / 2; i++) {
-	// 			const localInsurenceInfo = insurenceArr[i];
-
-	// 			localSlider.push(
-	// 				<SwiperSlide key={`keyword_slide_${i}`}>
-	// 					<slideS.HomeMainSwiperCard
-	// 						style={{
-	// 							backgroundColor: '#ffffff',
-	// 							boxShadow: '2px 3px 3px 3px rgba(0, 0, 0, 0.05)',
-	// 						}}
-	// 					>
-	// 						<slideS.SwiperCardTitle>
-	// 							{localInsurenceInfo.name}
-	// 						</slideS.SwiperCardTitle>
-	// 						<slideS.SwiperInnerTextArea>
-	// 							<slideS.SwiperInnerSubText>
-	// 								{localInsurenceInfo.managementCompany}
-	// 							</slideS.SwiperInnerSubText>
-	// 						</slideS.SwiperInnerTextArea>
-	// 					</slideS.HomeMainSwiperCard>
-	// 				</SwiperSlide>,
-	// 			);
-	// 		}
-	// 		setInsurenceSlider(localSlider);
-	// 	};
-
-	// 	fetchInsurence();
-	// }, []);
-
 	return (
 		<slideS.HomeMainChallengeCard
 			style={{ height: '15vh', minHeight: '140px', padding: '0 5%' }}
