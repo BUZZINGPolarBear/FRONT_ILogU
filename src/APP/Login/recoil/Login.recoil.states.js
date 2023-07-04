@@ -63,3 +63,8 @@ export const relateName = atom({
 	key: 'relateName',
 	default: '',
 });
+
+export const familyType = atom({
+	key: 'signInFamilyType',
+	default: '',
+});

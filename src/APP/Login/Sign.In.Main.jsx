@@ -23,6 +23,9 @@ function SignInMain() {
 	const [isCheckboxClicked, setIsCheckboxClicked] = useState(
 		localStorage.getItem('isCheckboxClicked'),
 	);
+	const [userFamilyType, setUserFamilyType] = useRecoilState(
+		signInRecoil.familyType,
+	);
 
 	const handleBackwardClick = (e) => {
 		navigate(`/`);
@@ -64,7 +67,9 @@ function SignInMain() {
 			const refreshToken = response.result.refreshToken;
 			localStorage.setItem('access', accessToken);
 			localStorage.setItem('refresh', refreshToken);
-			navigate('/home');
+			setUserFamilyType(response.result.familyType);
+			if (userFamilyType === 'PARENTS') navigate('/home');
+			else if (userFamilyType === 'OTHERS') navigate('/family');
 		}
 	};
 
