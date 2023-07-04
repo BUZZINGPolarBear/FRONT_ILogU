@@ -187,9 +187,12 @@ function FamilyAllFeed(props) {
 									onClick={(e) => {
 										handleMoney(e, localContent.id);
 									}}
+									style={{ marginLeft: '2px', width: 'fit-content' }}
 								>
 									<img src="/Family/money.svg" alt="용돈"></img>
-									<div>{localContent.balance}</div>
+									<div style={{ marginLeft: '5px' }}>
+										{localContent.balance}
+									</div>
 								</FeedparicipateS.TopInfo>
 							</FeedparicipateS.FeedChallengeTopBottomWrapper>
 							<FeedparicipateS.FeedChallengeMiddleWrapper>

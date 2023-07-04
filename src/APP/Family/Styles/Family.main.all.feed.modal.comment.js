@@ -65,7 +65,12 @@ export const MoneyCloseBtn = styled.button`
 	margin-top: 40px;
 
 	${tokens.typography.SUIT};
-	background-color: ${tokens.colors.green_500};
+
+	${(props) =>
+		props.type == 'disable'
+			? `background-color: ${tokens.colors.grey_100}; pointer-events: none;`
+			: `background-color: ${tokens.colors.green_500};`}
+
 	color: #ffffff;
 `;
 
