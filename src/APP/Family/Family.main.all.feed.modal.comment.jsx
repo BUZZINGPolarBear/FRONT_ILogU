@@ -2,11 +2,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
 import * as modalS from './Styles/Family.main.all.feed.modal.comment';
-import { useRecoilState, useRecoilValue } from 'recoil';
 import * as utils from '../Feed/getFeed/feed.utils';
 import * as recoilFamily from './recoil/feed.recoil';
+//api
 import * as api from './Apis/simple.feed.api';
 import * as tokenAPI from '../AutoSignIn';
+//recoil
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 function CommentModal(props) {
 	const [isCommentOpend, setIsCommentOpend] = useRecoilState(
