@@ -99,7 +99,6 @@ export const postComment = async (boardId, comment) => {
 export const getComment = async (boardId) => {
 	const token = localStorage.getItem('access');
 	try {
-		console.log(boardId);
 		const axiosResponse = await axios.post(
 			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/${boardId}/comments`,
 			{

@@ -6,12 +6,17 @@ import * as utils from './feed.utils';
 
 import { useRecoilState, useRecoilValue } from 'recoil';
 import * as recoil from './recoil/recoild.feed';
+import CommentModal from './Feed.participation.modal.comment';
 
 function FeedParticipation(props) {
 	const [boardBodyArr, setBoardBodyArr] = useState([]);
 	const [boardBodyContentArr, setBoardBodyContentArr] = useState([]);
+	const [commentModalId, setCommentModalId] = useState();
 	const [selectedCategory, setSelectedCategory] = useRecoilState(
 		recoil.feedCategoryRecoil,
+	);
+	const [isFeedCommentOpend, setIsFeedCommentOpend] = useRecoilState(
+		recoil.isFeedCommentOpend,
 	);
 
 	//좋아요 버튼
@@ -31,6 +36,15 @@ function FeedParticipation(props) {
 		// copyBoardBodyContentArr[boardId].isLiked = response.result.isLike;
 		setBoardBodyContentArr(copyBoardBodyContentArr);
 	};
+
+	//댓글
+	const handleComment = (e, boardId) => {
+		e.preventDefault();
+		// document.body.style.overflow = 'hidden';
+		setCommentModalId(boardId);
+		setIsFeedCommentOpend(true);
+	};
+
 	//게시판 내용 받아오기
 	useEffect(() => {
 		let category = selectedCategory;
@@ -40,7 +54,7 @@ function FeedParticipation(props) {
 		if (category == '스포츠') category = 'SPORTS';
 		if (category == '일상') category = 'DAILY';
 		let boardResponseArr = [];
-
+		console.log(category);
 		const addBoardContentArr = (fetchResponse) => {
 			let apiBoardContent = [];
 			for (let i = 0; i < fetchResponse.length; i++) {
@@ -92,9 +106,6 @@ function FeedParticipation(props) {
 					getData = await FeedApi.getFeed(category, 30);
 				}
 
-				if (getData.result && getData.result.content === undefined) {
-					addBoardContentArr([]);
-				}
 				boardResponseArr = getData.result.content;
 				addBoardContentArr(boardResponseArr);
 			};
@@ -109,7 +120,7 @@ function FeedParticipation(props) {
 				const localContent = boardBodyContentArr[i];
 				const dateStr = utils.changeDateStr(localContent.createdAt);
 				let category = localContent.category;
-
+				if (localContent.content === undefined) continue;
 				localDiv.push(
 					<FeedparicipateS.FeedChallengeWrapper key={`feed_key${i}`}>
 						<FeedparicipateS.FeedChallengeUserWrapper>
@@ -146,7 +157,9 @@ function FeedParticipation(props) {
 									)}
 									<div>{localContent.likesCount}</div>
 								</FeedparicipateS.TopInfo>
-								<FeedparicipateS.TopInfo>
+								<FeedparicipateS.TopInfo
+									onClick={(e) => handleComment(e, localContent.id)}
+								>
 									<img src="/Feed/icons/comment.svg" alt="댓글"></img>
 									<div>{localContent.commentsCount}</div>
 								</FeedparicipateS.TopInfo>
@@ -169,7 +182,16 @@ function FeedParticipation(props) {
 		};
 		addBoardDivs();
 	}, [boardBodyContentArr]);
-	return <>{boardBodyArr}</>;
+	return (
+		<>
+			{isFeedCommentOpend == true ? (
+				<CommentModal boardId={commentModalId}></CommentModal>
+			) : (
+				<></>
+			)}
+			{boardBodyArr}
+		</>
+	);
 }
 
 export default FeedParticipation;

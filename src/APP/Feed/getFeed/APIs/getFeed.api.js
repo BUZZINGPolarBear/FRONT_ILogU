@@ -54,7 +54,7 @@ export const postLike = async (boardId) => {
 				},
 			},
 		);
-		console.log(axiosResponse);
+
 		return axiosResponse.data;
 	} catch (error) {
 		return error.response.data.code;
