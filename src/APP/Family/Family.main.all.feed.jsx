@@ -69,6 +69,7 @@ function FamilyAllFeed(props) {
 		navigate('/family');
 	};
 
+	//게시판 내용 받아오기
 	useEffect(() => {
 		let boardResponseArr = [];
 

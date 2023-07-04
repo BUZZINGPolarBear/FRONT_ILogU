@@ -40,3 +40,23 @@ export const getFeed = async (category, page) => {
 		return error.response.data.code;
 	}
 };
+
+export const postLike = async (boardId) => {
+	const token = localStorage.getItem('access');
+	try {
+		const axiosResponse = await axios.put(
+			`${process.env.REACT_APP_ILOGU_API_SERVER}/api/board/like/${boardId}`,
+			{},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+			},
+		);
+		console.log(axiosResponse);
+		return axiosResponse.data;
+	} catch (error) {
+		return error.response.data.code;
+	}
+};
