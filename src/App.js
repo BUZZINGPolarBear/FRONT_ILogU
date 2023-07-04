@@ -19,6 +19,7 @@ import SignInMain from './APP/Login/Sign.In.Main';
 import DetailKeyword from './APP/Home/Home.main.keyword';
 import DetailVeiw from './APP/Home/Home.detail.product';
 import FamilyAllFeed from './APP/Family/Family.main.all.feed';
+import * as signInRecoil from './APP/Login/recoil/Login.recoil.states';
 import * as tokens from './tokens';
 import {
 	BrowserRouter,
@@ -70,6 +71,9 @@ function App() {
 		navigate(`/${type}`);
 		setNavigateBtn(type);
 	};
+	const [userFamilyType, setUserFamilyType] = useRecoilState(
+		signInRecoil.familyType,
+	);
 	const navigateReoilSelectState = useRecoilValue(recoilMain.navigateRecoil);
 	const [navigateBtn, setNavigateBtn] = useRecoilState(
 		recoilMain.navigateRecoil,
@@ -109,7 +113,8 @@ function App() {
 			nowLocation.pathname != '/' &&
 			nowLocation.pathname != '/signup' &&
 			nowLocation.pathname != '/signin' &&
-			nowLocation.pathname != '/home/keyword' ? (
+			nowLocation.pathname != '/home/keyword' &&
+			userFamilyType === 'PARENTS' ? (
 				<BottomNavBar>
 					<NavImg onClick={(e) => handleNavClick(e, 'home')}>
 						{nowLocation.pathname === '/home' ? (
