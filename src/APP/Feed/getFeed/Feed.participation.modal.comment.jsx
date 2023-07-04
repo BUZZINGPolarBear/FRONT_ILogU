@@ -173,7 +173,10 @@ function CommentModal(props) {
 				>
 					<modalS.DraggableBox></modalS.DraggableBox>댓글
 				</modalS.TopCommentTitle>
-				{commentDiv}
+				<modalS.UserCommentContentWrapper>
+					{commentDiv}
+				</modalS.UserCommentContentWrapper>
+
 				<modalS.CommentWriteWrapper>
 					<modalS.CommentWriteAreaWrapper>
 						<modalS.commentWriteInput

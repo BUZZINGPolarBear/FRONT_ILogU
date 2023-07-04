@@ -159,6 +159,21 @@ export const CommentWriteWrapper = styled.div`
 	// background-color: #efefefce;
 `;
 
+export const UserCommentContentWrapper = styled.div`
+	width: 100%;
+	min-height: 30vh;
+	height: fit-content;
+
+	overflow-y: hidden;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+
+	// background-color: antiquewhite;
+`;
+
 export const CommentWriteAreaWrapper = styled.div`
 	width: 95%;
 	height: 40px;
