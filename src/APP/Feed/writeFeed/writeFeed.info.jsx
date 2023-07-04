@@ -46,9 +46,6 @@ function FeedWrite(props) {
 	return (
 		<>
 			<infoS.TopNavBar>
-				<infoS.TopBackwardArea
-					onClick={(e) => handleBackwardClick(e)}
-				></infoS.TopBackwardArea>
 				<infoS.TopTextArea>기록하기</infoS.TopTextArea>
 			</infoS.TopNavBar>
 			<infoS.FeedWriteArea>

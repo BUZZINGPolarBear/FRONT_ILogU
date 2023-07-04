@@ -197,7 +197,7 @@ function FeedTitle(props) {
 				</titleS.FeedCategory>
 			</infoS.FeedCategorySelectArea>
 			<infoS.FeedWriteSubmitArea
-				is_category_selected={inputValue.length > 1 ? true : false}
+				is_category_selected={inputValue.length > 1 ? 'true' : 'false'}
 				onClick={hanleNextBtnClick}
 			>
 				다음

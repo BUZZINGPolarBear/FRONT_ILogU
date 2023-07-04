@@ -168,7 +168,7 @@ export const FeedWriteSubmitArea = styled.div`
 	text-align: center;
 	${tokens.typography.subtitle_1};
 	${(props) =>
-		props.is_category_selected == false && props.isUploadBtnClicked == false
+		props.is_category_selected == 'false'
 			? `background-color: ${tokens.colors.grey_100}; cursor: not-allowed; pointer-events: none;`
 			: `background-color: ${tokens.colors.green_500}; cursor: pointer;`}
 	}

@@ -13,7 +13,7 @@ import * as feedRecoil from './recoil/recoild.feed';
 import * as infoS from './Styles/info.styles';
 
 function FeedCategory() {
-	const [isSelected, setIsSelected] = useState(false);
+	const [isSelected, setIsSelected] = useState('false');
 	const [selectCategory, setSelectCategory] = useState('none');
 	const [writeStatusRecoil, setWriteStatusRecoil] = useRecoilState(
 		feedRecoil.writeCategoryRecoil,
@@ -21,7 +21,7 @@ function FeedCategory() {
 	const navigate = useNavigate();
 
 	const handleCaterogyClick = (e, category) => {
-		setIsSelected(true);
+		setIsSelected('true');
 		setSelectCategory(category);
 		setWriteStatusRecoil(category);
 	};
