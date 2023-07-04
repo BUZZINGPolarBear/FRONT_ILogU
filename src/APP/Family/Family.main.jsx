@@ -25,9 +25,7 @@ function FamilyMainScreen() {
 	const [isMoneyOpened, setIsMoneyOpened] = useRecoilState(
 		recoilFamily.isMoneyOpend,
 	);
-	const [userFamilyType, setUserFamilyType] = useRecoilState(
-		signInRecoil.familyType,
-	);
+	const userFamilyType = localStorage.getItem('userType');
 	const [moneyRankDiv, setMoneyRankDiv] = useState([]);
 	const [likeRankDiv, setLikeRankDiv] = useState([]);
 	const nowLocation = useLocation();
