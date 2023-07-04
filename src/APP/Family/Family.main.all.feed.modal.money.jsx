@@ -17,9 +17,7 @@ function MoneyModal(props) {
 	const [isMoneyOpened, setIsMoneyOpened] = useRecoilState(
 		recoilFamily.isMoneyOpend,
 	);
-	const [userFamilyType, setUserFamilyType] = useRecoilState(
-		signInRecoil.familyType,
-	);
+	const userFamilyType = localStorage.getItem('userType');
 	const [commentModalId, setCommentModalId] = useRecoilState(
 		recoilFamily.feedBoardId,
 	);
@@ -75,28 +73,14 @@ function MoneyModal(props) {
 
 	//용돈 가져오기
 	useEffect(() => {
-		const getFeedBabyMoney = (fetchResponse) => {
-			console.log(props.boardId);
-			for (let i = 0; i < fetchResponse.length; i++) {
-				const localContent = fetchResponse[i];
-				if ((localContent.id = commentModalId)) {
-					console.log(localContent);
-					setBalance(localContent.balance);
-					break;
-				}
-			}
-		};
-
 		const fetchData = async () => {
 			if (props.type == 'feed') {
-				let getData = await FeedApi.getFeed(100);
+				let getData = await FeedApi.getFeedMoney(props.boardId);
 				if (getData == '400-03-04') {
 					await tokenAPI.RefreshToken();
-					getData = await FeedApi.getFeed(100);
+					getData = await FeedApi.getFeedMoney(props.boardId);
 				}
-
-				const boardResponseArr = getData.result.content;
-				getFeedBabyMoney(boardResponseArr);
+				setBalance(getData.result.balance);
 			} else if (props.type == 'main') {
 				let getData = await FeedApi.getBabyAllMoney();
 				if (getData == '400-03-04') {

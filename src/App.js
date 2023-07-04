@@ -79,7 +79,7 @@ function App() {
 		recoilMain.navigateRecoil,
 	);
 	const nowLocation = useLocation();
-
+	const userType = localStorage.getItem('userType');
 	return (
 		<div className="App">
 			<MainScreen
@@ -114,7 +114,7 @@ function App() {
 			nowLocation.pathname != '/signup' &&
 			nowLocation.pathname != '/signin' &&
 			nowLocation.pathname != '/home/keyword' &&
-			userFamilyType === 'PARENTS' ? (
+			userType === 'PARENTS' ? (
 				<BottomNavBar>
 					<NavImg onClick={(e) => handleNavClick(e, 'home')}>
 						{nowLocation.pathname === '/home' ? (
