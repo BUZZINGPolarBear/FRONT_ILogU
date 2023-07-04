@@ -61,7 +61,9 @@ function SimpleFamilyFeed() {
 								</SimpleS.InfoContentWrapper>
 								<SimpleS.InfoContentWrapper>
 									<SimpleS.SimpleFeedIcon src="/Family/money.svg"></SimpleS.SimpleFeedIcon>{' '}
-									{localContent.balance}
+									{localContent.balance
+										.toString()
+										.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
 								</SimpleS.InfoContentWrapper>
 							</SimpleS.SimpleFeedInfo>
 						</SimpleS.SimpleFeedContentWrapper>

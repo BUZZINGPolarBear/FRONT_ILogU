@@ -9,3 +9,8 @@ export const isMoneyOpend = atom({
 	key: 'familyMoneyIsOpen',
 	default: false,
 });
+
+export const feedBoardId = atom({
+	key: 'familyFeedBoardId',
+	default: 0,
+});

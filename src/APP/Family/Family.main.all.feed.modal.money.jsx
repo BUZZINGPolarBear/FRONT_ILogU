@@ -17,14 +17,16 @@ function MoneyModal(props) {
 	const [isMoneyOpened, setIsMoneyOpened] = useRecoilState(
 		recoilFamily.isMoneyOpend,
 	);
-	const [userFamilyType, setUserFamilyType] = useRecoilState(
-		signInRecoil.familyType,
+	const userFamilyType = localStorage.getItem('userType');
+	const [commentModalId, setCommentModalId] = useRecoilState(
+		recoilFamily.feedBoardId,
 	);
 	const [isMoneyBtnAvailable, setIsMoneyBtnAvailable] = useState(false);
 	const [modalPositionY, setModalPositionY] = useState(500);
 	const [balance, setBalance] = useState(0);
 	const inputRef = useRef();
 	const [inputMoney, setInputMoney] = useState(0);
+
 	const ModalStyle = {
 		overlay: {
 			position: 'fixed',
@@ -33,7 +35,7 @@ function MoneyModal(props) {
 			right: 0,
 			bottom: 0,
 			backgroundColor: 'rgba(0, 0, 0, 0.45)',
-			zIndex: 100000,
+			zIndex: 10000,
 		},
 		content: {
 			position: 'absolute',
@@ -56,43 +58,16 @@ function MoneyModal(props) {
 		},
 	};
 
-	//뒷배경 스크롤 방지
-	useEffect(() => {
-		document.body.style.cssText = `
-		  position: fixed; 
-		  top: -${window.scrollY}px;
-		  overflow-y: scroll;
-		  width: 100%;`;
-		return () => {
-			const scrollY = document.body.style.top;
-			document.body.style.cssText = '';
-			window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
-		};
-	}, []);
-
 	//용돈 가져오기
 	useEffect(() => {
-		const getFeedBabyMoney = (fetchResponse) => {
-			console.log(props.boardId);
-			for (let i = 0; i < fetchResponse.length; i++) {
-				const localContent = fetchResponse[i];
-				if ((localContent.id = props.boardId)) {
-					setBalance(localContent.balance);
-					break;
-				}
-			}
-		};
-
 		const fetchData = async () => {
 			if (props.type == 'feed') {
-				let getData = await FeedApi.getFeed(100);
+				let getData = await FeedApi.getFeedMoney(props.boardId);
 				if (getData == '400-03-04') {
 					await tokenAPI.RefreshToken();
-					getData = await FeedApi.getFeed(100);
+					getData = await FeedApi.getFeedMoney(props.boardId);
 				}
-
-				const boardResponseArr = getData.result.content;
-				getFeedBabyMoney(boardResponseArr);
+				setBalance(getData.result.balance);
 			} else if (props.type == 'main') {
 				let getData = await FeedApi.getBabyAllMoney();
 				if (getData == '400-03-04') {
@@ -119,27 +94,23 @@ function MoneyModal(props) {
 	const setModalIsOpen = () => {
 		setIsMoneyOpened(false);
 	};
-	//모달창 드래그
-	let startY = 0;
+	// //모달창 드래그
+	// let startY = 0;
 
-	const handleTouchStart = (e) => {
-		startY = e.touches[0].clientY;
-	};
+	// const handleTouchStart = (e) => {
+	// 	startY = e.touches[0].clientY;
+	// };
 
-	const handleTouchMove = (e) => {
-		const currentY = e.touches[0].clientY;
-		const diffY = currentY - startY;
+	// const handleTouchMove = (e) => {
+	// 	const currentY = e.touches[0].clientY;
+	// 	const diffY = currentY - startY;
 
-		setModalPositionY(startY + diffY);
+	// 	setModalPositionY(diffY);
+	// };
 
-		if (startY + diffY > 600) {
-			setIsMoneyOpened();
-		}
-	};
-
-	const handleTouchEnd = () => {
-		startY = 0;
-	};
+	// const handleTouchEnd = () => {
+	// 	startY = 0;
+	// };
 	//용돈 기입
 	const handleMoneyInput = () => {
 		inputRef.current.focus();
@@ -195,19 +166,6 @@ function MoneyModal(props) {
 					onRequestClose={() => setModalIsOpen()} // 오버레이나 esc를 누르면 핸들러 동작
 					ariaHideApp={false}
 				>
-					<input
-						type="number"
-						inputmode="numeric"
-						ref={inputRef}
-						value={inputMoney}
-						onChange={handleChange}
-						keyboardType="number-pad"
-						style={{
-							position: 'absolute',
-							left: '-1000px',
-							top: '-1000px',
-						}}
-					/>
 					<modalS.TopMoneyTitle>
 						<modalS.DraggableBox></modalS.DraggableBox>
 					</modalS.TopMoneyTitle>
@@ -216,6 +174,19 @@ function MoneyModal(props) {
 						<modalS.TopContentWrapper style={{ marginTop: '15px' }}>
 							<modalS.TopContentWrapper type="sub">
 								용돈 얼마를 주실건가요?
+								<input
+									type="number"
+									inputmode="numeric"
+									ref={inputRef}
+									value={inputMoney}
+									onChange={handleChange}
+									keyboardType="number-pad"
+									style={{
+										position: 'absolute',
+										left: '-1000px',
+										top: '-1000px',
+									}}
+								/>
 							</modalS.TopContentWrapper>
 							<modalS.TopContentWrapper type="main" onClick={handleMoneyInput}>
 								{inputMoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
