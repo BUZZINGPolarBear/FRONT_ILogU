@@ -10,6 +10,7 @@ import * as recoilFamily from './recoil/feed.recoil';
 import * as utils from '../Feed/getFeed/feed.utils';
 //api
 import * as FeedApi from './Apis/simple.feed.api';
+import * as FeedMainApi from './Apis/main.feed.api';
 import * as tokenAPI from '../AutoSignIn';
 
 function MoneyModal(props) {
@@ -139,9 +140,21 @@ function MoneyModal(props) {
 	const handleTouchEnd = () => {
 		startY = 0;
 	};
-
+	//용돈 기입
 	const handleMoneyInput = () => {
 		inputRef.current.focus();
+	};
+	//용돈 전송
+	const handleMoneySend = (e, boardId, money) => {
+		e.preventDefault();
+
+		const sendMoney = async () => {
+			let sendMoneyResult = await FeedMainApi.postFeedMoney(boardId, money);
+			console.log(sendMoneyResult);
+			setIsMoneyOpened(false);
+		};
+
+		let result = sendMoney();
 	};
 
 	return (
@@ -210,8 +223,10 @@ function MoneyModal(props) {
 						</modalS.TopContentWrapper>
 					</modalS.MoneyModalConentWrapper>
 					<modalS.MoneyCloseBtn
-						onClick={setModalIsOpen}
-						type={inputMoney == false ? 'disable' : 'available'}
+						onClick={(e) => {
+							handleMoneySend(e, props.boardId, parseInt(inputMoney));
+						}}
+						type={isMoneyBtnAvailable == false ? 'disable' : 'available'}
 					>
 						용돈 보내기
 					</modalS.MoneyCloseBtn>
