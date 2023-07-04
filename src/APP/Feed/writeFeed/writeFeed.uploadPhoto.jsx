@@ -229,7 +229,7 @@ function UploadPhoto(props) {
 			</infoS.FeedCategorySelectArea>
 
 			<infoS.FeedWriteSubmitArea
-				is_category_selected={selectedImages.length > 0 ? true : false}
+				is_category_selected={selectedImages.length > 0 ? 'true' : 'false'}
 				onClick={handleNextBtn}
 				isAutoGenerateFeedClicked={isAutoGenerateFeedClicked}
 				isUploadBtnClicked={isUploadBtnClicked}
