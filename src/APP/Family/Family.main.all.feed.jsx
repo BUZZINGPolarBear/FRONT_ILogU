@@ -221,13 +221,13 @@ function FamilyAllFeed(props) {
 	}, [boardBodyContentArr]);
 	return (
 		<>
-			{isMoneyOpened == true ? (
-				<MoneyModal boardId={commentModalId} type="feed"></MoneyModal>
+			{isCommentOpend == true ? (
+				<CommentModal boardId={commentModalId}></CommentModal>
 			) : (
 				<></>
 			)}
-			{isCommentOpend == true ? (
-				<CommentModal boardId={commentModalId}></CommentModal>
+			{isMoneyOpened == true ? (
+				<MoneyModal boardId={commentModalId} type="feed"></MoneyModal>
 			) : (
 				<></>
 			)}
