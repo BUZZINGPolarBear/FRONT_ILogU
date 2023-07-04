@@ -49,7 +49,9 @@ function FamilyMainScreen() {
 						</FamilyS.RankTitle>
 						<FamilyS.RankContentArea>
 							<FamilyS.RankContent type="money">
-								{moneyArr[i].sendToChild}
+								{moneyArr[i].sendToChild
+									.toString()
+									.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
 							</FamilyS.RankContent>
 						</FamilyS.RankContentArea>
 					</FamilyS.RankArea>,
