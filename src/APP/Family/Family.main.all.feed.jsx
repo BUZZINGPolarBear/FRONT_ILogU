@@ -21,7 +21,9 @@ function FamilyAllFeed(props) {
 	const [boardBodyArr, setBoardBodyArr] = useState([]);
 	const [boardBodyContentArr, setBoardBodyContentArr] = useState([]);
 	const [isCommentClicked, setIsCommentClicked] = useState(false);
-	const [commentModalId, setCommentModalId] = useState();
+	const [commentModalId, setCommentModalId] = useRecoilState(
+		recoilFamily.feedBoardId,
+	);
 	const [isCommentOpend, setIsCommentOpend] = useRecoilState(
 		recoilFamily.isCommentOpend,
 	);
@@ -191,7 +193,9 @@ function FamilyAllFeed(props) {
 								>
 									<img src="/Family/money.svg" alt="용돈"></img>
 									<div style={{ marginLeft: '5px' }}>
-										{localContent.balance}
+										{localContent.balance
+											.toString()
+											.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
 									</div>
 								</FeedparicipateS.TopInfo>
 							</FeedparicipateS.FeedChallengeTopBottomWrapper>

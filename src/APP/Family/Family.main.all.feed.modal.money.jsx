@@ -20,6 +20,9 @@ function MoneyModal(props) {
 	const [userFamilyType, setUserFamilyType] = useRecoilState(
 		signInRecoil.familyType,
 	);
+	const [commentModalId, setCommentModalId] = useRecoilState(
+		recoilFamily.feedBoardId,
+	);
 	const [isMoneyBtnAvailable, setIsMoneyBtnAvailable] = useState(false);
 	const [modalPositionY, setModalPositionY] = useState(500);
 	const [balance, setBalance] = useState(0);
@@ -76,7 +79,8 @@ function MoneyModal(props) {
 			console.log(props.boardId);
 			for (let i = 0; i < fetchResponse.length; i++) {
 				const localContent = fetchResponse[i];
-				if ((localContent.id = props.boardId)) {
+				if ((localContent.id = commentModalId)) {
+					console.log(localContent);
 					setBalance(localContent.balance);
 					break;
 				}

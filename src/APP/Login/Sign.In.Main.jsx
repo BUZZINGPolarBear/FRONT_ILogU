@@ -67,9 +67,10 @@ function SignInMain() {
 			const refreshToken = response.result.refreshToken;
 			localStorage.setItem('access', accessToken);
 			localStorage.setItem('refresh', refreshToken);
+			console.log('updated');
 			setUserFamilyType(response.result.familyType);
-			if (userFamilyType === 'PARENTS') navigate('/home');
-			else if (userFamilyType === 'OTHERS') navigate('/family');
+			if (response.result.familyType === 'PARENTS') navigate('/home');
+			else if (response.result.familyType === 'OTHERS') navigate('/family');
 		}
 	};
 
