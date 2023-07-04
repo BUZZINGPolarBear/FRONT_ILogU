@@ -75,7 +75,6 @@ function App() {
 		recoilMain.navigateRecoil,
 	);
 	const nowLocation = useLocation();
-	// console.log(nowLocation.pathname);
 
 	return (
 		<div className="App">
@@ -113,7 +112,7 @@ function App() {
 			nowLocation.pathname != '/home/keyword' ? (
 				<BottomNavBar>
 					<NavImg onClick={(e) => handleNavClick(e, 'home')}>
-						{navigateReoilSelectState === 'home' ? (
+						{nowLocation.pathname === '/home' ? (
 							<img
 								src="/bottomNavBar/home_clicked.svg"
 								alt="home clicked"
@@ -126,8 +125,7 @@ function App() {
 						)}
 					</NavImg>
 					<NavImg onClick={(e) => handleNavClick(e, 'feed/main')}>
-						{navigateReoilSelectState === 'feed/main' ||
-						navigateReoilSelectState === 'feed/participation' ? (
+						{nowLocation.pathname === '/feed/main' ? (
 							<img
 								src="/bottomNavBar/feed_clicked.svg"
 								alt="feed clicked"
@@ -140,7 +138,7 @@ function App() {
 						)}
 					</NavImg>
 					<NavImg onClick={(e) => handleNavClick(e, 'write')}>
-						{navigateReoilSelectState === 'write' ? (
+						{nowLocation.pathname === '/write' ? (
 							<img
 								src="/bottomNavBar/history_clicked.svg"
 								alt="challenge clicked"
@@ -153,7 +151,8 @@ function App() {
 						)}
 					</NavImg>
 					<NavImg onClick={(e) => handleNavClick(e, 'family')}>
-						{navigateReoilSelectState === 'family' ? (
+						{nowLocation.pathname === '/family' ||
+						nowLocation.pathname === '/family/feed' ? (
 							<img
 								src="/bottomNavBar/ourFamily_clicked.svg"
 								alt="challenge clicked"

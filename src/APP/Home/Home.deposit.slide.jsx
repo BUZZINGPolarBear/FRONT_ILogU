@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import * as slideS from './Styles/Home.investment.slide';
 import 'swiper/swiper-bundle.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import * as recoilMain from '../../recoil/recoil.App';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import {
 	BrowserRouter,
@@ -11,15 +12,23 @@ import {
 	Routes,
 	useNavigate,
 } from 'react-router-dom';
+import {
+	RecoilRoot,
+	atom,
+	selector,
+	useRecoilState,
+	useRecoilValue,
+} from 'recoil';
 
 SwiperCore.use([Scrollbar, A11y]);
 
 function DepositSwiper() {
 	const navigate = useNavigate();
-
+	const [navigateRecoilSelectState, setNavigateRecoilSelectState] =
+		useRecoilState(recoilMain.navigateRecoil);
 	const handleDepositDetailView = (e, type) => {
 		e.preventDefault();
-
+		setNavigateRecoilSelectState('home');
 		navigate(`/home/deposit/detail/${type}`);
 	};
 
