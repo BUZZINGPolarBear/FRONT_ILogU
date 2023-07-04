@@ -1,16 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
-import * as modalS from './Styles/Family.main.all.feed.modal.comment';
+import * as modalS from '../../Family/Styles/Family.main.all.feed.modal.comment';
+
 import { useRecoilState, useRecoilValue } from 'recoil';
-import * as utils from '../Feed/getFeed/feed.utils';
-import * as recoilFamily from './recoil/feed.recoil';
-import * as api from './Apis/simple.feed.api';
-import * as tokenAPI from '../AutoSignIn';
+import * as utils from './feed.utils';
+import * as recoilFeed from './recoil/recoild.feed';
+import * as api from '../../Family/Apis/simple.feed.api';
+import * as tokenAPI from '../../AutoSignIn';
 
 function CommentModal(props) {
-	const [isCommentOpend, setIsCommentOpend] = useRecoilState(
-		recoilFamily.isCommentOpend,
+	const [isFeedCommentOpend, setIsFeedCommentOpend] = useRecoilState(
+		recoilFeed.isFeedCommentOpend,
 	);
 	const [commentData, setCommentData] = useState([]);
 	const [commentDiv, setCommentDiv] = useState([]);
@@ -65,7 +66,6 @@ function CommentModal(props) {
 				comment: getData.data.result.comment,
 				profile: getData.data.result.imageUrl,
 			};
-			console.log(localCommentData);
 
 			let prevCommentData = [...commentData];
 			prevCommentData.push(localCommentData);
@@ -99,10 +99,10 @@ function CommentModal(props) {
 				await tokenAPI.RefreshToken();
 				getData = await api.getComment(props.boardId);
 			}
-
 			addBoardCommentData(getData.data.result.content);
 		};
-		const response = fetchData();
+
+		fetchData(); // Call the async function directly
 	}, []);
 
 	//댓글 그리기
@@ -135,7 +135,7 @@ function CommentModal(props) {
 
 	//모달창 끄기
 	const setModalIsOpen = () => {
-		setIsCommentOpend(false);
+		setIsFeedCommentOpend(false);
 	};
 	//모달창 드래그
 	let startY = 0;
