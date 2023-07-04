@@ -13,6 +13,24 @@ function FeedParticipation(props) {
 	const [selectedCategory, setSelectedCategory] = useRecoilState(
 		recoil.feedCategoryRecoil,
 	);
+
+	//좋아요 버튼
+	const handleBoardLike = async (boardId) => {
+		const response = await FeedApi.postLike(boardId);
+
+		let copyBoardBodyContentArr = [...boardBodyContentArr];
+		// console.log(response);
+		for (let i = 0; i < copyBoardBodyContentArr.length; i++) {
+			// console.log(copyBoardBodyContentArr[i]);
+			if (copyBoardBodyContentArr[i].id == boardId) {
+				copyBoardBodyContentArr[i].isLiked = response.result.isLike;
+				copyBoardBodyContentArr[i].likesCount = response.result.likes;
+				break;
+			}
+		}
+		// copyBoardBodyContentArr[boardId].isLiked = response.result.isLike;
+		setBoardBodyContentArr(copyBoardBodyContentArr);
+	};
 	//게시판 내용 받아오기
 	useEffect(() => {
 		let category = selectedCategory;
@@ -116,21 +134,27 @@ function FeedParticipation(props) {
 
 						<FeedparicipateS.FeedChallengeContentWrapper>
 							<FeedparicipateS.FeedChallengeTopBottomWrapper>
-								<FeedparicipateS.TopInfo>
-									<img src="/Feed/icons/like.svg" alt="좋아요"></img>
+								<FeedparicipateS.TopInfo
+									onClick={(e) => {
+										handleBoardLike(localContent.id);
+									}}
+								>
+									{localContent.isLiked == true ? (
+										<img src="/Feed/icons/clicked_like.svg" alt="좋아요"></img>
+									) : (
+										<img src="/Feed/icons/like.svg" alt="좋아요"></img>
+									)}
 									<div>{localContent.likesCount}</div>
 								</FeedparicipateS.TopInfo>
 								<FeedparicipateS.TopInfo>
-									<img src="/Feed/icons/comment.svg" alt="좋아요"></img>
+									<img src="/Feed/icons/comment.svg" alt="댓글"></img>
 									<div>{localContent.commentsCount}</div>
 								</FeedparicipateS.TopInfo>
 							</FeedparicipateS.FeedChallengeTopBottomWrapper>
 							<FeedparicipateS.FeedChallengeMiddleWrapper>
 								{localContent.content}
 							</FeedparicipateS.FeedChallengeMiddleWrapper>
-							<FeedparicipateS.FeedChallengeTopBottomWrapper
-							// style={{ height: '35%' }}
-							>
+							<FeedparicipateS.FeedChallengeTopBottomWrapper>
 								<FeedparicipateS.FeedTag>{category}</FeedparicipateS.FeedTag>
 								<FeedparicipateS.FeedTag>
 									{localContent.title}
