@@ -25,7 +25,7 @@ function AfterUploadModal(props) {
 			top: '30vh',
 			left: '10vw',
 			right: '10vw',
-			height: '360px',
+			height: '400px',
 			WebkitOverflowScrolling: 'touch',
 			borderRadius: '25px',
 			outline: 'none',
@@ -50,6 +50,7 @@ function AfterUploadModal(props) {
 				<modalS.TopImageWrapper></modalS.TopImageWrapper>
 				<modalS.MainTitleWrapper>
 					<modalS.MainTitle type="sub">아이와의 행복한 순간의</modalS.MainTitle>
+					<modalS.MainTitle type="main">+5P</modalS.MainTitle>
 					<modalS.MainTitle type="main">기록이 완료되었어요!</modalS.MainTitle>
 				</modalS.MainTitleWrapper>
 				<modalS.BtnWrapper onClick={(e) => handleToFirstPage(e)}>

@@ -34,7 +34,7 @@ export const MainTitle = styled.div`
 
 export const BtnWrapper = styled.div`
 	width: 100%;
-	height: 35%;
+	height: 90px;
 
 	display: flex;
 	flex-direction: column;
@@ -44,7 +44,7 @@ export const BtnWrapper = styled.div`
 
 export const ModalBtn = styled.button`
 	width: 100%;
-	height: 45%;
+	height: 40px;
 
 	border: 1px solid ${tokens.colors.green_600};
 	border-radius: 15px;

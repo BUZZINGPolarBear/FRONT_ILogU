@@ -180,6 +180,9 @@ function CommentModal(props) {
 				</modalS.UserCommentContentWrapper>
 
 				<modalS.CommentWriteWrapper>
+					<modalS.CommentWriteProfile
+						src={localStorage.getItem('userProfile')}
+					></modalS.CommentWriteProfile>
 					<modalS.CommentWriteAreaWrapper>
 						<modalS.commentWriteInput
 							className="feedComment"
