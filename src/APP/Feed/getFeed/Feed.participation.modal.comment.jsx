@@ -13,6 +13,9 @@ function CommentModal(props) {
 	const [isFeedCommentOpend, setIsFeedCommentOpend] = useRecoilState(
 		recoilFeed.isFeedCommentOpend,
 	);
+	const [commentWriteResult, setCommentWriteResult] = useRecoilState(
+		recoilFeed.feedCommentWriteResult,
+	);
 	const [commentData, setCommentData] = useState([]);
 	const [commentDiv, setCommentDiv] = useState([]);
 	const inputRef = useRef();
@@ -71,6 +74,12 @@ function CommentModal(props) {
 			prevCommentData.push(localCommentData);
 			setCommentData(prevCommentData);
 			setCommentValue('');
+
+			let prevCommentUploadData = { ...commentWriteResult };
+			prevCommentUploadData.boardId = props.boardId;
+			prevCommentUploadData.commentsCount += 1;
+
+			setCommentWriteResult(prevCommentUploadData);
 		};
 
 		fetchData();
