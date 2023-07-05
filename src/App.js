@@ -19,6 +19,7 @@ import SignInMain from './APP/Login/Sign.In.Main';
 import DetailKeyword from './APP/Home/Home.main.keyword';
 import DetailVeiw from './APP/Home/Home.detail.product';
 import FamilyAllFeed from './APP/Family/Family.main.all.feed';
+import MypageMain from './APP/Mypage/Mypage.main';
 import * as signInRecoil from './APP/Login/recoil/Login.recoil.states';
 import * as tokens from './tokens';
 import {
@@ -95,6 +96,7 @@ function App() {
 					<Route path="/home" element={<HomeMain />} />
 					<Route path="/home/keyword/*" element={<DetailKeyword />} />
 					<Route path="/home/deposit/detail/*" element={<DetailVeiw />} />
+					<Route path="/mypage" element={<MypageMain />} />
 					<Route
 						path="/feed/main"
 						element={<FeedMain setNavigateBtn={setNavigateBtn} />}
