@@ -68,7 +68,7 @@ function SignInMain() {
 			localStorage.setItem('access', accessToken);
 			localStorage.setItem('refresh', refreshToken);
 			localStorage.setItem('userType', response.result.familyType);
-
+			localStorage.setItem('userProfile', response.result.imageUrl);
 			const userType = localStorage.getItem('userType');
 
 			if (userType === 'PARENTS') navigate('/home');

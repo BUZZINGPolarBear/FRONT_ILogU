@@ -35,11 +35,61 @@ export const MainWrapper = styled.div`
 	margin-left: 2.5vw;
 	margin-right: 2.5vw;
 
-	padding-top: 25px;
+	padding-top: 15px;
 	max-width: 760px;
 	min-height: 100vh;
 
 	top: 6vh;
 
 	background-color: #ffffff;
+`;
+
+export const MainUserWrapper = styled.div`
+	width: 100%;
+	height: 100px;
+
+	padding: 20px 10px 20px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+`;
+
+export const UserInfoWrapper = styled.div`
+	width: 75%;
+	height: 80px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+
+	color: #161618;
+	${tokens.typography.headline_6}
+`;
+
+export const UserInfoModify = styled.span`
+	width: 20%;
+	height: 80px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+
+	color: #95959d;
+	font-size: 10px;
+	font-weight: 500;
+	text-decoration: underline;
+`;
+
+export const UserProfilePic = styled.div`
+	width: 60px;
+	height: 60px;
+
+	border-radius: 10px;
+	margin-right: 10px;
+	background-image: url(${(props) => props.img});
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 `;
