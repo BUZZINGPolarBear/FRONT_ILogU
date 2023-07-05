@@ -34,9 +34,7 @@ export const FamilyStatusWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-around;
-
-	background-color: antiquewhite;
+	justify-content: flex-start;
 `;
 
 export const MoneyCloseBtn = styled.button`
@@ -63,4 +61,23 @@ export const MoneyCloseBtn = styled.button`
 			: `background-color: ${tokens.colors.green_500};`}
 
 	color: #ffffff;
+`;
+
+export const FamilyInfoWrapper = styled.div`
+	width: 100%;
+	height: 35px;
+	padding: 0 10px;
+	border-radius: 5px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+
+	margin-top: 10px;
+
+	color: ${tokens.colors.grey_300};
+	${tokens.typography.body_2};
+
+	background-color: #f2f2f2;
 `;

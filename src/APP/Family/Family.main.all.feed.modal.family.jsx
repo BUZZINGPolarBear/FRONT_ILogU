@@ -95,7 +95,13 @@ function FamilyStatusModal(props) {
 					<modalS.MainTitle>우리 가족 구성원</modalS.MainTitle>
 				</modalS.TopCommentTitle>
 
-				<modalS.FamilyStatusWrapper></modalS.FamilyStatusWrapper>
+				<modalS.FamilyStatusWrapper>
+					<modalS.FamilyInfoWrapper>👴🏻 루리 할아버지</modalS.FamilyInfoWrapper>
+					<modalS.FamilyInfoWrapper>👵🏻 루리 할머니</modalS.FamilyInfoWrapper>
+					<modalS.FamilyInfoWrapper>👩🏻 루리 이모</modalS.FamilyInfoWrapper>
+					<modalS.FamilyInfoWrapper>👩🏻‍🦳 루리 고모</modalS.FamilyInfoWrapper>
+					<modalS.FamilyInfoWrapper>👨🏻 루리 삼촌</modalS.FamilyInfoWrapper>
+				</modalS.FamilyStatusWrapper>
 
 				<modalS.MoneyCloseBtn onClick={setModalIsOpen}>
 					닫기
