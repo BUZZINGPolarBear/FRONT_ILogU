@@ -30,6 +30,9 @@ function FamilyAllFeed(props) {
 	const [isMoneyOpened, setIsMoneyOpened] = useRecoilState(
 		recoilFamily.isMoneyOpend,
 	);
+	const [commentWriteResult, setCommentWriteResult] = useRecoilState(
+		recoilFamily.commentWriteResult,
+	);
 	const [isLikeArr, setIsLikeArr] = useState([]);
 	const navigate = useNavigate();
 
@@ -46,7 +49,6 @@ function FamilyAllFeed(props) {
 				break;
 			}
 		}
-		// copyBoardBodyContentArr[boardId].isLiked = response.result.isLike;
 		setBoardBodyContentArr(copyBoardBodyContentArr);
 	};
 
@@ -57,6 +59,20 @@ function FamilyAllFeed(props) {
 		setCommentModalId(boardId);
 		setIsCommentOpend(true);
 	};
+	//댓글 업데이트
+	useEffect(() => {
+		let copyBoardBodyContentArr = [...boardBodyContentArr];
+
+		for (let i = 0; i < copyBoardBodyContentArr.length; i++) {
+			if (copyBoardBodyContentArr[i].id == commentWriteResult.boardId) {
+				console.log(copyBoardBodyContentArr[i]);
+				copyBoardBodyContentArr[i].commentsCount += 1;
+				break;
+			}
+		}
+
+		setBoardBodyContentArr(copyBoardBodyContentArr);
+	}, [commentWriteResult]);
 
 	//용돈
 	const handleMoney = (e, boardId) => {

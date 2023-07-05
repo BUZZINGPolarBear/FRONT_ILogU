@@ -19,3 +19,8 @@ export const feedBoardId = atom({
 	key: 'familyFeedBoardId',
 	default: 0,
 });
+
+export const commentWriteResult = atom({
+	key: 'familyCommentWriteResult',
+	default: { boardId: 0, commentCnt: 0 },
+});
