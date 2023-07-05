@@ -180,7 +180,7 @@ export const UserCommentContentWrapper = styled.div`
 `;
 
 export const CommentWriteAreaWrapper = styled.div`
-	width: 95%;
+	width: 80%;
 	height: 40px;
 
 	display: flex;
@@ -192,8 +192,19 @@ export const CommentWriteAreaWrapper = styled.div`
 	background-color: #efefefce;
 `;
 
+export const CommentWriteProfile = styled.div`
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+
+	background-image: url(${(props) => props.src});
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+`;
+
 export const commentWriteInput = styled.input`
-	width: 85%;
+	width: 75%;
 	height: 30px;
 	border: none;
 	outline: none;
