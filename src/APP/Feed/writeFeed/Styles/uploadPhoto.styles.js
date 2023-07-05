@@ -27,7 +27,7 @@ export const TitleDiv = styled.div`
 export const PhotoUploadArea = styled.div`
 	width: 98%;
 	// height: 60%;
-	min-width: 365px;
+	min-width: 340px;
 	min-height: 265px;
 	position: relative;
 
