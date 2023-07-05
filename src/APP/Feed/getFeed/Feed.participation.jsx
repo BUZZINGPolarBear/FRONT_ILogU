@@ -18,6 +18,9 @@ function FeedParticipation(props) {
 	const [isFeedCommentOpend, setIsFeedCommentOpend] = useRecoilState(
 		recoil.isFeedCommentOpend,
 	);
+	const [commentWriteResult, setCommentWriteResult] = useRecoilState(
+		recoil.feedCommentWriteResult,
+	);
 
 	//좋아요 버튼
 	const handleBoardLike = async (boardId) => {
@@ -44,6 +47,20 @@ function FeedParticipation(props) {
 		setCommentModalId(boardId);
 		setIsFeedCommentOpend(true);
 	};
+	//댓글 업데이트
+	useEffect(() => {
+		let copyBoardBodyContentArr = [...boardBodyContentArr];
+
+		for (let i = 0; i < copyBoardBodyContentArr.length; i++) {
+			if (copyBoardBodyContentArr[i].id == commentWriteResult.boardId) {
+				// console.log(copyBoardBodyContentArr[i]);
+				copyBoardBodyContentArr[i].commentsCount += 1;
+				break;
+			}
+		}
+
+		setBoardBodyContentArr(copyBoardBodyContentArr);
+	}, [commentWriteResult]);
 
 	//게시판 내용 받아오기
 	useEffect(() => {
