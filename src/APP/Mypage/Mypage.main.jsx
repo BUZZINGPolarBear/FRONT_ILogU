@@ -17,6 +17,42 @@ function MypageMain() {
 					</MypageS.UserInfoWrapper>
 					<MypageS.UserInfoModify>정보수정</MypageS.UserInfoModify>
 				</MypageS.MainUserWrapper>
+
+				<MypageS.MainContentWrapper>
+					<MypageS.MainContentContent type="main">
+						고객센터
+					</MypageS.MainContentContent>
+					<MypageS.MainContentContent type="sub">
+						자주 묻는 질문
+					</MypageS.MainContentContent>
+					<MypageS.MainContentContent type="sub">
+						1 : 1 문의하기
+					</MypageS.MainContentContent>
+					<MypageS.MainContentContent type="sub">
+						공지사항
+					</MypageS.MainContentContent>
+				</MypageS.MainContentWrapper>
+
+				<MypageS.MainContentWrapper>
+					<MypageS.MainContentContent type="main">
+						서비스 설정
+					</MypageS.MainContentContent>
+					<MypageS.MainContentContent type="sub">
+						개인정보 처리 방침
+					</MypageS.MainContentContent>
+					<MypageS.MainContentContent type="sub">
+						서비스 이용 약관
+					</MypageS.MainContentContent>
+					<MypageS.MainContentContent type="sub">
+						오픈소스 라이센스
+					</MypageS.MainContentContent>
+					<MypageS.MainContentContent type="sub">
+						실험실
+					</MypageS.MainContentContent>
+					<MypageS.MainContentContent type="sub">
+						버전 정보 0.0000.1
+					</MypageS.MainContentContent>
+				</MypageS.MainContentWrapper>
 			</MypageS.MainWrapper>
 		</>
 	);
