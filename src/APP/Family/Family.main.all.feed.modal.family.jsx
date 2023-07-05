@@ -41,7 +41,7 @@ function FamilyStatusModal(props) {
 			paddingTop: '2%',
 			background: '#ffffff',
 			overflow: 'auto',
-			top: `40vh`,
+			top: `30vh`,
 			left: '2vw',
 			right: '2vw',
 			height: '100vh',
