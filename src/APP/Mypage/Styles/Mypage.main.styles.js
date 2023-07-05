@@ -112,6 +112,9 @@ export const MainContentContent = styled.span`
 	width: 100%;
 	height: fit-content;
 	text-align: left;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	${tokens.typography.body_2};
 	${(props) =>
 		props.type == 'main'

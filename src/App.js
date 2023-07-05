@@ -172,7 +172,7 @@ function App() {
 						)}
 					</NavImg>
 					<NavImg onClick={(e) => handleNavClick(e, 'mypage')}>
-						{navigateReoilSelectState === 'mypage' ? (
+						{nowLocation.pathname === '/mypage' ? (
 							<img
 								src="/bottomNavBar/mypage_clicked.svg"
 								alt="mypage clicked"

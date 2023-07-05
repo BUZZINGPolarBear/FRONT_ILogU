@@ -50,7 +50,8 @@ function MypageMain() {
 						실험실
 					</MypageS.MainContentContent>
 					<MypageS.MainContentContent type="sub">
-						버전 정보 0.0000.1
+						<span>버전 정보 0.0000.1</span>
+						<span style={{ color: '#a1a1a1' }}>최신 버전 입니다.</span>
 					</MypageS.MainContentContent>
 				</MypageS.MainContentWrapper>
 			</MypageS.MainWrapper>
