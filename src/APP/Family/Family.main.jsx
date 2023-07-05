@@ -17,6 +17,7 @@ import * as signInRecoil from '../Login/recoil/Login.recoil.states';
 import * as utils from '../Feed/getFeed/feed.utils';
 //modal
 import MoneyModal from './Family.main.all.feed.modal.money';
+import FamilyStatusModal from './Family.main.all.feed.modal.family';
 //api
 import * as api from './Apis/main.feed.api';
 import * as tokenAPI from '../AutoSignIn';
@@ -24,6 +25,9 @@ import * as tokenAPI from '../AutoSignIn';
 function FamilyMainScreen() {
 	const [isMoneyOpened, setIsMoneyOpened] = useRecoilState(
 		recoilFamily.isMoneyOpend,
+	);
+	const [isFamilyStatusOpend, setIsFamilyStatusOpend] = useRecoilState(
+		recoilFamily.isFamilyStatusOpend,
 	);
 	const userFamilyType = localStorage.getItem('userType');
 	const [moneyRankDiv, setMoneyRankDiv] = useState([]);
@@ -98,14 +102,27 @@ function FamilyMainScreen() {
 		e.preventDefault();
 		setIsMoneyOpened(true);
 	};
+
+	const handleFamilyStatusIconClick = (e) => {
+		e.preventDefault();
+		setIsFamilyStatusOpend(true);
+	};
 	return (
 		<>
 			{isMoneyOpened == true ? <MoneyModal type="main"></MoneyModal> : <></>}
+			{isFamilyStatusOpend == true ? (
+				<FamilyStatusModal></FamilyStatusModal>
+			) : (
+				<></>
+			)}
 			<FamilyS.TopNavBar>
 				<FamilyS.TopNavTitle>우리가족</FamilyS.TopNavTitle>
 				{userFamilyType === 'PARENTS' ? (
 					<>
-						<FamilyS.TopNavIcon icon="baby" />
+						<FamilyS.TopNavIcon
+							icon="baby"
+							onClick={(e) => handleFamilyStatusIconClick(e)}
+						/>
 						<FamilyS.TopNavIcon
 							icon="money"
 							onClick={(e) => handleMoneyIconClick(e)}
