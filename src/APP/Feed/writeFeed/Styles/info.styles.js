@@ -101,7 +101,7 @@ export const FeedCategoryWrapper = styled.div`
 	height: 7vh;
 	max-height: 60px;
 	margin: auto;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	padding-top: 0;
 	display: flex;
 	align-items: center;

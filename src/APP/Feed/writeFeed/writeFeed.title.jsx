@@ -103,7 +103,7 @@ function FeedTitle(props) {
 						<FormControl
 							sx={{
 								m: 1,
-								width: '140px',
+								width: '160px',
 
 								borderColor: '#ffffff',
 							}}
