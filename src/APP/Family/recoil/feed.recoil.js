@@ -24,3 +24,8 @@ export const commentWriteResult = atom({
 	key: 'familyCommentWriteResult',
 	default: { boardId: 0, commentCnt: 0 },
 });
+
+export const familyMoneySendResult = atom({
+	key: 'familyMoneySendResult',
+	default: { boardId: 0, money: 0 },
+});

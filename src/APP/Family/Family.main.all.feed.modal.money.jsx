@@ -21,6 +21,9 @@ function MoneyModal(props) {
 	const [commentModalId, setCommentModalId] = useRecoilState(
 		recoilFamily.feedBoardId,
 	);
+	const [familyMoneySendResult, setfamilyMoneySendResult] = useRecoilState(
+		recoilFamily.familyMoneySendResult,
+	);
 	const [isMoneyBtnAvailable, setIsMoneyBtnAvailable] = useState(false);
 	const [modalPositionY, setModalPositionY] = useState(500);
 	const [balance, setBalance] = useState(0);
@@ -94,23 +97,7 @@ function MoneyModal(props) {
 	const setModalIsOpen = () => {
 		setIsMoneyOpened(false);
 	};
-	// //모달창 드래그
-	// let startY = 0;
 
-	// const handleTouchStart = (e) => {
-	// 	startY = e.touches[0].clientY;
-	// };
-
-	// const handleTouchMove = (e) => {
-	// 	const currentY = e.touches[0].clientY;
-	// 	const diffY = currentY - startY;
-
-	// 	setModalPositionY(diffY);
-	// };
-
-	// const handleTouchEnd = () => {
-	// 	startY = 0;
-	// };
 	//용돈 기입
 	const handleMoneyInput = () => {
 		inputRef.current.focus();
@@ -122,6 +109,14 @@ function MoneyModal(props) {
 		const sendMoney = async () => {
 			let sendMoneyResult = await FeedMainApi.postFeedMoney(boardId, money);
 			console.log(sendMoneyResult);
+
+			let prevMoneyData = { ...familyMoneySendResult };
+
+			prevMoneyData.boardId = props.boardId;
+			prevMoneyData.money = money;
+
+			setfamilyMoneySendResult(prevMoneyData);
+
 			setIsMoneyOpened(false);
 		};
 
