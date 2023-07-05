@@ -194,7 +194,7 @@ function CommentModal(props) {
 						<modalS.commentWriteInput
 							className="feedComment"
 							ref={inputRef}
-							autoFocus={true}
+							autoFocus={false}
 							value={commentValue}
 							placeholder="댓글을 입력하세요."
 							onChange={() => {
