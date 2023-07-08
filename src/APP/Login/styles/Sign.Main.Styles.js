@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import * as tokens from '../../../tokens';
 
 export const MainScreenWrapper = styled.div`
-	min-width: 100vw;
+	width: 100vw;
 	max-width: 800px;
-	min-height: 100vh;
+	height: 100vh;
 	min-height: 100vh;
 
 	display: flex;
+	align-items: center;
 	flex-direction: column;
 	justify-content: space-around;
 
@@ -17,7 +18,7 @@ export const MainLogoArea = styled.div`
 	position: relative;
 	width: 100%;
 	max-width: 800px;
-	height: 65vh;
+	height: 250px;
 
 	display: flex;
 	align-items: center;

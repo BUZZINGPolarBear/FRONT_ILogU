@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import * as tokens from '../../../tokens';
 
 export const MainWrapper = styled.div`
-	width: 98%;
+	width: 95%;
 	max-width: 760px;
 	height: 100vh;
-	margin: auto;
 
 	display: flex;
 	flex-direction: column;
@@ -50,6 +49,7 @@ export const SignInWrapper = styled.div`
 	height: 20%;
 
 	display: flex;
+	align-items: center;
 	flex-direction: column;
 	justify-content: space-between;
 `;
@@ -136,4 +136,13 @@ export const FindPassword = styled.span`
 	justify-content: flex-end;
 	${tokens.typography.caption};
 	color: ${tokens.colors.grey_300};
+`;
+export const SignUpTitle = styled.span`
+	color: ${tokens.colors.grey_300};
+	margin-right: 15px;
+`;
+
+export const SignUpBtn = styled.span`
+	color: ${tokens.colors.grey_700};
+	text-decoration: underline;
 `;
