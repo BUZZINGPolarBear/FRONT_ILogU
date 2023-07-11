@@ -66,9 +66,9 @@ function InvestmentComponent() {
 					<InvestS.KeywordDiv onClick={(e) => handleKeywordClick(e, '차박')}>
 						#차박
 					</InvestS.KeywordDiv>
-					<InvestS.KeywordDiv onClick={(e) => handleKeywordClick(e, '강원도')}>
+					{/* <InvestS.KeywordDiv onClick={(e) => handleKeywordClick(e, '강원도')}>
 						#강원도
-					</InvestS.KeywordDiv>
+					</InvestS.KeywordDiv> */}
 				</InvestS.KeywordWrapper>
 			</HomeS.MainCardWrapper>
 
