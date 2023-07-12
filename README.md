@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# AWARD
+### 하나은행 디지털 파워 온프로젝트 1기 - 대상 수상! 
+금융감독원 상을 수상할 수 있었으며, 부상으로 시애틀 AWS 견학 특전이 주여졌습니다. ✈️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/45656ad0-d0e9-44cf-b5aa-a8c6ba3d24f1)
 
-## Available Scripts
+처음으로 서비스 디자인 공학을 전공한 팀원들과 협업을 진행하며, 많이 배울 수 있었습니다.
 
-In the project directory, you can run:
+완벽한 협업을 진행해준 팀원분들께 감사드립니다.
 
-### `npm start`
+# 프로젝트 구조
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/6728754e-3a1b-40a6-b043-644524cf7a19)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# 컴포넌트 구조
 
-### `npm test`
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/1b8696a5-cacc-41a0-adbe-60442ba9e31d)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# CI/CD
 
-### `npm run build`
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/8386931c-0d60-4380-8660-ca5e8ec4b251)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/0d4a3221-f40e-4d14-95a2-fed783cddd37)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# JWT 토큰 활용
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/c44231f9-5650-4592-840b-cbd3dd9ab7d6)
 
-### `npm run eject`
+# 컴포넌트 생명주기 관리
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/37f8a7ab-aa8a-4307-8232-b4499c8261b1)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/ff2df1d4-9d34-413d-a9c7-42ea422a4c83)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/09dfc3bc-792e-4012-9543-9b01f37b79f3)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/9b841bf5-a8a7-4aa0-a0f8-394c3ba616bd)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
