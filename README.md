@@ -2,7 +2,7 @@
 ### 하나은행 디지털 파워 온프로젝트 1기 - 대상 수상! 
 금융감독원 상을 수상할 수 있었으며, 부상으로 시애틀 AWS 견학 특전이 주여졌습니다. ✈️
 
-![image](https://github.com/wonHANANA/FRONT_ILogU/assets/35029025/45656ad0-d0e9-44cf-b5aa-a8c6ba3d24f1)
+![image](https://github.com/BUZZINGPolarBear/FRONT_ILogU/assets/35029025/53cfdb75-dc7d-4f33-b129-a249d1e18578)
 
 처음으로 서비스 디자인 공학을 전공한 팀원들과 협업을 진행하며, 많이 배울 수 있었습니다.
 
